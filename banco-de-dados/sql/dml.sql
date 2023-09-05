@@ -1,0 +1,6 @@
+INSERT INTO personality (letter, name, description) VALUES ('R', 'Realista', 'Essas pessoas costumam ser boas em trabalhos mecânicos ou atléticos. Bons cursos universitários para pessoas realistas são...');
+INSERT INTO personality (letter, name, description) VALUES ('I', 'Investigativo', 'Essas pessoas gostam de observar, aprender, analisar e resolver problemas. Bons cursos universitários para pessoas investigativas são...');
+INSERT INTO personality (letter, name, description) VALUES ('A', 'Artístico', 'Essas pessoas gostam de trabalhar em situações não estruturadas, onde possam usar a criatividade. Bons cursos para pessoas artísticas são...');
+INSERT INTO personality (letter, name, description) VALUES ('S', 'Social', 'Essas pessoas gostam de trabalhar com outras pessoas, em vez de trabalhar com coisas. Bons cursos universitários para pessoas sociais são...');
+INSERT INTO personality (letter, name, description) VALUES ('E', 'Empreendedor', 'Essas pessoas gostam de trabalhar com outras pessoas e gostam de persuadir e atuar. Bons cursos universitários para pessoas empreendedoras são...');
+INSERT INTO personality (letter, name, description) VALUES ('C', 'Convencional', 'Essas pessoas são muito detalhistas, organizadas e gostam de trabalhar com dados. Bons cursos universitários para pessoas convencionais são...');

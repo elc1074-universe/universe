@@ -31,8 +31,7 @@ CREATE TABLE IF NOT EXISTS user (
     email    VARCHAR(255)     NULL,
 
     PRIMARY KEY (id),
-    UNIQUE      (code),
-    UNIQUE      (username)
+    UNIQUE      (code)
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci;
 
 CREATE TABLE IF NOT EXISTS personality (
@@ -64,7 +63,8 @@ CREATE TABLE IF NOT EXISTS game (
 
     PRIMARY KEY (id),
     FOREIGN KEY (user_id) REFERENCES user (id),
-    UNIQUE      (user_id)
+    UNIQUE      (user_id),
+	UNIQUE      (created_at)
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci;
 
 CREATE TABLE IF NOT EXISTS game_statement (
@@ -92,7 +92,8 @@ CREATE TABLE IF NOT EXISTS result (
     created_at    DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
     PRIMARY KEY (id),
-    UNIQUE      (user_code)
+    UNIQUE      (user_code),
+	UNIQUE      (created_at)
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci;
 
 CREATE TABLE IF NOT EXISTS ufsm_course (

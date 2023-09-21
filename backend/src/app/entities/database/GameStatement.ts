@@ -1,7 +1,8 @@
-import { Entity, PrimaryGeneratedColumn, JoinColumn, ManyToOne, Unique, Column } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, JoinColumn, ManyToOne, Unique, OneToOne } from 'typeorm';
 
 import Game from './Game';
 import Statement from './Statement';
+import Option from './Option';
 
 @Entity({ name: 'game_statement', database: 'universe', engine: 'InnoDB' })
 @Unique(['game', 'statement'])
@@ -18,6 +19,7 @@ export default class GameStatement {
   @JoinColumn({ name: 'statement_id', referencedColumnName: 'id' })
   statement: Statement;
 
-  @Column({ name: 'is_statement_checked', type: 'bit', nullable: false, default: 0, unique: false })
-  isMainPathway: boolean;
+  @OneToOne(() => Option)
+  @JoinColumn({ name: 'selected_option_id', referencedColumnName: 'id' })
+  selectedOption: Option;
 };

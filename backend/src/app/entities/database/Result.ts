@@ -30,6 +30,6 @@ export default class Result {
   @Column({ name: 'interest_code', type: 'char', length: 3, nullable: false, unique: false })
   interestCode: string;
 
-  @CreateDateColumn({ name: 'created_at', type: 'datetime', nullable: false, default: () => 'CURRENT_TIMESTAMP', unique: true })
+  @CreateDateColumn({ name: 'created_at', type: 'datetime', nullable: false, unique: true })
   createdAt: Date;
 };

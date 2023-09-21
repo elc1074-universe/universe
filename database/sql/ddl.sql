@@ -18,6 +18,8 @@ DROP TABLE IF EXISTS personality;
 
 DROP TABLE IF EXISTS game_statement;
 
+DROP TABLE IF EXISTS `option`;
+
 DROP TABLE IF EXISTS `statement`;
 
 DROP TABLE IF EXISTS game;
@@ -25,13 +27,15 @@ DROP TABLE IF EXISTS game;
 DROP TABLE IF EXISTS user;
 
 CREATE TABLE IF NOT EXISTS user (
-    id       INT          NOT NULL AUTO_INCREMENT,
-    code     CHAR(3)      NOT NULL,
-    username VARCHAR(31)  NOT NULL,
-    email    VARCHAR(255)     NULL,
+    id         INT          NOT NULL AUTO_INCREMENT,
+    code       CHAR(3)      NOT NULL,
+    username   VARCHAR(31)  NOT NULL,
+    email      VARCHAR(255)     NULL,
+    created_at DATETIME     NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
     PRIMARY KEY (id),
-    UNIQUE      (code)
+    UNIQUE      (code),
+    UNIQUE      (created_at)
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci;
 
 CREATE TABLE IF NOT EXISTS personality (
@@ -48,11 +52,22 @@ CREATE TABLE IF NOT EXISTS personality (
 
 CREATE TABLE IF NOT EXISTS `statement` (
     id             INT          NOT NULL,
-    `text`         VARCHAR(255) NOT NULL,
+    `text`         VARCHAR(511) NOT NULL,
     personality_id INT          NOT NULL,
 
     PRIMARY KEY (id),
     FOREIGN KEY (personality_id) REFERENCES personality (id),
+    UNIQUE      (`text`)
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS `option` (
+    id           INT          NOT NULL,
+    `text`       VARCHAR(511) NOT NULL,
+    `value`      BIT          NOT NULL,
+    statement_id INT          NOT NULL,
+
+    PRIMARY KEY (id),
+    FOREIGN KEY (statement_id) REFERENCES `statement` (id),
     UNIQUE      (`text`)
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci;
 
@@ -68,14 +83,15 @@ CREATE TABLE IF NOT EXISTS game (
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci;
 
 CREATE TABLE IF NOT EXISTS game_statement (
-    id                   INT NOT NULL AUTO_INCREMENT,
-    game_id              INT NOT NULL,
-    statement_id         INT NOT NULL,
-    is_statement_checked BIT NOT NULL DEFAULT 0,
+    id                 INT NOT NULL AUTO_INCREMENT,
+    game_id            INT NOT NULL,
+    statement_id       INT NOT NULL,
+    selected_option_id INT NOT NULL,
 
     PRIMARY KEY (id),
-    FOREIGN KEY (game_id)      REFERENCES game (id),
-    FOREIGN KEY (statement_id) REFERENCES `statement` (id),
+    FOREIGN KEY (game_id)            REFERENCES game (id),
+    FOREIGN KEY (statement_id)       REFERENCES `statement` (id),
+    FOREIGN KEY (selected_option_id) REFERENCES `option` (id),
     UNIQUE      (game_id, statement_id)
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci;
 

@@ -31,8 +31,8 @@
 
 ##### Exemplo cURL
 
-> ```javascript
->  curl http://localhost:3000/api/users
+> ```bash
+>  curl http://localhost:3000/api/users --request GET
 > ```
 
 </details>
@@ -59,8 +59,8 @@
 
 ##### Exemplo cURL
 
-> ```javascript
->  curl http://localhost:3000/api/users/marcos
+> ```bash
+>  curl http://localhost:3000/api/users/marcos --request GET
 > ```
 
 </details>
@@ -87,8 +87,8 @@
 
 ##### Exemplo cURL
 
-> ```javascript
->  curl -X POST http://localhost:3000/api/users -H "Content-Type: application/json" -d '{"username": "teste", "email": "teste@gmail.com"}'
+> ```bash
+>  curl http://localhost:3000/api/users --request POST --header "Content-Type: application/json" --data '{"username": "teste", "email": "teste@gmail.com"}'
 > ```
 
 </details>

@@ -15,8 +15,8 @@ app.use(routes);
 AppDataSource
   .initialize()
   .then(async () => {
-    app.listen(3000, () => {
+    app.listen(process.env.PORT, () => {
 
-    })
+    });
   })
   .catch(error => console.log(error))

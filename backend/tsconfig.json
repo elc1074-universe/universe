@@ -5,6 +5,12 @@
       ],
       "target": "es5",
       "module": "commonjs",
+      "types": [
+         "node"
+      ],
+      "typeRoots": [
+         "node_modules/@types"
+      ],
       "moduleResolution": "node",
       "outDir": "./build",
       "rootDir": "./src",

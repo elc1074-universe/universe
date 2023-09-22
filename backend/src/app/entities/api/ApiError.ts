@@ -1,8 +1,11 @@
+import { StatusCodes } from 'http-status-codes';
+
 import ApiSubError from './ApiSubError';
+import ApiHTTPStatus from './ApiHTTPStatus';
 
-export default class ApiError {
+export default class ApiError extends Error {
 
-  status: number;
+  httpStatus: ApiHTTPStatus;
 
   message: string;
 
@@ -12,11 +15,15 @@ export default class ApiError {
 
   timestamp: string;
 
-  constructor(status: number, message: string, debugMessage?: string, subErrors?: ApiSubError[]) {
-    this.status = status;
+  constructor(httpStatusCode: StatusCodes, message: string, debugMessage?: string, subErrors?: ApiSubError[]) {
+    super();
+
+    this.httpStatus = new ApiHTTPStatus(httpStatusCode);
     this.message = message;
     this.debugMessage = debugMessage || null;
     this.subErrors = subErrors || null;
     this.timestamp = new Date().toLocaleString('pt-BR');
+
+    Object.setPrototypeOf(this, ApiError.prototype);
   }
 };

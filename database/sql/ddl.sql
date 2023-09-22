@@ -29,7 +29,7 @@ DROP TABLE IF EXISTS user;
 CREATE TABLE IF NOT EXISTS user (
     id         INT          NOT NULL AUTO_INCREMENT,
     code       CHAR(3)      NOT NULL,
-    username   VARCHAR(31)  NOT NULL,
+    username   VARCHAR(63)  NOT NULL,
     email      VARCHAR(255)     NULL,
     created_at DATETIME     NOT NULL DEFAULT CURRENT_TIMESTAMP,
 

@@ -1,9 +1,9 @@
 import { ILike } from 'typeorm';
 
-import { AppDataSource } from '../../database/data-source';
+import { dataSource } from '../../database/data-source';
 import User from '../entities/database/User';
 
-const userRepository = AppDataSource.getRepository(User);
+const userRepository = dataSource.getRepository(User);
 
 const findAllUsers = (): Promise<User[]> => {
   return userRepository.find();

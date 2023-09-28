@@ -14,4 +14,10 @@ export default class Personality {
 
   @Column({ name: 'description', type: 'varchar', length: 255, nullable: false, unique: true })
   description: string;
+
+  @Column({ name: 'story_title', type: 'varchar', length: 63, nullable: false, unique: true })
+  storyTitle: string;
+
+  @Column({ name: 'story_description', type: 'varchar', length: 511, nullable: false, unique: true })
+  storyDescription: string;
 };

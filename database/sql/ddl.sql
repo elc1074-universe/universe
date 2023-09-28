@@ -39,36 +39,42 @@ CREATE TABLE IF NOT EXISTS user (
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci;
 
 CREATE TABLE IF NOT EXISTS personality (
-    id            INT          NOT NULL AUTO_INCREMENT,
-    letter        CHAR(1)      NOT NULL,
-    `name`        VARCHAR(15)  NOT NULL,
-    `description` VARCHAR(255) NOT NULL,
+    id                INT          NOT NULL AUTO_INCREMENT,
+    letter            CHAR(1)      NOT NULL,
+    `name`            VARCHAR(15)  NOT NULL,
+    `description`     VARCHAR(255) NOT NULL,
+    story_title       VARCHAR(63)  NOT NULL,
+    story_description VARCHAR(511) NOT NULL,
 
     PRIMARY KEY (id),
     UNIQUE      (letter),
     UNIQUE      (`name`),
-    UNIQUE      (`description`)
+    UNIQUE      (`description`),
+    UNIQUE      (story_title),
+    UNIQUE      (story_description)
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci;
 
 CREATE TABLE IF NOT EXISTS `statement` (
     id             INT          NOT NULL,
-    `text`         VARCHAR(511) NOT NULL,
+    riasec_title   VARCHAR(63)  NOT NULL,
+    story_title    VARCHAR(63)  NOT NULL,
+    story_text     VARCHAR(511) NOT NULL,
     personality_id INT          NOT NULL,
 
     PRIMARY KEY (id),
     FOREIGN KEY (personality_id) REFERENCES personality (id),
-    UNIQUE      (`text`)
+    UNIQUE      (riasec_title)
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci;
 
 CREATE TABLE IF NOT EXISTS `option` (
-    id           INT          NOT NULL,
-    `text`       VARCHAR(511) NOT NULL,
-    `value`      BIT          NOT NULL,
-    statement_id INT          NOT NULL,
+    id            INT          NOT NULL AUTO_INCREMENT,
+    `description` VARCHAR(511) NOT NULL,
+    `value`       BIT          NOT NULL,
+    statement_id  INT          NOT NULL,
 
     PRIMARY KEY (id),
     FOREIGN KEY (statement_id) REFERENCES `statement` (id),
-    UNIQUE      (`text`)
+    UNIQUE      (`description`)
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci;
 
 CREATE TABLE IF NOT EXISTS game (

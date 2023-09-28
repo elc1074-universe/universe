@@ -1,6 +1,6 @@
 import { ILike } from 'typeorm';
 
-import { dataSource } from '../../database/data-source';
+import dataSource from '../../database/data-source';
 import User from '../entities/database/User';
 
 const userRepository = dataSource.getRepository(User);

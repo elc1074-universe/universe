@@ -8,8 +8,8 @@ export default class Option {
   @Column({ name: 'id', type: 'int', primary: true, nullable: false, unique: true })
   id: number;
 
-  @Column({ name: 'text', type: 'varchar', length: 255, nullable: false, unique: true })
-  text: string;
+  @Column({ name: 'description', type: 'varchar', length: 511, nullable: false, unique: true })
+  description: string;
 
   @Column({ name: 'value', type: 'bit', nullable: false, unique: false })
   value: boolean;

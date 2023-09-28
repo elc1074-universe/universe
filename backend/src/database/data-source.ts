@@ -1,5 +1,4 @@
 import 'reflect-metadata';
-import 'dotenv/config';
 import { DataSource } from 'typeorm';
 
 import config from '../config/config';

@@ -1,3 +1,5 @@
+import 'dotenv/config';
+
 interface ServerConfig {
   port: number;
 }
@@ -17,7 +19,7 @@ interface Config {
 
 export default {
   server: {
-    port: 5
+    port: Number(process.env.PORT)
   },
   database: {
     host: process.env.DB_HOST,

@@ -6,7 +6,7 @@ import ApiError from '../entities/api/ApiError';
 
 const errorHandler = (error: unknown, request: Request, response: Response, next: NextFunction): void => {
   let httpStatusCode: StatusCodes;
-  let apiResponse: ApiResponse;
+  let apiResponse: ApiResponse<any>;
 
   switch (error.constructor) {
     case ApiError: {

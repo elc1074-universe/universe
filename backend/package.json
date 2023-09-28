@@ -1,6 +1,6 @@
 {
     "name": "backend",
-    "version": "0.0.1",
+    "version": "1.0",
     "description": "Backend do UniVerse",
     "type": "commonjs",
     "devDependencies": {
@@ -24,5 +24,6 @@
         "build": "tsc",
         "dev:server": "ts-node-dev src/server.ts",
         "typeorm": "ts-node-dev ./node_modules/typeorm/cli.js"
-    }
+    },
+    "private": true
 }

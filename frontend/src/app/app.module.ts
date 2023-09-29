@@ -8,17 +8,20 @@ import { HomeComponent } from './routes/home/home.component';
 import { AppMaterialModule } from './shared/app-material-module/app-material-module.module';
 import { UserComponent } from './routes/user/user.component';
 import { LoginModule } from './routes/login/login.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    UserComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NoopAnimationsModule,
-    AppMaterialModule
+    AppMaterialModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

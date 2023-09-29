@@ -9,21 +9,25 @@
             <mat-card-content>
                 <h2>Cadastro</h2>
                 <p>Preencha as informações abaixo para criar sua conta!</p>
-                <div class="form">
-                    <mat-form-field>
-                        <mat-label>Username</mat-label>
-                        <input matInput>
-                    </mat-form-field>
-                    <mat-form-field>
-                        <mat-label>Email</mat-label>
-                        <input matInput>
-                    </mat-form-field>
-                    <section>
-                        <div class="example-button-row">
-                            <button mat-flat-button color="primary">Criar conta</button>
-                        </div>
-                    </section>
-                </div>
+                <form #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)">
+                    <div class="form">
+                        <mat-form-field>
+                            <mat-label>Username</mat-label>
+                            <input matInput name="username" ngModel required #username="ngModel">
+                            <mat-error *ngIf="username.invalid && username.touched">Por favor, insira um nome de usuário.</mat-error>
+                        </mat-form-field>
+                        <mat-form-field>
+                            <mat-label>Email</mat-label>
+                            <input matInput name="email" ngModel required email #email="ngModel">
+                            <mat-error *ngIf="email.invalid && email.touched">Por favor, insira um e-mail válido.</mat-error>
+                        </mat-form-field>
+                        <section>
+                            <div class="example-button-row">
+                                <button mat-flat-button color="primary" type="submit" [disabled]="registerForm.invalid">Criar conta</button>
+                            </div>
+                        </section>
+                    </div>
+                </form>
             </mat-card-content>
         </mat-card>
     </div>

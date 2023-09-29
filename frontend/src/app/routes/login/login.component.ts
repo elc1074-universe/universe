@@ -26,6 +26,7 @@ export class LoginComponent implements OnInit {
         this.user = user;
 
         if (this.user) {
+          this.userService.setCurrentUser(this.user);
           this.router.navigate(['/user']);
         }
       });

@@ -16,8 +16,7 @@ export class UserComponent implements OnInit {
     this.user = this.userService.getCurrentUser();
   }
 
-  getUser(): void {
-    const username = 'teste';
+  getUser(username: string): void {
     this.userService.getUser(username)
       .subscribe((user: User) => this.user = user);
   }

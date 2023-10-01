@@ -9,12 +9,14 @@ import { AppMaterialModule } from './shared/app-material-module/app-material-mod
 import { UserComponent } from './routes/user/user.component';
 import { LoginModule } from './routes/login/login.module';
 import { HttpClientModule } from '@angular/common/http';
+import { QuestionComponent } from './routes/question/question.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     UserComponent,
+    QuestionComponent,
   ],
   imports: [
     BrowserModule,

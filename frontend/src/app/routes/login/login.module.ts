@@ -6,6 +6,7 @@ import { LoginComponent } from './login.component';
 import { AppMaterialModule } from 'src/app/shared/app-material-module/app-material-module.module';
 import { RegisterComponent } from './register/register.component';
 import { FormsModule } from '@angular/forms';
+import { ToastrModule ,ToastrService } from 'ngx-toastr';
 
 
 @NgModule({
@@ -17,7 +18,11 @@ import { FormsModule } from '@angular/forms';
     CommonModule,
     LoginRoutingModule,
     AppMaterialModule,
-    FormsModule
+    FormsModule,
+    ToastrModule.forRoot(),
+  ], 
+  providers: [
+    ToastrService
   ]
 })
 export class LoginModule { }

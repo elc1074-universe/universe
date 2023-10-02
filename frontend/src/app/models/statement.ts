@@ -20,4 +20,4 @@ export class Statement {
     this.storyText = storyText;
     this.personality = personality;
   }
-}
+} 

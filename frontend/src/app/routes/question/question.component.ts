@@ -1,18 +1,33 @@
 import { Component, OnInit  } from '@angular/core';
-import { User } from '../../models/user';
-import { UserService } from '../../services/user.service';
+import { QuestionService } from '../../services/question.service';
+import { Statement } from '../../models/statement';
+import { Personality } from '../../models/personality';
 
 @Component({
   selector: 'app-question',
   templateUrl: './question.component.html',
   styleUrls: ['./question.component.scss']
 })
-export class QuestionComponent implements OnInit{
-  user!: User;
+export class QuestionComponent implements OnInit {
+  statement!: Statement;
+  personality!: Personality;
 
-  constructor(private userService: UserService) { }
+  constructor(private questionService: QuestionService) { } 
 
-  ngOnInit() {
-    this.user = this.userService.getCurrentUser();
+  ngOnInit(): void {
+    this.getStatement(1);
+    this.getPersonality(1);
+  }
+
+  getStatement(id: number): void {
+    this.questionService.getStatement(id).subscribe(statement => this.statement = statement); 
+  }
+
+  getPersonality(id: number): void {
+    this.questionService.getPersonality(id).subscribe(personality => this.personality = personality);
+  }
+  
+
+  nextQuestion(): void {
   }
 }

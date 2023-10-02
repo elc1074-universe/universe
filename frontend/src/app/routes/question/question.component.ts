@@ -1,6 +1,8 @@
 import { Component, OnInit  } from '@angular/core';
 import { QuestionService } from '../../services/question.service';
 import { Statement } from '../../models/statement';
+import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-question',
@@ -9,18 +11,23 @@ import { Statement } from '../../models/statement';
 })
 export class QuestionComponent implements OnInit {
   statement!: Statement;
+  id!: number;
 
-  constructor(private questionService: QuestionService) { } 
+  constructor(private questionService: QuestionService, private router: Router, private route: ActivatedRoute) { } 
 
   ngOnInit(): void {
-    this.getStatement(1);
+    this.questionService.currentId.subscribe(id => {
+      this.id = id;
+      this.getStatement(this.id);
+    });
   }
 
   getStatement(id: number): void {
-    this.questionService.getStatement(id).subscribe(statement => this.statement = statement); 
+    this.questionService.getStatement(id).subscribe(statement => this.statement = statement);
   }
 
-
-  nextQuestion(): void {
+  goToNextQuestion(): void {
+    this.questionService.changeId(this.id + 1);
   }
 }
+

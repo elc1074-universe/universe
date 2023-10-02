@@ -19,7 +19,7 @@ const routes: Routes = [
     component: UserComponent, 
   },
   {
-    path: 'question', 
+    path: 'question/:id', 
     component: QuestionComponent, 
   },
 ];

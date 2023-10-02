@@ -1,9 +1,9 @@
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+import { Entity, Column } from 'typeorm';
 
 @Entity({ name: 'personality', database: 'universe', engine: 'InnoDB' })
 export default class Personality {
 
-  @PrimaryGeneratedColumn('increment', { name: 'id', type: 'int' })
+  @Column({ name: 'id', type: 'int', primary: true, nullable: false, unique: true })
   id: number;
 
   @Column({ name: 'letter', type: 'char', length: 1, nullable: false, unique: true })

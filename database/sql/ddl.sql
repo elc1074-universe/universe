@@ -39,7 +39,7 @@ CREATE TABLE IF NOT EXISTS user (
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci;
 
 CREATE TABLE IF NOT EXISTS personality (
-    id                INT          NOT NULL AUTO_INCREMENT,
+    id                INT          NOT NULL,
     letter            CHAR(1)      NOT NULL,
     `name`            VARCHAR(15)  NOT NULL,
     `description`     VARCHAR(255) NOT NULL,

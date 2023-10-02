@@ -1,4 +1,5 @@
-INSERT INTO personality (letter, `name`, `description`, story_title, story_description) VALUES (
+INSERT INTO personality (id, letter, `name`, `description`, story_title, story_description) VALUES (
+    1,
     'R',
     'Realista',
     'Essas pessoas costumam ser boas em trabalhos mecânicos ou atléticos. Bons cursos universitários para pessoas realistas são...',
@@ -6,7 +7,8 @@ INSERT INTO personality (letter, `name`, `description`, story_title, story_descr
     'Você se encontra em uma aventura empolgante em uma ilha remota. Você está em um grupo de exploradores que está prestes a enfrentar desafios desconhecidos.'
 );
 
-INSERT INTO personality (letter, `name`, `description`, story_title, story_description) VALUES (
+INSERT INTO personality (id, letter, `name`, `description`, story_title, story_description) VALUES (
+    2,
     'I',
     'Investigativo',
     'Essas pessoas gostam de observar, aprender, analisar e resolver problemas. Bons cursos universitários para pessoas investigativas são...',
@@ -14,7 +16,8 @@ INSERT INTO personality (letter, `name`, `description`, story_title, story_descr
     'Você desembarca na Ilha do Conhecimento, um lugar dedicado à exploração da ciência, pesquisa e resolução de problemas.'
 );
 
-INSERT INTO personality (letter, `name`, `description`, story_title, story_description) VALUES (
+INSERT INTO personality (id, letter, `name`, `description`, story_title, story_description) VALUES (
+    3,
     'A',
     'Artístico',
     'Essas pessoas gostam de trabalhar em situações não estruturadas, onde possam usar a criatividade. Bons cursos para pessoas artísticas são...',
@@ -22,7 +25,8 @@ INSERT INTO personality (letter, `name`, `description`, story_title, story_descr
     'Você chega à Ilha das Artes e Expressão, um lugar dedicado à criatividade e à expressão artística. Durante sua estadia na ilha, você enfrentará desafios que testarão suas habilidades criativas e sua preferência por trabalhar de forma independente.'
 );
 
-INSERT INTO personality (letter, `name`, `description`, story_title, story_description) VALUES (
+INSERT INTO personality (id, letter, `name`, `description`, story_title, story_description) VALUES (
+    4,
     'S',
     'Social',
     'Essas pessoas gostam de trabalhar com outras pessoas, em vez de trabalhar com coisas. Bons cursos universitários para pessoas sociais são...',
@@ -30,7 +34,8 @@ INSERT INTO personality (letter, `name`, `description`, story_title, story_descr
     'Você está em uma missão humanitária na Ilha da Solidariedade, onde a empatia e a ajuda às pessoas são essenciais. Durante sua jornada, você enfrentará desafios que testarão suas habilidades sociais e sua disposição para trabalhar em prol dos outros.'
 );
 
-INSERT INTO personality (letter, `name`, `description`, story_title, story_description) VALUES (
+INSERT INTO personality (id, letter, `name`, `description`, story_title, story_description) VALUES (
+    5,
     'E',
     'Empreendedor',
     'Essas pessoas gostam de trabalhar com outras pessoas e gostam de persuadir e atuar. Bons cursos universitários para pessoas empreendedoras são...',
@@ -38,7 +43,8 @@ INSERT INTO personality (letter, `name`, `description`, story_title, story_descr
     'Você se encontra na Ilha das Oportunidades, onde empreendedores visionários têm a chance de realizar seus sonhos de negócios. Durante sua estadia na ilha você ficará hospedado em um resort, onde enfrentará desafios que testarão suas habilidades empreendedoras e sua ambição.'
 );
 
-INSERT INTO personality (letter, `name`, `description`, story_title, story_description) VALUES (
+INSERT INTO personality (id, letter, `name`, `description`, story_title, story_description) VALUES (
+    6,
     'C',
     'Convencional',
     'Essas pessoas são muito detalhistas, organizadas e gostam de trabalhar com dados. Bons cursos universitários para pessoas convencionais são...',

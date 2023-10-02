@@ -19,6 +19,6 @@ export class UserComponent implements OnInit {
   getUser(username: string): void {
     this.userService.getUser(username)
       .subscribe((user: User) => this.user = user);
-  }
+  } 
   
 }

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { User } from '../../models/user';
 import { UserService } from '../../services/user.service';
 import { ActivatedRoute } from '@angular/router';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
@@ -29,6 +29,6 @@ export class UserComponent implements OnInit {
   getUser(username: string): void {
     this.userService.getUser(username)
       .subscribe((user: User) => this.user = user);
-  }
+  } 
   
 }

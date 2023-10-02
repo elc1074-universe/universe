@@ -19,7 +19,7 @@ const routes: Routes = [
     loadChildren: () => import('./routes/user/user.module').then(m => m.UserModule)
   },
   {
-    path: 'question', 
+    path: 'question/:id', 
     component: QuestionComponent, 
   },
 ];

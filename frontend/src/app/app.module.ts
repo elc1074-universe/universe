@@ -6,21 +6,26 @@ import { AppComponent } from './app.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './routes/home/home.component';
 import { AppMaterialModule } from './shared/app-material-module/app-material-module.module';
-import { UserComponent } from './routes/user/user.component';
 import { LoginModule } from './routes/login/login.module';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HeaderInterceptor } from './header-interceptor';
+import { QuestionComponent } from './routes/question/question.component';
+import { UserModule } from './routes/user/user.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    QuestionComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NoopAnimationsModule,
-    AppMaterialModule
+    AppMaterialModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [ { provide: HTTP_INTERCEPTORS, useClass: HeaderInterceptor, multi: true } ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

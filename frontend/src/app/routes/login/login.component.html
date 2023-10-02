@@ -10,20 +10,22 @@
                 <h2>Login</h2>
                 <p>Preencha as informações abaixo para entrar!</p>
                 <div class="form">
-                    <mat-form-field>
-                        <mat-label>Username</mat-label>
-                        <input matInput>
-                    </mat-form-field>
-                    <mat-form-field>
-                        <mat-label>Código</mat-label>
-                        <input matInput>
-                    </mat-form-field>
-                    <a href="/login/register">Não possui uma conta? Cadastre-se!</a>
-                    <section>
-                        <div class="example-button-row">
-                            <button mat-flat-button color="primary">Salvar</button>
-                        </div>
-                    </section>
+                    <form #loginForm="ngForm" (ngSubmit)="onSave()">
+                        <mat-form-field>
+                            <mat-label>Username</mat-label>
+                            <input matInput [(ngModel)]="username" name="username" required>
+                        </mat-form-field>
+                        <!-- <mat-form-field>
+                            <mat-label>Código</mat-label>
+                            <input matInput>
+                        </mat-form-field> -->
+                        <a href="/login/register">Não possui uma conta? Cadastre-se!</a>
+                        <section>
+                            <div class="example-button-row">
+                                <button mat-flat-button color="primary" type="submit">Salvar</button>
+                            </div>
+                        </section>
+                    </form>
                 </div>
             </mat-card-content>
         </mat-card>

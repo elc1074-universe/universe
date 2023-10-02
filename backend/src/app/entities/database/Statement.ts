@@ -1,4 +1,4 @@
-import { Entity, Column, JoinColumn, OneToOne } from 'typeorm';
+import { Entity, Column, JoinColumn, ManyToOne } from 'typeorm';
 
 import Personality from './Personality';
 
@@ -17,7 +17,7 @@ export default class Statement {
   @Column({ name: 'story_text', type: 'varchar', length: 511, nullable: false, unique: false })
   storyText: string;
 
-  @OneToOne(() => Personality)
+  @ManyToOne(() => Personality)
   @JoinColumn({ name: 'personality_id', referencedColumnName: 'id' })
   personality: Personality;
 };

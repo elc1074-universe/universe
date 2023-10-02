@@ -24,10 +24,11 @@ export class LoginComponent implements OnInit {
     this.userService.getUser(this.username)
       .subscribe(user => {
         this.user = user;
-
+        console.log(user);
         if (this.user) {
           this.userService.setCurrentUser(this.user);
-          this.router.navigate(['/user']);
+          console.log('URL a ser navegada:', ['/user', this.user.username]);
+          this.router.navigate(['/user', this.user.username]);
         }
       });
   }

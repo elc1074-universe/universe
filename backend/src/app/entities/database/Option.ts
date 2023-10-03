@@ -1,11 +1,11 @@
-import { Entity, Column, JoinColumn, ManyToOne } from 'typeorm';
+import { Entity, Column, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 
 import Statement from './Statement';
 
 @Entity({ name: 'option', database: 'universe', engine: 'InnoDB' })
 export default class Option {
 
-  @Column({ name: 'id', type: 'int', primary: true, nullable: false, unique: true })
+  @PrimaryGeneratedColumn('increment', { name: 'id', type: 'int' })
   id: number;
 
   @Column({ name: 'description', type: 'varchar', length: 511, nullable: false, unique: true })

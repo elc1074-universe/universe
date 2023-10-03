@@ -1,9 +1,12 @@
-// statement.service.js
 import { StatusCodes } from 'http-status-codes';
 
 import Statement from '../entities/database/Statement';
 import StatementRepository from '../repositories/StatementRepository';
 import ApiError from '../entities/api/ApiError';
+
+const findAllStatements = async (): Promise<Statement[]> => {
+  return StatementRepository.findAllStatements();
+};
 
 const findStatementById = async (id: number): Promise<Statement> => {
   const statement: Statement | null = await StatementRepository.findStatementById(id);
@@ -20,5 +23,6 @@ const findStatementById = async (id: number): Promise<Statement> => {
 };
 
 export default {
-  findStatementById,
+  findAllStatements,
+  findStatementById
 };

@@ -1,4 +1,3 @@
-// statement.controller.js
 import { Router, Request, Response, RequestHandler, NextFunction } from 'express';
 import { StatusCodes } from 'http-status-codes';
 
@@ -8,6 +7,22 @@ import StatementRetrievalDTO from '../entities/dto/StatementRetrievalDTO';
 import ApiResponse from '../entities/api/ApiResponse';
 
 const statementRouter: Router = Router();
+
+statementRouter.get('/', (async (request: Request, response: Response, next: NextFunction): Promise<void> => {
+  try {
+    const rawStatements: Statement[] = await StatementService.findAllStatements();
+
+    const mappedStatements: StatementRetrievalDTO[] = rawStatements.map(statement => new StatementRetrievalDTO(statement));
+
+    const statusCode: number = StatusCodes.OK;
+
+    const apiResponse: ApiResponse<StatementRetrievalDTO[]> = new ApiResponse<StatementRetrievalDTO[]>(statusCode, mappedStatements);
+
+    response.status(statusCode).json(apiResponse);
+  } catch (error: unknown) {
+    next(error);
+  }
+}) as RequestHandler);
 
 statementRouter.get('/:id', (async (request: Request, response: Response, next: NextFunction): Promise<void> => {
   try {

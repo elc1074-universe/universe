@@ -8,11 +8,27 @@ import ApiResponse from '../entities/api/ApiResponse';
 
 const personalityRouter: Router = Router();
 
-personalityRouter.get('/:id', (async (request: Request, response: Response, next: NextFunction): Promise<void> => {
+personalityRouter.get('/', (async (request: Request, response: Response, next: NextFunction): Promise<void> => {
   try {
-    const id = Number(request.params.id);
+    const rawPersonalities: Personality[] = await PersonalityService.findAllPersonalities();
 
-    const rawPersonality: Personality = await PersonalityService.findPersonalityById(id);
+    const mappedPersonalities: PersonalityRetrievalDTO[] = rawPersonalities.map(personality => new PersonalityRetrievalDTO(personality));
+
+    const statusCode: number = StatusCodes.OK;
+
+    const apiResponse: ApiResponse<PersonalityRetrievalDTO[]> = new ApiResponse<PersonalityRetrievalDTO[]>(statusCode, mappedPersonalities);
+
+    response.status(statusCode).json(apiResponse);
+  } catch (error: unknown) {
+    next(error);
+  }
+}) as RequestHandler);
+
+personalityRouter.get('/:letter', (async (request: Request, response: Response, next: NextFunction): Promise<void> => {
+  try {
+    const { letter } = request.params;
+
+    const rawPersonality: Personality = await PersonalityService.findPersonalityByLetter(letter);
 
     const mappedPersonality: PersonalityRetrievalDTO = new PersonalityRetrievalDTO(rawPersonality);
 

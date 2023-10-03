@@ -1,18 +1,29 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Statement } from '../models/statement';
-import { Personality } from '../models/personality';
 import { map } from 'rxjs/operators';
 import { BehaviorSubject } from 'rxjs';
-
-interface ApiResponse {
+import { Statement } from '../models/statement';
+import { Personality } from '../models/personality';
+import { Option } from '../models/option';
+interface ApiResponseStatement {
   success: boolean;
   httpStatus: {
     name: string;
     code: number;
   };
   data: Statement;
+  error: any;
+  timestamp: string;
+}
+
+interface ApiResponseOption {
+  success: boolean;
+  httpStatus: {
+    name: string;
+    code: number;
+  };
+  data: Option;
   error: any;
   timestamp: string;
 }
@@ -28,12 +39,12 @@ export class QuestionService {
 
   getStatement(id: number): Observable<Statement> {
     const url = `http://localhost:3000/api/statements/${id}`;
-    return this.http.get<ApiResponse>(url).pipe(map(response => response.data));
+    return this.http.get<ApiResponseStatement>(url).pipe(map(response => response.data));
   }
 
-  getPersonality(id: number): Observable<Personality> {
-    const url = `http://localhost:3000/api/personalities/${id}`;
-    return this.http.get<Personality>(url);
+  getOption(id: number): Observable<Option> {
+    const url = `http://localhost:3000/api/options/${id}`;
+    return this.http.get<ApiResponseOption>(url).pipe(map(response => response.data));
   }
 
   changeId(id: number): void {

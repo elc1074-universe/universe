@@ -1,5 +1,4 @@
 import { StatusCodes } from 'http-status-codes';
-
 import Option from '../entities/database/Option';
 import OptionRepository from '../repositories/OptionRepository';
 import ApiError from '../entities/api/ApiError';
@@ -18,6 +17,12 @@ const findOptionById = async (id: number): Promise<Option> => {
   return option;
 };
 
+const findOptionsByStatementId = async (statement_id: number): Promise<Option[]> => {
+  const options: Option[] = await OptionRepository.findOptionsByStatementId(statement_id);
+  return options;
+};
+
 export default {
-  findOptionById
+  findOptionById,
+  findOptionsByStatementId,
 };

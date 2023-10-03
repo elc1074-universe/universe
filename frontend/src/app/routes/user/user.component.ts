@@ -1,11 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../../models/user';
 import { UserService } from '../../services/user.service';
+import { QuestionService } from '../../services/question.service';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
 import { MatDialog } from '@angular/material/dialog';
 import { InfoComponent } from './info/info.component';
 import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
@@ -16,7 +19,7 @@ export class UserComponent implements OnInit {
   username! : string;
   user1!: Observable<User>;
 
-  constructor(private userService: UserService, private route: ActivatedRoute, public dialog: MatDialog) { }
+  constructor(private userService: UserService, private questionService: QuestionService, private route: ActivatedRoute, public dialog: MatDialog, private router: Router) { }
 
   ngOnInit() {
     
@@ -34,6 +37,11 @@ export class UserComponent implements OnInit {
         }
       });
     });
+  }
+
+  goToLevel(level: number): void {
+    this.questionService.changeId(level);
+    this.router.navigate(['/question', level]);
   }
 
 }

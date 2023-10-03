@@ -1,4 +1,4 @@
-import { ILike } from 'typeorm';
+import { Equal } from 'typeorm';
 
 import dataSource from '../../database/data-source';
 import Statement from '../entities/database/Statement';
@@ -11,7 +11,7 @@ const findAllStatements = (): Promise<Statement[]> => {
 
 const findStatementById = (id: number): Promise<Statement | null> => {
   return statementRepository.findOneBy({
-    id: ILike(id)
+    id: Equal(id)
   });
 };
 

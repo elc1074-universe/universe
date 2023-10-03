@@ -5,6 +5,7 @@ import config from '../config/config';
 import User from '../app/entities/database/User';
 import Statement from '../app/entities/database/Statement';
 import Personality from '../app/entities/database/Personality';
+import Option from '../app/entities/database/Option';
 
 const dataSource: DataSource = new DataSource({
   type: 'mysql',
@@ -15,7 +16,7 @@ const dataSource: DataSource = new DataSource({
   database: config.database.name,
   synchronize: true,
   logging: false,
-  entities: [User, Statement, Personality],
+  entities: [User, Statement, Personality, Option],
   migrations: [],
   subscribers: []
 });

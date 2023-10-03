@@ -1,4 +1,4 @@
-import { Entity, Column, JoinColumn, OneToOne } from 'typeorm';
+import { Entity, Column, JoinColumn, ManyToOne } from 'typeorm';
 
 import Statement from './Statement';
 
@@ -14,7 +14,7 @@ export default class Option {
   @Column({ name: 'value', type: 'bit', nullable: false, unique: false })
   value: boolean;
 
-  @OneToOne(() => Statement)
+  @ManyToOne(() => Statement)
   @JoinColumn({ name: 'statement_id', referencedColumnName: 'id' })
   statement: Statement;
 };

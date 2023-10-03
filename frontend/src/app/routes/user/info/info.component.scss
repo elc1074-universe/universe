@@ -1,0 +1,29 @@
+.content {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+p {
+    font-family: Modulus Pro;
+}
+
+.title {
+    font-weight: bold;
+}
+
+.btn {
+    margin-top: 10px;
+    color: white;
+    font-family: Modulus Pro;
+}
+
+.example-button-row button,
+.example-button-row a {
+  margin-right: 8px;
+  height: 50%;
+  width: 130%;
+  font-size: 15px;
+  border-radius: 50px;
+  font-family: 'Modulus Pro', Tahoma, Geneva, Verdana, sans-serif;
+}

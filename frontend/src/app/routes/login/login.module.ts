@@ -7,14 +7,11 @@ import { AppMaterialModule } from 'src/app/shared/app-material-module/app-materi
 import { RegisterComponent } from './register/register.component';
 import { FormsModule } from '@angular/forms';
 import { ToastrModule ,ToastrService } from 'ngx-toastr';
-import { UserComponent } from '../user/user.component';
-
 
 @NgModule({
   declarations: [
     LoginComponent,
-    RegisterComponent,
-    UserComponent
+    RegisterComponent
   ],
   imports: [
     CommonModule,

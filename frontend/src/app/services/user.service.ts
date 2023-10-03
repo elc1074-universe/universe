@@ -1,17 +1,24 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+
+import { environment } from 'src/environments/environment';
 import { User } from '../models/user';
 
 interface ApiResponse {
   success: boolean;
+
   httpStatus: {
     name: string;
     code: number;
   };
+
   data: User;
+
   error: any;
+  
   timestamp: string;
 }
 
@@ -24,7 +31,7 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   getUser(username: string): Observable<User> {
-    const url = `http://localhost:3000/api/users/${username}`;
+    const url = `${environment.apiBaseURL}/users/${username}`;
     return this.http.get<ApiResponse>(url).pipe(map(response => response.data));
   }
 
@@ -37,7 +44,7 @@ export class UserService {
   }
 
   createUser(user: User): Observable<User> {
-    const url = `http://localhost:3000/api/users`;
+    const url = `${environment.apiBaseURL}/users`;
     return this.http.post<ApiResponse>(url, user).pipe(map(response => response.data));
   }
 }

@@ -19,5 +19,5 @@ const findOptionsByStatementId = (statement_id: number): Promise<Option[]> => {
 
 export default {
   findOptionById,
-  findOptionsByStatementId, 
+  findOptionsByStatementId,
 };

@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+
+import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { BehaviorSubject } from 'rxjs';
+
+import { environment } from 'src/environments/environment';
 import { Statement } from '../models/statement';
-import { Personality } from '../models/personality';
 import { Option } from '../models/option';
+
 interface ApiResponseStatement {
   success: boolean;
   httpStatus: {
@@ -38,7 +40,7 @@ export class QuestionService {
   constructor(private http: HttpClient) { }
 
   getStatement(id: number): Observable<Statement> {
-    const url = `http://localhost:3000/api/statements/${id}`;
+    const url = `${environment.apiBaseURL}/statements/${id}`;
     return this.http.get<ApiResponseStatement>(url).pipe(
       map(response => {
         if (!response.data) {
@@ -50,11 +52,11 @@ export class QuestionService {
   }
 
   getOption(id: number): Observable<Option[]> {
-    const url = `http://localhost:3000/api/options/statement/${id}`;
+    const url = `${environment.apiBaseURL}/options/statement/${id}`;
     return this.http.get<ApiResponseOption>(url).pipe(map(response => response.data));
   }
   
   changeId(id: number): void {
     this.idSource.next(id);
   }
-} 
+}

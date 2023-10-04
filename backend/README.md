@@ -11,7 +11,7 @@
 ### Execução
 
 1. `npm install`
-2. `npm run dev:server`
+2. `npm run dev`
 
 ## Endpoints
 

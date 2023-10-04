@@ -1,4 +1,4 @@
-cd ./universe/frontend
+cd ./frontend
 
 npm install
 

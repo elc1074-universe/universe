@@ -25,7 +25,7 @@ interface ApiResponseOption {
     name: string;
     code: number;
   };
-  data: Option;
+  data: Option[];
   error: any;
   timestamp: string;
 }
@@ -41,14 +41,21 @@ export class QuestionService {
 
   getStatement(id: number): Observable<Statement> {
     const url = `${environment.apiBaseURL}/statements/${id}`;
-    return this.http.get<ApiResponseStatement>(url).pipe(map(response => response.data));
+    return this.http.get<ApiResponseStatement>(url).pipe(
+      map(response => {
+        if (!response.data) {
+          throw new Error('Registro não encontrado');
+        }
+        return response.data;
+      })
+    );
   }
 
-  getOption(id: number): Observable<Option> {
-    const url = `${environment.apiBaseURL}/options/${id}`;
+  getOption(id: number): Observable<Option[]> {
+    const url = `${environment.apiBaseURL}/options/statement/${id}`;
     return this.http.get<ApiResponseOption>(url).pipe(map(response => response.data));
   }
-
+  
   changeId(id: number): void {
     this.idSource.next(id);
   }

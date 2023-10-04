@@ -9,9 +9,10 @@ import { Option } from '../../models/option';
   templateUrl: './question.component.html',
   styleUrls: ['./question.component.scss']
 })
+
 export class QuestionComponent implements OnInit {
   statement!: Statement;
-  option!: Option;
+  options!: Option[]; 
   id!: number;
 
   constructor(private questionService: QuestionService, private router: Router, private route: ActivatedRoute) { } 
@@ -20,22 +21,28 @@ export class QuestionComponent implements OnInit {
     this.questionService.currentId.subscribe(id => {
       this.id = id;
       this.getStatement(this.id);
+      this.getOptions(this.id)
     });
-
-    this.getOption(1);
-    this.getOption(2);
   }
 
   getStatement(id: number): void {
-    this.questionService.getStatement(id).subscribe(statement => this.statement = statement);
+    this.questionService.getStatement(id).subscribe({
+      next: statement => this.statement = statement,
+      error: err => {
+        console.error(err);
+        alert('Pergunta não encontrada');
+        this.router.navigate(['/login']);
+      }
+    });
   }
 
-  getOption(id: number): void {
-    this.questionService.getOption(id).subscribe(option => this.option = option);
+  getOptions(id: number): void { 
+    this.questionService.getOption(id).subscribe(options => this.options = options);
   }
 
   goToNextQuestion(): void {
     this.questionService.changeId(this.id + 1);
   }
 }
+
 

@@ -1,7 +1,7 @@
-import { ILike } from 'typeorm';
+import { ILike } from "typeorm";
 
-import dataSource from '../../database/data-source';
-import User from '../entities/database/User';
+import dataSource from "../../database/data-source";
+import User from "../entities/database/User";
 
 const userRepository = dataSource.getRepository(User);
 
@@ -11,38 +11,39 @@ const findAllUsers = (): Promise<User[]> => {
 
 const findUserByUsername = (username: string): Promise<User | null> => {
   return userRepository.findOneBy({
-    username: ILike(username)
+    username: ILike(username),
   });
 };
 
-const findUserCodeByUsername = async (username: string): Promise<string | null> => {
+const findUserCodeByUsername = async (
+  username: string
+): Promise<string | null> => {
   const result: any = await userRepository
-    .createQueryBuilder('user')
-    .select('code')
-    .where('user.code ILIKE :username', { username })
-    .getRawOne()['code'];
+    .createQueryBuilder("user")
+    .select("code")
+    .where("user.code ILIKE :username", { username })
+    .getRawOne()["code"];
 
-    return result ? result.code : null;
+  return result ? result.code : null;
 };
 
 const findLastSavedUserCode = async (): Promise<string | null> => {
   const result: any = await userRepository
-    .createQueryBuilder('user')
-    .select('code')
+    .createQueryBuilder("user")
+    .select("code")
     .take(1)
-    .orderBy('created_at', 'DESC')
+    .orderBy("created_at", "DESC")
     .getRawOne();
 
-    return result ? result.code : null;
+  return result ? result.code : null;
 };
 
 const isUsernameAlreadyTaken = (username: string): Promise<boolean> => {
-  return userRepository
-    .exist({
-      where: {
-        username: ILike(username)
-      }
-    });
+  return userRepository.exist({
+    where: {
+      username: ILike(username),
+    },
+  });
 };
 
 const saveUser = async (user: User): Promise<User> => {
@@ -55,5 +56,5 @@ export default {
   findUserCodeByUsername,
   findLastSavedUserCode,
   isUsernameAlreadyTaken,
-  saveUser
+  saveUser,
 };

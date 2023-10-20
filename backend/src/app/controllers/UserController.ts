@@ -26,7 +26,6 @@ userRouter.get('/', (async (request: Request, response: Response, next: NextFunc
 }) as RequestHandler);
 
 userRouter.get('/:username', (async (request: Request, response: Response, next: NextFunction): Promise<void> => {
-
   try {
     const { username } = request.params;
 

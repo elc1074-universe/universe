@@ -1,0 +1,33 @@
+<body>
+    <div class="back">
+        <a routerLink="../../"><button mat-icon-button>
+            <mat-icon class="material-icons color_white">arrow_back_ios</mat-icon> 
+        </button></a><br>            
+    </div>
+    <div class="test-creation-container">
+        <mat-card>
+            <mat-card-content>
+                <h2>Iniciar teste</h2>
+                <p>Preencha as informações abaixo para iniciar um novo teste!</p>
+                <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+                    <div class="form">
+                        <mat-form-field>
+                            <mat-label>Username</mat-label>
+                            <inputmatInput name="username" [(ngModel)]="testCreationDTO.username" #username="ngModel" required >
+                            <mat-error *ngIf="!testCreationDTO.username">Informe um username</mat-error>
+                        </mat-form-field>
+                        <mat-form-field>
+                            <mat-label>Email</mat-label>
+                            <input matInput name="email" [(ngModel)]="testCreationDTO.email" #email="ngModel">
+                        </mat-form-field>
+                        <section>
+                            <div class="example-button-row">
+                                <button mat-flat-button color="primary" type="submit" [disabled]="form.invalid">Iniciar teste</button>
+                            </div>
+                        </section>
+                    </div>
+                </form>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</body>

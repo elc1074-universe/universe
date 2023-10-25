@@ -9,14 +9,14 @@ import { AppMaterialModule } from './shared/app-material-module/app-material-mod
 import { LoginModule } from './routes/login/login.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HeaderInterceptor } from './header-interceptor';
-import { QuestionComponent } from './routes/question/question.component';
+import { StatementComponent } from './routes/statement/statement.component';
 import { UserModule } from './routes/user/user.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    QuestionComponent,
+    StatementComponent,
   ],
   imports: [
     BrowserModule,

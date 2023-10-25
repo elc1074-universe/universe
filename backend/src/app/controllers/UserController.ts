@@ -1,41 +1,21 @@
 import { Router, Request, Response, RequestHandler, NextFunction } from 'express';
 import { StatusCodes } from 'http-status-codes';
 
+import UserRetrievalDTO from '../entities/dto/user/UserRetrievalDTO';
 import UserService from '../services/UserService';
-import User from '../entities/database/User';
-import UserRetrievalDTO from '../entities/dto/UserRetrievalDTO';
-import UserSavingDTO from '../entities/dto/UserSavingDTO';
 import ApiResponse from '../entities/api/ApiResponse';
 
 const userRouter: Router = Router();
 
 userRouter.get('/', (async (request: Request, response: Response, next: NextFunction): Promise<void> => {
   try {
-    const rawUsers: User[] = await UserService.findAllUsers();
+    const rawUsers = await UserService.findAllUsers();
 
-    const mappedUsers: UserRetrievalDTO[] = rawUsers.map(user => new UserRetrievalDTO(user));
+    const mappedUsers = rawUsers.map(user => new UserRetrievalDTO(user));
 
-    const statusCode: number = StatusCodes.OK;
+    const statusCode = StatusCodes.OK;
 
-    const apiResponse: ApiResponse<UserRetrievalDTO[]> = new ApiResponse<UserRetrievalDTO[]>(statusCode, mappedUsers);
-
-    response.status(statusCode).json(apiResponse);
-  } catch (error: unknown) {
-    next(error);
-  }
-}) as RequestHandler);
-
-userRouter.get('/:username', (async (request: Request, response: Response, next: NextFunction): Promise<void> => {
-  try {
-    const { username } = request.params;
-
-    const rawUser: User = await UserService.findUserByUsername(username);
-
-    const mappedUser: UserRetrievalDTO = new UserRetrievalDTO(rawUser);
-
-    const statusCode: number = StatusCodes.OK;
-
-    const apiResponse: ApiResponse<UserRetrievalDTO> = new ApiResponse<UserRetrievalDTO>(statusCode, mappedUser);
+    const apiResponse = new ApiResponse<UserRetrievalDTO[]>(statusCode, mappedUsers);
 
     response.status(statusCode).json(apiResponse);
   } catch (error: unknown) {
@@ -43,21 +23,19 @@ userRouter.get('/:username', (async (request: Request, response: Response, next:
   }
 }) as RequestHandler);
 
-userRouter.post('/', (async (request: Request, response: Response, next: NextFunction): Promise<void> => {
+userRouter.get('/:code', (async (request: Request, response: Response, next: NextFunction): Promise<void> => {
   try {
-    const userSavingDTO: UserSavingDTO = new UserSavingDTO(request.body['username'], request.body['email']);
+    const { code } = request.params;
 
-    const rawUser: User = await UserService.saveUser(userSavingDTO);
+    const rawUser = await UserService.findUserByCode(code);
 
-    const mappedUser: UserRetrievalDTO = new UserRetrievalDTO(rawUser);
+    const mappedUser = new UserRetrievalDTO(rawUser);
 
-    const statusCode: number = StatusCodes.CREATED;
+    const statusCode = StatusCodes.OK;
 
-    const apiResponse: ApiResponse<UserRetrievalDTO> = new ApiResponse<UserRetrievalDTO>(statusCode, mappedUser);
+    const apiResponse = new ApiResponse<UserRetrievalDTO>(statusCode, mappedUser);
 
-    const location: string = new URL(`${request.protocol}://${request.get('host')}${request.originalUrl}/${rawUser.username}`).toString();
-
-    response.status(statusCode).location(location).json(apiResponse);
+    response.status(statusCode).json(apiResponse);
   } catch (error: unknown) {
     next(error);
   }

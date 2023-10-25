@@ -32,4 +32,24 @@ export default class Result {
 
   @CreateDateColumn({ name: 'created_at', type: 'datetime', nullable: false, unique: true })
   createdAt: Date;
+
+  constructor(
+    userCode: string,
+    rScore: number,
+    iScore: number,
+    aScore: number,
+    sScore: number,
+    eScore: number,
+    cScore: number,
+    interestCode: string
+  ) {
+    this.userCode = userCode;
+    this.rScore = rScore;
+    this.iScore = iScore;
+    this.aScore = aScore;
+    this.sScore = sScore;
+    this.eScore = eScore;
+    this.cScore = cScore;
+    this.interestCode = interestCode;
+  }
 };

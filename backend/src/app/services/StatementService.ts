@@ -4,12 +4,12 @@ import Statement from '../entities/database/Statement';
 import StatementRepository from '../repositories/StatementRepository';
 import ApiError from '../entities/api/ApiError';
 
-const findAllStatements = async (): Promise<Statement[]> => {
+const findAllStatements = (): Promise<Statement[]> => {
   return StatementRepository.findAllStatements();
 };
 
 const findStatementById = async (id: number): Promise<Statement> => {
-  const statement: Statement | null = await StatementRepository.findStatementById(id);
+  const statement = await StatementRepository.findStatementById(id);
 
   if (!statement) {
     throw new ApiError(
@@ -22,7 +22,17 @@ const findStatementById = async (id: number): Promise<Statement> => {
   return statement;
 };
 
+const findStatementsByPersonalityId = (personalityId: number): Promise<Statement[]> => {
+  return StatementRepository.findStatementsByPersonalityId(personalityId);
+}
+
+const findStatementsByPersonalityLetter = (personalityLetter: string): Promise<Statement[]> => {
+  return StatementRepository.findStatementsByPersonalityLetter(personalityLetter);
+}
+
 export default {
   findAllStatements,
+  findStatementsByPersonalityId,
+  findStatementsByPersonalityLetter,
   findStatementById
 };

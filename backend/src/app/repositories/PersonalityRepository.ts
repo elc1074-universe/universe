@@ -1,4 +1,4 @@
-import { ILike } from 'typeorm';
+import { Equal, ILike } from 'typeorm';
 
 import dataSource from '../../database/data-source';
 import Personality from '../entities/database/Personality';
@@ -9,6 +9,12 @@ const findAllPersonalities = (): Promise<Personality[]> => {
   return personalityRepository.find();
 };
 
+const findPersonalityById = (id: number): Promise<Personality | null> => {
+  return personalityRepository.findOneBy({
+    id: Equal(id)
+  });
+};
+
 const findPersonalityByLetter = (letter: string): Promise<Personality | null> => {
   return personalityRepository.findOneBy({
     letter: ILike(letter)
@@ -16,6 +22,7 @@ const findPersonalityByLetter = (letter: string): Promise<Personality | null> =>
 };
 
 export default {
-  findPersonalityByLetter,
-  findAllPersonalities
+  findAllPersonalities,
+  findPersonalityById,
+  findPersonalityByLetter
 };

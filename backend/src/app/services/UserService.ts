@@ -1,7 +1,7 @@
 import { StatusCodes } from 'http-status-codes';
 
 import User from '../entities/database/User';
-import UserSavingDTO from '../entities/dto/UserSavingDTO';
+import UserSavingDTO from '../entities/dto/user/UserSavingDTO';
 import UserRepository from '../repositories/UserRepository';
 import ApiError from '../entities/api/ApiError';
 
@@ -16,32 +16,18 @@ const findAllUsers = (): Promise<User[]> => {
   return UserRepository.findAllUsers();
 };
 
-const findUserByUsername = async (username: string): Promise<User> => {
-  const user: User | null = await UserRepository.findUserByUsername(username);
+const findUserByCode = async (code: string): Promise<User> => {
+  const user: User | null = await UserRepository.findUserByCode(code);
 
   if (!user) {
     throw new ApiError(
       StatusCodes.NOT_FOUND,
       'Usuário não encontrado',
-      `Não foi encontrado nenhum usuário com o username '${username}'`
+      `Não foi encontrado nenhum usuário com o código '${code}'`
     );
   }
 
   return user;
-};
-
-const findUserCodeByUsername = async (username: string): Promise<string> => {
-  const userCode: string | null = await UserRepository.findUserCodeByUsername(username);
-
-  if (!userCode) {
-    throw new ApiError(
-      StatusCodes.NOT_FOUND,
-      'Usuário não encontrado',
-      `Não foi encontrado nenhum usuário com o username '${username}'`
-    );
-  }
-
-  return userCode;
 };
 
 const findLastSavedUserCode = async (): Promise<string | null> => {
@@ -50,14 +36,6 @@ const findLastSavedUserCode = async (): Promise<string | null> => {
 
 const saveUser = async (userSavingDTO: UserSavingDTO): Promise<User> => {
   userSavingDTO.validate();
-
-  const isUsernameAlreadyTaken: boolean = await UserRepository.isUsernameAlreadyTaken(userSavingDTO.username);
-
-  if (isUsernameAlreadyTaken) {
-    throw new ApiError(
-      StatusCodes.CONFLICT, 'Conflito', `Já existe um usuário com o username '${userSavingDTO.username}'`
-    );
-  }
 
   const user: User = new User(await generateUserCode(), userSavingDTO.username, userSavingDTO.email);
 
@@ -100,7 +78,6 @@ const generateUserCode = async (): Promise<string> => {
 
 export default {
   findAllUsers,
-  findUserByUsername,
-  findUserCodeByUsername,
+  findUserByCode,
   saveUser
 };

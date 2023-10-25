@@ -16,13 +16,13 @@ DROP TABLE IF EXISTS pathway;
 
 DROP TABLE IF EXISTS personality;
 
-DROP TABLE IF EXISTS game_statement;
+DROP TABLE IF EXISTS test_statement;
 
 DROP TABLE IF EXISTS `option`;
 
 DROP TABLE IF EXISTS `statement`;
 
-DROP TABLE IF EXISTS game;
+DROP TABLE IF EXISTS test;
 
 DROP TABLE IF EXISTS user;
 
@@ -67,17 +67,17 @@ CREATE TABLE IF NOT EXISTS `statement` (
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci;
 
 CREATE TABLE IF NOT EXISTS `option` (
-    id            INT          NOT NULL AUTO_INCREMENT,
-    `description` VARCHAR(511) NOT NULL,
-    `value`       BIT          NOT NULL,
-    statement_id  INT          NOT NULL,
+    id            INT                 NOT NULL AUTO_INCREMENT,
+    `description` VARCHAR(511)        NOT NULL,
+    `value`       TINYINT(1) UNSIGNED NOT NULL,
+    statement_id  INT                 NOT NULL,
 
     PRIMARY KEY (id),
     FOREIGN KEY (statement_id) REFERENCES `statement` (id),
     UNIQUE      (`description`)
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci;
 
-CREATE TABLE IF NOT EXISTS game (
+CREATE TABLE IF NOT EXISTS test (
     id         INT      NOT NULL AUTO_INCREMENT,
     user_id    INT      NOT NULL,
     created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -88,17 +88,17 @@ CREATE TABLE IF NOT EXISTS game (
 	UNIQUE      (created_at)
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci;
 
-CREATE TABLE IF NOT EXISTS game_statement (
+CREATE TABLE IF NOT EXISTS test_statement (
     id                 INT NOT NULL AUTO_INCREMENT,
-    game_id            INT NOT NULL,
+    test_id            INT NOT NULL,
     statement_id       INT NOT NULL,
     selected_option_id INT NOT NULL,
 
     PRIMARY KEY (id),
-    FOREIGN KEY (game_id)            REFERENCES game (id),
+    FOREIGN KEY (test_id)            REFERENCES test (id),
     FOREIGN KEY (statement_id)       REFERENCES `statement` (id),
     FOREIGN KEY (selected_option_id) REFERENCES `option` (id),
-    UNIQUE      (game_id, statement_id)
+    UNIQUE      (test_id, statement_id)
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci;
 
 CREATE TABLE IF NOT EXISTS result (
@@ -136,10 +136,10 @@ CREATE TABLE IF NOT EXISTS pathway (
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci;
 
 CREATE TABLE IF NOT EXISTS personality_pathway (
-    id              INT NOT NULL AUTO_INCREMENT,
-    personality_id  INT NOT NULL,
-    pathway_id      INT NOT NULL,
-    is_main_pathway BIT NOT NULL,
+    id              INT                 NOT NULL AUTO_INCREMENT,
+    personality_id  INT                 NOT NULL,
+    pathway_id      INT                 NOT NULL,
+    is_main_pathway TINYINT(1) UNSIGNED NOT NULL,
     
     PRIMARY KEY (id),
     FOREIGN KEY (personality_id) REFERENCES personality (id),

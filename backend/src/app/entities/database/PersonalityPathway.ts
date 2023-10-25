@@ -10,14 +10,14 @@ export default class PersonalityPathway {
   @PrimaryGeneratedColumn('increment', { name: 'id', type: 'int' })
   id: number;
 
-  @ManyToOne(() => Personality)
+  @ManyToOne(() => Personality, { eager: true })
   @JoinColumn({ name: 'personality_id', referencedColumnName: 'id' })
   personality: Personality;
 
-  @ManyToOne(() => Pathway)
+  @ManyToOne(() => Pathway, { eager: true })
   @JoinColumn({ name: 'pathway_id', referencedColumnName: 'id' })
   pathway: Pathway;
 
-  @Column({ name: 'is_main_pathway', type: 'bit', nullable: false, unique: false })
+  @Column({ name: 'is_main_pathway', type: 'tinyint', nullable: false, unique: false })
   isMainPathway: boolean;
 };

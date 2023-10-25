@@ -10,11 +10,11 @@ export default class PersonalityPathwayUFSMCourse {
   @PrimaryGeneratedColumn('increment', { name: 'id', type: 'int' })
   id: number;
 
-  @ManyToOne(() => PersonalityPathway)
+  @ManyToOne(() => PersonalityPathway, { eager: true })
   @JoinColumn({ name: 'personality_pathway_id', referencedColumnName: 'id' })
   personalityPathway: PersonalityPathway;
 
-  @ManyToOne(() => UFSMCourse)
+  @ManyToOne(() => UFSMCourse, { eager: true })
   @JoinColumn({ name: 'ufsm_course_id', referencedColumnName: 'id' })
   ufsmCourse: UFSMCourse;
 };

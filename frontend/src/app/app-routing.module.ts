@@ -1,9 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './routes/home/home.component';
-import { UserComponent } from './routes/user/user.component';
-import { QuestionComponent } from './routes/question/question.component';
 
+import { HomeComponent } from './routes/home/home.component';
+import { StatementComponent } from './routes/statement/statement.component';
 
 const routes: Routes = [
   {
@@ -11,16 +10,16 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
-    path: 'login',
-    loadChildren: () => import('./routes/login/login.module').then(m => m.LoginModule)
+    path: 'tests',
+    loadChildren: () => import('./routes/test/test.module').then(module => module.TestModule)
   },
   {
-    path: 'user', 
-    loadChildren: () => import('./routes/user/user.module').then(m => m.UserModule)
+    path: 'user',
+    loadChildren: () => import('./routes/user/user.module').then(module => module.UserModule)
   },
   {
-    path: 'question/:id', 
-    component: QuestionComponent, 
+    path: 'statements/:id',
+    component: StatementComponent,
   },
 ];
 
@@ -28,4 +27,6 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+
+};

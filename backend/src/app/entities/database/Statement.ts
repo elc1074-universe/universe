@@ -17,7 +17,7 @@ export default class Statement {
   @Column({ name: 'story_text', type: 'varchar', length: 511, nullable: false, unique: false })
   storyText: string;
 
-  @ManyToOne(() => Personality)
+  @ManyToOne(() => Personality, { eager: true })
   @JoinColumn({ name: 'personality_id', referencedColumnName: 'id' })
   personality: Personality;
 };

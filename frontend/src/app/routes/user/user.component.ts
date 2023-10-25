@@ -1,13 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from '../../models/user';
-import { UserService } from '../../services/user.service';
-import { QuestionService } from '../../services/question.service';
-import { ActivatedRoute, ParamMap } from '@angular/router';
-import { switchMap } from 'rxjs/operators';
+import { ActivatedRoute, Router, ParamMap } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
+import { switchMap } from 'rxjs/operators';
+
 import { InfoComponent } from './info/info.component';
-import { Observable } from 'rxjs';
-import { Router } from '@angular/router';
+import UserRetrievalDTO from 'src/app/models/dto/user/UserRetrievalDTO';
+import UserService from 'src/app/services/user.service';
+import StatementService from '../../services/statement.service';
 
 @Component({
   selector: 'app-user',
@@ -15,33 +14,34 @@ import { Router } from '@angular/router';
   styleUrls: ['./user.component.scss']
 })
 export class UserComponent implements OnInit {
-  user!: User;
-  username! : string;
-  user1!: Observable<User>;
 
-  constructor(private userService: UserService, private questionService: QuestionService, private route: ActivatedRoute, public dialog: MatDialog, private router: Router) { }
+  private user!: UserRetrievalDTO | null;
+
+  constructor(
+    private userService: UserService,
+    private statementService: StatementService,
+    private route: ActivatedRoute,
+    public dialog: MatDialog,
+    private router: Router
+  ) {
+
+  }
 
   ngOnInit() {
-    
-    this.user1 = this.route.paramMap.pipe(
-      switchMap((params: ParamMap) =>
-        this.userService.getUser(params.get('username')!))
-    );
-
-    this.user1.subscribe((user: User) => {
-      this.user = user;
-
-      this.dialog.open(InfoComponent, {
-        data: {
-          user: this.user
+    this.route
+      .paramMap
+      .pipe(switchMap((params: ParamMap) => {
+          return this.userService.getUserByCode(params.get('code')!);
         }
+      ))
+      .subscribe((user: UserRetrievalDTO | null) => {
+        this.user = user;
+        this.dialog.open(InfoComponent, { data: { user: user } });
       });
-    });
   }
 
-  goToLevel(level: number): void {
-    this.questionService.changeId(level);
-    this.router.navigate(['/question', level]);
+  goToPersonality(level: number): void {
+    this.statementService.setCurrentStatementId(level);
+    this.router.navigate(['/statements', level]);
   }
-
-}
+};

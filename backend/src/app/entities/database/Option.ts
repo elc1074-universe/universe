@@ -11,10 +11,10 @@ export default class Option {
   @Column({ name: 'description', type: 'varchar', length: 511, nullable: false, unique: true })
   description: string;
 
-  @Column({ name: 'value', type: 'bit', nullable: false, unique: false })
-  value: boolean;
+  @Column({ name: 'value', type: 'tinyint', nullable: false, unique: false })
+  value: number;
 
-  @ManyToOne(() => Statement)
+  @ManyToOne(() => Statement, { eager: true })
   @JoinColumn({ name: 'statement_id', referencedColumnName: 'id' })
   statement: Statement;
 };

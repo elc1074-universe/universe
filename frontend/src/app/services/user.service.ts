@@ -4,47 +4,30 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-import { environment } from 'src/environments/environment';
-import { User } from '../models/user';
+import Service from './service';
+import UserRetrievalDTO from '../models/dto/user/UserRetrievalDTO';
+import ApiResponse from '../models/api/ApiResponse';
 
-interface ApiResponse {
-  success: boolean;
+@Injectable({ providedIn: 'root' })
+export default class UserService extends Service {
 
-  httpStatus: {
-    name: string;
-    code: number;
-  };
+  private currentUser!: UserRetrievalDTO;
 
-  data: User;
-
-  error: any;
-  
-  timestamp: string;
-}
-
-@Injectable({
-  providedIn: 'root'
-})
-export class UserService {
-  currentUser!: User;
-
-  constructor(private http: HttpClient) { }
-
-  getUser(username: string): Observable<User> {
-    const url = `${environment.apiBaseURL}/users/${username}`;
-    return this.http.get<ApiResponse>(url).pipe(map(response => response.data));
+  constructor(httpClient: HttpClient) {
+    super(httpClient, 'users');
   }
 
-  setCurrentUser(user: User) {
+  getUserByCode(code: string): Observable<UserRetrievalDTO | null> {
+    return this.httpClient
+      .get<ApiResponse<UserRetrievalDTO>>(`${this.baseURL}/${code}`)
+      .pipe(map(response => response.data));
+  }
+
+  setCurrentUser(user: UserRetrievalDTO): void {
     this.currentUser = user;
   }
 
-  getCurrentUser(): User {
+  getCurrentUser(): UserRetrievalDTO {
     return this.currentUser;
   }
-
-  createUser(user: User): Observable<User> {
-    const url = `${environment.apiBaseURL}/users`;
-    return this.http.post<ApiResponse>(url, user).pipe(map(response => response.data));
-  }
-}
+};

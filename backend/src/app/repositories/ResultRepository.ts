@@ -15,7 +15,12 @@ const findResultByUserCode = (userCode: string): Promise<Result | null> => {
   });
 };
 
+const saveResult = (result: Result): Promise<Result> => {
+  return resultRepository.save(result);
+};
+
 export default {
   findAllResults,
-  findResultByUserCode
+  findResultByUserCode,
+  saveResult
 };

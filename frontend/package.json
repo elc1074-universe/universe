@@ -8,7 +8,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "nginx": "npm install && ng build && cp -r ./dist/frontend/* /usr/share/nginx/html/"
+    "nginx": "npm install && ng build && sudo cp -r ./dist/frontend/* /usr/share/nginx/html/"
   },
   "private": true,
   "dependencies": {

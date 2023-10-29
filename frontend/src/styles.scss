@@ -1,22 +1,20 @@
-/* You can add global styles to this file, and also import other style files */
+@use '@angular/material' as mat;
 
-@import '@angular/material/theming';
-@include mat-core();
+@include mat.core();
 
+$primary-palette: (
+  50: #c0fade,
+  100: #a8f1ce,
+  200: #91ebc0,
+  300: #64e4a6,
+  400: #4eca8e,
+  500: #3ea774,
+  600: #2e8a5d,
+  700: #256e4b,
+  800: #1b5c3d,
+  900: #13432c,
 
-$my-palette: (
- 50: #c0fade,
- 100: #a8f1ce,
- 200: #91ebc0,
- 300: #64e4a6,
- 400: #4eca8e,
- 500: #3ea774,
- 600: #2e8a5d,
- 700: #256e4b,
- 800: #1b5c3d,
- 900: #13432C,
- 
- contrast: (
+  contrast: (
     50: rgba(black, 0.87),
     100: rgba(black, 0.87),
     200: rgba(black, 0.87),
@@ -26,23 +24,23 @@ $my-palette: (
     600: rgba(black, 0.87),
     700: rgba(black, 0.87),
     800: rgba(black, 0.87),
-    900: rgba(black, 0.87)
- )
+    900: rgba(black, 0.87),
+  ),
 );
 
-$my-palette-sec: (
- 50:  #e7eaf5,
- 100: #cffae5,
- 200: #baffde,
- 300: #95f1c5,
- 400: #80e4b4,
- 500: #78c9a2,
- 600: #8ac4a8,
- 700: #7baf96,
- 800: #60967c,
- 900: #3C6A54,
- 
- contrast: (
+$accent-palette: (
+  50: #e7eaf5,
+  100: #cffae5,
+  200: #baffde,
+  300: #95f1c5,
+  400: #80e4b4,
+  500: #78c9a2,
+  600: #8ac4a8,
+  700: #7baf96,
+  800: #60967c,
+  900: #3c6a54,
+
+  contrast: (
     50: rgba(black, 0.87),
     100: rgba(black, 0.87),
     200: rgba(black, 0.87),
@@ -52,25 +50,33 @@ $my-palette-sec: (
     600: rgba(black, 0.87),
     700: rgba(black, 0.87),
     800: rgba(black, 0.87),
-    900: rgba(black, 0.87)
- )
+    900: rgba(black, 0.87),
+  ),
 );
 
+$custom-theme-primary-color: mat.define-palette($primary-palette, 900);
+$custom-theme-accent-color: mat.define-palette($accent-palette, 900);
+$custom-theme-warn-color: mat.define-palette(mat.$orange-palette);
 
-$custom-app-primary: mat-palette($my-palette, 900);
-$custom-app-secondary: mat-palette($my-palette-sec, 900);
-$custom-app-warn: mat-palette($mat-orange);
+$custom-theme: mat.define-light-theme((
+  color: (
+    primary: $custom-theme-primary-color,
+    accent: $custom-theme-accent-color,
+    warn: $custom-theme-warn-color,
+  ),
+  typography: mat.define-typography-config(),
+  density: 0
+));
 
-$custom-theme: mat-light-theme($custom-app-primary, $custom-app-secondary, $custom-app-warn);
+@include mat.core-theme($custom-theme);
+@include mat.button-theme($custom-theme);
 
-@include angular-material-theme($custom-theme);
-
-html, body { 
-   margin: 0;
-   height: 100%;
+html,
+body {
+  margin: 0;
+  height: 100%;
 }
-body { margin: 0; font-family: Arial, Helvetica, sans-serif; }
 
-
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body {
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+}

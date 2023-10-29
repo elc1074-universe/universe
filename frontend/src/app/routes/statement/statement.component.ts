@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { switchMap } from 'rxjs/operators';
 
 import StatementService from 'src/app/services/statement.service';
 import StatementRetrievalDTO from 'src/app/models/dto/statement/StatementRetrievalDTO';
@@ -11,38 +12,47 @@ import StatementRetrievalDTO from 'src/app/models/dto/statement/StatementRetriev
 })
 export class StatementComponent implements OnInit {
 
-  currentStatement!: StatementRetrievalDTO | null;
+  statement!: StatementRetrievalDTO | null;
+
+  private static readonly NUMBER_OF_STATEMENTS: number = 42;
 
   constructor(
     private statementService: StatementService,
     private router: Router,
-    private route: ActivatedRoute
+    private activatedRoute: ActivatedRoute
   ) {
 
   }
 
   ngOnInit(): void {
+    this.activatedRoute
+      .paramMap
+      .subscribe((params: ParamMap) => {
+        this.statementService.setCurrentStatementId(Number(params.get('id')));
+      });
+
     this.statementService
       .getCurrentStatementId()
       .subscribe(currentStatementId => {
-        this.getStatement(currentStatementId);
-      });
-  }
-
-  getStatement(id: number): void {
-    this.statementService
-      .getStatement(id)
-      .subscribe({
-        next: statement => this.currentStatement = statement,
-        error: error => {
-          console.error(error);
-          alert('Declaração não encontrada');
-          this.router.navigate(['/login']);
-        }
+        this.statementService
+          .getStatement(currentStatementId)
+          .subscribe({
+            next: (statement: StatementRetrievalDTO | null) => {
+              this.statement = statement;
+            },
+            error: error => {
+              console.error(error);
+              alert(`A declaração com o id ${currentStatementId} não foi encontrada.`);
+              this.router.navigate(['/personality']);
+            }
+          });
       });
   }
 
   goToNextStatement(): void {
-    this.statementService.setCurrentStatementId(this.currentStatement!.id + 1);
+    const currentStatementId = this.statement!.id + 1;
+    this.statementService.setCurrentStatementId(this.statement!.id + 1);
+
+    this.router.navigate(['/statement', currentStatementId]);
   }
-}
+};

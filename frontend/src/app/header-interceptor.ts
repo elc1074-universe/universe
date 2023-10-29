@@ -3,9 +3,9 @@ import { HttpInterceptor, HttpRequest, HttpHandler, HttpHeaders } from '@angular
 
 @Injectable()
 export class HeaderInterceptor implements HttpInterceptor {
-  intercept(req: HttpRequest<any>, next: HttpHandler) {
+  intercept(request: HttpRequest<any>, next: HttpHandler) {
     const headers = new HttpHeaders().set('Content-Type', 'application/json');
-    const modifiedReq = req.clone({ headers });
-    return next.handle(modifiedReq);
+    const modifiedRequest = request.clone({ headers });
+    return next.handle(modifiedRequest);
   }
-}
+};

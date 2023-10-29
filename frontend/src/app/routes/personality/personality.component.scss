@@ -1,5 +1,5 @@
 body {
-  background-image: url('../../../assets/img/bkg/bkg-map.png');
+  background-image: url('/assets/images/backgrounds/map-background.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -7,19 +7,18 @@ body {
   height: 100vh;
 }
 
-/* top | right | bottom | left */
 h3 {
   color: #f2f3f2;
   font-size: 30px;
   font-weight: bold;
-  font-family: 'Modulus Pro';
+  font-family: 'Modulus Pro', sans-serif;
   display: flex;
   justify-content: center;
   align-items: flex-start;
   text-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
 }
 
-.button-container {
+#personality-buttons-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(2, 1fr);
@@ -27,38 +26,38 @@ h3 {
   left: 50px;
 }
 
-.button-container button:nth-child(1) {
+.personality-button {
+  padding: 10px;
+  margin: 5px;
+  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0);
+}
+
+#personality-6-button {
   top: 100px;
   left: 302px;
 }
 
-.button-container button:nth-child(2) {
+#personality-5-button {
   top: 200px;
   left: 170px;
 }
 
-.button-container button:nth-child(3) {
+#personality-4-button {
   top: 310px;
   left: 157px;
 }
 
-.button-container button:nth-child(4) {
+#personality-3-button {
   top: 375px;
   left: 250px;
 }
 
-.button-container button:nth-child(5) {
+#personality-2-button {
   top: 450px;
   left: 50px;
 }
 
-.button-container button:nth-child(6) {
+#personality-1-button {
   top: 580px;
   left: -5px;
-}
-
-.mat-raised-button {
-  padding: 10px;
-  margin: 5px;
-  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0);
 }

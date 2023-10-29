@@ -15,7 +15,7 @@ import TestService from 'src/app/services/test.service';
 })
 export class TestCreationComponent {
 
-  private readonly testCreationDTO: TestCreationDTO;
+  testCreationDTO: TestCreationDTO;
 
   private createdTest: BehaviorSubject<TestRetrievalDTO | null>;
 
@@ -33,7 +33,6 @@ export class TestCreationComponent {
       .createTest(this.testCreationDTO)
       .subscribe({
         next: (response: TestRetrievalDTO | null)  => {
-          console.log(response);
           if (response) {
             this.createdTest.next(response);
             this.toastr.success('Um novo teste foi iniciado!');

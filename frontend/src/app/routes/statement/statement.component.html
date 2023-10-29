@@ -1,7 +1,7 @@
 <div class="statement-container">
-  <h2>{{currentStatement!.storyText}}</h2>
+  <h2>{{statement?.storyText}}</h2>
 
-  <div *ngFor="let option of currentStatement!.options">
+  <div *ngFor="let option of statement?.options">
     <h2>{{option.description}}</h2>
   </div>
 

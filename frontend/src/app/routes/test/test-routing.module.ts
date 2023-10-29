@@ -1,16 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { TestComponent } from './test.component';
 import { TestCreationComponent } from './creation/test-creation.component';
 import { TestContinuationComponent } from './continuation/test-continuation.component';
 import { TestResultComponent } from './result/test-result.component';
 
 const routes: Routes = [
-  {
-    path: '',
-    component: TestComponent,
-  },
   {
     path: 'new',
     component: TestCreationComponent,

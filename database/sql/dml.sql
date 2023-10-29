@@ -449,7 +449,7 @@ INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
 );
 
 INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
-    'a) Decide cuidar dela, fornecendo abrigo e alimentos para sua recuperação. (Pontuação: +1 para "Realista")',
+    'a) Decide cuidar dela, fornecendo abrigo e alimentos para sua recuperação.',
     1,
     (SELECT id FROM `statement` WHERE riasec_title = 'I like to take care of animals')
 );

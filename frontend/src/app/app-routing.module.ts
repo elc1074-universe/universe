@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { HomeComponent } from './routes/home/home.component';
+import { PersonalityComponent } from './routes/personality/personality.component';
 import { StatementComponent } from './routes/statement/statement.component';
 
 const routes: Routes = [
@@ -10,15 +11,15 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
-    path: 'tests',
+    path: 'test',
     loadChildren: () => import('./routes/test/test.module').then(module => module.TestModule)
   },
   {
-    path: 'user',
-    loadChildren: () => import('./routes/user/user.module').then(module => module.UserModule)
+    path: 'personality',
+    component: PersonalityComponent,
   },
   {
-    path: 'statements/:id',
+    path: 'statement/:id',
     component: StatementComponent,
   },
 ];

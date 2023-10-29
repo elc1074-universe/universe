@@ -1,31 +1,39 @@
 import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './routes/home/home.component';
-import { AppMaterialModule } from './shared/app-material-module/app-material-module.module';
-import { LoginModule } from './routes/login/login.module';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { HeaderInterceptor } from './header-interceptor';
+import { TestComponent } from './routes/test/test.component';
+import { PersonalityComponent } from './routes/personality/personality.component';
 import { StatementComponent } from './routes/statement/statement.component';
-import { UserModule } from './routes/user/user.module';
+import { AppMaterialModule } from './shared/app-material-module/app-material-module.module';
+import { HeaderInterceptor } from './header-interceptor';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    StatementComponent,
+    TestComponent,
+    PersonalityComponent,
+    StatementComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NoopAnimationsModule,
     AppMaterialModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule,
+    MatDialogModule
   ],
   providers: [ { provide: HTTP_INTERCEPTORS, useClass: HeaderInterceptor, multi: true } ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  
+};

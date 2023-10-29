@@ -13,7 +13,7 @@
                     <div class="form">
                         <mat-form-field>
                             <mat-label>Username</mat-label>
-                            <inputmatInput name="username" [(ngModel)]="testCreationDTO.username" #username="ngModel" required >
+                            <input matInput name="username" [(ngModel)]="testCreationDTO.username" #username="ngModel" required >
                             <mat-error *ngIf="!testCreationDTO.username">Informe um username</mat-error>
                         </mat-form-field>
                         <mat-form-field>

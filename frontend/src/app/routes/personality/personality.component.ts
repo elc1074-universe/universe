@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 
 import { TestInfoComponent } from 'src/app/routes/test/info/test-info.component';
@@ -15,8 +15,6 @@ import StatementService from 'src/app/services/statement.service';
 })
 export class PersonalityComponent implements OnInit {
 
-  private static readonly NUMBER_OF_STATEMENTS_BY_PERSONALITY: number = 7;
-
   private user!: UserRetrievalDTO | null;
 
   constructor(
@@ -24,23 +22,44 @@ export class PersonalityComponent implements OnInit {
     private personalityService: PersonalityService,
     private statementService: StatementService,
     public dialog: MatDialog,
-    private router: Router
+    private router: Router,
+    private activatedRoute: ActivatedRoute
   ) {
 
   }
 
   ngOnInit() {
-    this.user = this.userService.getCurrentUser();
-
-    this.dialog.open(TestInfoComponent, { data: { username: this.user?.username } });
+    this.activatedRoute
+      .paramMap
+      .subscribe((params: ParamMap) => {
+        this.userService.setCurrentUserCode(params.get('userCode')!);
+      });
+    
+    this.userService
+      .getCurrentUserCode()
+      .subscribe((currentUserCode: string | null) => {
+        this.userService
+          .getUserByCode(currentUserCode!)
+          .subscribe({
+            next: (user: UserRetrievalDTO | null) => {
+              this.user = user;
+              this.dialog.open(TestInfoComponent, { data: { username: user?.username } });
+            },
+            error: error => {
+              console.error(error);
+              alert(`O usuário com o código ${currentUserCode} não foi encontrado.`);
+              this.router.navigate(['/test/continue']);
+            }
+          });
+      });
   }
 
   goToPersonality(personalityId: number): void {
     this.personalityService.setCurrentPersonalityId(personalityId);
 
-    const currentStatementId = personalityId * PersonalityComponent.NUMBER_OF_STATEMENTS_BY_PERSONALITY - 6;
+    const currentStatementId = personalityId * PersonalityService.NUMBER_OF_STATEMENTS_BY_PERSONALITY - 6;
     this.statementService.setCurrentStatementId(currentStatementId);
     
-    this.router.navigate(['/statement', currentStatementId]);
+    this.router.navigate(['/test/statement', currentStatementId]);
   }
 };

@@ -1,15 +1,29 @@
 <body>
-    <div class="container">
-        <img class="logo-img" alt="Universe" src="/assets/images/logo.png" />
-        <div class="button-container">
-            <div class="example-button-row">
-                <a routerLink="/test/new"><button mat-raised-button color="primary">Iniciar teste</button></a>
+    <div id="container">
+        <div id="title">
+            UniVerse
+        </div>
+        <div id="buttons-container">
+            <div class="button-container" id="new-test-button-container">
+                <a class="button-link" routerLink="/test/new">
+                    <button id="new-test-button" mat-raised-button color="primary">
+                        Iniciar teste
+                    </button>
+                </a>
             </div>
-            <div class="example-button-row">
-                <a routerLink="/test/continue"><button mat-raised-button color="primary">Continuar teste</button></a>
+            <div class="button-container" id="continue-test-button-container">
+                <a class="button-link" routerLink="/test/continue">
+                    <button id="continue-test-button" mat-raised-button color="primary">
+                        Continuar teste
+                    </button>
+                </a>
             </div>
-            <div class="example-button-row">
-                <a routerLink="/test/result"><button mat-raised-button color="accent">Ver resultado</button></a>
+            <div class="button-container" id="test-result-button-container">
+                <a class="button-link" routerLink="/test/result">
+                    <button id="test-result-button" mat-raised-button color="accent">
+                        Ver resultado
+                    </button>
+                </a>
             </div>
         </div>
     </div>

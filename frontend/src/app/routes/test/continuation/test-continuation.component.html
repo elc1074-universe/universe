@@ -1,28 +1,58 @@
 <body>
     <div class="back">
-        <a routerLink="/"><button mat-icon-button aria-label="Example icon button with a vertical three dot icon">
-                <mat-icon class="material-icons color_white">arrow_back_ios</mat-icon>
-            </button></a><br>
+        <a routerLink="/">
+            <button mat-icon-button>
+                <mat-icon class="material-icons color_white">
+                    arrow_back_ios
+                </mat-icon>
+            </button>
+        </a>
+        <br>
     </div>
-    <div class="container">
-        <mat-card>
-            <mat-card-content>
-                <h2>Continuar teste</h2>
-                <p>Informe o seu código de usuário para continuar o teste.</p>
-                <div class="form">
-                    <form #loginForm="ngForm" (ngSubmit)="onSubmit()">
-                        <mat-form-field>
-                            <mat-label>Código</mat-label>
-                            <input matInput [(ngModel)]="userCode" name="userCode" required>
-                        </mat-form-field>
-                        <a href="/test/creation">Não possui um código? Clique aqui para iniciar um novo teste!</a>
-                        <section>
-                            <div class="example-button-row">
-                                <button mat-flat-button color="primary" type="submit">Enviar</button>
-                            </div>
-                        </section>
-                    </form>
+    <div id="test-continuation-container">
+        <mat-card id="card">
+            <mat-card-content id="card-content">
+                <div id="card-text">
+                    <div id="card-title">
+                        Continuar teste
+                    </div>
+                    <div id="card-description">
+                        Informe o seu código de usuário para continuar o teste!
+                    </div>
                 </div>
+                <form #loginForm="ngForm" (ngSubmit)="onSubmit()">
+                    <div id="card-form">
+                        <mat-form-field class="card-form-field">
+                            <mat-label class="card-form-field-label">
+                                Código
+                            </mat-label>
+                            <input
+                                matInput
+                                [(ngModel)]="userCode"
+                                name="userCode"
+                                required
+                            >
+                            <mat-error
+                                class="card-form-field-error-message"
+                                *ngIf="!userCode || userCode.trim() === ''"
+                            >
+                                Informe um código
+                            </mat-error>
+                        </mat-form-field>
+                        <a href="/test/new">
+                            Não possui um código? Clique aqui para iniciar um novo teste!
+                        </a>
+                        <button
+                            id="card-form-submit-button"
+                            mat-flat-button
+                            color="primary"
+                            type="submit"
+                            [disabled]="!userCode || userCode.trim() === ''"
+                        >
+                            Continuar 
+                        </button>
+                    </div>
+                </form>
             </mat-card-content>
         </mat-card>
     </div>

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import UserRetrievalDTO from 'src/app/models/dto/user/UserRetrievalDTO';
 import UserService from 'src/app/services/user.service';
 
 @Component({
@@ -22,13 +21,7 @@ export class TestContinuationComponent implements OnInit {
   }
 
   onSubmit(): void {
-    this.userService
-      .getUserByCode(this.userCode)
-      .subscribe((user: UserRetrievalDTO | null) => {
-        if (user) {
-          this.userService.setCurrentUser(user);
-          this.router.navigate(['/personality']);
-        }
-      });
+    this.userService.setCurrentUserCode(this.userCode);
+    this.router.navigate(['/test', this.userCode]);
   }
 };

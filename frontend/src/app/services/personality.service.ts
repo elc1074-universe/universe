@@ -13,6 +13,10 @@ export default class PersonalityService extends Service {
 
   private readonly currentPersonalityId = new BehaviorSubject<number>(1);
 
+  public static readonly NUMBER_OF_PERSONALITIES: number = 6;
+
+  public static readonly NUMBER_OF_STATEMENTS_BY_PERSONALITY: number = 7;
+
   constructor(httpClient: HttpClient) {
     super(httpClient, 'personalities');
   }

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
-import { switchMap } from 'rxjs/operators';
 
 import StatementService from 'src/app/services/statement.service';
 import StatementRetrievalDTO from 'src/app/models/dto/statement/StatementRetrievalDTO';
@@ -13,8 +12,6 @@ import StatementRetrievalDTO from 'src/app/models/dto/statement/StatementRetriev
 export class StatementComponent implements OnInit {
 
   statement!: StatementRetrievalDTO | null;
-
-  private static readonly NUMBER_OF_STATEMENTS: number = 42;
 
   constructor(
     private statementService: StatementService,
@@ -35,7 +32,7 @@ export class StatementComponent implements OnInit {
       .getCurrentStatementId()
       .subscribe(currentStatementId => {
         this.statementService
-          .getStatement(currentStatementId)
+          .getStatementById(currentStatementId)
           .subscribe({
             next: (statement: StatementRetrievalDTO | null) => {
               this.statement = statement;
@@ -43,7 +40,6 @@ export class StatementComponent implements OnInit {
             error: error => {
               console.error(error);
               alert(`A declaração com o id ${currentStatementId} não foi encontrada.`);
-              this.router.navigate(['/personality']);
             }
           });
       });
@@ -53,6 +49,6 @@ export class StatementComponent implements OnInit {
     const currentStatementId = this.statement!.id + 1;
     this.statementService.setCurrentStatementId(this.statement!.id + 1);
 
-    this.router.navigate(['/statement', currentStatementId]);
+    this.router.navigate(['/test/statement', currentStatementId]);
   }
 };

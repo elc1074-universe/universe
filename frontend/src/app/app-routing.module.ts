@@ -15,11 +15,11 @@ const routes: Routes = [
     loadChildren: () => import('./routes/test/test.module').then(module => module.TestModule)
   },
   {
-    path: 'personality',
+    path: 'test/:userCode',
     component: PersonalityComponent,
   },
   {
-    path: 'statement/:id',
+    path: 'test/statement/:id',
     component: StatementComponent,
   },
 ];

@@ -13,11 +13,13 @@ export default class StatementService extends Service {
 
   private readonly currentStatementId = new BehaviorSubject<number>(1);
 
+  public static readonly NUMBER_OF_STATEMENTS: number = 42;
+
   constructor(httpClient: HttpClient) {
     super(httpClient, 'statements');
   }
 
-  getStatement(id: number): Observable<StatementRetrievalDTO | null> {
+  getStatementById(id: number): Observable<StatementRetrievalDTO | null> {
     return this.httpClient
       .get<ApiResponse<StatementRetrievalDTO>>(`${this.baseURL}/${id}`)
       .pipe(map(response => response.data));

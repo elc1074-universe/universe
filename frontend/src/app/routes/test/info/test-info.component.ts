@@ -14,7 +14,7 @@ export class TestInfoComponent {
     public dialogRef: MatDialogRef<TestInfoComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
-    if (data.currentUser) {
+    if (data.username) {
       this.title = `Bem vindo(a), ${data.username}!`;
     } else {
       this.title = `Bem vindo(a)!`;

@@ -2,12 +2,12 @@ git pull
 
 cd backend
 
-npm run pm2
+npm run deploy
 
 cd ../
 
 cd frontend
 
-npm run nginx
+npm run deploy
 
 cd ../

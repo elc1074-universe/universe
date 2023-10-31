@@ -1,3 +1,5 @@
+USE universe;
+
 INSERT INTO personality (id, letter, `name`, `description`, story_title, story_description) VALUES (
     1,
     'R',

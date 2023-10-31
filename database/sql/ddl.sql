@@ -33,9 +33,9 @@ CREATE TABLE IF NOT EXISTS user (
     email      VARCHAR(255)     NULL,
     created_at DATETIME     NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
-    PRIMARY KEY (id),
-    UNIQUE      (code),
-    UNIQUE      (created_at)
+    CONSTRAINT pk_user            PRIMARY KEY (id),
+    CONSTRAINT uq_user_code       UNIQUE      (code),
+    CONSTRAINT uq_user_created_at UNIQUE      (created_at)
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci;
 
 CREATE TABLE IF NOT EXISTS personality (
@@ -46,12 +46,12 @@ CREATE TABLE IF NOT EXISTS personality (
     story_title       VARCHAR(63)  NOT NULL,
     story_description VARCHAR(511) NOT NULL,
 
-    PRIMARY KEY (id),
-    UNIQUE      (letter),
-    UNIQUE      (`name`),
-    UNIQUE      (`description`),
-    UNIQUE      (story_title),
-    UNIQUE      (story_description)
+    CONSTRAINT pk_personality                   PRIMARY KEY (id),
+    CONSTRAINT uq_personality_letter            UNIQUE      (letter),
+    CONSTRAINT uq_personality_name              UNIQUE      (`name`),
+    CONSTRAINT uq_personality_description       UNIQUE      (`description`),
+    CONSTRAINT uq_personality_story_title       UNIQUE      (story_title),
+    CONSTRAINT uq_personality_story_description UNIQUE      (story_description)
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci;
 
 CREATE TABLE IF NOT EXISTS `statement` (
@@ -61,9 +61,9 @@ CREATE TABLE IF NOT EXISTS `statement` (
     story_text     VARCHAR(511) NOT NULL,
     personality_id INT          NOT NULL,
 
-    PRIMARY KEY (id),
-    FOREIGN KEY (personality_id) REFERENCES personality (id),
-    UNIQUE      (riasec_title)
+    CONSTRAINT pk_statement              PRIMARY KEY (id),
+    CONSTRAINT fk_statement_personality  FOREIGN KEY (personality_id) REFERENCES personality (id),
+    CONSTRAINT uq_statement_riasec_title UNIQUE      (riasec_title)
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci;
 
 CREATE TABLE IF NOT EXISTS `option` (
@@ -72,9 +72,9 @@ CREATE TABLE IF NOT EXISTS `option` (
     `value`       TINYINT(1) UNSIGNED NOT NULL,
     statement_id  INT                 NOT NULL,
 
-    PRIMARY KEY (id),
-    FOREIGN KEY (statement_id) REFERENCES `statement` (id),
-    UNIQUE      (`description`)
+    CONSTRAINT pk_option             PRIMARY KEY (id),
+    CONSTRAINT fk_option_statement   FOREIGN KEY (statement_id) REFERENCES `statement` (id),
+    CONSTRAINT uq_option_description UNIQUE      (`description`)
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci;
 
 CREATE TABLE IF NOT EXISTS test (
@@ -82,10 +82,10 @@ CREATE TABLE IF NOT EXISTS test (
     user_id    INT      NOT NULL,
     created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
-    PRIMARY KEY (id),
-    FOREIGN KEY (user_id) REFERENCES user (id),
-    UNIQUE      (user_id),
-	UNIQUE      (created_at)
+    CONSTRAINT pk_test            PRIMARY KEY (id),
+    CONSTRAINT fk_test_user       FOREIGN KEY (user_id) REFERENCES user (id),
+    CONSTRAINT uq_test_user_id    UNIQUE      (user_id),
+	CONSTRAINT uq_test_created_at UNIQUE      (created_at)
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci;
 
 CREATE TABLE IF NOT EXISTS test_statement (
@@ -94,11 +94,11 @@ CREATE TABLE IF NOT EXISTS test_statement (
     statement_id       INT NOT NULL,
     selected_option_id INT NOT NULL,
 
-    PRIMARY KEY (id),
-    FOREIGN KEY (test_id)            REFERENCES test (id),
-    FOREIGN KEY (statement_id)       REFERENCES `statement` (id),
-    FOREIGN KEY (selected_option_id) REFERENCES `option` (id),
-    UNIQUE      (test_id, statement_id)
+    CONSTRAINT pk_test_statement                          PRIMARY KEY (id),
+    CONSTRAINT fk_test_statement_test                     FOREIGN KEY (test_id)            REFERENCES test (id),
+    CONSTRAINT fk_test_statement_statement                FOREIGN KEY (statement_id)       REFERENCES `statement` (id),
+    CONSTRAINT fk_test_statement_option                   FOREIGN KEY (selected_option_id) REFERENCES `option` (id),
+    CONSTRAINT uq_test_statement_test_id_and_statement_id UNIQUE      (test_id, statement_id)
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci;
 
 CREATE TABLE IF NOT EXISTS result (
@@ -113,9 +113,9 @@ CREATE TABLE IF NOT EXISTS result (
     interest_code CHAR(3)  NOT NULL,
     created_at    DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
-    PRIMARY KEY (id),
-    UNIQUE      (user_code),
-	UNIQUE      (created_at)
+    CONSTRAINT pk_result            PRIMARY KEY (id),
+    CONSTRAINT uq_result_user_code  UNIQUE      (user_code),
+	CONSTRAINT uq_result_created_at UNIQUE      (created_at)
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci;
 
 CREATE TABLE IF NOT EXISTS ufsm_course (
@@ -123,16 +123,16 @@ CREATE TABLE IF NOT EXISTS ufsm_course (
     `name` VARCHAR(255) NOT NULL,
     `site` VARCHAR(255) NOT NULL,
 
-    PRIMARY KEY (id),
-    UNIQUE      (`name`)
+    CONSTRAINT pk_ufsm_course      PRIMARY KEY (id),
+    CONSTRAINT uq_ufsm_course_name UNIQUE      (`name`)
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci;
 
 CREATE TABLE IF NOT EXISTS pathway (
     id     INT         NOT NULL AUTO_INCREMENT,
     `name` VARCHAR(63) NOT NULL,
 
-    PRIMARY KEY (id),
-    UNIQUE      (`name`)
+    CONSTRAINT pk_pathway      PRIMARY KEY (id),
+    CONSTRAINT uq_pathway_name UNIQUE      (`name`)
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci;
 
 CREATE TABLE IF NOT EXISTS personality_pathway (
@@ -141,10 +141,10 @@ CREATE TABLE IF NOT EXISTS personality_pathway (
     pathway_id      INT                 NOT NULL,
     is_main_pathway TINYINT(1) UNSIGNED NOT NULL,
     
-    PRIMARY KEY (id),
-    FOREIGN KEY (personality_id) REFERENCES personality (id),
-    FOREIGN KEY (pathway_id)     REFERENCES pathway (id),
-    UNIQUE      (personality_id, pathway_id)
+    CONSTRAINT pk_personality_pathway                               PRIMARY KEY (id),
+    CONSTRAINT fk_personality_pathway_personality                   FOREIGN KEY (personality_id) REFERENCES personality (id),
+    CONSTRAINT fk_personality_pathway_pathway                       FOREIGN KEY (pathway_id)     REFERENCES pathway (id),
+    CONSTRAINT uq_personality_pathway_personality_id_and_pathway_id UNIQUE      (personality_id, pathway_id)
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci;
 
 CREATE TABLE IF NOT EXISTS personality_pathway_ufsm_course (
@@ -152,8 +152,8 @@ CREATE TABLE IF NOT EXISTS personality_pathway_ufsm_course (
     personality_pathway_id INT NOT NULL,
     ufsm_course_id         INT NOT NULL,
     
-    PRIMARY KEY (id),
-    FOREIGN KEY (personality_pathway_id) REFERENCES personality_pathway (id),
-    FOREIGN KEY (ufsm_course_id)         REFERENCES ufsm_course (id),
-    UNIQUE      (personality_pathway_id, ufsm_course_id)
+    CONSTRAINT pk_personality_pathway_ufsm_course                     PRIMARY KEY (id),
+    CONSTRAINT fk_personality_pathway_ufsm_course_personality_pathway FOREIGN KEY (personality_pathway_id) REFERENCES personality_pathway (id),
+    CONSTRAINT fk_personality_pathway_ufsm_course_ufsm_course         FOREIGN KEY (ufsm_course_id)         REFERENCES ufsm_course (id),
+    CONSTRAINT uq_personality_pathway_ufsm_course_pp_id_and_uc_id     UNIQUE      (personality_pathway_id, ufsm_course_id)
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci;

@@ -10,13 +10,17 @@ import { TestResultComponent } from './result/test-result.component';
 import { TestInfoComponent } from './info/test-info.component';
 import { TestRoutingModule } from './test-routing.module';
 import { AppMaterialModule } from 'src/app/shared/app-material-module/app-material-module.module';
+import { StatementComponent } from './statement/statement.component';
+import { PersonalityComponent } from './personality/personality.component';
 
 @NgModule({
   declarations: [
     TestCreationComponent,
     TestContinuationComponent,
     TestResultComponent,
-    TestInfoComponent
+    TestInfoComponent,
+    StatementComponent,
+    PersonalityComponent
   ],
   imports: [
     CommonModule,
@@ -24,7 +28,8 @@ import { AppMaterialModule } from 'src/app/shared/app-material-module/app-materi
     AppMaterialModule,
     FormsModule,
     ToastrModule.forRoot(),
-    MatDialogModule
+    MatDialogModule,
+    AppMaterialModule
   ],
   providers: [
     ToastrService

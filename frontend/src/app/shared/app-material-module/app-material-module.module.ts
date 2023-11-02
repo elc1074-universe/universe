@@ -19,6 +19,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { MatRadioModule } from '@angular/material/radio';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+
 
 @NgModule({
   exports: [
@@ -43,7 +45,8 @@ import { MatRadioModule } from '@angular/material/radio';
     MatCheckboxModule,
     FormsModule,
     ReactiveFormsModule,
-    MatRadioModule
+    MatRadioModule,
+    MatProgressBarModule
   ]
 })
 export class AppMaterialModule { }

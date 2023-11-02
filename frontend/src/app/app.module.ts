@@ -9,8 +9,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './routes/home/home.component';
 import { TestComponent } from './routes/test/test.component';
-import { PersonalityComponent } from './routes/personality/personality.component';
-import { StatementComponent } from './routes/statement/statement.component';
+import { PersonalityComponent } from './routes/test/personality/personality.component';
 import { AppMaterialModule } from './shared/app-material-module/app-material-module.module';
 import { HeaderInterceptor } from './header-interceptor';
 
@@ -18,9 +17,7 @@ import { HeaderInterceptor } from './header-interceptor';
   declarations: [
     AppComponent,
     HomeComponent,
-    TestComponent,
-    PersonalityComponent,
-    StatementComponent
+    TestComponent
   ],
   imports: [
     BrowserModule,

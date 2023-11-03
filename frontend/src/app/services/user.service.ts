@@ -17,7 +17,7 @@ export default class UserService extends Service {
     super(httpClient, 'users');
   }
 
-  getUserByCode(code: string): Observable<UserRetrievalDTO | null> {
+  findByCode(code: string): Observable<UserRetrievalDTO | null> {
     return this.httpClient
       .get<ApiResponse<UserRetrievalDTO>>(`${this.baseURL}/${code}`)
       .pipe(map(response => response.data));

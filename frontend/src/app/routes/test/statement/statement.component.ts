@@ -42,7 +42,7 @@ export class StatementComponent implements OnInit {
       .getCurrentStatementId()
       .subscribe(currentStatementId => {
         this.statementService
-          .getStatementById(currentStatementId)
+          .findById(currentStatementId)
           .subscribe({
             next: (statement: StatementRetrievalDTO | null) => {
               this.statement = statement;

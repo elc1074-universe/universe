@@ -34,7 +34,7 @@ export class TestCreationComponent {
 
   onSubmit() {
     this.testService
-      .createTest(this.testCreationDTO)
+      .create(this.testCreationDTO)
       .subscribe({
         next: (test: TestRetrievalDTO | null)  => {
           if (test) {

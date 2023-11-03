@@ -1,3 +1,5 @@
+import UFSMCourseRetrievalDTO from './UFSMCourseRetrievalDTO';
+
 export default class ResultRetrievalDTO {
 
   rScore!: number;
@@ -13,6 +15,10 @@ export default class ResultRetrievalDTO {
   cScore!: number;
 
   interestCode!: string;
+
+  mainUFSMCourses!: UFSMCourseRetrievalDTO[];
+
+  relatedUFSMCourses!: UFSMCourseRetrievalDTO[];
 
   createdAt!: string;
 };

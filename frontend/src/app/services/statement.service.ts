@@ -19,7 +19,13 @@ export default class StatementService extends Service {
     super(httpClient, 'statements');
   }
 
-  getStatementById(id: number): Observable<StatementRetrievalDTO | null> {
+  findAll(): Observable<StatementRetrievalDTO[] | null> {
+    return this.httpClient
+      .get<ApiResponse<StatementRetrievalDTO[]>>(`${this.baseURL}`)
+      .pipe(map(response => response.data));
+  }
+
+  findById(id: number): Observable<StatementRetrievalDTO | null> {
     return this.httpClient
       .get<ApiResponse<StatementRetrievalDTO>>(`${this.baseURL}/${id}`)
       .pipe(map(response => response.data));

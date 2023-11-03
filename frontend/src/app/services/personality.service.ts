@@ -5,6 +5,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import Service from './service';
+import PersonalityRetrievalDTO from '../models/dto/personality/PersonalityRetrievalDTO';
 import StatementRetrievalDTO from '../models/dto/statement/StatementRetrievalDTO';
 import ApiResponse from '../models/api/ApiResponse';
 
@@ -21,7 +22,19 @@ export default class PersonalityService extends Service {
     super(httpClient, 'personalities');
   }
 
-  getPersonalityStatementsByPersonalityLetter(personalityLetter: string): Observable<StatementRetrievalDTO[] | null> {
+  findAll(): Observable<PersonalityRetrievalDTO[] | null> {
+    return this.httpClient
+      .get<ApiResponse<PersonalityRetrievalDTO[]>>(`${this.baseURL}`)
+      .pipe(map(response => response.data));
+  }
+
+  findByLetter(letter: string): Observable<PersonalityRetrievalDTO | null> {
+    return this.httpClient
+      .get<ApiResponse<PersonalityRetrievalDTO>>(`${this.baseURL}/${letter}`)
+      .pipe(map(response => response.data));
+  }
+
+  findStatementsByPersonalityLetter(personalityLetter: string): Observable<StatementRetrievalDTO[] | null> {
     return this.httpClient
       .get<ApiResponse<StatementRetrievalDTO[]>>(`${this.baseURL}/${personalityLetter}/statements`)
       .pipe(map(response => response.data));

@@ -39,7 +39,7 @@ export class PersonalityComponent implements OnInit {
       .getCurrentUserCode()
       .subscribe((currentUserCode: string | null) => {
         this.userService
-          .getUserByCode(currentUserCode!)
+          .findByCode(currentUserCode!)
           .subscribe({
             next: (user: UserRetrievalDTO | null) => {
               this.user = user;

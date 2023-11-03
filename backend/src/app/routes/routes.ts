@@ -6,6 +6,7 @@ import statementRouter from '../controllers/StatementController';
 import personalityRouter from '../controllers/PersonalityController';
 import optionRouter from '../controllers/OptionController';
 import testRouter from '../controllers/TestController';
+import ufsmCourseRouter from '../controllers/UFSMCourseController';
 
 const routes = Router();
 
@@ -14,6 +15,7 @@ routes.use('/api/statements', statementRouter);
 routes.use('/api/personalities', personalityRouter);
 routes.use('/api/options', optionRouter);
 routes.use('/api/tests', testRouter);
+routes.use('/api/ufsm-courses', ufsmCourseRouter);
 routes.use(errorHandler);
 
 export default routes;

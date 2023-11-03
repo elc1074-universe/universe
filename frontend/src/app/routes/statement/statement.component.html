@@ -1,9 +1,0 @@
-<div class="statement-container">
-  <h2>{{statement?.storyText}}</h2>
-
-  <div *ngFor="let option of statement?.options">
-    <h2>{{option.description}}</h2>
-  </div>
-
-  <button (click)="goToNextStatement()">Ir para a próxima declaração</button>
-</div>

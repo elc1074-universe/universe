@@ -43,7 +43,7 @@ export class TestCreationComponent {
             const userCode: string = test.user.code.toLocaleLowerCase();
             
             this.userService.setCurrentUserCode(userCode);
-            this.router.navigate(['/test', userCode]);
+            this.router.navigate(['/test/personality', userCode]);
           }
         },
         error: error => {

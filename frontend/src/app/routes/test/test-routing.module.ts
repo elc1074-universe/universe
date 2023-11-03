@@ -4,6 +4,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { TestCreationComponent } from './creation/test-creation.component';
 import { TestContinuationComponent } from './continuation/test-continuation.component';
 import { TestResultComponent } from './result/test-result.component';
+import { StatementComponent } from './statement/statement.component';
+import { PersonalityComponent } from './personality/personality.component';
 
 const routes: Routes = [
   {
@@ -13,6 +15,14 @@ const routes: Routes = [
   {
     path: 'continue',
     component: TestContinuationComponent,
+  },
+  {
+    path: 'personality/:userCode',
+    component: PersonalityComponent,
+  },
+  {
+    path: 'statement/:id',
+    component: StatementComponent,
   },
   {
     path: 'result',

@@ -22,6 +22,6 @@ export class TestContinuationComponent implements OnInit {
 
   onSubmit(): void {
     this.userService.setCurrentUserCode(this.userCode);
-    this.router.navigate(['/test', this.userCode]);
+    this.router.navigate(['test/personality', this.userCode]);
   }
 };

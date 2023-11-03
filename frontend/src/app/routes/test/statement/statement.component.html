@@ -1,0 +1,50 @@
+<body [style.background-image]="'url(' + getQuestionImage() + ')'">
+  <div class="back">
+    <button mat-icon-button (click)="goBack()">
+      <mat-icon class="material-icons color_white">
+        arrow_back_ios
+      </mat-icon>
+    </button>
+    <br>
+  </div>
+
+  <div class="question">
+    <div class="question-text">
+      <mat-card id="card">
+        <mat-card-content>
+          <h2>{{statement?.storyText}}</h2>
+          <div class="options">
+            <div *ngFor="let option of statement?.options">
+              <p class="option">{{option.description}}</p>
+            </div>
+          </div>
+          <br>
+          <div class="text">
+            <p class="text">Escolha uma opção</p>
+          </div>
+          <div class="example-button-row">
+            <div class="example-flex-container">
+              <div class="example-button-container">
+                <button mat-fab class="custom-button">
+                  <p class="button">A</p>
+                </button>
+              </div>
+              <div class="example-button-container">
+                <button mat-fab class="custom-button">
+                  <p class="button">B</p>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="progress-bar">
+            <mat-progress-bar class="custom-progress-bar" mode="determinate" value="{{currentStatementId}}"></mat-progress-bar>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <button (click)="goToNextStatement()">Ir para a próxima declaração</button>
+
+    
+  </div>
+</body>

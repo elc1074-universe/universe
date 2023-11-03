@@ -5,17 +5,17 @@ import Statement from '../entities/database/Statement';
 
 const statementRepository = dataSource.getRepository(Statement);
 
-const findAllStatements = (): Promise<Statement[]> => {
+const findAll = (): Promise<Statement[]> => {
   return statementRepository.find();
 };
 
-const findStatementById = (id: number): Promise<Statement | null> => {
+const findById = (id: number): Promise<Statement | null> => {
   return statementRepository.findOneBy({
     id: Equal(id)
   });
 };
 
-const findStatementsByPersonalityId = (personalityId: number): Promise<Statement[]> => {
+const findByPersonalityId = (personalityId: number): Promise<Statement[]> => {
   return statementRepository.find({
     where: {
       personality: {
@@ -25,7 +25,7 @@ const findStatementsByPersonalityId = (personalityId: number): Promise<Statement
   });
 };
 
-const findStatementsByPersonalityLetter = (personalityLetter: string): Promise<Statement[]> => {
+const findByPersonalityLetter = (personalityLetter: string): Promise<Statement[]> => {
   return statementRepository.find({
     where: {
       personality: {
@@ -36,8 +36,8 @@ const findStatementsByPersonalityLetter = (personalityLetter: string): Promise<S
 };
 
 export default {
-  findAllStatements,
-  findStatementById,
-  findStatementsByPersonalityId,
-  findStatementsByPersonalityLetter
+  findAll,
+  findById,
+  findByPersonalityId,
+  findByPersonalityLetter
 };

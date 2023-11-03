@@ -4,8 +4,8 @@ import Option from '../entities/database/Option';
 import OptionRepository from '../repositories/OptionRepository';
 import ApiError from '../entities/api/ApiError';
 
-const findOptionById = async (id: number): Promise<Option> => {
-  const option = await OptionRepository.findOptionById(id);
+const findById = async (id: number): Promise<Option> => {
+  const option = await OptionRepository.findById(id);
 
   if (!option) {
     throw new ApiError(
@@ -18,11 +18,11 @@ const findOptionById = async (id: number): Promise<Option> => {
   return option;
 };
 
-const findOptionsByStatementId = (statementId: number): Promise<Option[]> => {
-  return OptionRepository.findOptionsByStatementId(statementId);
+const findByStatementId = (statementId: number): Promise<Option[]> => {
+  return OptionRepository.findByStatementId(statementId);
 };
 
 export default {
-  findOptionsByStatementId,
-  findOptionById
+  findById,
+  findByStatementId
 };

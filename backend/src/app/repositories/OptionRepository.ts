@@ -5,7 +5,7 @@ import Option from '../entities/database/Option';
 
 const optionRepository = dataSource.getRepository(Option);
 
-const findOptionsByStatementId = (statementId: number): Promise<Option[]> => {
+const findByStatementId = (statementId: number): Promise<Option[]> => {
   return optionRepository.find({
     where: {
       statement: {
@@ -15,13 +15,13 @@ const findOptionsByStatementId = (statementId: number): Promise<Option[]> => {
   });
 };
 
-const findOptionById = (id: number): Promise<Option | null> => {
+const findById = (id: number): Promise<Option | null> => {
   return optionRepository.findOneBy({
     id: Equal(id)
   });
 };
 
 export default {
-  findOptionsByStatementId,
-  findOptionById
+  findByStatementId,
+  findById
 };

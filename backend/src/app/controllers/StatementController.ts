@@ -9,7 +9,7 @@ const statementRouter: Router = Router();
 
 statementRouter.get('/', (async (request: Request, response: Response, next: NextFunction): Promise<void> => {
   try {
-    const rawStatements = await StatementService.findAllStatements();
+    const rawStatements = await StatementService.findAll();
 
     const mappedStatements = await Promise.all(rawStatements.map(statement => StatementRetrievalDTO.create(statement)));
 
@@ -27,7 +27,7 @@ statementRouter.get('/:id', (async (request: Request, response: Response, next: 
   try {
     const id = Number(request.params.id);
 
-    const rawStatement = await StatementService.findStatementById(id);
+    const rawStatement = await StatementService.findById(id);
 
     const mappedStatement = await StatementRetrievalDTO.create(rawStatement);
 

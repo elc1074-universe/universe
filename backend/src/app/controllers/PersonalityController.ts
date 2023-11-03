@@ -10,7 +10,7 @@ const personalityRouter: Router = Router();
 
 personalityRouter.get('/', (async (request: Request, response: Response, next: NextFunction): Promise<void> => {
   try {
-    const rawPersonalities = await PersonalityService.findAllPersonalities();
+    const rawPersonalities = await PersonalityService.findAll();
 
     const mappedPersonalities = rawPersonalities.map(personality => new PersonalityRetrievalDTO(personality));
 
@@ -28,7 +28,7 @@ personalityRouter.get('/:letter', (async (request: Request, response: Response, 
   try {
     const { letter } = request.params;
 
-    const rawPersonality = await PersonalityService.findPersonalityByLetter(letter);
+    const rawPersonality = await PersonalityService.findByLetter(letter);
 
     const mappedPersonality = new PersonalityRetrievalDTO(rawPersonality);
 
@@ -46,7 +46,7 @@ personalityRouter.get('/:letter/statements', (async (request: Request, response:
   try {
     const { letter } = request.params;
 
-    const rawStatements = await PersonalityService.findPersonalityStatementsByPersonalityLetter(letter);
+    const rawStatements = await PersonalityService.findStatementsByPersonalityLetter(letter);
 
     const mappedStatements = await Promise.all(rawStatements.map(rawStatement => StatementRetrievalDTO.create(rawStatement)));
 

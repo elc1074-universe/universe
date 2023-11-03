@@ -119,12 +119,13 @@ CREATE TABLE IF NOT EXISTS result (
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci;
 
 CREATE TABLE IF NOT EXISTS ufsm_course (
-    id     INT          NOT NULL AUTO_INCREMENT,
-    `name` VARCHAR(255) NOT NULL,
-    `site` VARCHAR(255) NOT NULL,
+    id      INT          NOT NULL,
+    `name`  VARCHAR(255) NOT NULL,
+    `site`  VARCHAR(255) NOT NULL,
+    `level` VARCHAR(9)   NOT NULL,
 
-    CONSTRAINT pk_ufsm_course      PRIMARY KEY (id),
-    CONSTRAINT uq_ufsm_course_name UNIQUE      (`name`)
+    CONSTRAINT pk_ufsm_course          PRIMARY KEY (id),
+    CONSTRAINT check_ufsm_course_level CHECK (`level` IN ('Técnico', 'Graduação'))
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci;
 
 CREATE TABLE IF NOT EXISTS pathway (

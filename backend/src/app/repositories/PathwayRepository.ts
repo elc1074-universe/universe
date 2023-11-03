@@ -5,17 +5,17 @@ import Pathway from '../entities/database/Pathway';
 
 const pathwayRepository = dataSource.getRepository(Pathway);
 
-const findAllPathways = (): Promise<Pathway[]> => {
+const findAll = (): Promise<Pathway[]> => {
   return pathwayRepository.find();
 };
 
-const findPathwayById = (id: number): Promise<Pathway | null> => {
+const findById = (id: number): Promise<Pathway | null> => {
   return pathwayRepository.findOneBy({
     id: Equal(id)
   });
 };
 
 export default {
-  findAllPathways,
-  findPathwayById
+  findAll,
+  findById
 };

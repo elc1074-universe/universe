@@ -5,22 +5,22 @@ import Result from '../entities/database/Result';
 
 const resultRepository = dataSource.getRepository(Result);
 
-const findAllResults = (): Promise<Result[]> => {
+const findAll = (): Promise<Result[]> => {
   return resultRepository.find();
 };
 
-const findResultByUserCode = (userCode: string): Promise<Result | null> => {
+const findByUserCode = (userCode: string): Promise<Result | null> => {
   return resultRepository.findOneBy({
     userCode: ILike(userCode)
   });
 };
 
-const saveResult = (result: Result): Promise<Result> => {
+const save = (result: Result): Promise<Result> => {
   return resultRepository.save(result);
 };
 
 export default {
-  findAllResults,
-  findResultByUserCode,
-  saveResult
+  findAll,
+  findByUserCode,
+  save
 };

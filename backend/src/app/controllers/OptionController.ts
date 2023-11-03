@@ -11,7 +11,7 @@ optionRouter.get('/:id', (async (request: Request, response: Response, next: Nex
   try {
     const id = Number(request.params.id);
 
-    const rawOption = await OptionService.findOptionById(id);
+    const rawOption = await OptionService.findById(id);
 
     const mappedOption = new OptionRetrievalDTO(rawOption);
 
@@ -29,7 +29,7 @@ optionRouter.get('/statement/:id', (async (request: Request, response: Response,
   try {
     const id = Number(request.params.id);
 
-    const rawOptions = await OptionService.findOptionsByStatementId(id);
+    const rawOptions = await OptionService.findByStatementId(id);
 
     const mappedOptions = rawOptions.map((option) => new OptionRetrievalDTO(option));
 

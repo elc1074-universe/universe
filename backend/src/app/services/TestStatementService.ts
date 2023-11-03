@@ -5,26 +5,36 @@ import TestService from './TestService';
 import StatementService from './StatementService';
 import OptionService from './OptionService';
 
-const findTestStatementsByUserCode = (userCode: string): Promise<TestStatement[]> => {
-  return TestStatementRepository.findTestStatementsByUserCode(userCode);
+const findByUserCode = (userCode: string): Promise<TestStatement[]> => {
+  return TestStatementRepository.findByUserCode(userCode);
 };
 
-const findTestStatementByUserCodeAndStatementId = (userCode: string, statementId: number): Promise<TestStatement | null> => {
-  return TestStatementRepository.findTestStatementByUserCodeAndStatementId(userCode, statementId);
+const findByUserCodeAndStatementId = (userCode: string, statementId: number): Promise<TestStatement | null> => {
+  return TestStatementRepository.findByUserCodeAndStatementId(userCode, statementId);
 };
 
-const saveTestStatement = async (statementSavingDTO: TestStatementSavingDTO): Promise<TestStatement> => {
+const findCurrentStatementIdByUserCodeAndPersonalityId = (userCode: string, personalityId: number): Promise<number> => {
+  return TestStatementRepository.findCurrentStatementIdByUserCodeAndPersonalityId(userCode, personalityId);
+};
+
+const findNumberOfCompletedStatementsByUserCodeAndPersonalityId = (userCode: string, personalityId: number): Promise<number> => {
+  return TestStatementRepository.findNumberOfCompletedStatementsByUserCodeAndPersonalityId(userCode, personalityId);
+};
+
+const save = async (statementSavingDTO: TestStatementSavingDTO): Promise<TestStatement> => {
   const testStatement = new TestStatement(
-    await TestService.findTestByUserCode(statementSavingDTO.userCode),
-    await StatementService.findStatementById(statementSavingDTO.statementId),
-    await OptionService.findOptionById(statementSavingDTO.selectedOptionId)
+    await TestService.findByUserCode(statementSavingDTO.userCode),
+    await StatementService.findById(statementSavingDTO.statementId),
+    await OptionService.findById(statementSavingDTO.selectedOptionId)
   );
 
-  return await TestStatementRepository.saveTestStatement(testStatement);
+  return await TestStatementRepository.save(testStatement);
 };
 
 export default {
-  findTestStatementsByUserCode,
-  findTestStatementByUserCodeAndStatementId,
-  saveTestStatement
+  findByUserCode,
+  findByUserCodeAndStatementId,
+  findCurrentStatementIdByUserCodeAndPersonalityId,
+  findNumberOfCompletedStatementsByUserCodeAndPersonalityId,
+  save
 };

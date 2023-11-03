@@ -5,17 +5,17 @@ import UFSMCourse from '../entities/database/UFSMCourse';
 
 const ufsmCourseRepository = dataSource.getRepository(UFSMCourse);
 
-const findAllUFSMCourses = (): Promise<UFSMCourse[]> => {
+const findAll = (): Promise<UFSMCourse[]> => {
   return ufsmCourseRepository.find();
 };
 
-const findUFSMCourseById = (id: number): Promise<UFSMCourse | null> => {
+const findById = (id: number): Promise<UFSMCourse | null> => {
   return ufsmCourseRepository.findOneBy({
     id: Equal(id)
   });
 };
 
 export default {
-  findAllUFSMCourses,
-  findUFSMCourseById
+  findAll,
+  findById
 };

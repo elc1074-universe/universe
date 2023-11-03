@@ -398,7 +398,7 @@ INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
 
 INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
     'b) Ignora o veículo e continua a explorar a pé, sem se preocupar com sua condição.',
-    0,
+    5 * 2 + 1 - 2,
     (SELECT id FROM `statement` WHERE riasec_title = 'I like to work on cars')
 );
 
@@ -410,7 +410,7 @@ INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
 
 INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
     'b) Deixa que outros cuidem da construção do abrigo e você relaxa à beira da praia.',
-    0,
+    5 * 2 + 1 - 2,
     (SELECT id FROM `statement` WHERE riasec_title = 'I like to build things')
 );
 
@@ -422,7 +422,7 @@ INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
 
 INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
     'b) Deixa as ferramentas onde estão, já que não vê utilidade imediata para elas.',
-    0,
+    5 * 2 + 1 - 2,
     (SELECT id FROM `statement` WHERE riasec_title = 'I like putting things together or assembling things')
 );
 
@@ -434,7 +434,7 @@ INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
 
 INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
     'b) Opta por não subir a colina, preferindo permanecer na área mais segura e familiar.',
-    0,
+    5 * 2 + 1 - 2,
     (SELECT id FROM `statement` WHERE riasec_title = 'I like to work outdoors')
 );
 
@@ -446,7 +446,7 @@ INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
 
 INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
     'b) Deixa que outra pessoa cuide da cozinha, não se sentindo à vontade para improvisar com os ingredientes limitados.',
-    0,
+    5 * 2 + 1 - 2,
     (SELECT id FROM `statement` WHERE riasec_title = 'I like to cook')
 );
 
@@ -458,7 +458,7 @@ INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
 
 INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
     'b) Ignora o animal ferido e continua explorando, não querendo se envolver com animais selvagens.',
-    0,
+    5 * 2 + 1 - 2,
     (SELECT id FROM `statement` WHERE riasec_title = 'I like to take care of animals')
 );
 
@@ -470,7 +470,7 @@ INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
 
 INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
     'b) Prefere não ficar de vigia e decide deixar essa tarefa para outra pessoa do grupo.',
-    0,
+    5 * 2 + 1 - 2,
     (SELECT id FROM `statement` WHERE riasec_title = 'I am a practical person')
 );
 
@@ -482,7 +482,7 @@ INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
 
 INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
     'b) Opta por não participar dos quebra-cabeças, preferindo não gastar tempo com atividades desse tipo.',
-    0,
+    5 * 2 + 1 - 2,
     (SELECT id FROM `statement` WHERE riasec_title = 'I like to do puzzles')
 );
 
@@ -494,7 +494,7 @@ INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
 
 INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
     'b) Decide não se envolver em experimentos, não se sentindo interessado em atividades científicas.',
-    0,
+    5 * 2 + 1 - 2,
     (SELECT id FROM `statement` WHERE riasec_title = 'I like to do experiments')
 );
 
@@ -506,7 +506,7 @@ INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
 
 INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
     'b) Escolhe não participar das apresentações, não tendo interesse em temas científicos.',
-    0,
+    5 * 2 + 1 - 2,
     (SELECT id FROM `statement` WHERE riasec_title = 'I enjoy science')
 );
 
@@ -518,7 +518,7 @@ INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
 
 INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
     'b) Ignora as máquinas e não se preocupa em entender seu funcionamento.',
-    0,
+    5 * 2 + 1 - 2,
     (SELECT id FROM `statement` WHERE riasec_title = 'I enjoy trying to figure out how things work')
 );
 
@@ -530,7 +530,7 @@ INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
 
 INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
     'b) Evita se envolver em problemas complexos e prefere lidar com situações mais simples.',
-    0,
+    5 * 2 + 1 - 2,
     (SELECT id FROM `statement` WHERE riasec_title = 'I like to analyze things (problems/situations)')
 );
 
@@ -542,7 +542,7 @@ INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
 
 INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
     'b) Opta por não se envolver em tarefas que envolvem números e gráficos, não tendo interesse nesse tipo de atividade.',
-    0,
+    5 * 2 + 1 - 2,
     (SELECT id FROM `statement` WHERE riasec_title = 'I like working with numbers or charts')
 );
 
@@ -554,7 +554,7 @@ INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
 
 INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
     'b) Evita tarefas que envolvem matemática e procura outras atividades.',
-    0,
+    5 * 2 + 1 - 2,
     (SELECT id FROM `statement` WHERE riasec_title = "I'm good at math")
 );
 
@@ -566,7 +566,7 @@ INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
 
 INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
     'b) Prefere não se aventurar sozinho e busca a companhia de outros exploradores.',
-    0,
+    5 * 2 + 1 - 2,
     (SELECT id FROM `statement` WHERE riasec_title = 'I am good at working independently')
 );
 
@@ -578,7 +578,7 @@ INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
 
 INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
     'b) Escolhe não gastar tempo lendo e busca outras atividades na ilha.',
-    0,
+    5 * 2 + 1 - 2,
     (SELECT id FROM `statement` WHERE riasec_title = 'I like to read about art and music')
 );
 
@@ -590,7 +590,7 @@ INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
 
 INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
     'b) Declina o convite, preferindo não participar do workshop de escrita.',
-    0,
+    5 * 2 + 1 - 2,
     (SELECT id FROM `statement` WHERE riasec_title = 'I enjoy creative writing')
 );
 
@@ -602,7 +602,7 @@ INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
 
 INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
     'b) Opta por não se envolver nas atividades criativas e segue explorando a ilha de outras maneiras.',
-    0,
+    5 * 2 + 1 - 2,
     (SELECT id FROM `statement` WHERE riasec_title = 'I am a creative person')
 );
 
@@ -614,7 +614,7 @@ INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
 
 INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
     'b) Opta por não se juntar ao grupo musical e continua explorando a ilha.',
-    0,
+    5 * 2 + 1 - 2,
     (SELECT id FROM `statement` WHERE riasec_title = 'I like to play instruments or sing')
 );
 
@@ -626,7 +626,7 @@ INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
 
 INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
     'b) Declina o convite, não se sentindo à vontade em atuar em peças teatrais.',
-    0,
+    5 * 2 + 1 - 2,
     (SELECT id FROM `statement` WHERE riasec_title = 'I like acting in plays')
 );
 
@@ -638,7 +638,7 @@ INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
 
 INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
     'b) Opta por não se envolver com isso, descansa um pouco e segue explorando a ilha de outras maneiras.',
-    0,
+    5 * 2 + 1 - 2,
     (SELECT id FROM `statement` WHERE riasec_title = 'I like to draw')
 );
 
@@ -650,7 +650,7 @@ INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
 
 INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
     'b) Deixa a liderança para outra pessoa, preferindo um papel mais passivo na equipe.',
-    0,
+    5 * 2 + 1 - 2,
     (SELECT id FROM `statement` WHERE riasec_title = 'I like to work in teams')
 );
 
@@ -662,7 +662,7 @@ INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
 
 INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
     'b) Deixa que outra pessoa assuma a responsabilidade pelo treinamento, não se sentindo à vontade nesse papel.',
-    0,
+    5 * 2 + 1 - 2,
     (SELECT id FROM `statement` WHERE riasec_title = 'I like to teach or train people')
 );
 
@@ -674,7 +674,7 @@ INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
 
 INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
     'b) Deixa a situação para outros voluntários, sentindo que não é a pessoa certa para lidar com questões emocionais e dar conselhos.',
-    0,
+    5 * 2 + 1 - 2,
     (SELECT id FROM `statement` WHERE riasec_title = 'I like trying to help people solve their problems')
 );
 
@@ -686,7 +686,7 @@ INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
 
 INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
     'b) Mantém-se distante das interações culturais, preferindo não se envolver muito nessas questões.',
-    0,
+    5 * 2 + 1 - 2,
     (SELECT id FROM `statement` WHERE riasec_title = 'I enjoy learning about other cultures')
 );
 
@@ -698,7 +698,7 @@ INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
 
 INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
     'b) Fica à margem das discussões e não se envolve na mediação dos conflitos.',
-    0,
+    5 * 2 + 1 - 2,
     (SELECT id FROM `statement` WHERE riasec_title = 'I like to get into discussions about issues')
 );
 
@@ -710,7 +710,7 @@ INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
 
 INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
     'b) Deixa a construção dos abrigos para os outros, preferindo não se envolver em tarefas que exijam esforço físico.',
-    0,
+    5 * 2 + 1 - 2,
     (SELECT id FROM `statement` WHERE riasec_title = 'I am interested in healing people')
 );
 
@@ -722,7 +722,7 @@ INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
 
 INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
     'b) Deixa a logística de distribuição para outros membros, não se envolvendo diretamente nessa questão logística.',
-    0,
+    5 * 2 + 1 - 2,
     (SELECT id FROM `statement` WHERE riasec_title = 'I like helping people')
 );
 
@@ -734,7 +734,7 @@ INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
 
 INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
     'b) Opta por não compartilhar sua ideia com os outros, mantendo-a em segredo.',
-    0,
+    5 * 2 + 1 - 2,
     (SELECT id FROM `statement` WHERE riasec_title = 'I like to try to influence or persuade people')
 );
 
@@ -746,7 +746,7 @@ INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
 
 INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
     'b) Deixa que outros membros da equipe definam as metas, não querendo assumir o controle.',
-    0,
+    5 * 2 + 1 - 2,
     (SELECT id FROM `statement` WHERE riasec_title = 'I set goals for myself')
 );
 
@@ -758,7 +758,7 @@ INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
 
 INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
     'b) Deixa que outros membros da equipe lidem com a estratégia de vendas, não se sentindo à vontade nesse papel.',
-    0,
+    5 * 2 + 1 - 2,
     (SELECT id FROM `statement` WHERE riasec_title = 'I like selling things')
 );
 
@@ -770,7 +770,7 @@ INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
 
 INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
     'b) Prefere manter seu papel atual e evita assumir novas responsabilidades.',
-    0,
+    5 * 2 + 1 - 2,
     (SELECT id FROM `statement` WHERE riasec_title = 'I am quick to take on new responsibilities')
 );
 
@@ -782,7 +782,7 @@ INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
 
 INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
     'b) Decide permanecer focado no negócio atual e não considera a ideia de iniciar algo novo.',
-    0,
+    5 * 2 + 1 - 2,
     (SELECT id FROM `statement` WHERE riasec_title = 'I would like to start my own business')
 );
 
@@ -794,7 +794,7 @@ INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
 
 INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
     'b) Recusa-se a assumir a liderança, preferindo um papel menos proeminente.',
-    0,
+    5 * 2 + 1 - 2,
     (SELECT id FROM `statement` WHERE riasec_title = 'I like to lead')
 );
 
@@ -806,7 +806,7 @@ INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
 
 INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
     'b) Deixa que outros membros da equipe lidem com as apresentações, evitando falar em público.',
-    0,
+    5 * 2 + 1 - 2,
     (SELECT id FROM `statement` WHERE riasec_title = 'I like to give speeches')
 );
 
@@ -818,7 +818,7 @@ INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
 
 INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
     'b) Deixa que outros cuidem dessa parte, não se importando muito com o arranjo dos itens.',
-    0,
+    5 * 2 + 1 - 2,
     (SELECT id FROM `statement` WHERE riasec_title = 'I like to organize things (files, desks/offices)')
 );
 
@@ -830,7 +830,7 @@ INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
 
 INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
     'b) Tenta realizar a tarefa de maneira mais intuitiva, não seguindo estritamente as instruções fornecidas.',
-    0,
+    5 * 2 + 1 - 2,
     (SELECT id FROM `statement` WHERE riasec_title = 'I like to have clear instructions to follow')
 );
 
@@ -842,7 +842,7 @@ INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
 
 INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
     'b) Resiste à ideia de passar o dia inteiro em um escritório e procura alternativas.',
-    0,
+    5 * 2 + 1 - 2,
     (SELECT id FROM `statement` WHERE riasec_title = "I wouldn't mind working 8 hours per day in an office")
 );
 
@@ -854,7 +854,7 @@ INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
 
 INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
     'b) Aborda a tarefa de maneira mais geral, não se concentrando excessivamente nos detalhes.',
-    0,
+    5 * 2 + 1 - 2,
     (SELECT id FROM `statement` WHERE riasec_title = 'I pay attention to details')
 );
 
@@ -866,7 +866,7 @@ INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
 
 INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
     'b) Deixa os documentos em desordem, não se preocupando muito com a organização.',
-    0,
+    5 * 2 + 1 - 2,
     (SELECT id FROM `statement` WHERE riasec_title = 'I like to do filing or typing')
 );
 
@@ -878,7 +878,7 @@ INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
 
 INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
     'b) Não se preocupa muito em manter registros e assume uma abordagem mais relaxada quanto à documentação.',
-    0,
+    5 * 2 + 1 - 2,
     (SELECT id FROM `statement` WHERE riasec_title = 'I am good at keeping records of my work')
 );
 
@@ -890,6 +890,916 @@ INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
 
 INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
     'b) Prefere trabalhar em um ambiente diferente, menos estruturado do que um escritório.',
-    0,
+    5 * 2 + 1 - 2,
     (SELECT id FROM `statement` WHERE riasec_title = 'I would like to work in an office')
+);
+
+INSERT INTO ufsm_course (id, `name`, `site`, `level`) VALUES (1, 'Administração', 'https://www.ufsm.br/cursos/graduacao/santa-maria/administracao', 'Graduação');
+
+INSERT INTO ufsm_course (id, `name`, `site`, `level`) VALUES (2, 'Administração', 'https://www.ufsm.br/cursos/tecnico/santa-maria/administracao', 'Técnico');
+
+INSERT INTO ufsm_course (id, `name`, `site`, `level`) VALUES (3, 'Agricultura', 'https://www.ufsm.br/cursos/tecnico/santa-maria/agricultura', 'Técnico');
+
+INSERT INTO ufsm_course (id, `name`, `site`, `level`) VALUES (4, 'Agricultura de Precisão', 'https://www.ufsm.br/cursos/tecnico/santa-maria/agricultura-de-precisao', 'Técnico');
+
+INSERT INTO ufsm_course (id, `name`, `site`, `level`) VALUES (5, 'Agrimensura', 'https://www.ufsm.br/cursos/tecnico/santa-maria/agrimensura', 'Técnico');
+
+INSERT INTO ufsm_course (id, `name`, `site`, `level`) VALUES (6, 'Agronegócio', 'https://www.ufsm.br/cursos/graduacao/santa-maria/tecnologia-em-agronegocio', 'Graduação');
+
+INSERT INTO ufsm_course (id, `name`, `site`, `level`) VALUES (7, 'Agronomia', 'https://www.ufsm.br/cursos/graduacao/santa-maria/agronomia', 'Graduação');
+
+INSERT INTO ufsm_course (id, `name`, `site`, `level`) VALUES (8, 'Agropecuária', 'https://www.ufsm.br/cursos/tecnico/santa-maria/agropecuaria', 'Técnico');
+
+INSERT INTO ufsm_course (id, `name`, `site`, `level`) VALUES (9, 'Alimentos', 'https://www.ufsm.br/cursos/graduacao/santa-maria/tecnologia-em-alimentos', 'Graduação');
+
+INSERT INTO ufsm_course (id, `name`, `site`, `level`) VALUES (10, 'Alimentos', 'https://www.ufsm.br/cursos/tecnico/santa-maria/alimentos', 'Técnico');
+
+INSERT INTO ufsm_course (id, `name`, `site`, `level`) VALUES (11, 'Arquitetura e Urbanismo', 'https://www.ufsm.br/cursos/graduacao/santa-maria/arquitetura-e-urbanismo', 'Graduação');
+
+INSERT INTO ufsm_course (id, `name`, `site`, `level`) VALUES (12, 'Arquivologia', 'https://www.ufsm.br/cursos/graduacao/santa-maria/arquivologia', 'Graduação');
+
+INSERT INTO ufsm_course (id, `name`, `site`, `level`) VALUES (13, 'Artes Cênicas', 'https://www.ufsm.br/cursos/graduacao/santa-maria/artes-cenicas', 'Graduação');
+
+INSERT INTO ufsm_course (id, `name`, `site`, `level`) VALUES (14, 'Artes Visuais', 'https://www.ufsm.br/cursos/graduacao/santa-maria/artes-visuais', 'Graduação');
+
+INSERT INTO ufsm_course (id, `name`, `site`, `level`) VALUES (15, 'Automação Industrial', 'https://www.ufsm.br/cursos/tecnico/santa-maria/automacao-industrial', 'Técnico');
+
+INSERT INTO ufsm_course (id, `name`, `site`, `level`) VALUES (16, 'Ciência da Computação', 'https://www.ufsm.br/cursos/graduacao/santa-maria/ciencia-da-computacao', 'Graduação');
+
+INSERT INTO ufsm_course (id, `name`, `site`, `level`) VALUES (17, 'Ciências Biológicas', 'https://www.ufsm.br/cursos/graduacao/santa-maria/ciencias-biologicas', 'Graduação');
+
+INSERT INTO ufsm_course (id, `name`, `site`, `level`) VALUES (18, 'Ciências Contábeis', 'https://www.ufsm.br/cursos/graduacao/santa-maria/ciencias-contabeis', 'Graduação');
+
+INSERT INTO ufsm_course (id, `name`, `site`, `level`) VALUES (19, 'Ciências da Religião', 'https://www.ufsm.br/cursos/graduacao/educacao-a-distancia/ciencias-da-religiao', 'Graduação');
+
+INSERT INTO ufsm_course (id, `name`, `site`, `level`) VALUES (20, 'Ciências Econômicas', 'https://www.ufsm.br/cursos/graduacao/santa-maria/ciencias-economicas', 'Graduação');
+
+INSERT INTO ufsm_course (id, `name`, `site`, `level`) VALUES (21, 'Ciências Sociais', 'https://www.ufsm.br/cursos/graduacao/santa-maria/ciencias-sociais', 'Graduação');
+
+INSERT INTO ufsm_course (id, `name`, `site`, `level`) VALUES (22, 'Comércio', 'https://www.ufsm.br/cursos/tecnico/santa-maria/comercio', 'Técnico');
+
+INSERT INTO ufsm_course (id, `name`, `site`, `level`) VALUES (23, 'Contabilidade', 'https://www.ufsm.br/cursos/tecnico/santa-maria/contabilidade', 'Técnico');
+
+INSERT INTO ufsm_course (id, `name`, `site`, `level`) VALUES (24, 'Cuidados de Idosos', 'https://www.ufsm.br/cursos/tecnico/santa-maria/cuidados-de-idosos', 'Técnico');
+
+INSERT INTO ufsm_course (id, `name`, `site`, `level`) VALUES (25, 'Dança', 'https://www.ufsm.br/cursos/graduacao/santa-maria/danca', 'Graduação');
+
+INSERT INTO ufsm_course (id, `name`, `site`, `level`) VALUES (26, 'Desenho Industrial', 'https://www.ufsm.br/cursos/graduacao/santa-maria/desenho-industrial', 'Graduação');
+
+INSERT INTO ufsm_course (id, `name`, `site`, `level`) VALUES (27, 'Direito', 'https://www.ufsm.br/cursos/graduacao/santa-maria/direito', 'Graduação');
+
+INSERT INTO ufsm_course (id, `name`, `site`, `level`) VALUES (28, 'Educação do Campo', 'https://www.ufsm.br/cursos/graduacao/educacao-a-distancia/educacao-do-campo', 'Graduação');
+
+INSERT INTO ufsm_course (id, `name`, `site`, `level`) VALUES (29, 'Educação Especial', 'https://www.ufsm.br/cursos/graduacao/santa-maria/educacao-especial', 'Graduação');
+
+INSERT INTO ufsm_course (id, `name`, `site`, `level`) VALUES (30, 'Educação Física', 'https://www.ufsm.br/cursos/graduacao/santa-maria/educacao-fisica', 'Graduação');
+
+INSERT INTO ufsm_course (id, `name`, `site`, `level`) VALUES (31, 'Educação Indígena', 'https://www.ufsm.br/cursos/graduacao/educacao-a-distancia/educacao-indigena', 'Graduação');
+
+INSERT INTO ufsm_course (id, `name`, `site`, `level`) VALUES (32, 'Eletromecânica', 'https://www.ufsm.br/cursos/tecnico/santa-maria/eletromecanica', 'Técnico');
+
+INSERT INTO ufsm_course (id, `name`, `site`, `level`) VALUES (33, 'Eletrônica', 'https://www.ufsm.br/cursos/tecnico/santa-maria/eletronica', 'Técnico');
+
+INSERT INTO ufsm_course (id, `name`, `site`, `level`) VALUES (34, 'Eletrônica Industrial', 'https://www.ufsm.br/cursos/graduacao/santa-maria/tecnologia-em-eletronica-industrial', 'Graduação');
+
+INSERT INTO ufsm_course (id, `name`, `site`, `level`) VALUES (35, 'Eletrotécnica', 'https://www.ufsm.br/cursos/tecnico/santa-maria/eletrotecnica', 'Técnico');
+
+INSERT INTO ufsm_course (id, `name`, `site`, `level`) VALUES (36, 'Enfermagem', 'https://www.ufsm.br/cursos/graduacao/santa-maria/enfermagem', 'Graduação');
+
+INSERT INTO ufsm_course (id, `name`, `site`, `level`) VALUES (37, 'Enfermagem', 'https://www.ufsm.br/cursos/tecnico/santa-maria/enfermagem', 'Técnico');
+
+INSERT INTO ufsm_course (id, `name`, `site`, `level`) VALUES (38, 'Engenharia Acústica', 'https://www.ufsm.br/cursos/graduacao/santa-maria/engenharia-acustica', 'Graduação');
+
+INSERT INTO ufsm_course (id, `name`, `site`, `level`) VALUES (39, 'Engenharia Aeroespacial', 'https://www.ufsm.br/cursos/graduacao/santa-maria/engenharia-aeroespacial', 'Graduação');
+
+INSERT INTO ufsm_course (id, `name`, `site`, `level`) VALUES (40, 'Engenharia Agrícola', 'https://www.ufsm.br/cursos/graduacao/cachoeira-do-sul/engenharia-agricola', 'Graduação');
+
+INSERT INTO ufsm_course (id, `name`, `site`, `level`) VALUES (41, 'Engenharia Ambiental e Sanitária', 'https://www.ufsm.br/cursos/graduacao/santa-maria/engenharia-sanitaria-e-ambiental', 'Graduação');
+
+INSERT INTO ufsm_course (id, `name`, `site`, `level`) VALUES (42, 'Engenharia Civil', 'https://www.ufsm.br/cursos/graduacao/santa-maria/engenharia-civil', 'Graduação');
+
+INSERT INTO ufsm_course (id, `name`, `site`, `level`) VALUES (43, 'Engenharia da Computação', 'https://www.ufsm.br/cursos/graduacao/santa-maria/engenharia-de-computacao', 'Graduação');
+
+INSERT INTO ufsm_course (id, `name`, `site`, `level`) VALUES (44, 'Engenharia de Controle e Automação', 'https://www.ufsm.br/cursos/graduacao/santa-maria/engenharia-de-controle-e-automacao', 'Graduação');
+
+INSERT INTO ufsm_course (id, `name`, `site`, `level`) VALUES (45, 'Engenharia de Produção', 'https://www.ufsm.br/cursos/graduacao/santa-maria/engenharia-de-producao', 'Graduação');
+
+INSERT INTO ufsm_course (id, `name`, `site`, `level`) VALUES (46, 'Engenharia de Telecomunicações', 'https://www.ufsm.br/cursos/graduacao/santa-maria/engenharia-de-telecomunicacoes', 'Graduação');
+
+INSERT INTO ufsm_course (id, `name`, `site`, `level`) VALUES (47, 'Engenharia de Transportes e Logística', 'https://www.ufsm.br/cursos/graduacao/cachoeira-do-sul/engenharia-de-transportes-e-logistica', 'Graduação');
+
+INSERT INTO ufsm_course (id, `name`, `site`, `level`) VALUES (48, 'Engenharia Elétrica', 'https://www.ufsm.br/cursos/graduacao/santa-maria/engenharia-eletrica', 'Graduação');
+
+INSERT INTO ufsm_course (id, `name`, `site`, `level`) VALUES (49, 'Engenharia Florestal', 'https://www.ufsm.br/cursos/graduacao/santa-maria/engenharia-florestal', 'Graduação');
+
+INSERT INTO ufsm_course (id, `name`, `site`, `level`) VALUES (50, 'Engenharia Mecânica', 'https://www.ufsm.br/cursos/graduacao/santa-maria/engenharia-mecanica', 'Graduação');
+
+INSERT INTO ufsm_course (id, `name`, `site`, `level`) VALUES (51, 'Engenharia Química', 'https://www.ufsm.br/cursos/graduacao/santa-maria/engenharia-quimica', 'Graduação');
+
+INSERT INTO ufsm_course (id, `name`, `site`, `level`) VALUES (52, 'Estatística', 'https://www.ufsm.br/cursos/graduacao/santa-maria/estatistica', 'Graduação');
+
+INSERT INTO ufsm_course (id, `name`, `site`, `level`) VALUES (53, 'Fabricação Mecânica', 'https://www.ufsm.br/cursos/graduacao/santa-maria/tecnologia-em-fabricacao-mecanica', 'Graduação');
+
+INSERT INTO ufsm_course (id, `name`, `site`, `level`) VALUES (54, 'Farmácia', 'https://www.ufsm.br/cursos/graduacao/santa-maria/farmacia', 'Graduação');
+
+INSERT INTO ufsm_course (id, `name`, `site`, `level`) VALUES (55, 'Farmácia', 'https://www.ufsm.br/cursos/tecnico/santa-maria/farmacia', 'Técnico');
+
+INSERT INTO ufsm_course (id, `name`, `site`, `level`) VALUES (56, 'Filosofia', 'https://www.ufsm.br/cursos/graduacao/santa-maria/filosofia', 'Graduação');
+
+INSERT INTO ufsm_course (id, `name`, `site`, `level`) VALUES (57, 'Física', 'https://www.ufsm.br/cursos/graduacao/santa-maria/fisica', 'Graduação');
+
+INSERT INTO ufsm_course (id, `name`, `site`, `level`) VALUES (58, 'Fisioterapia', 'https://www.ufsm.br/cursos/graduacao/santa-maria/fisioterapia', 'Graduação');
+
+INSERT INTO ufsm_course (id, `name`, `site`, `level`) VALUES (59, 'Fonoaudiologia', 'https://www.ufsm.br/cursos/graduacao/santa-maria/fonoaudiologia', 'Graduação');
+
+INSERT INTO ufsm_course (id, `name`, `site`, `level`) VALUES (60, 'Fruticultura', 'https://www.ufsm.br/cursos/tecnico/santa-maria/fruticultura', 'Técnico');
+
+INSERT INTO ufsm_course (id, `name`, `site`, `level`) VALUES (61, 'Geografia', 'https://www.ufsm.br/cursos/graduacao/santa-maria/geografia', 'Graduação');
+
+INSERT INTO ufsm_course (id, `name`, `site`, `level`) VALUES (62, 'Geoprocessamento', 'https://www.ufsm.br/cursos/graduacao/santa-maria/tecnologia-em-geoprocessamento', 'Graduação');
+
+INSERT INTO ufsm_course (id, `name`, `site`, `level`) VALUES (63, 'Geoprocessamento', 'https://www.ufsm.br/cursos/tecnico/santa-maria/geoprocessamento', 'Técnico');
+
+INSERT INTO ufsm_course (id, `name`, `site`, `level`) VALUES (64, 'Gestão Ambiental', 'https://www.ufsm.br/cursos/graduacao/santa-maria/tecnologia-em-gestao-ambiental', 'Graduação');
+
+INSERT INTO ufsm_course (id, `name`, `site`, `level`) VALUES (65, 'Gestão de Cooperativas', 'https://www.ufsm.br/cursos/graduacao/santa-maria/tecnologia-em-gestao-de-cooperativas', 'Graduação');
+
+INSERT INTO ufsm_course (id, `name`, `site`, `level`) VALUES (66, 'Gestão de Turismo', 'https://www.ufsm.br/cursos/graduacao/santa-maria/tecnologia-em-gestao-de-turismo', 'Graduação');
+
+INSERT INTO ufsm_course (id, `name`, `site`, `level`) VALUES (67, 'História', 'https://www.ufsm.br/cursos/graduacao/santa-maria/historia', 'Graduação');
+
+INSERT INTO ufsm_course (id, `name`, `site`, `level`) VALUES (68, 'Informática', 'https://www.ufsm.br/cursos/tecnico/santa-maria/informatica', 'Técnico');
+
+INSERT INTO ufsm_course (id, `name`, `site`, `level`) VALUES (69, 'Informática para Internet', 'https://www.ufsm.br/cursos/tecnico/santa-maria/informatica-para-internet', 'Técnico');
+
+INSERT INTO ufsm_course (id, `name`, `site`, `level`) VALUES (70, 'Jornalismo', 'https://www.ufsm.br/cursos/graduacao/santa-maria/jornalismo', 'Graduação');
+
+INSERT INTO ufsm_course (id, `name`, `site`, `level`) VALUES (71, 'Letras', 'https://www.ufsm.br/cursos/graduacao/santa-maria/letras', 'Graduação');
+
+INSERT INTO ufsm_course (id, `name`, `site`, `level`) VALUES (72, 'Matemática', 'https://www.ufsm.br/cursos/graduacao/santa-maria/matematica', 'Graduação');
+
+INSERT INTO ufsm_course (id, `name`, `site`, `level`) VALUES (73, 'Mecânica', 'https://www.ufsm.br/cursos/tecnico/santa-maria/mecanica', 'Técnico');
+
+INSERT INTO ufsm_course (id, `name`, `site`, `level`) VALUES (74, 'Medicina', 'https://www.ufsm.br/cursos/graduacao/santa-maria/medicina', 'Graduação');
+
+INSERT INTO ufsm_course (id, `name`, `site`, `level`) VALUES (75, 'Medicina Veterinária', 'https://www.ufsm.br/cursos/graduacao/santa-maria/medicina-veterinaria', 'Graduação');
+
+INSERT INTO ufsm_course (id, `name`, `site`, `level`) VALUES (76, 'Meio Ambiente', 'https://www.ufsm.br/cursos/tecnico/santa-maria/meio-ambiente', 'Técnico');
+
+INSERT INTO ufsm_course (id, `name`, `site`, `level`) VALUES (77, 'Meteorologia', 'https://www.ufsm.br/cursos/graduacao/santa-maria/meteorologia', 'Graduação');
+
+INSERT INTO ufsm_course (id, `name`, `site`, `level`) VALUES (78, 'Música', 'https://www.ufsm.br/cursos/graduacao/santa-maria/musica', 'Graduação');
+
+INSERT INTO ufsm_course (id, `name`, `site`, `level`) VALUES (79, 'Nutrição', 'https://www.ufsm.br/cursos/graduacao/santa-maria/nutricao', 'Graduação');
+
+INSERT INTO ufsm_course (id, `name`, `site`, `level`) VALUES (80, 'Odontologia', 'https://www.ufsm.br/cursos/graduacao/santa-maria/odontologia', 'Graduação');
+
+INSERT INTO ufsm_course (id, `name`, `site`, `level`) VALUES (81, 'Paisagismo', 'https://www.ufsm.br/cursos/tecnico/santa-maria/paisagismo', 'Técnico');
+
+INSERT INTO ufsm_course (id, `name`, `site`, `level`) VALUES (82, 'Pedagogia', 'https://www.ufsm.br/cursos/graduacao/santa-maria/pedagogia', 'Graduação');
+
+INSERT INTO ufsm_course (id, `name`, `site`, `level`) VALUES (83, 'Processos Químicos', 'https://www.ufsm.br/cursos/graduacao/santa-maria/tecnologia-em-processos-quimicos', 'Graduação');
+
+INSERT INTO ufsm_course (id, `name`, `site`, `level`) VALUES (84, 'Produção Editorial', 'https://www.ufsm.br/cursos/graduacao/santa-maria/producao-editorial', 'Graduação');
+
+INSERT INTO ufsm_course (id, `name`, `site`, `level`) VALUES (85, 'Psicologia', 'https://www.ufsm.br/cursos/graduacao/santa-maria/psicologia', 'Graduação');
+
+INSERT INTO ufsm_course (id, `name`, `site`, `level`) VALUES (86, 'Química', 'https://www.ufsm.br/cursos/graduacao/santa-maria/quimica', 'Graduação');
+
+INSERT INTO ufsm_course (id, `name`, `site`, `level`) VALUES (87, 'Química Industrial', 'https://www.ufsm.br/cursos/graduacao/santa-maria/quimica-industrial', 'Graduação');
+
+INSERT INTO ufsm_course (id, `name`, `site`, `level`) VALUES (88, 'Redes de Computadores', 'https://www.ufsm.br/cursos/graduacao/santa-maria/tecnologia-em-redes-de-computadores', 'Graduação');
+
+INSERT INTO ufsm_course (id, `name`, `site`, `level`) VALUES (89, 'Relações Internacionais', 'https://www.ufsm.br/cursos/graduacao/santa-maria/relacoes-internacionais', 'Graduação');
+
+INSERT INTO ufsm_course (id, `name`, `site`, `level`) VALUES (90, 'Relações Públicas', 'https://www.ufsm.br/cursos/graduacao/santa-maria/relacoes-publicas', 'Graduação');
+
+INSERT INTO ufsm_course (id, `name`, `site`, `level`) VALUES (91, 'Secretariado', 'https://www.ufsm.br/cursos/tecnico/santa-maria/secretariado', 'Técnico');
+
+INSERT INTO ufsm_course (id, `name`, `site`, `level`) VALUES (92, 'Segurança do Trabalho', 'https://www.ufsm.br/cursos/tecnico/santa-maria/seguranca-do-trabalho', 'Técnico');
+
+INSERT INTO ufsm_course (id, `name`, `site`, `level`) VALUES (93, 'Serviço Social', 'https://www.ufsm.br/cursos/graduacao/santa-maria/servico-social', 'Graduação');
+
+INSERT INTO ufsm_course (id, `name`, `site`, `level`) VALUES (94, 'Sistemas de Informação', 'https://www.ufsm.br/cursos/graduacao/santa-maria/sistemas-de-informacao', 'Graduação');
+
+INSERT INTO ufsm_course (id, `name`, `site`, `level`) VALUES (95, 'Sistemas para Internet', 'https://www.ufsm.br/cursos/graduacao/santa-maria/tecnologia-em-sistemas-para-internet', 'Graduação');
+
+INSERT INTO ufsm_course (id, `name`, `site`, `level`) VALUES (96, 'Soldagem', 'https://www.ufsm.br/cursos/tecnico/santa-maria/soldagem', 'Técnico');
+
+INSERT INTO ufsm_course (id, `name`, `site`, `level`) VALUES (97, 'Teatro', 'https://www.ufsm.br/cursos/graduacao/santa-maria/licenciatura-em-teatro', 'Graduação');
+
+INSERT INTO ufsm_course (id, `name`, `site`, `level`) VALUES (98, 'Terapia Ocupacional', 'https://www.ufsm.br/cursos/graduacao/santa-maria/terapia-ocupacional', 'Graduação');
+
+INSERT INTO ufsm_course (id, `name`, `site`, `level`) VALUES (99, 'Zootecnia', 'https://www.ufsm.br/cursos/graduacao/santa-maria/zootecnia', 'Graduação');
+
+INSERT INTO ufsm_course (id, `name`, `site`, `level`) VALUES (100, 'Zootecnia', 'https://www.ufsm.br/cursos/tecnico/santa-maria/zootecnia', 'Técnico');
+
+INSERT INTO pathway (`name`) VALUES ('Agricultura');
+
+INSERT INTO pathway (`name`) VALUES ('Assistência em saúde');
+
+INSERT INTO pathway (`name`) VALUES ('Computação');
+
+INSERT INTO pathway (`name`) VALUES ('Construção');
+
+INSERT INTO pathway (`name`) VALUES ('Mecânica/maquinário');
+
+INSERT INTO pathway (`name`) VALUES ('Engenharia');
+
+INSERT INTO pathway (`name`) VALUES ('Alimentação e hotelaria');
+
+INSERT INTO pathway (`name`) VALUES ('Recursos naturais');
+
+INSERT INTO pathway (`name`) VALUES ('Serviços de saúde');
+
+INSERT INTO pathway (`name`) VALUES ('Tecnologia industrial e de engenharia');
+
+INSERT INTO pathway (`name`) VALUES ('Comunicação e arte');
+
+INSERT INTO pathway (`name`) VALUES ('Biologia marinha');
+
+INSERT INTO pathway (`name`) VALUES ('Química');
+
+INSERT INTO pathway (`name`) VALUES ('Zoologia');
+
+INSERT INTO pathway (`name`) VALUES ('Medicina');
+
+INSERT INTO pathway (`name`) VALUES ('Economia do consumidor');
+
+INSERT INTO pathway (`name`) VALUES ('Psicologia');
+
+INSERT INTO pathway (`name`) VALUES ('Negócios');
+
+INSERT INTO pathway (`name`) VALUES ('Serviços públicos e humanitários');
+
+INSERT INTO pathway (`name`) VALUES ('Comunicação');
+
+INSERT INTO pathway (`name`) VALUES ('Cosmetologia');
+
+INSERT INTO pathway (`name`) VALUES ('Artes plásticas e cênicas');
+
+INSERT INTO pathway (`name`) VALUES ('Fotografia');
+
+INSERT INTO pathway (`name`) VALUES ('Rádio e televisão');
+
+INSERT INTO pathway (`name`) VALUES ('Design de interiores');
+
+INSERT INTO pathway (`name`) VALUES ('Arquitetura');
+
+INSERT INTO pathway (`name`) VALUES ('Consultoria');
+
+INSERT INTO pathway (`name`) VALUES ('Enfermagem');
+
+INSERT INTO pathway (`name`) VALUES ('Fisioterapia');
+
+INSERT INTO pathway (`name`) VALUES ('Turismo');
+
+INSERT INTO pathway (`name`) VALUES ('Publicidade');
+
+INSERT INTO pathway (`name`) VALUES ('Relações públicas');
+
+INSERT INTO pathway (`name`) VALUES ('Educação');
+
+INSERT INTO pathway (`name`) VALUES ('Marketing de moda');
+
+INSERT INTO pathway (`name`) VALUES ('Mercado imobiliário');
+
+INSERT INTO pathway (`name`) VALUES ('Propaganda/vendas');
+
+INSERT INTO pathway (`name`) VALUES ('Direito');
+
+INSERT INTO pathway (`name`) VALUES ('Ciência política');
+
+INSERT INTO pathway (`name`) VALUES ('Comércio internacional');
+
+INSERT INTO pathway (`name`) VALUES ('Bancos/finanças');
+
+INSERT INTO pathway (`name`) VALUES ('Contabilidade');
+
+INSERT INTO pathway (`name`) VALUES ('Relatórios judiciais');
+
+INSERT INTO pathway (`name`) VALUES ('Seguros');
+
+INSERT INTO pathway (`name`) VALUES ('Administração');
+
+INSERT INTO pathway (`name`) VALUES ('Registros médicos');
+
+INSERT INTO pathway (`name`) VALUES ('Bancos');
+
+INSERT INTO pathway (`name`) VALUES ('Processamento de dados');
+
+INSERT INTO personality_pathway (personality_id, pathway_id, is_main_pathway) VALUES (
+    (SELECT id FROM personality WHERE letter = 'R'),
+    (SELECT id FROM pathway WHERE `name` = 'Agricultura'),
+    1
+);
+
+INSERT INTO personality_pathway (personality_id, pathway_id, is_main_pathway) VALUES (
+    (SELECT id FROM personality WHERE letter = 'R'),
+    (SELECT id FROM pathway WHERE `name` = 'Assistência em saúde'),
+    1
+);
+
+INSERT INTO personality_pathway (personality_id, pathway_id, is_main_pathway) VALUES (
+    (SELECT id FROM personality WHERE letter = 'R'),
+    (SELECT id FROM pathway WHERE `name` = 'Computação'),
+    1
+);
+
+INSERT INTO personality_pathway (personality_id, pathway_id, is_main_pathway) VALUES (
+    (SELECT id FROM personality WHERE letter = 'R'),
+    (SELECT id FROM pathway WHERE `name` = 'Construção'),
+    1
+);
+
+INSERT INTO personality_pathway (personality_id, pathway_id, is_main_pathway) VALUES (
+    (SELECT id FROM personality WHERE letter = 'R'),
+    (SELECT id FROM pathway WHERE `name` = 'Mecânica/maquinário'),
+    1
+);
+
+INSERT INTO personality_pathway (personality_id, pathway_id, is_main_pathway) VALUES (
+    (SELECT id FROM personality WHERE letter = 'R'),
+    (SELECT id FROM pathway WHERE `name` = 'Engenharia'),
+    1
+);
+
+INSERT INTO personality_pathway (personality_id, pathway_id, is_main_pathway) VALUES (
+    (SELECT id FROM personality WHERE letter = 'R'),
+    (SELECT id FROM pathway WHERE `name` = 'Alimentação e hotelaria'),
+    1
+);
+
+INSERT INTO personality_pathway (personality_id, pathway_id, is_main_pathway) VALUES (
+    (SELECT id FROM personality WHERE letter = 'R'),
+    (SELECT id FROM pathway WHERE `name` = 'Recursos naturais'),
+    0
+);
+
+INSERT INTO personality_pathway (personality_id, pathway_id, is_main_pathway) VALUES (
+    (SELECT id FROM personality WHERE letter = 'R'),
+    (SELECT id FROM pathway WHERE `name` = 'Serviços de saúde'),
+    0
+);
+
+INSERT INTO personality_pathway (personality_id, pathway_id, is_main_pathway) VALUES (
+    (SELECT id FROM personality WHERE letter = 'R'),
+    (SELECT id FROM pathway WHERE `name` = 'Tecnologia industrial e de engenharia'),
+    0
+);
+
+INSERT INTO personality_pathway (personality_id, pathway_id, is_main_pathway) VALUES (
+    (SELECT id FROM personality WHERE letter = 'R'),
+    (SELECT id FROM pathway WHERE `name` = 'Comunicação e arte'),
+    0
+);
+
+INSERT INTO personality_pathway (personality_id, pathway_id, is_main_pathway) VALUES (
+    (SELECT id FROM personality WHERE letter = 'I'),
+    (SELECT id FROM pathway WHERE `name` = 'Biologia marinha'),
+    1
+);
+
+INSERT INTO personality_pathway (personality_id, pathway_id, is_main_pathway) VALUES (
+    (SELECT id FROM personality WHERE letter = 'I'),
+    (SELECT id FROM pathway WHERE `name` = 'Engenharia'),
+    1
+);
+
+INSERT INTO personality_pathway (personality_id, pathway_id, is_main_pathway) VALUES (
+    (SELECT id FROM personality WHERE letter = 'I'),
+    (SELECT id FROM pathway WHERE `name` = 'Quimica'),
+    1
+);
+
+INSERT INTO personality_pathway (personality_id, pathway_id, is_main_pathway) VALUES (
+    (SELECT id FROM personality WHERE letter = 'I'),
+    (SELECT id FROM pathway WHERE `name` = 'Zoologia'),
+    1
+);
+
+INSERT INTO personality_pathway (personality_id, pathway_id, is_main_pathway) VALUES (
+    (SELECT id FROM personality WHERE letter = 'I'),
+    (SELECT id FROM pathway WHERE `name` = 'Medicina'),
+    1
+);
+
+INSERT INTO personality_pathway (personality_id, pathway_id, is_main_pathway) VALUES (
+    (SELECT id FROM personality WHERE letter = 'I'),
+    (SELECT id FROM pathway WHERE `name` = 'Economia do consumidor'),
+    1
+);
+
+INSERT INTO personality_pathway (personality_id, pathway_id, is_main_pathway) VALUES (
+    (SELECT id FROM personality WHERE letter = 'I'),
+    (SELECT id FROM pathway WHERE `name` = 'Psicologia'),
+    1
+);
+
+INSERT INTO personality_pathway (personality_id, pathway_id, is_main_pathway) VALUES (
+    (SELECT id FROM personality WHERE letter = 'I'),
+    (SELECT id FROM pathway WHERE `name` = 'Serviços de saúde'),
+    0
+);
+
+INSERT INTO personality_pathway (personality_id, pathway_id, is_main_pathway) VALUES (
+    (SELECT id FROM personality WHERE letter = 'I'),
+    (SELECT id FROM pathway WHERE `name` = 'Negócios'),
+    0
+);
+
+INSERT INTO personality_pathway (personality_id, pathway_id, is_main_pathway) VALUES (
+    (SELECT id FROM personality WHERE letter = 'I'),
+    (SELECT id FROM pathway WHERE `name` = 'Serviços públicos e humanitários'),
+    0
+);
+
+INSERT INTO personality_pathway (personality_id, pathway_id, is_main_pathway) VALUES (
+    (SELECT id FROM personality WHERE letter = 'I'),
+    (SELECT id FROM pathway WHERE `name` = 'Tecnologia industrial e de engenharia'),
+    0
+);
+
+INSERT INTO personality_pathway (personality_id, pathway_id, is_main_pathway) VALUES (
+    (SELECT id FROM personality WHERE letter = 'A'),
+    (SELECT id FROM pathway WHERE `name` = 'Comunicação'),
+    1
+);
+
+INSERT INTO personality_pathway (personality_id, pathway_id, is_main_pathway) VALUES (
+    (SELECT id FROM personality WHERE letter = 'A'),
+    (SELECT id FROM pathway WHERE `name` = 'Cosmetologia'),
+    1
+);
+
+INSERT INTO personality_pathway (personality_id, pathway_id, is_main_pathway) VALUES (
+    (SELECT id FROM personality WHERE letter = 'A'),
+    (SELECT id FROM pathway WHERE `name` = 'Artes plásticas e cênicas'),
+    1
+);
+
+INSERT INTO personality_pathway (personality_id, pathway_id, is_main_pathway) VALUES (
+    (SELECT id FROM personality WHERE letter = 'A'),
+    (SELECT id FROM pathway WHERE `name` = 'Fotografia'),
+    1
+);
+
+INSERT INTO personality_pathway (personality_id, pathway_id, is_main_pathway) VALUES (
+    (SELECT id FROM personality WHERE letter = 'A'),
+    (SELECT id FROM pathway WHERE `name` = 'Rádio e televisão'),
+    1
+);
+
+INSERT INTO personality_pathway (personality_id, pathway_id, is_main_pathway) VALUES (
+    (SELECT id FROM personality WHERE letter = 'A'),
+    (SELECT id FROM pathway WHERE `name` = 'Design de interiores'),
+    1
+);
+
+INSERT INTO personality_pathway (personality_id, pathway_id, is_main_pathway) VALUES (
+    (SELECT id FROM personality WHERE letter = 'A'),
+    (SELECT id FROM pathway WHERE `name` = 'Arquitetura'),
+    1
+);
+
+INSERT INTO personality_pathway (personality_id, pathway_id, is_main_pathway) VALUES (
+    (SELECT id FROM personality WHERE letter = 'A'),
+    (SELECT id FROM pathway WHERE `name` = 'Serviços públicos e humanitários'),
+    0
+);
+
+INSERT INTO personality_pathway (personality_id, pathway_id, is_main_pathway) VALUES (
+    (SELECT id FROM personality WHERE letter = 'A'),
+    (SELECT id FROM pathway WHERE `name` = 'Comunicação e arte'),
+    0
+);
+
+INSERT INTO personality_pathway (personality_id, pathway_id, is_main_pathway) VALUES (
+    (SELECT id FROM personality WHERE letter = 'S'),
+    (SELECT id FROM pathway WHERE `name` = 'Consultoria'),
+    1
+);
+
+INSERT INTO personality_pathway (personality_id, pathway_id, is_main_pathway) VALUES (
+    (SELECT id FROM personality WHERE letter = 'S'),
+    (SELECT id FROM pathway WHERE `name` = 'Enfermagem'),
+    1
+);
+
+INSERT INTO personality_pathway (personality_id, pathway_id, is_main_pathway) VALUES (
+    (SELECT id FROM personality WHERE letter = 'S'),
+    (SELECT id FROM pathway WHERE `name` = 'Fisioterapia'),
+    1
+);
+
+INSERT INTO personality_pathway (personality_id, pathway_id, is_main_pathway) VALUES (
+    (SELECT id FROM personality WHERE letter = 'S'),
+    (SELECT id FROM pathway WHERE `name` = 'Turismo'),
+    1
+);
+
+INSERT INTO personality_pathway (personality_id, pathway_id, is_main_pathway) VALUES (
+    (SELECT id FROM personality WHERE letter = 'S'),
+    (SELECT id FROM pathway WHERE `name` = 'Publicidade'),
+    1
+);
+
+INSERT INTO personality_pathway (personality_id, pathway_id, is_main_pathway) VALUES (
+    (SELECT id FROM personality WHERE letter = 'S'),
+    (SELECT id FROM pathway WHERE `name` = 'Relações públicas'),
+    1
+);
+
+INSERT INTO personality_pathway (personality_id, pathway_id, is_main_pathway) VALUES (
+    (SELECT id FROM personality WHERE letter = 'S'),
+    (SELECT id FROM pathway WHERE `name` = 'Educação'),
+    1
+);
+
+INSERT INTO personality_pathway (personality_id, pathway_id, is_main_pathway) VALUES (
+    (SELECT id FROM personality WHERE letter = 'S'),
+    (SELECT id FROM pathway WHERE `name` = 'Serviços de saúde'),
+    0
+);
+
+INSERT INTO personality_pathway (personality_id, pathway_id, is_main_pathway) VALUES (
+    (SELECT id FROM personality WHERE letter = 'S'),
+    (SELECT id FROM pathway WHERE `name` = 'Serviços públicos e humanitários'),
+    0
+);
+
+INSERT INTO personality_pathway (personality_id, pathway_id, is_main_pathway) VALUES (
+    (SELECT id FROM personality WHERE letter = 'E'),
+    (SELECT id FROM pathway WHERE `name` = 'Marketing de moda'),
+    1
+);
+
+INSERT INTO personality_pathway (personality_id, pathway_id, is_main_pathway) VALUES (
+    (SELECT id FROM personality WHERE letter = 'E'),
+    (SELECT id FROM pathway WHERE `name` = 'Mercado imobiliário'),
+    1
+);
+
+INSERT INTO personality_pathway (personality_id, pathway_id, is_main_pathway) VALUES (
+    (SELECT id FROM personality WHERE letter = 'E'),
+    (SELECT id FROM pathway WHERE `name` = 'Propaganda/vendas'),
+    1
+);
+
+INSERT INTO personality_pathway (personality_id, pathway_id, is_main_pathway) VALUES (
+    (SELECT id FROM personality WHERE letter = 'E'),
+    (SELECT id FROM pathway WHERE `name` = 'Direito'),
+    1
+);
+
+INSERT INTO personality_pathway (personality_id, pathway_id, is_main_pathway) VALUES (
+    (SELECT id FROM personality WHERE letter = 'E'),
+    (SELECT id FROM pathway WHERE `name` = 'Ciência política'),
+    1
+);
+
+INSERT INTO personality_pathway (personality_id, pathway_id, is_main_pathway) VALUES (
+    (SELECT id FROM personality WHERE letter = 'E'),
+    (SELECT id FROM pathway WHERE `name` = 'Comércio internacional'),
+    1
+);
+
+INSERT INTO personality_pathway (personality_id, pathway_id, is_main_pathway) VALUES (
+    (SELECT id FROM personality WHERE letter = 'E'),
+    (SELECT id FROM pathway WHERE `name` = 'Bancos/finanças'),
+    1
+);
+
+INSERT INTO personality_pathway (personality_id, pathway_id, is_main_pathway) VALUES (
+    (SELECT id FROM personality WHERE letter = 'E'),
+    (SELECT id FROM pathway WHERE `name` = 'Negócios'),
+    0
+);
+
+INSERT INTO personality_pathway (personality_id, pathway_id, is_main_pathway) VALUES (
+    (SELECT id FROM personality WHERE letter = 'E'),
+    (SELECT id FROM pathway WHERE `name` = 'Serviços públicos e humanitários'),
+    0
+);
+
+INSERT INTO personality_pathway (personality_id, pathway_id, is_main_pathway) VALUES (
+    (SELECT id FROM personality WHERE letter = 'E'),
+    (SELECT id FROM pathway WHERE `name` = 'Comunicação e arte'),
+    0
+);
+
+INSERT INTO personality_pathway (personality_id, pathway_id, is_main_pathway) VALUES (
+    (SELECT id FROM personality WHERE letter = 'C'),
+    (SELECT id FROM pathway WHERE `name` = 'Contabilidade'),
+    1
+);
+
+INSERT INTO personality_pathway (personality_id, pathway_id, is_main_pathway) VALUES (
+    (SELECT id FROM personality WHERE letter = 'C'),
+    (SELECT id FROM pathway WHERE `name` = 'Relatórios judiciais'),
+    1
+);
+
+INSERT INTO personality_pathway (personality_id, pathway_id, is_main_pathway) VALUES (
+    (SELECT id FROM personality WHERE letter = 'C'),
+    (SELECT id FROM pathway WHERE `name` = 'Seguros'),
+    1
+);
+
+INSERT INTO personality_pathway (personality_id, pathway_id, is_main_pathway) VALUES (
+    (SELECT id FROM personality WHERE letter = 'C'),
+    (SELECT id FROM pathway WHERE `name` = 'Administração'),
+    1
+);
+
+INSERT INTO personality_pathway (personality_id, pathway_id, is_main_pathway) VALUES (
+    (SELECT id FROM personality WHERE letter = 'C'),
+    (SELECT id FROM pathway WHERE `name` = 'Registros médicos'),
+    1
+);
+
+INSERT INTO personality_pathway (personality_id, pathway_id, is_main_pathway) VALUES (
+    (SELECT id FROM personality WHERE letter = 'C'),
+    (SELECT id FROM pathway WHERE `name` = 'Bancos'),
+    1
+);
+
+INSERT INTO personality_pathway (personality_id, pathway_id, is_main_pathway) VALUES (
+    (SELECT id FROM personality WHERE letter = 'C'),
+    (SELECT id FROM pathway WHERE `name` = 'Processamento de dados'),
+    1
+);
+
+INSERT INTO personality_pathway (personality_id, pathway_id, is_main_pathway) VALUES (
+    (SELECT id FROM personality WHERE letter = 'C'),
+    (SELECT id FROM pathway WHERE `name` = 'Serviços de saúde'),
+    0
+);
+
+INSERT INTO personality_pathway (personality_id, pathway_id, is_main_pathway) VALUES (
+    (SELECT id FROM personality WHERE letter = 'C'),
+    (SELECT id FROM pathway WHERE `name` = 'Negócios'),
+    0
+);
+
+INSERT INTO personality_pathway (personality_id, pathway_id, is_main_pathway) VALUES (
+    (SELECT id FROM personality WHERE letter = 'C'),
+    (SELECT id FROM pathway WHERE `name` = 'Tecnologia industrial e de engenharia'),
+    0
+);
+
+INSERT INTO user (code, username, email) VALUES ('AAA', 'teste', 'teste@gmail.com');
+
+INSERT INTO test (user_id) VALUES ((SELECT id FROM user WHERE code = 'AAA'));
+
+INSERT INTO test_statement (test_id, statement_id, selected_option_id) VALUES (
+    (SELECT id FROM test WHERE user_id = (SELECT id FROM user WHERE code = 'AAA')),
+    1,
+    2
+);
+
+INSERT INTO test_statement (test_id, statement_id, selected_option_id) VALUES (
+    (SELECT id FROM test WHERE user_id = (SELECT id FROM user WHERE code = 'AAA')),
+    2,
+    4
+);
+
+INSERT INTO test_statement (test_id, statement_id, selected_option_id) VALUES (
+    (SELECT id FROM test WHERE user_id = (SELECT id FROM user WHERE code = 'AAA')),
+    3,
+    6
+);
+
+INSERT INTO test_statement (test_id, statement_id, selected_option_id) VALUES (
+    (SELECT id FROM test WHERE user_id = (SELECT id FROM user WHERE code = 'AAA')),
+    4,
+    8
+);
+
+INSERT INTO test_statement (test_id, statement_id, selected_option_id) VALUES (
+    (SELECT id FROM test WHERE user_id = (SELECT id FROM user WHERE code = 'AAA')),
+    5,
+    10
+);
+
+INSERT INTO test_statement (test_id, statement_id, selected_option_id) VALUES (
+    (SELECT id FROM test WHERE user_id = (SELECT id FROM user WHERE code = 'AAA')),
+    6,
+    11
+);
+
+INSERT INTO test_statement (test_id, statement_id, selected_option_id) VALUES (
+    (SELECT id FROM test WHERE user_id = (SELECT id FROM user WHERE code = 'AAA')),
+    7,
+    13
+);
+
+INSERT INTO test_statement (test_id, statement_id, selected_option_id) VALUES (
+    (SELECT id FROM test WHERE user_id = (SELECT id FROM user WHERE code = 'AAA')),
+    8,
+    15
+);
+
+INSERT INTO test_statement (test_id, statement_id, selected_option_id) VALUES (
+    (SELECT id FROM test WHERE user_id = (SELECT id FROM user WHERE code = 'AAA')),
+    9,
+    17
+);
+
+INSERT INTO test_statement (test_id, statement_id, selected_option_id) VALUES (
+    (SELECT id FROM test WHERE user_id = (SELECT id FROM user WHERE code = 'AAA')),
+    10,
+    20
+);
+
+INSERT INTO test_statement (test_id, statement_id, selected_option_id) VALUES (
+    (SELECT id FROM test WHERE user_id = (SELECT id FROM user WHERE code = 'AAA')),
+    11,
+    22
+);
+
+INSERT INTO test_statement (test_id, statement_id, selected_option_id) VALUES (
+    (SELECT id FROM test WHERE user_id = (SELECT id FROM user WHERE code = 'AAA')),
+    12,
+    24
+);
+
+INSERT INTO test_statement (test_id, statement_id, selected_option_id) VALUES (
+    (SELECT id FROM test WHERE user_id = (SELECT id FROM user WHERE code = 'AAA')),
+    13,
+    26
+);
+
+INSERT INTO test_statement (test_id, statement_id, selected_option_id) VALUES (
+    (SELECT id FROM test WHERE user_id = (SELECT id FROM user WHERE code = 'AAA')),
+    14,
+    27
+);
+
+INSERT INTO test_statement (test_id, statement_id, selected_option_id) VALUES (
+    (SELECT id FROM test WHERE user_id = (SELECT id FROM user WHERE code = 'AAA')),
+    15,
+    29
+);
+
+INSERT INTO test_statement (test_id, statement_id, selected_option_id) VALUES (
+    (SELECT id FROM test WHERE user_id = (SELECT id FROM user WHERE code = 'AAA')),
+    16,
+    32
+);
+
+INSERT INTO test_statement (test_id, statement_id, selected_option_id) VALUES (
+    (SELECT id FROM test WHERE user_id = (SELECT id FROM user WHERE code = 'AAA')),
+    17,
+    34
+);
+
+INSERT INTO test_statement (test_id, statement_id, selected_option_id) VALUES (
+    (SELECT id FROM test WHERE user_id = (SELECT id FROM user WHERE code = 'AAA')),
+    18,
+    35
+);
+
+INSERT INTO test_statement (test_id, statement_id, selected_option_id) VALUES (
+    (SELECT id FROM test WHERE user_id = (SELECT id FROM user WHERE code = 'AAA')),
+    19,
+    37
+);
+
+INSERT INTO test_statement (test_id, statement_id, selected_option_id) VALUES (
+    (SELECT id FROM test WHERE user_id = (SELECT id FROM user WHERE code = 'AAA')),
+    20,
+    39
+);
+
+INSERT INTO test_statement (test_id, statement_id, selected_option_id) VALUES (
+    (SELECT id FROM test WHERE user_id = (SELECT id FROM user WHERE code = 'AAA')),
+    21,
+    42
+);
+
+INSERT INTO test_statement (test_id, statement_id, selected_option_id) VALUES (
+    (SELECT id FROM test WHERE user_id = (SELECT id FROM user WHERE code = 'AAA')),
+    22,
+    44
+);
+
+INSERT INTO test_statement (test_id, statement_id, selected_option_id) VALUES (
+    (SELECT id FROM test WHERE user_id = (SELECT id FROM user WHERE code = 'AAA')),
+    23,
+    46
+);
+
+INSERT INTO test_statement (test_id, statement_id, selected_option_id) VALUES (
+    (SELECT id FROM test WHERE user_id = (SELECT id FROM user WHERE code = 'AAA')),
+    24,
+    48
+);
+
+INSERT INTO test_statement (test_id, statement_id, selected_option_id) VALUES (
+    (SELECT id FROM test WHERE user_id = (SELECT id FROM user WHERE code = 'AAA')),
+    25,
+    49
+);
+
+INSERT INTO test_statement (test_id, statement_id, selected_option_id) VALUES (
+    (SELECT id FROM test WHERE user_id = (SELECT id FROM user WHERE code = 'AAA')),
+    26,
+    51
+);
+
+INSERT INTO test_statement (test_id, statement_id, selected_option_id) VALUES (
+    (SELECT id FROM test WHERE user_id = (SELECT id FROM user WHERE code = 'AAA')),
+    27,
+    53
+);
+
+INSERT INTO test_statement (test_id, statement_id, selected_option_id) VALUES (
+    (SELECT id FROM test WHERE user_id = (SELECT id FROM user WHERE code = 'AAA')),
+    28,
+    55
+);
+
+INSERT INTO test_statement (test_id, statement_id, selected_option_id) VALUES (
+    (SELECT id FROM test WHERE user_id = (SELECT id FROM user WHERE code = 'AAA')),
+    29,
+    57
+);
+
+INSERT INTO test_statement (test_id, statement_id, selected_option_id) VALUES (
+    (SELECT id FROM test WHERE user_id = (SELECT id FROM user WHERE code = 'AAA')),
+    30,
+    59
+);
+
+INSERT INTO test_statement (test_id, statement_id, selected_option_id) VALUES (
+    (SELECT id FROM test WHERE user_id = (SELECT id FROM user WHERE code = 'AAA')),
+    31,
+    61
+);
+
+INSERT INTO test_statement (test_id, statement_id, selected_option_id) VALUES (
+    (SELECT id FROM test WHERE user_id = (SELECT id FROM user WHERE code = 'AAA')),
+    32,
+    64
+);
+
+INSERT INTO test_statement (test_id, statement_id, selected_option_id) VALUES (
+    (SELECT id FROM test WHERE user_id = (SELECT id FROM user WHERE code = 'AAA')),
+    33,
+    65
+);
+
+INSERT INTO test_statement (test_id, statement_id, selected_option_id) VALUES (
+    (SELECT id FROM test WHERE user_id = (SELECT id FROM user WHERE code = 'AAA')),
+    34,
+    67
+);
+
+INSERT INTO test_statement (test_id, statement_id, selected_option_id) VALUES (
+    (SELECT id FROM test WHERE user_id = (SELECT id FROM user WHERE code = 'AAA')),
+    35,
+    70
+);
+
+INSERT INTO test_statement (test_id, statement_id, selected_option_id) VALUES (
+    (SELECT id FROM test WHERE user_id = (SELECT id FROM user WHERE code = 'AAA')),
+    36,
+    71
+);
+
+INSERT INTO test_statement (test_id, statement_id, selected_option_id) VALUES (
+    (SELECT id FROM test WHERE user_id = (SELECT id FROM user WHERE code = 'AAA')),
+    37,
+    73
+);
+
+INSERT INTO test_statement (test_id, statement_id, selected_option_id) VALUES (
+    (SELECT id FROM test WHERE user_id = (SELECT id FROM user WHERE code = 'AAA')),
+    38,
+    76
+);
+
+INSERT INTO test_statement (test_id, statement_id, selected_option_id) VALUES (
+    (SELECT id FROM test WHERE user_id = (SELECT id FROM user WHERE code = 'AAA')),
+    39,
+    77
+);
+
+INSERT INTO test_statement (test_id, statement_id, selected_option_id) VALUES (
+    (SELECT id FROM test WHERE user_id = (SELECT id FROM user WHERE code = 'AAA')),
+    40,
+    79
+);
+
+INSERT INTO test_statement (test_id, statement_id, selected_option_id) VALUES (
+    (SELECT id FROM test WHERE user_id = (SELECT id FROM user WHERE code = 'AAA')),
+    41,
+    81
+);
+
+INSERT INTO test_statement (test_id, statement_id, selected_option_id) VALUES (
+    (SELECT id FROM test WHERE user_id = (SELECT id FROM user WHERE code = 'AAA')),
+    42,
+    84
 );

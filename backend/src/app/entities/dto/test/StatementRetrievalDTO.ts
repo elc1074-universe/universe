@@ -29,7 +29,7 @@ export default class StatementRetrievalDTO {
   }
 
   static async create(testStatement: TestStatement): Promise<StatementRetrievalDTO> {
-    const options = await OptionService.findOptionsByStatementId(testStatement.statement.id);
+    const options = await OptionService.findByStatementId(testStatement.statement.id);
     const mappedOptions = options.map(option => new OptionRetrievalDTO(option));
 
     return new StatementRetrievalDTO(testStatement, mappedOptions);

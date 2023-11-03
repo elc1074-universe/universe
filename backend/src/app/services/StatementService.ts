@@ -4,12 +4,12 @@ import Statement from '../entities/database/Statement';
 import StatementRepository from '../repositories/StatementRepository';
 import ApiError from '../entities/api/ApiError';
 
-const findAllStatements = (): Promise<Statement[]> => {
-  return StatementRepository.findAllStatements();
+const findAll = (): Promise<Statement[]> => {
+  return StatementRepository.findAll();
 };
 
-const findStatementById = async (id: number): Promise<Statement> => {
-  const statement = await StatementRepository.findStatementById(id);
+const findById = async (id: number): Promise<Statement> => {
+  const statement = await StatementRepository.findById(id);
 
   if (!statement) {
     throw new ApiError(
@@ -22,17 +22,17 @@ const findStatementById = async (id: number): Promise<Statement> => {
   return statement;
 };
 
-const findStatementsByPersonalityId = (personalityId: number): Promise<Statement[]> => {
-  return StatementRepository.findStatementsByPersonalityId(personalityId);
+const findByPersonalityId = (personalityId: number): Promise<Statement[]> => {
+  return StatementRepository.findByPersonalityId(personalityId);
 }
 
-const findStatementsByPersonalityLetter = (personalityLetter: string): Promise<Statement[]> => {
-  return StatementRepository.findStatementsByPersonalityLetter(personalityLetter);
+const findByPersonalityLetter = (personalityLetter: string): Promise<Statement[]> => {
+  return StatementRepository.findByPersonalityLetter(personalityLetter);
 }
 
 export default {
-  findAllStatements,
-  findStatementsByPersonalityId,
-  findStatementsByPersonalityLetter,
-  findStatementById
+  findAll,
+  findByPersonalityId,
+  findByPersonalityLetter,
+  findById
 };

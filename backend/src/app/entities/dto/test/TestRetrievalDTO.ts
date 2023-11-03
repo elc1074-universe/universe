@@ -34,15 +34,15 @@ export default class TestRetrievalDTO {
   }
 
   static async create(test: Test): Promise<TestRetrievalDTO> {
-    const rawStatements = await TestStatementService.findTestStatementsByUserCode(test.user.code);
+    const rawStatements = await TestStatementService.findByUserCode(test.user.code);
     const mappedStatements = await Promise.all(rawStatements.map(rawStatement => StatementRetrievalDTO.create(rawStatement)));
 
-    const isCompleted = await TestService.isTestCompleted(test.user.code);
+    const isCompleted = await TestService.isCompleted(test.user.code);
 
     let result = null;
 
     if (isCompleted) {
-      result = new ResultRetrievalDTO(await TestService.getResult(test.user.code));
+      result = await ResultRetrievalDTO.create(await TestService.getResult(test.user.code));
     }
 
     return new TestRetrievalDTO(test, mappedStatements, isCompleted, result);

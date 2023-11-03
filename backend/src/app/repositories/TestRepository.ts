@@ -5,11 +5,11 @@ import Test from '../entities/database/Test';
 
 const testRepository = dataSource.getRepository(Test);
 
-const findAllTests = (): Promise<Test[]> => {
+const findAll = (): Promise<Test[]> => {
   return testRepository.find();
 };
 
-const findTestByUserCode = (userCode: string): Promise<Test | null> => {
+const findByUserCode = (userCode: string): Promise<Test | null> => {
   return testRepository.findOneBy({
     user: {
       code: ILike(userCode),
@@ -17,12 +17,12 @@ const findTestByUserCode = (userCode: string): Promise<Test | null> => {
   });
 };
 
-const saveTest = (test: Test): Promise<Test> => {
+const save = (test: Test): Promise<Test> => {
   return testRepository.save(test);
 };
 
 export default {
-  findAllTests,
-  findTestByUserCode,
-  saveTest
+  findAll,
+  findByUserCode,
+  save
 };

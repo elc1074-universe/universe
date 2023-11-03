@@ -9,11 +9,12 @@ import UserService from './UserService';
 import TestStatementService from './TestStatementService';
 import ResultService from './ResultService';
 import ApiError from '../entities/api/ApiError';
+import PersonalityService from './PersonalityService';
 
 const NUMBER_OF_STATEMENTS = 42;
 
-const findTestByUserCode = async (userCode: string): Promise<Test> => {
-  const test = await TestRepository.findTestByUserCode(userCode);
+const findByUserCode = async (userCode: string): Promise<Test> => {
+  const test = await TestRepository.findByUserCode(userCode);
 
   if (!test) {
     throw new ApiError(
@@ -26,34 +27,47 @@ const findTestByUserCode = async (userCode: string): Promise<Test> => {
   return test;
 };
 
-const createTest = async (testCreationDTO: TestCreationDTO): Promise<Test> => {
+const create = async (testCreationDTO: TestCreationDTO): Promise<Test> => {
   testCreationDTO.validate();
 
   const test = new Test();
-  test.user = await UserService.saveUser(new UserSavingDTO(testCreationDTO.username, testCreationDTO.email));
+  test.user = await UserService.save(new UserSavingDTO(testCreationDTO.username, testCreationDTO.email));
 
-  return await TestRepository.saveTest(test);
+  return await TestRepository.save(test);
 };
 
-const isTestCompleted = async (userCode: string): Promise<boolean> => {
-  const statements = await TestStatementService.findTestStatementsByUserCode(userCode);
+const isCompleted = async (userCode: string): Promise<boolean> => {
+  const statements = await TestStatementService.findByUserCode(userCode);
 
   if (!statements || (statements.length >= 0 && statements.length < NUMBER_OF_STATEMENTS)) return false;
 
   return statements.every(statement => statement.selectedOption !== null);
 };
 
+const isPersonalityCompleted = async (userCode: string, personalityId: number): Promise<boolean> => {
+  const numberOfCompletedStatements = await TestStatementService.findNumberOfCompletedStatementsByUserCodeAndPersonalityId(userCode, personalityId);
+
+  return numberOfCompletedStatements == PersonalityService.NUMBER_OF_STATEMENTS_BY_PERSONALITY;
+};
+
+const findPersonalityLastCompletedStatementId = (userCode: string, personalityId: number): Promise<number> => {
+  return TestStatementService.findCurrentStatementIdByUserCodeAndPersonalityId(userCode, personalityId);
+};
+
 const getResult = async (userCode: string): Promise<Result | null> => {
   try {
-    return await ResultService.findResultByUserCode(userCode);
+    return await ResultService.findByUserCode(userCode);
   } catch (error) {
-    return ResultService.computeAndSaveResult(userCode);
+    return ResultService.computeAndSave(userCode);
   }
 };
 
 export default {
-  findTestByUserCode,
-  createTest,
-  isTestCompleted,
-  getResult
+  findByUserCode,
+  create,
+  isCompleted,
+  isPersonalityCompleted,
+  findPersonalityLastCompletedStatementId,
+  getResult,
+  NUMBER_OF_STATEMENTS
 };

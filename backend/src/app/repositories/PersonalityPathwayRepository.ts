@@ -5,11 +5,11 @@ import PersonalityPathway from '../entities/database/PersonalityPathway';
 
 const personalityPathwayRepository = dataSource.getRepository(PersonalityPathway);
 
-const findAllPersonalitiesPathways = (): Promise<PersonalityPathway[]> => {
+const findAll = (): Promise<PersonalityPathway[]> => {
   return personalityPathwayRepository.find();
 };
 
-const findPersonalityPathwayByPersonalityIdAndPathwayId = (personalityId: number, pathwayId: number): Promise<PersonalityPathway | null> => {
+const findByPersonalityIdAndPathwayId = (personalityId: number, pathwayId: number): Promise<PersonalityPathway | null> => {
   return personalityPathwayRepository.findOneBy({
     personality: {
       id: Equal(personalityId)
@@ -21,6 +21,6 @@ const findPersonalityPathwayByPersonalityIdAndPathwayId = (personalityId: number
 };
 
 export default {
-  findAllPersonalitiesPathways,
-  findPersonalityPathwayByPersonalityIdAndPathwayId
+  findAll,
+  findByPersonalityIdAndPathwayId
 };

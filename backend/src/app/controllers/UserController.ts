@@ -9,7 +9,7 @@ const userRouter: Router = Router();
 
 userRouter.get('/', (async (request: Request, response: Response, next: NextFunction): Promise<void> => {
   try {
-    const rawUsers = await UserService.findAllUsers();
+    const rawUsers = await UserService.findAll();
 
     const mappedUsers = rawUsers.map(user => new UserRetrievalDTO(user));
 
@@ -27,7 +27,7 @@ userRouter.get('/:code', (async (request: Request, response: Response, next: Nex
   try {
     const { code } = request.params;
 
-    const rawUser = await UserService.findUserByCode(code);
+    const rawUser = await UserService.findByCode(code);
 
     const mappedUser = new UserRetrievalDTO(rawUser);
 

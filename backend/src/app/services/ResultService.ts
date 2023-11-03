@@ -6,8 +6,8 @@ import TestService from './TestService';
 import TestStatementService from './TestStatementService';
 import ApiError from '../entities/api/ApiError';
 
-const findResultByUserCode = async (userCode: string): Promise<Result> => {
-  const result = await ResultRepository.findResultByUserCode(userCode);
+const findByUserCode = async (userCode: string): Promise<Result> => {
+  const result = await ResultRepository.findByUserCode(userCode);
 
   if (!result) {
     throw new ApiError(
@@ -20,8 +20,8 @@ const findResultByUserCode = async (userCode: string): Promise<Result> => {
   return result;
 };
 
-const computeAndSaveResult = async (userCode: string): Promise<Result | null> => {
-  const isTestCompleted = await TestService.isTestCompleted(userCode);
+const computeAndSave = async (userCode: string): Promise<Result | null> => {
+  const isTestCompleted = await TestService.isCompleted(userCode);
 
   if (!isTestCompleted) {
     throw new ApiError(
@@ -29,7 +29,7 @@ const computeAndSaveResult = async (userCode: string): Promise<Result | null> =>
     );
   }
 
-  const statements = await TestStatementService.findTestStatementsByUserCode(userCode);
+  const statements = await TestStatementService.findByUserCode(userCode);
 
   const riasecScore = { 'R': 0, 'I': 0, 'A': 0, 'S': 0, 'E': 0, 'C': 0 };
 
@@ -54,10 +54,10 @@ const computeAndSaveResult = async (userCode: string): Promise<Result | null> =>
     riasecScore['S'], riasecScore['E'], riasecScore['C'], interestCode
   );
 
-  return await ResultRepository.saveResult(result);
+  return await ResultRepository.save(result);
 };
 
 export default {
-  findResultByUserCode,
-  computeAndSaveResult
+  findByUserCode: findByUserCode,
+  computeAndSave: computeAndSave
 };

@@ -21,7 +21,7 @@ const dataSource: DataSource = new DataSource({
   username: config.database.user,
   password: config.database.pass,
   database: config.database.name,
-  synchronize: true,
+  synchronize: false,
   logging: false,
   entities: [
     Option, Pathway, Personality, PersonalityPathway,

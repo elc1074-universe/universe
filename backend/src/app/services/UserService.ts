@@ -12,12 +12,12 @@ const ALPHANUMERIC_CHARACTERS: string[] = [
 
 const FIRST_USER_CODE: string = 'AAA';
 
-const findAllUsers = (): Promise<User[]> => {
-  return UserRepository.findAllUsers();
+const findAll = (): Promise<User[]> => {
+  return UserRepository.findAll();
 };
 
-const findUserByCode = async (code: string): Promise<User> => {
-  const user: User | null = await UserRepository.findUserByCode(code);
+const findByCode = async (code: string): Promise<User> => {
+  const user: User | null = await UserRepository.findByCode(code);
 
   if (!user) {
     throw new ApiError(
@@ -30,20 +30,20 @@ const findUserByCode = async (code: string): Promise<User> => {
   return user;
 };
 
-const findLastSavedUserCode = async (): Promise<string | null> => {
-  return UserRepository.findLastSavedUserCode();
+const findLastSavedCode = async (): Promise<string | null> => {
+  return UserRepository.findLastSavedCode();
 };
 
-const saveUser = async (userSavingDTO: UserSavingDTO): Promise<User> => {
+const save = async (userSavingDTO: UserSavingDTO): Promise<User> => {
   userSavingDTO.validate();
 
-  const user: User = new User(await generateUserCode(), userSavingDTO.username, userSavingDTO.email);
+  const user: User = new User(await generateCode(), userSavingDTO.username, userSavingDTO.email);
 
-  return UserRepository.saveUser(user);
+  return UserRepository.save(user);
 };
 
-const generateUserCode = async (): Promise<string> => {
-  const currentCode: string = await findLastSavedUserCode();
+const generateCode = async (): Promise<string> => {
+  const currentCode: string = await findLastSavedCode();
 
   if (!currentCode) return FIRST_USER_CODE;
 
@@ -77,7 +77,7 @@ const generateUserCode = async (): Promise<string> => {
 };
 
 export default {
-  findAllUsers,
-  findUserByCode,
-  saveUser
+  findAll,
+  findByCode,
+  save
 };

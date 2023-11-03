@@ -5,17 +5,17 @@ import User from '../entities/database/User';
 
 const userRepository = dataSource.getRepository(User);
 
-const findAllUsers = (): Promise<User[]> => {
+const findAll = (): Promise<User[]> => {
   return userRepository.find();
 };
 
-const findUserByCode = (code: string): Promise<User | null> => {
+const findByCode = (code: string): Promise<User | null> => {
   return userRepository.findOneBy({
     code: ILike(code),
   });
 };
 
-const findLastSavedUserCode = async (): Promise<string | null> => {
+const findLastSavedCode = async (): Promise<string | null> => {
   const result: any = await userRepository
     .createQueryBuilder('user')
     .select('code')
@@ -26,13 +26,13 @@ const findLastSavedUserCode = async (): Promise<string | null> => {
   return result ? result.code : null;
 };
 
-const saveUser = async (user: User): Promise<User> => {
+const save = async (user: User): Promise<User> => {
   return userRepository.save(user);
 };
 
 export default {
-  findAllUsers,
-  findUserByCode,
-  findLastSavedUserCode,
-  saveUser
+  findAll,
+  findByCode,
+  findLastSavedCode,
+  save
 };

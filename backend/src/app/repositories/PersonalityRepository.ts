@@ -5,24 +5,24 @@ import Personality from '../entities/database/Personality';
 
 const personalityRepository = dataSource.getRepository(Personality);
 
-const findAllPersonalities = (): Promise<Personality[]> => {
+const findAll = (): Promise<Personality[]> => {
   return personalityRepository.find();
 };
 
-const findPersonalityById = (id: number): Promise<Personality | null> => {
+const findById = (id: number): Promise<Personality | null> => {
   return personalityRepository.findOneBy({
     id: Equal(id)
   });
 };
 
-const findPersonalityByLetter = (letter: string): Promise<Personality | null> => {
+const findByLetter = (letter: string): Promise<Personality | null> => {
   return personalityRepository.findOneBy({
     letter: ILike(letter)
   });
 };
 
 export default {
-  findAllPersonalities,
-  findPersonalityById,
-  findPersonalityByLetter
+  findAll,
+  findById,
+  findByLetter
 };

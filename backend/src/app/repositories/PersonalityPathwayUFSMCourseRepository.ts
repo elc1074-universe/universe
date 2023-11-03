@@ -1,19 +1,23 @@
-import { Equal } from 'typeorm';
+import { Equal, ILike } from 'typeorm';
 
 import dataSource from '../../database/data-source';
 import PersonalityPathwayUFSMCourse from '../entities/database/PersonalityPathwayUFSMCourse';
 
 const personalityPathwayUFSMCourseRepository = dataSource.getRepository(PersonalityPathwayUFSMCourse);
 
-const findAllPersonalitiesPathwaysUFSMCourses = (): Promise<PersonalityPathwayUFSMCourse[]> => {
+const findAll = (): Promise<PersonalityPathwayUFSMCourse[]> => {
   return personalityPathwayUFSMCourseRepository.find();
 };
 
-const findPersonalityPathwayUFSMCourseByPersonalityIdAndPathwayIdAndUFSMCourseId = (personalityId: number, pathwayId: number, ufsmCourseId: number): Promise<PersonalityPathwayUFSMCourse | null> => {
+const findByPersonalityLetterAndPathwayIdAndUFSMCourseId = (
+  personalityLetter: string,
+  pathwayId: number,
+  ufsmCourseId: number
+): Promise<PersonalityPathwayUFSMCourse | null> => {
   return personalityPathwayUFSMCourseRepository.findOneBy({
     personalityPathway: {
       personality: {
-        id: Equal(personalityId)
+        letter: ILike(personalityLetter)
       },
       pathway: {
         id: Equal(pathwayId)
@@ -25,7 +29,20 @@ const findPersonalityPathwayUFSMCourseByPersonalityIdAndPathwayIdAndUFSMCourseId
   });
 };
 
+const findByPersonalityLetter = (personalityLetter: string): Promise<PersonalityPathwayUFSMCourse[]> => {
+  return personalityPathwayUFSMCourseRepository.find({
+    where: {
+      personalityPathway: {
+        personality: {
+          letter: ILike(personalityLetter)
+        }
+      }
+    }
+  });
+};
+
 export default {
-  findAllPersonalitiesPathwaysUFSMCourses,
-  findPersonalityPathwayUFSMCourseByPersonalityIdAndPathwayIdAndUFSMCourseId
+  findAll,
+  findByPersonalityLetterAndPathwayIdAndUFSMCourseId,
+  findByPersonalityLetter
 };

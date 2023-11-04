@@ -12,6 +12,7 @@ import { TestRoutingModule } from './test-routing.module';
 import { AppMaterialModule } from 'src/app/shared/app-material-module/app-material-module.module';
 import { StatementComponent } from './statement/statement.component';
 import { PersonalityComponent } from './personality/personality.component';
+import { InfoCodeComponent } from './info-code/info-code.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { PersonalityComponent } from './personality/personality.component';
     TestResultComponent,
     TestInfoComponent,
     StatementComponent,
-    PersonalityComponent
+    PersonalityComponent,
+    InfoCodeComponent
   ],
   imports: [
     CommonModule,

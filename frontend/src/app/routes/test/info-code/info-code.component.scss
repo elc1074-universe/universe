@@ -1,0 +1,38 @@
+.content {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+  
+  .p-content {
+    font-family: 'Modulus Pro', sans-serif;
+    font-size: 15px;
+    text-align: justify;
+  }
+
+  .title {
+    font-weight: bold;
+  }
+
+  .code {
+    font-weight: bold;
+    font-size: 25px;
+  }
+  
+  .btn {
+    margin-top: 10px;
+    color: white;
+    font-family: 'Modulus Pro', sans-serif;
+    text-align: center;
+  }
+  
+  .example-button-row button {
+    height: 30%;
+    font-size: 15px;
+    border-radius: 50px;
+    font-family: 'Modulus Pro', Tahoma, Geneva, Verdana, sans-serif;
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+  

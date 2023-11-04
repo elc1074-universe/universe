@@ -3,6 +3,7 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 
 import { TestInfoComponent } from 'src/app/routes/test/info/test-info.component';
+import { InfoCodeComponent } from 'src/app/routes/test/info-code/info-code.component';
 import UserRetrievalDTO from 'src/app/models/dto/user/UserRetrievalDTO';
 import UserService from 'src/app/services/user.service';
 import PersonalityService from 'src/app/services/personality.service';
@@ -43,7 +44,13 @@ export class PersonalityComponent implements OnInit {
           .subscribe({
             next: (user: UserRetrievalDTO | null) => {
               this.user = user;
-              this.dialog.open(TestInfoComponent, { data: { username: user?.username } });
+              const dialogRef = this.dialog.open(TestInfoComponent, { data: { username: user?.username } });
+
+              dialogRef.afterClosed().subscribe(() => {
+                this.dialog.open(InfoCodeComponent, {
+                  data: { code: user?.code }
+                });
+              });
             },
             error: error => {
               console.error(error);

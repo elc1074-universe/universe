@@ -17,6 +17,7 @@ export class StatementComponent implements OnInit {
   statement!: StatementRetrievalDTO | null;
   currentStatementId: number = 1;
   userCode: any = "";
+  username! : string;
   testStatementSavingDTO!: TestStatementSavingDTO;
 
   constructor(
@@ -33,6 +34,10 @@ export class StatementComponent implements OnInit {
     this.userService.getCurrentUserCode().subscribe((code: string | null) => {
       this.userCode = code;
       console.log(this.userCode);
+    });
+
+    this.userService.findByCode(this.userCode).subscribe((data:any) => {
+      this.username = data.username;
     });
 
     this.activatedRoute

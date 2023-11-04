@@ -130,5 +130,21 @@ h2 {
 }
 
 .mat-mdc-progress-bar {
-    --mdc-linear-progress-active-indicator-color: #13432c; 
+    --mdc-linear-progress-active-indicator-color: #13432c;
 }
+
+.info {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+#card2{
+    background-color: rgba(255, 255, 255, 0.6);
+  }

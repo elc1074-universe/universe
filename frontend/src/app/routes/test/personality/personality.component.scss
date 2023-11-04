@@ -67,3 +67,19 @@ body {
   top: 10px;
   left: 10px;
 }
+
+.info{
+  position: fixed; 
+  bottom: 0; 
+  right: 0;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+#card{
+  background-color: rgba(255, 255, 255, 0.6);
+}

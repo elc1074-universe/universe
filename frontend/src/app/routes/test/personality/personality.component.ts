@@ -17,6 +17,8 @@ import StatementService from 'src/app/services/statement.service';
 export class PersonalityComponent implements OnInit {
 
   private user!: UserRetrievalDTO | null;
+  username! : string;
+  usercode! : string
 
   constructor(
     private userService: UserService,
@@ -45,6 +47,10 @@ export class PersonalityComponent implements OnInit {
             next: (user: UserRetrievalDTO | null) => {
               this.user = user;
               const dialogRef = this.dialog.open(TestInfoComponent, { data: { username: user?.username } });
+              if (this.user?.username) {
+                this.username = this.user.username;
+              }
+              this.usercode = currentUserCode!;
             },
             error: error => {
               console.error(error);

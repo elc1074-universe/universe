@@ -45,12 +45,6 @@ export class PersonalityComponent implements OnInit {
             next: (user: UserRetrievalDTO | null) => {
               this.user = user;
               const dialogRef = this.dialog.open(TestInfoComponent, { data: { username: user?.username } });
-
-              dialogRef.afterClosed().subscribe(() => {
-                this.dialog.open(InfoCodeComponent, {
-                  data: { code: user?.code }
-                });
-              });
             },
             error: error => {
               console.error(error);

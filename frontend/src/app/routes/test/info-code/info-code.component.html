@@ -1,5 +1,6 @@
 <mat-dialog-content class="mat-typography">
     <div class="content">
+        <h3 class="code">Usuário criado com sucesso!</h3>
         <p class="p-content">
             Sabemos que a vida pode ser imprevisível e às vezes você pode precisar fazer uma pausa. Não se preocupe, nós te entendemos!
         </p>
@@ -13,7 +14,7 @@
             Lembre-se de guardar este código em um lugar seguro!
         </p>
         <div class="example-button-row">
-            <button mat-button mat-dialog-close style="background-color: #3C6A54;">
+            <button mat-button mat-dialog-close style="background-color: #3C6A54;" (click)="goToTest()">
                 <p class="btn">
                     Iniciar
                 </p>

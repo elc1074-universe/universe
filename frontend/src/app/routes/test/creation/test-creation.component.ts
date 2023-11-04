@@ -4,11 +4,13 @@ import { NgForm } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { ToastrService } from 'ngx-toastr';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { MatDialog } from '@angular/material/dialog';
 
 import TestCreationDTO from 'src/app/models/dto/test/TestCreationDTO';
 import TestRetrievalDTO from 'src/app/models/dto/test/TestRetrievalDTO';
 import TestService from 'src/app/services/test.service';
 import UserService from 'src/app/services/user.service';
+import { InfoCodeComponent } from '../info-code/info-code.component';
 
 @Component({
   selector: 'app-test-creation',
@@ -26,7 +28,8 @@ export class TestCreationComponent {
     private userService: UserService,
     private toastr: ToastrService,
     private http: HttpClient,
-    private router: Router
+    private router: Router,
+    public dialog: MatDialog,
   ) {
     this.testCreationDTO = new TestCreationDTO();
     this.createdTest = new BehaviorSubject<TestRetrievalDTO | null>(null)
@@ -40,10 +43,12 @@ export class TestCreationComponent {
           if (test) {
             this.createdTest.next(test);
             
-            const userCode: string = test.user.code.toLocaleLowerCase();
+            let userCode: string = test.user.code.toLocaleLowerCase();
             
             this.userService.setCurrentUserCode(userCode);
-            this.router.navigate(['/test/personality', userCode]);
+            this.dialog.open(InfoCodeComponent, {
+              data: { code: userCode }
+            });
           }
         },
         error: error => {

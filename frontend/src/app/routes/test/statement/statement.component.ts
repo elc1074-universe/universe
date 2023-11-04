@@ -4,6 +4,8 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import StatementService from 'src/app/services/statement.service';
 import StatementRetrievalDTO from 'src/app/models/dto/statement/StatementRetrievalDTO';
 import UserService from 'src/app/services/user.service';
+import TestStatementSavingDTO from 'src/app/models/dto/test/TestStatementSavingDTO';
+import TestService from 'src/app/services/test.service';
 
 @Component({
   selector: 'app-statement',
@@ -13,14 +15,16 @@ import UserService from 'src/app/services/user.service';
 export class StatementComponent implements OnInit {
 
   statement!: StatementRetrievalDTO | null;
-  currentStatementId : number = 1;
-  userCode : any = "";
+  currentStatementId: number = 1;
+  userCode: any = "";
+  testStatementSavingDTO!: TestStatementSavingDTO;
 
   constructor(
     private statementService: StatementService,
     private router: Router,
     private activatedRoute: ActivatedRoute,
-    private userService : UserService
+    private userService: UserService,
+    private TestService: TestService
   ) {
 
   }
@@ -55,6 +59,21 @@ export class StatementComponent implements OnInit {
       });
   }
 
+  saveAnswer(selectedOption: number) {
+    if (this.statement) {
+      this.testStatementSavingDTO = new TestStatementSavingDTO();
+      this.testStatementSavingDTO.statementId = this.statement.id;
+      this.testStatementSavingDTO.selectedOptionId = selectedOption;
+      console.log(this.testStatementSavingDTO);
+
+      this.TestService.saveStatement(this.userCode, this.testStatementSavingDTO).subscribe((data:any) => {
+        console.log(data);
+        this.goToNextStatement();
+      });
+    }
+  }
+
+
   goToNextStatement(): void {
     this.currentStatementId = this.statement!.id + 1;
     this.statementService.setCurrentStatementId(this.statement!.id + 1);
@@ -65,7 +84,7 @@ export class StatementComponent implements OnInit {
   getQuestionImage(): string {
     return `assets/images/test/${this.currentStatementId}.png`;
   }
-  
+
   goBack() {
     this.router.navigate(['/test/personality', this.userCode]);
   }

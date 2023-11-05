@@ -7,7 +7,9 @@
     </button>
     <br>
   </div>
-
+  <div id="title">
+    UniVerse
+  </div>
   <div class="question">
     <div class="question-text">
       <mat-card id="card">
@@ -37,19 +39,20 @@
             </div>
           </div>
           <div class="progress-bar">
-            <mat-progress-bar class="custom-progress-bar" mode="determinate" value="{{currentStatementId}}"></mat-progress-bar>
+            <mat-progress-bar class="custom-progress-bar" mode="determinate"
+              value="{{currentStatementId}}"></mat-progress-bar>
           </div>
         </mat-card-content>
       </mat-card>
     </div>
-    
+
   </div>
   <div class="info">
     <mat-card id="card2">
-        <mat-card-content>
-            <span class="bold">Username: </span><span>{{username}}</span><br>
-            <span class="bold">Code: </span><span>{{userCode}}</span>
-        </mat-card-content>
+      <mat-card-content>
+        <span class="bold">Username: </span><span>{{username}}</span><br>
+        <span class="bold">Code: </span><span>{{userCode}}</span>
+      </mat-card-content>
     </mat-card>
-</div>
+  </div>
 </body>

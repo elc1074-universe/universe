@@ -9,6 +9,9 @@
         </a>
         <br>
     </div>
+    <div id="title">
+        UniVerse
+      </div>
     <div id="personality-buttons">
         <button class="personality-button" id="personality-6-button" (click)="goToPersonality(6)" [disabled]="completionStatus['C']" [ngClass]="{'disabled-button': completionStatus['C']}">
             <img [src]="completionStatus['C'] ? '/assets/images/personality-buttons/personality-6-button-disabled.png' : '/assets/images/personality-buttons/personality-6-button.png'" alt="Personality 6">

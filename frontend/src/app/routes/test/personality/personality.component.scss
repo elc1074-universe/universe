@@ -28,6 +28,10 @@ body {
   width: 93px;
 }
 
+.personality-button:disabled {
+  cursor: default;
+}
+
 #personality-6-button {
   left: 302px;
   top: 100px;

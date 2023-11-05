@@ -3,12 +3,12 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 
 import { TestInfoComponent } from 'src/app/routes/test/info/test-info.component';
-import { InfoCodeComponent } from 'src/app/routes/test/info-code/info-code.component';
 import UserRetrievalDTO from 'src/app/models/dto/user/UserRetrievalDTO';
 import UserService from 'src/app/services/user.service';
 import PersonalityService from 'src/app/services/personality.service';
 import StatementService from 'src/app/services/statement.service';
-
+import TestService from 'src/app/services/test.service';
+import TestRetrievalDTO from 'src/app/models/dto/test/TestRetrievalDTO';
 @Component({
   selector: 'app-personality',
   templateUrl: './personality.component.html',
@@ -16,14 +16,16 @@ import StatementService from 'src/app/services/statement.service';
 })
 export class PersonalityComponent implements OnInit {
 
+  completionStatus: Record<string, boolean> = {};
   private user!: UserRetrievalDTO | null;
   username! : string;
   usercode! : string
-
+  
   constructor(
     private userService: UserService,
     private personalityService: PersonalityService,
     private statementService: StatementService,
+    private TestService: TestService,
     public dialog: MatDialog,
     private router: Router,
     private activatedRoute: ActivatedRoute
@@ -50,7 +52,18 @@ export class PersonalityComponent implements OnInit {
               if (this.user?.username) {
                 this.username = this.user.username;
               }
-              this.usercode = currentUserCode!;
+              this.usercode = currentUserCode!;     
+              const letters = ['R', 'I', 'A', 'S', 'E', 'C'];
+              
+              for (let i = 0; i < letters.length; i++) {
+                this.TestService.findPersonality(this.usercode, letters[i]).subscribe({
+                  next: (personality: TestRetrievalDTO | null) => {
+                    if (personality) {
+                      this.completionStatus[letters[i]] = personality.isCompleted;
+                    }
+                  }
+                });
+              }
             },
             error: error => {
               console.error(error);

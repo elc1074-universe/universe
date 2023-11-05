@@ -53,9 +53,9 @@ export default class TestService extends Service {
       .pipe(map(response => response.data));
   }
 
-  findPersonality(userCode: string, personalityLetter: string): Observable<PersonalityRetrievalDTO[] | null> {
+  findPersonality(userCode: string, personalityLetter: string): Observable<TestRetrievalDTO | null> {
     return this.httpClient
-      .get<ApiResponse<PersonalityRetrievalDTO[]>>(`${this.baseURL}/${userCode}/personalities/${personalityLetter}`)
+      .get<ApiResponse<TestRetrievalDTO>>(`${this.baseURL}/${userCode}/personalities/${personalityLetter}`)
       .pipe(map(response => response.data));
   }
 };

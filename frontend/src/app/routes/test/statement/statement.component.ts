@@ -6,6 +6,8 @@ import StatementRetrievalDTO from 'src/app/models/dto/statement/StatementRetriev
 import UserService from 'src/app/services/user.service';
 import TestStatementSavingDTO from 'src/app/models/dto/test/TestStatementSavingDTO';
 import TestService from 'src/app/services/test.service';
+import { MatDialog } from '@angular/material/dialog';
+import { InfoCompletedComponent } from '../info-completed/info-completed.component';
 
 @Component({
   selector: 'app-statement',
@@ -19,13 +21,15 @@ export class StatementComponent implements OnInit {
   userCode: any = "";
   username! : string;
   testStatementSavingDTO!: TestStatementSavingDTO;
+  isTestCompleted : boolean = false;
 
   constructor(
     private statementService: StatementService,
     private router: Router,
     private activatedRoute: ActivatedRoute,
     private userService: UserService,
-    private TestService: TestService
+    private TestService: TestService,
+    public dialog: MatDialog,
   ) {
 
   }
@@ -73,11 +77,16 @@ export class StatementComponent implements OnInit {
 
       this.TestService.saveStatement(this.userCode, this.testStatementSavingDTO).subscribe((data:any) => {
         console.log(data);
-        this.goToNextStatement();
+        this.isTestCompleted = data.isCompleted;
+        if (this.isTestCompleted) {
+          const dialogRef = this.dialog.open(InfoCompletedComponent, { data: { userCode: this.userCode } });
+        }
+        if (this.currentStatementId < 42) {
+          this.goToNextStatement();
+        }
       });
     }
   }
-
 
   goToNextStatement(): void {
     this.currentStatementId = this.statement!.id + 1;
@@ -90,8 +99,8 @@ export class StatementComponent implements OnInit {
     return `assets/images/test/${this.currentStatementId}.png`;
   }
 
-  goBack() {
-    this.router.navigate(['/test/personality', this.userCode]);
+  goToHome() {
+    this.router.navigate(['/']);
   }
 
 }

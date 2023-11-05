@@ -1,13 +1,13 @@
 <body [style.background-image]="'url(' + getQuestionImage() + ')'">
   <div class="back">
-    <button mat-icon-button (click)="goBack()">
+    <button mat-icon-button (click)="goToHome()">
       <mat-icon class="material-icons color_white">
         arrow_back_ios
       </mat-icon>
     </button>
     <br>
   </div>
-  <div id="title">
+  <div id="title" (click)="goToHome()">
     UniVerse
   </div>
   <div class="question">

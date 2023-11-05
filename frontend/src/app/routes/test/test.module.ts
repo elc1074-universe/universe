@@ -13,6 +13,7 @@ import { AppMaterialModule } from 'src/app/shared/app-material-module/app-materi
 import { StatementComponent } from './statement/statement.component';
 import { PersonalityComponent } from './personality/personality.component';
 import { InfoCodeComponent } from './info-code/info-code.component';
+import { InfoCompletedComponent } from './info-completed/info-completed.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { InfoCodeComponent } from './info-code/info-code.component';
     TestInfoComponent,
     StatementComponent,
     PersonalityComponent,
-    InfoCodeComponent
+    InfoCodeComponent,
+    InfoCompletedComponent
   ],
   imports: [
     CommonModule,

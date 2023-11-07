@@ -1548,6 +1548,566 @@ INSERT INTO personality_pathway (personality_id, pathway_id, is_main_pathway) VA
     0
 );
 
+INSERT INTO personality_pathway_ufsm_course (personality_pathway_id, ufsm_course_id) VALUES (
+    (SELECT id FROM personality_pathway WHERE personality_id = 1 AND pathway_id = (SELECT id FROM pathway WHERE `name` LIKE 'Agricultura')),
+    3
+);
+
+INSERT INTO personality_pathway_ufsm_course (personality_pathway_id, ufsm_course_id) VALUES (
+    (SELECT id FROM personality_pathway WHERE personality_id = 1 AND pathway_id = (SELECT id FROM pathway WHERE `name` LIKE 'Agricultura')),
+    4
+);
+
+INSERT INTO personality_pathway_ufsm_course (personality_pathway_id, ufsm_course_id) VALUES (
+    (SELECT id FROM personality_pathway WHERE personality_id = 1 AND pathway_id = (SELECT id FROM pathway WHERE `name` LIKE 'Agricultura')),
+    5
+);
+
+INSERT INTO personality_pathway_ufsm_course (personality_pathway_id, ufsm_course_id) VALUES (
+    (SELECT id FROM personality_pathway WHERE personality_id = 1 AND pathway_id = (SELECT id FROM pathway WHERE `name` LIKE 'Agricultura')),
+    6
+);
+
+INSERT INTO personality_pathway_ufsm_course (personality_pathway_id, ufsm_course_id) VALUES (
+    (SELECT id FROM personality_pathway WHERE personality_id = 1 AND pathway_id = (SELECT id FROM pathway WHERE `name` LIKE 'Agricultura')),
+    7
+);
+
+INSERT INTO personality_pathway_ufsm_course (personality_pathway_id, ufsm_course_id) VALUES (
+    (SELECT id FROM personality_pathway WHERE personality_id = 1 AND pathway_id = (SELECT id FROM pathway WHERE `name` LIKE 'Agricultura')),
+    8
+);
+
+INSERT INTO personality_pathway_ufsm_course (personality_pathway_id, ufsm_course_id) VALUES (
+    (SELECT id FROM personality_pathway WHERE personality_id = 1 AND pathway_id = (SELECT id FROM pathway WHERE `name` LIKE 'Agricultura')),
+    9
+);
+
+INSERT INTO personality_pathway_ufsm_course (personality_pathway_id, ufsm_course_id) VALUES (
+    (SELECT id FROM personality_pathway WHERE personality_id = 1 AND pathway_id = (SELECT id FROM pathway WHERE `name` LIKE 'Agricultura')),
+    10
+);
+
+INSERT INTO personality_pathway_ufsm_course (personality_pathway_id, ufsm_course_id) VALUES (
+    (SELECT id FROM personality_pathway WHERE personality_id = 1 AND pathway_id = (SELECT id FROM pathway WHERE `name` LIKE 'Agricultura')),
+    28
+);
+
+INSERT INTO personality_pathway_ufsm_course (personality_pathway_id, ufsm_course_id) VALUES (
+    (SELECT id FROM personality_pathway WHERE personality_id = 1 AND pathway_id = (SELECT id FROM pathway WHERE `name` LIKE 'Agricultura')),
+    40
+);
+
+INSERT INTO personality_pathway_ufsm_course (personality_pathway_id, ufsm_course_id) VALUES (
+    (SELECT id FROM personality_pathway WHERE personality_id = 1 AND pathway_id = (SELECT id FROM pathway WHERE `name` LIKE 'Agricultura')),
+    60
+);
+
+INSERT INTO personality_pathway_ufsm_course (personality_pathway_id, ufsm_course_id) VALUES (
+    (SELECT id FROM personality_pathway WHERE personality_id = 1 AND pathway_id = (SELECT id FROM pathway WHERE `name` LIKE 'Agricultura')),
+    64
+);
+
+INSERT INTO personality_pathway_ufsm_course (personality_pathway_id, ufsm_course_id) VALUES (
+    (SELECT id FROM personality_pathway WHERE personality_id = 1 AND pathway_id = (SELECT id FROM pathway WHERE `name` LIKE 'Agricultura')),
+    65
+);
+
+INSERT INTO personality_pathway_ufsm_course (personality_pathway_id, ufsm_course_id) VALUES (
+    (SELECT id FROM personality_pathway WHERE personality_id = 1 AND pathway_id = (SELECT id FROM pathway WHERE `name` LIKE 'Agricultura')),
+    76
+);
+
+INSERT INTO personality_pathway_ufsm_course (personality_pathway_id, ufsm_course_id) VALUES (
+    (SELECT id FROM personality_pathway WHERE personality_id = 1 AND pathway_id = (SELECT id FROM pathway WHERE `name` LIKE 'Assistência em saúde')),
+    24
+);
+
+INSERT INTO personality_pathway_ufsm_course (personality_pathway_id, ufsm_course_id) VALUES (
+    (SELECT id FROM personality_pathway WHERE personality_id = 1 AND pathway_id = (SELECT id FROM pathway WHERE `name` LIKE 'Assistência em saúde')),
+    36
+);
+
+INSERT INTO personality_pathway_ufsm_course (personality_pathway_id, ufsm_course_id) VALUES (
+    (SELECT id FROM personality_pathway WHERE personality_id = 1 AND pathway_id = (SELECT id FROM pathway WHERE `name` LIKE 'Assistência em saúde')),
+    37
+);
+
+INSERT INTO personality_pathway_ufsm_course (personality_pathway_id, ufsm_course_id) VALUES (
+    (SELECT id FROM personality_pathway WHERE personality_id = 1 AND pathway_id = (SELECT id FROM pathway WHERE `name` LIKE 'Assistência em saúde')),
+    58
+);
+
+INSERT INTO personality_pathway_ufsm_course (personality_pathway_id, ufsm_course_id) VALUES (
+    (SELECT id FROM personality_pathway WHERE personality_id = 1 AND pathway_id = (SELECT id FROM pathway WHERE `name` LIKE 'Assistência em saúde')),
+    74
+);
+
+INSERT INTO personality_pathway_ufsm_course (personality_pathway_id, ufsm_course_id) VALUES (
+    (SELECT id FROM personality_pathway WHERE personality_id = 1 AND pathway_id = (SELECT id FROM pathway WHERE `name` LIKE 'Assistência em saúde')),
+    85
+);
+
+INSERT INTO personality_pathway_ufsm_course (personality_pathway_id, ufsm_course_id) VALUES (
+    (SELECT id FROM personality_pathway WHERE personality_id = 1 AND pathway_id = (SELECT id FROM pathway WHERE `name` LIKE 'Assistência em saúde')),
+    93
+);
+
+INSERT INTO personality_pathway_ufsm_course (personality_pathway_id, ufsm_course_id) VALUES (
+    (SELECT id FROM personality_pathway WHERE personality_id = 1 AND pathway_id = (SELECT id FROM pathway WHERE `name` LIKE 'Assistência em saúde')),
+    98
+);
+
+INSERT INTO personality_pathway_ufsm_course (personality_pathway_id, ufsm_course_id) VALUES (
+    (SELECT id FROM personality_pathway WHERE personality_id = 1 AND pathway_id = (SELECT id FROM pathway WHERE `name` LIKE 'Computação')),
+    16
+);
+
+INSERT INTO personality_pathway_ufsm_course (personality_pathway_id, ufsm_course_id) VALUES (
+    (SELECT id FROM personality_pathway WHERE personality_id = 1 AND pathway_id = (SELECT id FROM pathway WHERE `name` LIKE 'Computação')),
+    43
+);
+
+INSERT INTO personality_pathway_ufsm_course (personality_pathway_id, ufsm_course_id) VALUES (
+    (SELECT id FROM personality_pathway WHERE personality_id = 1 AND pathway_id = (SELECT id FROM pathway WHERE `name` LIKE 'Computação')),
+    68
+);
+
+INSERT INTO personality_pathway_ufsm_course (personality_pathway_id, ufsm_course_id) VALUES (
+    (SELECT id FROM personality_pathway WHERE personality_id = 1 AND pathway_id = (SELECT id FROM pathway WHERE `name` LIKE 'Computação')),
+    69
+);
+
+INSERT INTO personality_pathway_ufsm_course (personality_pathway_id, ufsm_course_id) VALUES (
+    (SELECT id FROM personality_pathway WHERE personality_id = 1 AND pathway_id = (SELECT id FROM pathway WHERE `name` LIKE 'Computação')),
+    88
+);
+
+INSERT INTO personality_pathway_ufsm_course (personality_pathway_id, ufsm_course_id) VALUES (
+    (SELECT id FROM personality_pathway WHERE personality_id = 1 AND pathway_id = (SELECT id FROM pathway WHERE `name` LIKE 'Computação')),
+    94
+);
+
+INSERT INTO personality_pathway_ufsm_course (personality_pathway_id, ufsm_course_id) VALUES (
+    (SELECT id FROM personality_pathway WHERE personality_id = 1 AND pathway_id = (SELECT id FROM pathway WHERE `name` LIKE 'Computação')),
+    95
+);
+
+INSERT INTO personality_pathway_ufsm_course (personality_pathway_id, ufsm_course_id) VALUES (
+    (SELECT id FROM personality_pathway WHERE personality_id = 1 AND pathway_id = (SELECT id FROM pathway WHERE `name` LIKE 'Construção')),
+    11
+);
+
+INSERT INTO personality_pathway_ufsm_course (personality_pathway_id, ufsm_course_id) VALUES (
+    (SELECT id FROM personality_pathway WHERE personality_id = 1 AND pathway_id = (SELECT id FROM pathway WHERE `name` LIKE 'Construção')),
+    15
+);
+
+INSERT INTO personality_pathway_ufsm_course (personality_pathway_id, ufsm_course_id) VALUES (
+    (SELECT id FROM personality_pathway WHERE personality_id = 1 AND pathway_id = (SELECT id FROM pathway WHERE `name` LIKE 'Construção')),
+    26
+);
+
+INSERT INTO personality_pathway_ufsm_course (personality_pathway_id, ufsm_course_id) VALUES (
+    (SELECT id FROM personality_pathway WHERE personality_id = 1 AND pathway_id = (SELECT id FROM pathway WHERE `name` LIKE 'Construção')),
+    42
+);
+
+INSERT INTO personality_pathway_ufsm_course (personality_pathway_id, ufsm_course_id) VALUES (
+    (SELECT id FROM personality_pathway WHERE personality_id = 1 AND pathway_id = (SELECT id FROM pathway WHERE `name` LIKE 'Construção')),
+    44
+);
+
+INSERT INTO personality_pathway_ufsm_course (personality_pathway_id, ufsm_course_id) VALUES (
+    (SELECT id FROM personality_pathway WHERE personality_id = 1 AND pathway_id = (SELECT id FROM pathway WHERE `name` LIKE 'Construção')),
+    50
+);
+
+INSERT INTO personality_pathway_ufsm_course (personality_pathway_id, ufsm_course_id) VALUES (
+    (SELECT id FROM personality_pathway WHERE personality_id = 1 AND pathway_id = (SELECT id FROM pathway WHERE `name` LIKE 'Construção')),
+    53
+);
+
+INSERT INTO personality_pathway_ufsm_course (personality_pathway_id, ufsm_course_id) VALUES (
+    (SELECT id FROM personality_pathway WHERE personality_id = 1 AND pathway_id = (SELECT id FROM pathway WHERE `name` LIKE 'Construção')),
+    73
+);
+
+INSERT INTO personality_pathway_ufsm_course (personality_pathway_id, ufsm_course_id) VALUES (
+    (SELECT id FROM personality_pathway WHERE personality_id = 1 AND pathway_id = (SELECT id FROM pathway WHERE `name` LIKE 'Construção')),
+    96
+);
+
+INSERT INTO personality_pathway_ufsm_course (personality_pathway_id, ufsm_course_id) VALUES (
+    (SELECT id FROM personality_pathway WHERE personality_id = 1 AND pathway_id = (SELECT id FROM pathway WHERE `name` LIKE 'Mecânica/maquinário')),
+    4
+);
+
+INSERT INTO personality_pathway_ufsm_course (personality_pathway_id, ufsm_course_id) VALUES (
+    (SELECT id FROM personality_pathway WHERE personality_id = 1 AND pathway_id = (SELECT id FROM pathway WHERE `name` LIKE 'Mecânica/maquinário')),
+    5
+);
+
+INSERT INTO personality_pathway_ufsm_course (personality_pathway_id, ufsm_course_id) VALUES (
+    (SELECT id FROM personality_pathway WHERE personality_id = 1 AND pathway_id = (SELECT id FROM pathway WHERE `name` LIKE 'Mecânica/maquinário')),
+    15
+);
+
+INSERT INTO personality_pathway_ufsm_course (personality_pathway_id, ufsm_course_id) VALUES (
+    (SELECT id FROM personality_pathway WHERE personality_id = 1 AND pathway_id = (SELECT id FROM pathway WHERE `name` LIKE 'Mecânica/maquinário')),
+    32
+);
+
+INSERT INTO personality_pathway_ufsm_course (personality_pathway_id, ufsm_course_id) VALUES (
+    (SELECT id FROM personality_pathway WHERE personality_id = 1 AND pathway_id = (SELECT id FROM pathway WHERE `name` LIKE 'Mecânica/maquinário')),
+    50
+);
+
+INSERT INTO personality_pathway_ufsm_course (personality_pathway_id, ufsm_course_id) VALUES (
+    (SELECT id FROM personality_pathway WHERE personality_id = 1 AND pathway_id = (SELECT id FROM pathway WHERE `name` LIKE 'Mecânica/maquinário')),
+    53
+);
+
+INSERT INTO personality_pathway_ufsm_course (personality_pathway_id, ufsm_course_id) VALUES (
+    (SELECT id FROM personality_pathway WHERE personality_id = 1 AND pathway_id = (SELECT id FROM pathway WHERE `name` LIKE 'Mecânica/maquinário')),
+    73
+);
+
+INSERT INTO personality_pathway_ufsm_course (personality_pathway_id, ufsm_course_id) VALUES (
+    (SELECT id FROM personality_pathway WHERE personality_id = 1 AND pathway_id = (SELECT id FROM pathway WHERE `name` LIKE 'Mecânica/maquinário')),
+    96
+);
+
+INSERT INTO personality_pathway_ufsm_course (personality_pathway_id, ufsm_course_id) VALUES (
+    (SELECT id FROM personality_pathway WHERE personality_id = 1 AND pathway_id = (SELECT id FROM pathway WHERE `name` LIKE 'Engenharia')),
+    38
+);
+
+INSERT INTO personality_pathway_ufsm_course (personality_pathway_id, ufsm_course_id) VALUES (
+    (SELECT id FROM personality_pathway WHERE personality_id = 1 AND pathway_id = (SELECT id FROM pathway WHERE `name` LIKE 'Engenharia')),
+    39
+);
+
+INSERT INTO personality_pathway_ufsm_course (personality_pathway_id, ufsm_course_id) VALUES (
+    (SELECT id FROM personality_pathway WHERE personality_id = 1 AND pathway_id = (SELECT id FROM pathway WHERE `name` LIKE 'Engenharia')),
+    40
+);
+
+INSERT INTO personality_pathway_ufsm_course (personality_pathway_id, ufsm_course_id) VALUES (
+    (SELECT id FROM personality_pathway WHERE personality_id = 1 AND pathway_id = (SELECT id FROM pathway WHERE `name` LIKE 'Engenharia')),
+    41
+);
+
+INSERT INTO personality_pathway_ufsm_course (personality_pathway_id, ufsm_course_id) VALUES (
+    (SELECT id FROM personality_pathway WHERE personality_id = 1 AND pathway_id = (SELECT id FROM pathway WHERE `name` LIKE 'Engenharia')),
+    42
+);
+
+INSERT INTO personality_pathway_ufsm_course (personality_pathway_id, ufsm_course_id) VALUES (
+    (SELECT id FROM personality_pathway WHERE personality_id = 1 AND pathway_id = (SELECT id FROM pathway WHERE `name` LIKE 'Engenharia')),
+    43
+);
+
+INSERT INTO personality_pathway_ufsm_course (personality_pathway_id, ufsm_course_id) VALUES (
+    (SELECT id FROM personality_pathway WHERE personality_id = 1 AND pathway_id = (SELECT id FROM pathway WHERE `name` LIKE 'Engenharia')),
+    44
+);
+
+INSERT INTO personality_pathway_ufsm_course (personality_pathway_id, ufsm_course_id) VALUES (
+    (SELECT id FROM personality_pathway WHERE personality_id = 1 AND pathway_id = (SELECT id FROM pathway WHERE `name` LIKE 'Engenharia')),
+    45
+);
+
+INSERT INTO personality_pathway_ufsm_course (personality_pathway_id, ufsm_course_id) VALUES (
+    (SELECT id FROM personality_pathway WHERE personality_id = 1 AND pathway_id = (SELECT id FROM pathway WHERE `name` LIKE 'Engenharia')),
+    46
+);
+
+INSERT INTO personality_pathway_ufsm_course (personality_pathway_id, ufsm_course_id) VALUES (
+    (SELECT id FROM personality_pathway WHERE personality_id = 1 AND pathway_id = (SELECT id FROM pathway WHERE `name` LIKE 'Engenharia')),
+    47
+);
+
+INSERT INTO personality_pathway_ufsm_course (personality_pathway_id, ufsm_course_id) VALUES (
+    (SELECT id FROM personality_pathway WHERE personality_id = 1 AND pathway_id = (SELECT id FROM pathway WHERE `name` LIKE 'Engenharia')),
+    48
+);
+
+INSERT INTO personality_pathway_ufsm_course (personality_pathway_id, ufsm_course_id) VALUES (
+    (SELECT id FROM personality_pathway WHERE personality_id = 1 AND pathway_id = (SELECT id FROM pathway WHERE `name` LIKE 'Engenharia')),
+    49
+);
+
+INSERT INTO personality_pathway_ufsm_course (personality_pathway_id, ufsm_course_id) VALUES (
+    (SELECT id FROM personality_pathway WHERE personality_id = 1 AND pathway_id = (SELECT id FROM pathway WHERE `name` LIKE 'Engenharia')),
+    50
+);
+
+INSERT INTO personality_pathway_ufsm_course (personality_pathway_id, ufsm_course_id) VALUES (
+    (SELECT id FROM personality_pathway WHERE personality_id = 1 AND pathway_id = (SELECT id FROM pathway WHERE `name` LIKE 'Engenharia')),
+    51
+);
+
+INSERT INTO personality_pathway_ufsm_course (personality_pathway_id, ufsm_course_id) VALUES (
+    (SELECT id FROM personality_pathway WHERE personality_id = 1 AND pathway_id = (SELECT id FROM pathway WHERE `name` LIKE 'Alimentação e hotelaria')),
+    9
+);
+
+INSERT INTO personality_pathway_ufsm_course (personality_pathway_id, ufsm_course_id) VALUES (
+    (SELECT id FROM personality_pathway WHERE personality_id = 1 AND pathway_id = (SELECT id FROM pathway WHERE `name` LIKE 'Alimentação e hotelaria')),
+    10
+);
+
+INSERT INTO personality_pathway_ufsm_course (personality_pathway_id, ufsm_course_id) VALUES (
+    (SELECT id FROM personality_pathway WHERE personality_id = 1 AND pathway_id = (SELECT id FROM pathway WHERE `name` LIKE 'Alimentação e hotelaria')),
+    66
+);
+
+INSERT INTO personality_pathway_ufsm_course (personality_pathway_id, ufsm_course_id) VALUES (
+    (SELECT id FROM personality_pathway WHERE personality_id = 1 AND pathway_id = (SELECT id FROM pathway WHERE `name` LIKE 'Alimentação e hotelaria')),
+    79
+);
+
+INSERT INTO personality_pathway_ufsm_course (personality_pathway_id, ufsm_course_id) VALUES (
+    (SELECT id FROM personality_pathway WHERE personality_id = 1 AND pathway_id = (SELECT id FROM pathway WHERE `name` LIKE 'Alimentação e hotelaria')),
+    83
+);
+
+INSERT INTO personality_pathway_ufsm_course (personality_pathway_id, ufsm_course_id) VALUES (
+    (SELECT id FROM personality_pathway WHERE personality_id = 1 AND pathway_id = (SELECT id FROM pathway WHERE `name` LIKE 'Alimentação e hotelaria')),
+    86
+);
+
+INSERT INTO personality_pathway_ufsm_course (personality_pathway_id, ufsm_course_id) VALUES (
+    (SELECT id FROM personality_pathway WHERE personality_id = 1 AND pathway_id = (SELECT id FROM pathway WHERE `name` LIKE 'Alimentação e hotelaria')),
+    87
+);
+
+INSERT INTO personality_pathway_ufsm_course (personality_pathway_id, ufsm_course_id) VALUES (
+    (SELECT id FROM personality_pathway WHERE personality_id = 1 AND pathway_id = (SELECT id FROM pathway WHERE `name` LIKE 'Alimentação e hotelaria')),
+    89
+);
+
+INSERT INTO personality_pathway_ufsm_course (personality_pathway_id, ufsm_course_id) VALUES (
+    (SELECT id FROM personality_pathway WHERE personality_id = 1 AND pathway_id = (SELECT id FROM pathway WHERE `name` LIKE 'Alimentação e hotelaria')),
+    90
+);
+
+INSERT INTO personality_pathway_ufsm_course (personality_pathway_id, ufsm_course_id) VALUES (
+    (SELECT id FROM personality_pathway WHERE personality_id = 1 AND pathway_id = (SELECT id FROM pathway WHERE `name` LIKE 'Recursos naturais')),
+    17
+);
+
+INSERT INTO personality_pathway_ufsm_course (personality_pathway_id, ufsm_course_id) VALUES (
+    (SELECT id FROM personality_pathway WHERE personality_id = 1 AND pathway_id = (SELECT id FROM pathway WHERE `name` LIKE 'Recursos naturais')),
+    28
+);
+
+INSERT INTO personality_pathway_ufsm_course (personality_pathway_id, ufsm_course_id) VALUES (
+    (SELECT id FROM personality_pathway WHERE personality_id = 1 AND pathway_id = (SELECT id FROM pathway WHERE `name` LIKE 'Recursos naturais')),
+    31
+);
+
+INSERT INTO personality_pathway_ufsm_course (personality_pathway_id, ufsm_course_id) VALUES (
+    (SELECT id FROM personality_pathway WHERE personality_id = 1 AND pathway_id = (SELECT id FROM pathway WHERE `name` LIKE 'Recursos naturais')),
+    41
+);
+
+INSERT INTO personality_pathway_ufsm_course (personality_pathway_id, ufsm_course_id) VALUES (
+    (SELECT id FROM personality_pathway WHERE personality_id = 1 AND pathway_id = (SELECT id FROM pathway WHERE `name` LIKE 'Recursos naturais')),
+    49
+);
+
+INSERT INTO personality_pathway_ufsm_course (personality_pathway_id, ufsm_course_id) VALUES (
+    (SELECT id FROM personality_pathway WHERE personality_id = 1 AND pathway_id = (SELECT id FROM pathway WHERE `name` LIKE 'Recursos naturais')),
+    61
+);
+
+INSERT INTO personality_pathway_ufsm_course (personality_pathway_id, ufsm_course_id) VALUES (
+    (SELECT id FROM personality_pathway WHERE personality_id = 1 AND pathway_id = (SELECT id FROM pathway WHERE `name` LIKE 'Recursos naturais')),
+    64
+);
+
+INSERT INTO personality_pathway_ufsm_course (personality_pathway_id, ufsm_course_id) VALUES (
+    (SELECT id FROM personality_pathway WHERE personality_id = 1 AND pathway_id = (SELECT id FROM pathway WHERE `name` LIKE 'Recursos naturais')),
+    76
+);
+
+INSERT INTO personality_pathway_ufsm_course (personality_pathway_id, ufsm_course_id) VALUES (
+    (SELECT id FROM personality_pathway WHERE personality_id = 1 AND pathway_id = (SELECT id FROM pathway WHERE `name` LIKE 'Recursos naturais')),
+    81
+);
+
+INSERT INTO personality_pathway_ufsm_course (personality_pathway_id, ufsm_course_id) VALUES (
+    (SELECT id FROM personality_pathway WHERE personality_id = 1 AND pathway_id = (SELECT id FROM pathway WHERE `name` LIKE 'Recursos naturais')),
+    20
+);
+
+INSERT INTO personality_pathway_ufsm_course (personality_pathway_id, ufsm_course_id) VALUES (
+    (SELECT id FROM personality_pathway WHERE personality_id = 1 AND pathway_id = (SELECT id FROM pathway WHERE `name` LIKE 'Serviços de saúde')),
+    24
+);
+
+INSERT INTO personality_pathway_ufsm_course (personality_pathway_id, ufsm_course_id) VALUES (
+    (SELECT id FROM personality_pathway WHERE personality_id = 1 AND pathway_id = (SELECT id FROM pathway WHERE `name` LIKE 'Serviços de saúde')),
+    36
+);
+
+INSERT INTO personality_pathway_ufsm_course (personality_pathway_id, ufsm_course_id) VALUES (
+    (SELECT id FROM personality_pathway WHERE personality_id = 1 AND pathway_id = (SELECT id FROM pathway WHERE `name` LIKE 'Serviços de saúde')),
+    37
+);
+
+INSERT INTO personality_pathway_ufsm_course (personality_pathway_id, ufsm_course_id) VALUES (
+    (SELECT id FROM personality_pathway WHERE personality_id = 1 AND pathway_id = (SELECT id FROM pathway WHERE `name` LIKE 'Serviços de saúde')),
+    74
+);
+
+INSERT INTO personality_pathway_ufsm_course (personality_pathway_id, ufsm_course_id) VALUES (
+    (SELECT id FROM personality_pathway WHERE personality_id = 1 AND pathway_id = (SELECT id FROM pathway WHERE `name` LIKE 'Serviços de saúde')),
+    75
+);
+
+INSERT INTO personality_pathway_ufsm_course (personality_pathway_id, ufsm_course_id) VALUES (
+    (SELECT id FROM personality_pathway WHERE personality_id = 1 AND pathway_id = (SELECT id FROM pathway WHERE `name` LIKE 'Serviços de saúde')),
+    79
+);
+
+INSERT INTO personality_pathway_ufsm_course (personality_pathway_id, ufsm_course_id) VALUES (
+    (SELECT id FROM personality_pathway WHERE personality_id = 1 AND pathway_id = (SELECT id FROM pathway WHERE `name` LIKE 'Serviços de saúde')),
+    80
+);
+
+INSERT INTO personality_pathway_ufsm_course (personality_pathway_id, ufsm_course_id) VALUES (
+    (SELECT id FROM personality_pathway WHERE personality_id = 1 AND pathway_id = (SELECT id FROM pathway WHERE `name` LIKE 'Serviços de saúde')),
+    85
+);
+
+INSERT INTO personality_pathway_ufsm_course (personality_pathway_id, ufsm_course_id) VALUES (
+    (SELECT id FROM personality_pathway WHERE personality_id = 1 AND pathway_id = (SELECT id FROM pathway WHERE `name` LIKE 'Serviços de saúde')),
+    92
+);
+
+INSERT INTO personality_pathway_ufsm_course (personality_pathway_id, ufsm_course_id) VALUES (
+    (SELECT id FROM personality_pathway WHERE personality_id = 1 AND pathway_id = (SELECT id FROM pathway WHERE `name` LIKE 'Serviços de saúde')),
+    98
+);
+
+INSERT INTO personality_pathway_ufsm_course (personality_pathway_id, ufsm_course_id) VALUES (
+    (SELECT id FROM personality_pathway WHERE personality_id = 1 AND pathway_id = (SELECT id FROM pathway WHERE `name` LIKE 'Tecnologia industrial e de engenharia')),
+    15
+);
+
+INSERT INTO personality_pathway_ufsm_course (personality_pathway_id, ufsm_course_id) VALUES (
+    (SELECT id FROM personality_pathway WHERE personality_id = 1 AND pathway_id = (SELECT id FROM pathway WHERE `name` LIKE 'Tecnologia industrial e de engenharia')),
+    32
+);
+
+INSERT INTO personality_pathway_ufsm_course (personality_pathway_id, ufsm_course_id) VALUES (
+    (SELECT id FROM personality_pathway WHERE personality_id = 1 AND pathway_id = (SELECT id FROM pathway WHERE `name` LIKE 'Tecnologia industrial e de engenharia')),
+    33
+);
+
+INSERT INTO personality_pathway_ufsm_course (personality_pathway_id, ufsm_course_id) VALUES (
+    (SELECT id FROM personality_pathway WHERE personality_id = 1 AND pathway_id = (SELECT id FROM pathway WHERE `name` LIKE 'Tecnologia industrial e de engenharia')),
+    34
+);
+
+INSERT INTO personality_pathway_ufsm_course (personality_pathway_id, ufsm_course_id) VALUES (
+    (SELECT id FROM personality_pathway WHERE personality_id = 1 AND pathway_id = (SELECT id FROM pathway WHERE `name` LIKE 'Tecnologia industrial e de engenharia')),
+    35
+);
+
+INSERT INTO personality_pathway_ufsm_course (personality_pathway_id, ufsm_course_id) VALUES (
+    (SELECT id FROM personality_pathway WHERE personality_id = 1 AND pathway_id = (SELECT id FROM pathway WHERE `name` LIKE 'Tecnologia industrial e de engenharia')),
+    44
+);
+
+INSERT INTO personality_pathway_ufsm_course (personality_pathway_id, ufsm_course_id) VALUES (
+    (SELECT id FROM personality_pathway WHERE personality_id = 1 AND pathway_id = (SELECT id FROM pathway WHERE `name` LIKE 'Tecnologia industrial e de engenharia')),
+    46
+);
+
+INSERT INTO personality_pathway_ufsm_course (personality_pathway_id, ufsm_course_id) VALUES (
+    (SELECT id FROM personality_pathway WHERE personality_id = 1 AND pathway_id = (SELECT id FROM pathway WHERE `name` LIKE 'Tecnologia industrial e de engenharia')),
+    48
+);
+
+INSERT INTO personality_pathway_ufsm_course (personality_pathway_id, ufsm_course_id) VALUES (
+    (SELECT id FROM personality_pathway WHERE personality_id = 1 AND pathway_id = (SELECT id FROM pathway WHERE `name` LIKE 'Tecnologia industrial e de engenharia')),
+    53
+);
+
+INSERT INTO personality_pathway_ufsm_course (personality_pathway_id, ufsm_course_id) VALUES (
+    (SELECT id FROM personality_pathway WHERE personality_id = 1 AND pathway_id = (SELECT id FROM pathway WHERE `name` LIKE 'Tecnologia industrial e de engenharia')),
+    62
+);
+
+INSERT INTO personality_pathway_ufsm_course (personality_pathway_id, ufsm_course_id) VALUES (
+    (SELECT id FROM personality_pathway WHERE personality_id = 1 AND pathway_id = (SELECT id FROM pathway WHERE `name` LIKE 'Tecnologia industrial e de engenharia')),
+    63
+);
+
+INSERT INTO personality_pathway_ufsm_course (personality_pathway_id, ufsm_course_id) VALUES (
+    (SELECT id FROM personality_pathway WHERE personality_id = 1 AND pathway_id = (SELECT id FROM pathway WHERE `name` LIKE 'Tecnologia industrial e de engenharia')),
+    83
+);
+
+INSERT INTO personality_pathway_ufsm_course (personality_pathway_id, ufsm_course_id) VALUES (
+    (SELECT id FROM personality_pathway WHERE personality_id = 1 AND pathway_id = (SELECT id FROM pathway WHERE `name` LIKE 'Tecnologia industrial e de engenharia')),
+    87
+);
+
+INSERT INTO personality_pathway_ufsm_course (personality_pathway_id, ufsm_course_id) VALUES (
+    (SELECT id FROM personality_pathway WHERE personality_id = 1 AND pathway_id = (SELECT id FROM pathway WHERE `name` LIKE 'Comunicação e arte')),
+    13
+);
+
+INSERT INTO personality_pathway_ufsm_course (personality_pathway_id, ufsm_course_id) VALUES (
+    (SELECT id FROM personality_pathway WHERE personality_id = 1 AND pathway_id = (SELECT id FROM pathway WHERE `name` LIKE 'Comunicação e arte')),
+    14
+);
+
+INSERT INTO personality_pathway_ufsm_course (personality_pathway_id, ufsm_course_id) VALUES (
+    (SELECT id FROM personality_pathway WHERE personality_id = 1 AND pathway_id = (SELECT id FROM pathway WHERE `name` LIKE 'Comunicação e arte')),
+    25
+);
+
+INSERT INTO personality_pathway_ufsm_course (personality_pathway_id, ufsm_course_id) VALUES (
+    (SELECT id FROM personality_pathway WHERE personality_id = 1 AND pathway_id = (SELECT id FROM pathway WHERE `name` LIKE 'Comunicação e arte')),
+    26
+);
+
+INSERT INTO personality_pathway_ufsm_course (personality_pathway_id, ufsm_course_id) VALUES (
+    (SELECT id FROM personality_pathway WHERE personality_id = 1 AND pathway_id = (SELECT id FROM pathway WHERE `name` LIKE 'Comunicação e arte')),
+    70
+);
+
+INSERT INTO personality_pathway_ufsm_course (personality_pathway_id, ufsm_course_id) VALUES (
+    (SELECT id FROM personality_pathway WHERE personality_id = 1 AND pathway_id = (SELECT id FROM pathway WHERE `name` LIKE 'Comunicação e arte')),
+    78
+);
+
+INSERT INTO personality_pathway_ufsm_course (personality_pathway_id, ufsm_course_id) VALUES (
+    (SELECT id FROM personality_pathway WHERE personality_id = 1 AND pathway_id = (SELECT id FROM pathway WHERE `name` LIKE 'Comunicação e arte')),
+    81
+);
+
+INSERT INTO personality_pathway_ufsm_course (personality_pathway_id, ufsm_course_id) VALUES (
+    (SELECT id FROM personality_pathway WHERE personality_id = 1 AND pathway_id = (SELECT id FROM pathway WHERE `name` LIKE 'Comunicação e arte')),
+    89
+);
+
+INSERT INTO personality_pathway_ufsm_course (personality_pathway_id, ufsm_course_id) VALUES (
+    (SELECT id FROM personality_pathway WHERE personality_id = 1 AND pathway_id = (SELECT id FROM pathway WHERE `name` LIKE 'Comunicação e arte')),
+    90
+);
+
+INSERT INTO personality_pathway_ufsm_course (personality_pathway_id, ufsm_course_id) VALUES (
+    (SELECT id FROM personality_pathway WHERE personality_id = 1 AND pathway_id = (SELECT id FROM pathway WHERE `name` LIKE 'Comunicação e arte')),
+    97
+);
+
 INSERT INTO user (code, username, email) VALUES ('AAA', 'teste', 'teste@gmail.com');
 
 INSERT INTO test (user_id) VALUES ((SELECT id FROM user WHERE code = 'AAA'));

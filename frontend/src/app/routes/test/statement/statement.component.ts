@@ -95,12 +95,13 @@ export class StatementComponent implements OnInit {
     this.router.navigate(['/test/statement', this.currentStatementId]);
   }
 
-  getQuestionImage(): string {
-    return `assets/images/test/${this.currentStatementId}.png`;
-  }
-
-  goToHome() {
+  goToHome(): void {
     this.router.navigate(['/']);
   }
 
-}
+  composeStatementBackgroundImageUrl(): string {
+    const backgroundImageId = this.currentStatementId <= 9 ? `0${this.currentStatementId}` : `${this.currentStatementId}`;
+
+    return `assets/images/statements/${backgroundImageId}.png`;
+  }
+};

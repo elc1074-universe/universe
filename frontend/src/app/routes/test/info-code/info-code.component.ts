@@ -15,7 +15,7 @@ export class InfoCodeComponent {
     private router: Router,
     @Inject(MAT_DIALOG_DATA) public data: any) {
     if (data.code) {
-      this.code = `${data.code}`;
+      this.code = `${data.code.toUpperCase()}`;
     } else {
       this.code = `Código não encontrado`;
     }
@@ -24,4 +24,4 @@ export class InfoCodeComponent {
   goToTest() {
     this.router.navigate(['/test/personality', this.code]);
   }
-}
+};

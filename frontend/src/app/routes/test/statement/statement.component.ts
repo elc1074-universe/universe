@@ -73,11 +73,12 @@ export class StatementComponent implements OnInit {
       this.testStatementSavingDTO.selectedOptionId = selectedOption;
 
       this.TestService.saveStatement(this.userCode, this.testStatementSavingDTO).subscribe((data:any) => {
-        console.log(data);
         this.isTestCompleted = data.isCompleted;
+
         if (this.isTestCompleted) {
           this.dialog.open(InfoCompletedComponent, { data: { userCode: this.userCode } });
         }
+        
         if (this.currentStatementId < 42) {
           this.goToNextStatement();
         }

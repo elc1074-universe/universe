@@ -37,7 +37,6 @@ export class StatementComponent implements OnInit {
   ngOnInit(): void {
     this.userService.getCurrentUserCode().subscribe((code: string | null) => {
       this.userCode = code;
-      console.log(this.userCode);
     });
 
     this.userService.findByCode(this.userCode).subscribe((data:any) => {
@@ -47,7 +46,6 @@ export class StatementComponent implements OnInit {
     this.activatedRoute
       .paramMap
       .subscribe((params: ParamMap) => {
-        console.log(Number(params.get('id')));
         this.statementService.setCurrentStatementId(Number(params.get('id')));
       });
 
@@ -73,13 +71,12 @@ export class StatementComponent implements OnInit {
       this.testStatementSavingDTO = new TestStatementSavingDTO();
       this.testStatementSavingDTO.statementId = this.statement.id;
       this.testStatementSavingDTO.selectedOptionId = selectedOption;
-      console.log(this.testStatementSavingDTO);
 
       this.TestService.saveStatement(this.userCode, this.testStatementSavingDTO).subscribe((data:any) => {
         console.log(data);
         this.isTestCompleted = data.isCompleted;
         if (this.isTestCompleted) {
-          const dialogRef = this.dialog.open(InfoCompletedComponent, { data: { userCode: this.userCode } });
+          this.dialog.open(InfoCompletedComponent, { data: { userCode: this.userCode } });
         }
         if (this.currentStatementId < 42) {
           this.goToNextStatement();

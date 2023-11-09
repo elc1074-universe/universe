@@ -6,7 +6,7 @@ import { ToastrModule, ToastrService } from 'ngx-toastr';
 
 import { TestCreationComponent } from './creation/test-creation.component';
 import { TestContinuationComponent } from './continuation/test-continuation.component';
-import { TestResultComponent } from './result/test-result.component';
+import { TestResultComponent } from './result/result.component';
 import { TestInfoComponent } from './info/test-info.component';
 import { TestRoutingModule } from './test-routing.module';
 import { AppMaterialModule } from 'src/app/shared/app-material-module/app-material-module.module';

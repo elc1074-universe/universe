@@ -1,4 +1,4 @@
-import { Equal, ILike } from 'typeorm';
+import { Equal, ILike, IsNull, Not } from 'typeorm';
 
 import dataSource from '../../database/data-source';
 import TestStatement from '../entities/database/TestStatement';
@@ -64,11 +64,29 @@ const save = (testStatement: TestStatement): Promise<TestStatement> => {
   return testStatementRepository.save(testStatement);
 };
 
+const deleteByUserCodeAndPersonalityLetter = async (userCode: string, personalityLetter: string): Promise<void> => {
+  testStatementRepository.delete({
+    test: {
+      id: Not(IsNull()),
+      user: {
+        code: ILike(userCode)
+      }
+    },
+    statement: {
+      id: Not(IsNull()),
+      personality: {
+        letter: ILike(personalityLetter)
+      }
+    }
+  });
+};
+
 export default {
   findAll,
   findByUserCode,
   findByUserCodeAndStatementId,
   findCurrentStatementIdByUserCodeAndPersonalityId,
   findNumberOfCompletedStatementsByUserCodeAndPersonalityId,
-  save
+  save,
+  deleteByUserCodeAndPersonalityLetter
 };

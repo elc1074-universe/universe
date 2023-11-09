@@ -38,7 +38,6 @@ export class StatementComponent implements OnInit {
   ngOnInit(): void {
     this.userService.getCurrentUserCode().subscribe((code: string | null) => {
       this.userCode = code;
-      console.log(this.userCode);
     });
 
     this.userService.findByCode(this.userCode).subscribe((data: any) => {
@@ -48,7 +47,6 @@ export class StatementComponent implements OnInit {
     this.activatedRoute
       .paramMap
       .subscribe((params: ParamMap) => {
-        console.log(Number(params.get('id')));
         this.statementService.setCurrentStatementId(Number(params.get('id')));
       });
 
@@ -92,14 +90,14 @@ export class StatementComponent implements OnInit {
       this.testStatementSavingDTO = new TestStatementSavingDTO();
       this.testStatementSavingDTO.statementId = this.statement.id;
       this.testStatementSavingDTO.selectedOptionId = selectedOption;
-      console.log(this.testStatementSavingDTO);
 
-      this.TestService.saveStatement(this.userCode, this.testStatementSavingDTO).subscribe((data: any) => {
-        console.log(data);
+      this.TestService.saveStatement(this.userCode, this.testStatementSavingDTO).subscribe((data:any) => {
         this.isTestCompleted = data.isCompleted;
+
         if (this.isTestCompleted) {
-          const dialogRef = this.dialog.open(InfoCompletedComponent, { data: { userCode: this.userCode } });
+          this.dialog.open(InfoCompletedComponent, { data: { userCode: this.userCode } });
         }
+        
         if (this.currentStatementId < 42) {
           this.goToNextStatement();
         }
@@ -114,12 +112,13 @@ export class StatementComponent implements OnInit {
     this.router.navigate(['/test/statement', this.currentStatementId]);
   }
 
-  getQuestionImage(): string {
-    return `assets/images/test/${this.currentStatementId}.png`;
-  }
-
-  goToHome() {
+  goToHome(): void {
     this.router.navigate(['/']);
   }
 
-}
+  composeStatementBackgroundImageUrl(): string {
+    const backgroundImageId = this.currentStatementId <= 9 ? `0${this.currentStatementId}` : `${this.currentStatementId}`;
+
+    return `assets/images/statements/${backgroundImageId}.png`;
+  }
+};

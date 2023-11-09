@@ -87,6 +87,18 @@ testRouter.get('/:userCode/personalities/:personalityLetter', (async (request: R
   }
 }) as RequestHandler);
 
+testRouter.delete('/:userCode/personalities/:personalityLetter', (async (request: Request, response: Response, next: NextFunction): Promise<void> => {
+  try {
+    const { userCode, personalityLetter } = request.params;
+
+    TestStatementService.deleteByUserCodeAndPersonalityLetter(userCode, personalityLetter);
+
+    response.status(StatusCodes.NO_CONTENT).send();
+  } catch (error: unknown) {
+    next(error);
+  }
+}) as RequestHandler);
+
 testRouter.post('/', (async (request: Request, response: Response, next: NextFunction): Promise<void> => {
   try {
     const testCreationDTO = new TestCreationDTO(request.body['username'], request.body['email']);

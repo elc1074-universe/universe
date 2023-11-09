@@ -31,10 +31,15 @@ const save = async (statementSavingDTO: TestStatementSavingDTO): Promise<TestSta
   return await TestStatementRepository.save(testStatement);
 };
 
+const deleteByUserCodeAndPersonalityLetter = async (userCode: string, personalityLetter: string): Promise<void> => {
+  TestStatementRepository.deleteByUserCodeAndPersonalityLetter(userCode, personalityLetter);
+};
+
 export default {
   findByUserCode,
   findByUserCodeAndStatementId,
   findCurrentStatementIdByUserCodeAndPersonalityId,
   findNumberOfCompletedStatementsByUserCodeAndPersonalityId,
-  save
+  save,
+  deleteByUserCodeAndPersonalityLetter
 };

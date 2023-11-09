@@ -72,9 +72,9 @@ body {
   left: 10px;
 }
 
-.info{
-  position: fixed; 
-  bottom: 0; 
+.info {
+  position: fixed;
+  bottom: 0;
   right: 0;
   margin-right: 10px;
   margin-bottom: 10px;
@@ -84,7 +84,7 @@ body {
   font-weight: bold;
 }
 
-#card{
+#card {
   background-color: rgba(255, 255, 255, 0.6);
 }
 
@@ -106,7 +106,7 @@ body {
 
 @media only screen and (max-width: 600px) {
   #title {
-      font-size: 65px;
-      letter-spacing: 5px;
+    font-size: 65px;
+    letter-spacing: 5px;
   }
 }

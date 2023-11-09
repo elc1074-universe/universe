@@ -1,4 +1,4 @@
-<body [style.background-image]="'url(' + getQuestionImage() + ')'">
+<body [style.background-image]="'url(' + composeStatementBackgroundImageUrl() + ')'">
   <div class="back">
     <button mat-icon-button (click)="goToHome()">
       <mat-icon class="material-icons color_white">
@@ -51,7 +51,7 @@
     <mat-card id="card2">
       <mat-card-content>
         <span class="bold">Username: </span><span>{{username}}</span><br>
-        <span class="bold">Code: </span><span>{{userCode}}</span>
+        <span class="bold">Código: </span><span>{{userCode}}</span>
       </mat-card-content>
     </mat-card>
   </div>

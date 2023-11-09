@@ -43,7 +43,7 @@ export class TestCreationComponent {
           if (test) {
             this.createdTest.next(test);
             
-            let userCode: string = test.user.code.toLocaleLowerCase();
+            let userCode: string = test.user.code;
             
             this.userService.setCurrentUserCode(userCode);
             this.dialog.open(InfoCodeComponent, {

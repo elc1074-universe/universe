@@ -10,7 +10,7 @@ import routes from './app/routes/routes';
 const app = express();
 
 app.use(cors({
-  origin: 'http://localhost:4200'
+  origin: ['http://localhost:4200', 'http://universe.inf.ufsm.br']
 }));
 
 app.use(express.json());

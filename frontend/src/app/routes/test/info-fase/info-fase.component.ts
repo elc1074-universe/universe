@@ -15,7 +15,6 @@ export class InfoFaseComponent {
     private router: Router,
     @Inject(MAT_DIALOG_DATA) public data: any) {
     if (data.userCode) {
-      console.log(data);
       this.code = `${data.userCode}`;
     } else {
       this.code = `Código não encontrado`;

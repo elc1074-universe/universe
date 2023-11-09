@@ -1,0 +1,23 @@
+<mat-dialog-content class="mat-typography">
+    <div class="content">
+        <h3 class="finish">Atenção!</h3>
+        <p class="p-content">
+            Tem certeza que deseja sair antes de concluir essa fase?
+        </p>
+        <p class="p-warning">
+            O progresso só salvo ao final de cada fase.
+        </p>
+        <div class="example-button-row">
+            <button mat-button mat-dialog-close class="button" style="background-color: #57a881;" (click)="goToPersonality()">
+                <p class="btn">
+                    Sair
+                </p>
+            </button>
+            <button mat-button mat-dialog-close class="button" style="background-color: #3C6A54;" (click)="continue()">
+                <p class="btn">
+                   Continuar
+                </p>
+            </button>
+        </div>
+    </div>
+</mat-dialog-content>

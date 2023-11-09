@@ -3,15 +3,15 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-info-fase',
-  templateUrl: './info-fase.component.html',
-  styleUrls: ['./info-fase.component.scss']
+  selector: 'app-info-alert',
+  templateUrl: './info-alert.component.html',
+  styleUrls: ['./info-alert.component.scss']
 })
-export class InfoFaseComponent {
+export class InfoAlertComponent {
   code: string;
 
   constructor(
-    public dialogRef: MatDialogRef<InfoFaseComponent>,
+    public dialogRef: MatDialogRef<InfoAlertComponent>,
     private router: Router,
     @Inject(MAT_DIALOG_DATA) public data: any) {
     if (data.userCode) {
@@ -26,6 +26,6 @@ export class InfoFaseComponent {
   }
 
   continue(){
-    this.dialogRef.close();
+    this.dialogRef.close(true);
   }
 }

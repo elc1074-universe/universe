@@ -15,6 +15,7 @@ import { PersonalityComponent } from './personality/personality.component';
 import { InfoCodeComponent } from './info-code/info-code.component';
 import { InfoCompletedComponent } from './info-completed/info-completed.component';
 import { InfoFaseComponent } from './info-fase/info-fase.component';
+import { InfoAlertComponent } from './info-alert/info-alert.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { InfoFaseComponent } from './info-fase/info-fase.component';
     PersonalityComponent,
     InfoCodeComponent,
     InfoCompletedComponent,
-    InfoFaseComponent
+    InfoFaseComponent,
+    InfoAlertComponent
   ],
   imports: [
     CommonModule,

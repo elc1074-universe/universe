@@ -9,6 +9,7 @@ import TestService from 'src/app/services/test.service';
 import { MatDialog } from '@angular/material/dialog';
 import { InfoCompletedComponent } from '../info-completed/info-completed.component';
 import { InfoFaseComponent } from '../info-fase/info-fase.component';
+import { InfoAlertComponent } from '../info-alert/info-alert.component';
 
 @Component({
   selector: 'app-statement',
@@ -113,7 +114,7 @@ export class StatementComponent implements OnInit {
   }
 
   goToHome(): void {
-    this.router.navigate(['/']);
+    this.dialog.open(InfoAlertComponent, { data: { userCode: this.userCode } });
   }
 
   composeStatementBackgroundImageUrl(): string {

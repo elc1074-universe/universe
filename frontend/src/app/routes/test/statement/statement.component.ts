@@ -8,6 +8,7 @@ import TestStatementSavingDTO from 'src/app/models/dto/test/TestStatementSavingD
 import TestService from 'src/app/services/test.service';
 import { MatDialog } from '@angular/material/dialog';
 import { InfoCompletedComponent } from '../info-completed/info-completed.component';
+import { InfoFaseComponent } from '../info-fase/info-fase.component';
 
 @Component({
   selector: 'app-statement',
@@ -19,9 +20,9 @@ export class StatementComponent implements OnInit {
   statement!: StatementRetrievalDTO | null;
   currentStatementId: number = 1;
   userCode: any = "";
-  username! : string;
+  username!: string;
   testStatementSavingDTO!: TestStatementSavingDTO;
-  isTestCompleted : boolean = false;
+  isTestCompleted: boolean = false;
 
   constructor(
     private statementService: StatementService,
@@ -40,7 +41,7 @@ export class StatementComponent implements OnInit {
       console.log(this.userCode);
     });
 
-    this.userService.findByCode(this.userCode).subscribe((data:any) => {
+    this.userService.findByCode(this.userCode).subscribe((data: any) => {
       this.username = data.username;
     });
 
@@ -68,6 +69,24 @@ export class StatementComponent implements OnInit {
       });
   }
 
+  handleButtonClick(optionIndex: number) {
+    if (this.statement) {
+      if ([7, 14, 21, 28, 35, 42].includes(this.currentStatementId)) {
+        const dialogRef = this.dialog.open(InfoFaseComponent, { data: { userCode: this.userCode, idQuestion : this.currentStatementId } });
+        dialogRef.afterClosed().subscribe((result) => {
+          // Verifique se o valor retornado é `true`
+          if (result === true) {
+            // Chame a função para ir para a próxima declaração
+            this.goToNextStatement();
+          }
+        });
+
+      } else {
+        this.saveAnswer(optionIndex);
+      }
+    }
+  }
+
   saveAnswer(selectedOption: number) {
     if (this.statement) {
       this.testStatementSavingDTO = new TestStatementSavingDTO();
@@ -75,7 +94,7 @@ export class StatementComponent implements OnInit {
       this.testStatementSavingDTO.selectedOptionId = selectedOption;
       console.log(this.testStatementSavingDTO);
 
-      this.TestService.saveStatement(this.userCode, this.testStatementSavingDTO).subscribe((data:any) => {
+      this.TestService.saveStatement(this.userCode, this.testStatementSavingDTO).subscribe((data: any) => {
         console.log(data);
         this.isTestCompleted = data.isCompleted;
         if (this.isTestCompleted) {

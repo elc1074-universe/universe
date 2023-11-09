@@ -119,6 +119,6 @@ export class StatementComponent implements OnInit {
   composeStatementBackgroundImageUrl(): string {
     const backgroundImageId = this.currentStatementId <= 9 ? `0${this.currentStatementId}` : `${this.currentStatementId}`;
 
-    return `assets/images/statements/${backgroundImageId}.png`;
+    return `assets/images/statements/${backgroundImageId}.jpg`;
   }
 };

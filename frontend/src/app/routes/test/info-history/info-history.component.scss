@@ -20,13 +20,6 @@
     font-size: 25px;
   }
 
-  .btn {
-    margin-top: 10px;
-    color: white;
-    font-family: 'Modulus Pro', sans-serif;
-    text-align: center;
-  }
-
   .example-button-row button {
     height: 30%;
     font-size: 15px;
@@ -37,8 +30,16 @@
   }
 
   .button {
-    margin-left: 5px;
-    margin-right: 5px;
+    width: 29px;
+    height: 29px;
+    flex-shrink: 0;
+    background-color: #F04E7A;
+  }
+
+  .btn {
+    width: 21px;
+    color: white;
+    font-family: 'Modulus Pro', sans-serif;
   }
 
   .p-warning {
@@ -46,6 +47,7 @@
     font-size: 10px;
   }
 
+  
   body::before {
     content: "";
     position: absolute;
@@ -111,34 +113,38 @@
     margin-top: 16px;
   }
   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   @media only screen and (max-width: 600px) {
     #title {
         font-size: 65px;
         letter-spacing: 5px;
     }
   }
-   
-   
-   
-   
-   
-   
-
-   
-   
-
-   
-   
-   
-
-   
-   
-
-   
-   
-
-   
-   
-   
-
-   

@@ -61,7 +61,7 @@ export class StatementComponent implements OnInit {
               this.statement = statement;
 
               if ([1, 8, 15, 22, 29, 36].includes(currentStatementId)) {
-                const dialogRef = this.dialog.open(InfoHistoryComponent, { data: { userCode: this.userCode, idQuestion : this.currentStatementId } });
+                this.dialog.open(InfoHistoryComponent, { data: { userCode: this.userCode, idQuestion : this.currentStatementId } });
               }
             },
             error: error => {

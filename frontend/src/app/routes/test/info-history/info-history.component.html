@@ -1,24 +1,12 @@
-<p>info-history works!</p>
+
 <mat-dialog-content class="mat-typography">
+    <img [src]="avatarPath" alt="Avatar">
+    <img [src]="'assets/images/items/balloon.png'" alt="balloon">
     <div class="content">
-        <h3 class="finish">Fase concluída!</h3>
-        <p class="p-content">
-            Deseja continuar ou voltar ao menu anterior?
-        </p>
-        <p class="p-warning">
-            Não se preocupe, seu progresso será salvo.
-        </p>
-        <div class="example-button-row">
-            <button mat-button mat-dialog-close class="button" style="background-color: #57a881;" (click)="goToPersonality()">
-                <p class="btn">
-                    Voltar
-                </p>
-            </button>
-            <button mat-button mat-dialog-close class="button" style="background-color: #3C6A54;" (click)="continue()">
-                <p class="btn">
-                   Continuar
-                </p>
-            </button>
-        </div>
+        <button mat-button mat-dialog-close class="button" (click)="continue()">
+            <p class="btn">
+                X
+            </p>
+        </button>
     </div>
 </mat-dialog-content>

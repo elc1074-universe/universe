@@ -1,6 +1,5 @@
 import { Component, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-info-history',
@@ -9,21 +8,25 @@ import { Router } from '@angular/router';
 })
 export class InfoHistoryComponent {
   code: string;
+  idQuestion: string;
+  avatarPath: string = '';
 
   constructor(
     public dialogRef: MatDialogRef<InfoHistoryComponent>,
-    private router: Router,
+
     @Inject(MAT_DIALOG_DATA) public data: any) {
-    if (data.userCode) {
+    if (data.idQuestion) {
       this.code = `${data.userCode}`;
+      this.idQuestion = `${data.idQuestion}`;
     } else {
       this.code = `Código não encontrado`;
+      this.idQuestion = `Question não encontrada`;
     }
   }
 
-  goToPersonality() {
-    this.router.navigate(['/test/personality', this.code]);
-  }
+  ngOnInit(): void {
+    this.avatarPath = 'assets/images/personality-avatar/' + this.idQuestion + '.png';
+    };
 
   continue(){
     this.dialogRef.close();

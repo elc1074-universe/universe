@@ -5,29 +5,20 @@
     align-items: center;
   }
   
-
   .p-content {
     font-family: 'Modulus Pro', sans-serif;
     font-size: 15px;
     text-align: justify;
   }
 
-
-
   .finish {
     font-weight: bold;
   }
-
-
 
   .code {
     font-weight: bold;
     font-size: 25px;
   }
-  
-
-
-    
 
   .btn {
     margin-top: 10px;
@@ -35,14 +26,6 @@
     font-family: 'Modulus Pro', sans-serif;
     text-align: center;
   }
-   
-   
-   
-   
-   
-     
-   
-    
 
   .example-button-row button {
     height: 30%;
@@ -62,14 +45,7 @@
     font-style: italic;
     font-size: 10px;
   }
-  
-   
-   
-   
-   
-   
-   
-   
+
   body::before {
     content: "";
     position: absolute;
@@ -98,15 +74,6 @@
     left: 10px;
     z-index: 2;
   }
-  
-   
-   
-
-   
-   
-   
-   
-   
 
   .info{
     position: fixed; 
@@ -117,30 +84,15 @@
     z-index: 2;
   }
   
-
-  
   .bold {
     font-weight: bold;
   }
   
-
-
   #card {
     background-color: rgba(255, 255, 255, 0.6);
     z-index: 2;
   }
  
-   
-     
-   
-   
-   
-   
-   
-   
-   
-   
-
   #title {
     color: #ffffff;
     font-family: 'Modulus Pro', sans-serif;

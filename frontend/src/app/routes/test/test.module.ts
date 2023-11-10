@@ -16,6 +16,7 @@ import { InfoCodeComponent } from './info-code/info-code.component';
 import { InfoCompletedComponent } from './info-completed/info-completed.component';
 import { InfoFaseComponent } from './info-fase/info-fase.component';
 import { InfoAlertComponent } from './info-alert/info-alert.component';
+import { InfoHistoryComponent } from './info-history/info-history.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { InfoAlertComponent } from './info-alert/info-alert.component';
     InfoCodeComponent,
     InfoCompletedComponent,
     InfoFaseComponent,
-    InfoAlertComponent
+    InfoAlertComponent,
+    InfoHistoryComponent
   ],
   imports: [
     CommonModule,

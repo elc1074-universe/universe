@@ -10,7 +10,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { InfoCompletedComponent } from '../info-completed/info-completed.component';
 import { InfoFaseComponent } from '../info-fase/info-fase.component';
 import { InfoAlertComponent } from '../info-alert/info-alert.component';
-
+import { InfoHistoryComponent } from '../info-history/info-history.component';
 @Component({
   selector: 'app-statement',
   templateUrl: './statement.component.html',
@@ -59,6 +59,10 @@ export class StatementComponent implements OnInit {
           .subscribe({
             next: (statement: StatementRetrievalDTO | null) => {
               this.statement = statement;
+
+              if ([1, 8, 15, 22, 29, 36].includes(currentStatementId)) {
+                const dialogRef = this.dialog.open(InfoHistoryComponent, { data: { userCode: this.userCode, idQuestion : this.currentStatementId } });
+              }
             },
             error: error => {
               console.error(error);
@@ -78,7 +82,6 @@ export class StatementComponent implements OnInit {
             this.goToNextStatement();
           }
         });
-
       }
     }
   }

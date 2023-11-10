@@ -1,6 +1,6 @@
-import UserRetrievalDTO from '../user/UserRetrievalDTO';
-import StatementRetrievalDTO from './StatementRetrievalDTO';
-import ResultRetrievalDTO from './ResultRetrievalDTO';
+import UserRetrievalDTO from "../user/UserRetrievalDTO";
+import StatementRetrievalDTO from "./StatementRetrievalDTO";
+import ResultRetrievalDTO from "./ResultRetrievalDTO";
 
 export default class TestRetrievalDTO {
   id!: number;
@@ -11,7 +11,9 @@ export default class TestRetrievalDTO {
 
   isCompleted!: boolean;
 
+  lastCompletedStatementId!: number;
+
   result!: ResultRetrievalDTO | null;
 
   createdAt!: string;
-};
+}

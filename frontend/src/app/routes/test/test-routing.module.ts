@@ -6,6 +6,7 @@ import { TestContinuationComponent } from './continuation/test-continuation.comp
 import { TestResultComponent } from './result/result.component';
 import { StatementComponent } from './statement/statement.component';
 import { PersonalityComponent } from './personality/personality.component';
+import { CodeResultComponent } from './code-result/code-result.component';
 
 const routes: Routes = [
   {
@@ -25,8 +26,12 @@ const routes: Routes = [
     component: StatementComponent,
   },
   {
-    path: 'result',
+    path: 'result/:userCode',
     component: TestResultComponent,
+  }, 
+  {
+    path: 'code-result',
+    component: CodeResultComponent,
   }
 ];
 

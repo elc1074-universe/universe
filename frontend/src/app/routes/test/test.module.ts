@@ -17,6 +17,7 @@ import { InfoCompletedComponent } from './info-completed/info-completed.componen
 import { InfoFaseComponent } from './info-fase/info-fase.component';
 import { InfoAlertComponent } from './info-alert/info-alert.component';
 import { InfoHistoryComponent } from './info-history/info-history.component';
+import { CodeResultComponent } from './code-result/code-result.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { InfoHistoryComponent } from './info-history/info-history.component';
     InfoCompletedComponent,
     InfoFaseComponent,
     InfoAlertComponent,
-    InfoHistoryComponent
+    InfoHistoryComponent,
+    CodeResultComponent
   ],
   imports: [
     CommonModule,

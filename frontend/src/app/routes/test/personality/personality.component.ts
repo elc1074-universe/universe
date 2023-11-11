@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { Router, ActivatedRoute, ParamMap } from "@angular/router";
 import { MatDialog } from "@angular/material/dialog";
+import { forkJoin } from 'rxjs';
 
 import { TestInfoComponent } from "src/app/routes/test/info/test-info.component";
 import UserRetrievalDTO from "src/app/models/dto/user/UserRetrievalDTO";
@@ -43,43 +44,44 @@ export class PersonalityComponent implements OnInit {
         this.userService.findByCode(currentUserCode!).subscribe({
           next: (user: UserRetrievalDTO | null) => {
             this.user = user;
-            //terminar isso, falta arrumar o lastCompletedStatementId = 0
-            if (!this.popupInfo) {
-              this.TestService.findPersonality(this.usercode, "R").subscribe({
-                next: (personality: TestRetrievalDTO | null) => {
-                  if (personality) {
-                    this.lastCompletedStatementId =
-                      personality.lastCompletedStatementId;
-                    console.log(personality);
-                    if (this.lastCompletedStatementId == 0) {
-                      const dialogRef = this.dialog.open(TestInfoComponent, {
-                        data: { username: user?.username },
-                      });
-                      console.log(this.usercode);
-                      this.popupInfo = true;
-                    }
-                  }
-                },
-              });
-            }
             if (this.user?.username) {
               this.username = this.user.username;
             }
             this.usercode = currentUserCode!;
+       
             const letters = ["R", "I", "A", "S", "E", "C"];
-
+            const observables = [];
+  
             for (let i = 0; i < letters.length; i++) {
-              this.TestService.findPersonality(
-                this.usercode,
-                letters[i]
-              ).subscribe({
-                next: (personality: TestRetrievalDTO | null) => {
-                  if (personality) {
-                    this.completionStatus[letters[i]] = personality.isCompleted;
-                  }
-                },
-              });
+              observables.push(
+                this.TestService.findPersonality(
+                  this.usercode,
+                  letters[i]
+                )
+              );
             }
+  
+            forkJoin(observables).subscribe((personalities: (TestRetrievalDTO | null)[]) => {
+              let allCompletionStatusFalse = true;
+  
+              for (let i = 0; i < letters.length; i++) {
+                const personality = personalities[i];
+  
+                if (personality) {
+                  this.completionStatus[letters[i]] = personality.isCompleted;
+                  allCompletionStatusFalse = allCompletionStatusFalse && !personality.isCompleted;
+                  console.log(letters[i], this.completionStatus[letters[i]]);
+                }
+              }
+  
+              if (!this.popupInfo && allCompletionStatusFalse) {
+                const dialogRef = this.dialog.open(TestInfoComponent, {
+                  data: { username: user?.username },
+                });
+                console.log(this.usercode);
+                this.popupInfo = true;
+              }
+            });
           },
           error: (error) => {
             console.error(error);
@@ -90,6 +92,10 @@ export class PersonalityComponent implements OnInit {
           },
         });
       });
+  }
+
+  areAllCompletionStatusFalse(): boolean {
+    return Object.values(this.completionStatus).every(status => !status);
   }
 
   goToPersonality(personalityId: number): void {

@@ -1,57 +1,68 @@
-<body [style.background-image]="'url(' + composeStatementBackgroundImageUrl() + ')'">
+<body
+  [style.background-image]="'url(' + composeStatementBackgroundImageUrl() + ')'"
+>
   <div class="back">
     <button mat-icon-button (click)="goToHome()">
-      <mat-icon class="material-icons color_white">
-        arrow_back_ios
-      </mat-icon>
+      <mat-icon class="material-icons color_white"> arrow_back_ios </mat-icon>
     </button>
-    <br>
+    <br />
   </div>
-  <div id="title" (click)="goToHome()">
-    UniVerse
-  </div>
+  <div id="title" (click)="goToHome()">UniVerse</div>
   <div class="question">
     <div class="question-text">
       <mat-card id="card">
         <mat-card-content>
-          <h2>{{statement?.storyText}}</h2>
+          <h2>{{ statement?.storyText }}</h2>
           <div class="options">
             <div *ngFor="let option of statement?.options">
-              <p class="option">{{option.description}}</p>
+              <p class="option">{{ option.description }}</p>
             </div>
           </div>
-          <br>
+          <br />
           <div class="text">
             <p class="text">Escolha uma opção</p>
           </div>
           <div class="example-button-row">
             <div class="example-flex-container">
               <div class="example-button-container">
-                <button mat-fab class="custom-button" valeu="a" (click)="handleButtonClick(1)">
+                <button
+                  mat-fab
+                  class="custom-button"
+                  valeu="a"
+                  (click)="saveAnswer(1)"
+                >
                   <p class="button">A</p>
                 </button>
               </div>
               <div class="example-button-container">
-                <button mat-fab class="custom-button" valeu="b" (click)="handleButtonClick(2)">
+                <button
+                  mat-fab
+                  class="custom-button"
+                  valeu="b"
+                  (click)="saveAnswer(2)"
+                >
                   <p class="button">B</p>
                 </button>
               </div>
             </div>
           </div>
           <div class="progress-bar">
-            <mat-progress-bar class="custom-progress-bar" mode="determinate"
-              value="{{currentStatementId}}"></mat-progress-bar>
+            <mat-progress-bar
+              class="custom-progress-bar"
+              mode="determinate"
+              value="{{ currentStatementId }}"
+            ></mat-progress-bar>
           </div>
         </mat-card-content>
       </mat-card>
     </div>
-
   </div>
   <div class="info">
     <mat-card id="card2">
       <mat-card-content>
-        <span class="bold">Username: </span><span>{{username}}</span><br>
-        <span class="bold">Código: </span><span>{{userCode}}</span>
+        <span class="bold">Username: </span><span>{{ username }}</span
+        ><br />
+        <span class="bold">Código: </span><span>{{ userCode }}</span>
       </mat-card-content>
     </mat-card>
   </div>

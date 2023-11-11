@@ -58,4 +58,8 @@ export default class TestService extends Service {
       .get<ApiResponse<TestRetrievalDTO>>(`${this.baseURL}/${userCode}/personalities/${personalityLetter}`)
       .pipe(map(response => response.data));
   }
+
+  deletePersonality(userCode: string, personalityLetter: string): void {
+    this.httpClient.delete<ApiResponse<void>>(`${this.baseURL}/${userCode}/personalities/${personalityLetter}`);
+  }
 };

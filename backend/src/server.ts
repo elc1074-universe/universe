@@ -11,7 +11,7 @@ import routes from './app/routes/routes';
 const app = express();
 
 app.use(cors({
-  origin: '*',
+  origin: ['http://localhost:4200', 'http://universe.inf.ufsm.br'],
   methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'OPTIONS', 'DELETE'],
   allowedHeaders: ['Access-Control-Allow-Headers', 'Access-Control-Request-Method', 'Access-Control-Request-Headers', 'Access-Control-Allow-Private-Network', 'Origin', 'Content-Type', 'Accept', 'X-Requested-With'],
   optionsSuccessStatus: StatusCodes.OK

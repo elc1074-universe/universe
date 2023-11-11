@@ -11,7 +11,7 @@ import routes from './app/routes/routes';
 const app = express();
 
 app.use(cors({
-  origin: 'http://universe.inf.ufsm.br',
+  origin: 'http://localhost:4200',
   optionsSuccessStatus: StatusCodes.OK
 }));
 

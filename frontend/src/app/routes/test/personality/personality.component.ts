@@ -48,7 +48,7 @@ export class PersonalityComponent implements OnInit {
               this.username = this.user.username;
             }
             this.usercode = currentUserCode!;
-       
+            console.log(this.usercode);
             const letters = ["R", "I", "A", "S", "E", "C"];
             const observables = [];
   
@@ -70,7 +70,6 @@ export class PersonalityComponent implements OnInit {
                 if (personality) {
                   this.completionStatus[letters[i]] = personality.isCompleted;
                   allCompletionStatusFalse = allCompletionStatusFalse && !personality.isCompleted;
-                  console.log(letters[i], this.completionStatus[letters[i]]);
                 }
               }
   

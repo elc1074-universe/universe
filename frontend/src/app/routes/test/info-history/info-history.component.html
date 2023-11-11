@@ -1,12 +1,15 @@
-
 <mat-dialog-content class="mat-typography">
-    <img [src]="avatarPath" alt="Avatar">
-    <img [src]="'assets/images/items/balloon.png'" alt="balloon">
     <div class="content">
-        <button mat-button mat-dialog-close class="button" (click)="continue()">
+      <h3 class="finish" *ngIf="personalityData">{{ personalityData.storyTitle }}</h3>
+      <p class="p-content" *ngIf="personalityData">
+        {{ personalityData.storyDescription}}
+      </p>
+      <div class="example-button-row">
+        <button mat-button mat-dialog-close style="background-color: #3C6A54;" (click)="continue()">
             <p class="btn">
-                X
+                Iniciar
             </p>
         </button>
     </div>
-</mat-dialog-content>
+    </div>
+  </mat-dialog-content>

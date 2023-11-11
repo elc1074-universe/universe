@@ -44,6 +44,7 @@ export class StatementComponent implements OnInit {
   ngOnInit(): void {
     this.userService.getCurrentUserCode().subscribe((code: string | null) => {
       this.userCode = code;
+      console.log(this.userCode);
     });
 
     this.userService.findByCode(this.userCode).subscribe((data: any) => {
@@ -73,7 +74,6 @@ export class StatementComponent implements OnInit {
                 });
 
                 this.popupInfoArray[popupIndex] = true;
-                console.log(popupIndex, " - ", this.popupInfoArray[popupIndex]);
               }
             }
           },

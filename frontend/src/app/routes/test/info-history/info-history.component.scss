@@ -20,6 +20,13 @@
     font-size: 25px;
   }
 
+  .btn {
+    margin-top: 10px;
+    color: white;
+    font-family: 'Modulus Pro', sans-serif;
+    text-align: center;
+  }
+  
   .example-button-row button {
     height: 30%;
     font-size: 15px;
@@ -30,16 +37,8 @@
   }
 
   .button {
-    width: 29px;
-    height: 29px;
-    flex-shrink: 0;
-    background-color: #F04E7A;
-  }
-
-  .btn {
-    width: 21px;
-    color: white;
-    font-family: 'Modulus Pro', sans-serif;
+    margin-left: 5px;
+    margin-right: 5px;
   }
 
   .p-warning {

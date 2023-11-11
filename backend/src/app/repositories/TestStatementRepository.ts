@@ -1,4 +1,4 @@
-import { Equal, ILike, IsNull, Not } from 'typeorm';
+import { Equal, ILike } from 'typeorm';
 
 import dataSource from '../../database/data-source';
 import TestStatement from '../entities/database/TestStatement';
@@ -42,7 +42,7 @@ const findCurrentStatementIdByUserCodeAndPersonalityId = async (userCode: string
     .innerJoin('user', 'user', 'user.id = user_id')
     .innerJoin('personality', 'personality', 'personality.id = personality_id')
     .select('statement_id', 'currentStatementId')
-    .where(`code = '${userCode}' AND personality_id = ${personalityId} ORDER BY statement_id DESC LIMIT 1`)
+    .where('code = :userCode AND personality_id = :personalityId ORDER BY statement_id DESC LIMIT 1', { userCode: userCode, personalityId: personalityId })
     .getRawOne();
 
   return result ? result.currentStatementId : 0;
@@ -54,7 +54,7 @@ const findNumberOfCompletedStatementsByUserCodeAndPersonalityId = async (userCod
     .innerJoin('test', 'test', 'test.id = test_id')
     .innerJoin('user', 'user', 'user.id = user_id')
     .select('COUNT(test_statement.id)', 'number')
-    .where(`code = '${userCode}' AND statement_id > ${personalityId * 7 - 7} AND statement_id <= ${personalityId * 7}`)
+    .where('code = :userCode AND statement_id > :initialStatementId AND statement_id <= :finalStatementId', { userCode: userCode, initialStatementId: personalityId * 7 - 7, finalStatementId: personalityId * 7 })
     .getRawOne();
 
   return result ? result.number : 0;
@@ -65,20 +65,21 @@ const save = (testStatement: TestStatement): Promise<TestStatement> => {
 };
 
 const deleteByUserCodeAndPersonalityLetter = async (userCode: string, personalityLetter: string): Promise<void> => {
-  testStatementRepository.delete({
-    test: {
-      id: Not(IsNull()),
-      user: {
-        code: ILike(userCode)
-      }
-    },
-    statement: {
-      id: Not(IsNull()),
-      personality: {
-        letter: ILike(personalityLetter)
-      }
-    }
-  });
+  const statementsToDelete = await testStatementRepository
+    .createQueryBuilder('test_statement')
+    .innerJoin('test', 'test', 'test.id = test_id')
+    .innerJoin('statement', 'statement', 'statement.id = statement_id')
+    .innerJoin('user', 'user', 'user.id = user_id')
+    .innerJoin('personality', 'personality', 'personality.id = personality_id')
+    .select('test_statement.id', 'id')
+    .where('code = :userCode AND letter = :personalityLetter', { userCode: userCode, personalityLetter: personalityLetter })
+    .getRawMany();
+
+  await testStatementRepository
+    .createQueryBuilder('test_statement')
+    .delete()
+    .where('id IN (:statementsToDelete)', { statementsToDelete: statementsToDelete.map((statementToDelete: any) => statementToDelete.id) })
+    .execute();
 };
 
 export default {

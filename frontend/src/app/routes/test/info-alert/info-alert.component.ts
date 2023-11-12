@@ -28,6 +28,8 @@ export class InfoAlertComponent {
 
   goToPersonality() {
     this.testService.deletePersonality(this.code, this.letter);
+    console.log(this.code);
+    console.log(this.letter);
     this.router.navigate(['/test/personality', this.code]);
   }
 

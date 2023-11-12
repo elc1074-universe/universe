@@ -50,10 +50,16 @@
             <mat-progress-bar
               class="custom-progress-bar"
               mode="determinate"
-              value="{{ currentStatementId }}"
+              [value]="phaseProgress"
             ></mat-progress-bar>
           </div>
         </mat-card-content>
+        <div class="question-number">
+          Questão {{ currentQuestionNumber }}
+        </div>
+        <div class="phase-name">
+          - {{ currentPhaseName }}
+        </div>
       </mat-card>
     </div>
   </div>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { Router, ActivatedRoute, ParamMap } from "@angular/router";
+import { ChangeDetectorRef } from '@angular/core';
 
 import StatementService from "src/app/services/statement.service";
 import StatementRetrievalDTO from "src/app/models/dto/statement/StatementRetrievalDTO";
@@ -11,6 +12,7 @@ import { InfoCompletedComponent } from "../info-completed/info-completed.compone
 import { InfoFaseComponent } from "../info-fase/info-fase.component";
 import { InfoAlertComponent } from "../info-alert/info-alert.component";
 import { InfoHistoryComponent } from "../info-history/info-history.component";
+
 @Component({
   selector: "app-statement",
   templateUrl: "./statement.component.html",
@@ -23,6 +25,7 @@ export class StatementComponent implements OnInit {
   username!: string;
   testStatementSavingDTO!: TestStatementSavingDTO;
   isTestCompleted: boolean = false;
+
   private popupInfoArray: boolean[] = [
     false,
     false,
@@ -31,6 +34,31 @@ export class StatementComponent implements OnInit {
     false,
     false,
   ];
+  
+  phases: { start: number; end: number }[] = [
+    { start: 1, end: 7 },
+    { start: 8, end: 14 },
+    { start: 15, end: 21 },
+    { start: 22, end: 28 },
+    { start: 29, end: 35 },
+    { start: 36, end: 42 },
+  ];
+
+  phaseNames: string[] = [
+    "Realista",
+    "Investigativo",
+    "Artístico",
+    "Social",
+    "Empreendedor",
+    "Convencional",
+  ];
+
+  currentPhaseIndex: number = 0;
+  phaseStart: number = 1;
+  phaseEnd: number = 7;
+  phaseProgress: number = 0;
+  currentQuestionNumber: number = 1;
+  currentPhaseName: string = "";
 
   constructor(
     private statementService: StatementService,
@@ -38,13 +66,13 @@ export class StatementComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private userService: UserService,
     private TestService: TestService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private changeDetector: ChangeDetectorRef,
   ) {}
 
   ngOnInit(): void {
     this.userService.getCurrentUserCode().subscribe((code: string | null) => {
       this.userCode = code;
-      console.log(this.userCode);
     });
 
     this.userService.findByCode(this.userCode).subscribe((data: any) => {
@@ -84,8 +112,45 @@ export class StatementComponent implements OnInit {
             );
           },
         });
+        const newPhaseIndex = this.getPhaseIndex(currentStatementId);
+        if (newPhaseIndex !== this.currentPhaseIndex || this.currentPhaseIndex == 0) {
+          this.currentPhaseIndex = newPhaseIndex;
+          this.phaseStart = this.phases[newPhaseIndex].start;
+          this.phaseEnd = this.phases[newPhaseIndex].end;
+          this.phaseProgress = 0;
+          this.currentQuestionNumber = 1;
+          this.currentPhaseName = this.phaseNames[newPhaseIndex];
+        
+          this.changeDetector.detectChanges();
+        }
+
+        this.calculatePhaseProgress(currentStatementId);
+
+        this.currentQuestionNumber =
+        currentStatementId - this.phaseStart + 1;
+        
       });
   }
+
+  calculatePhaseProgress(currentStatementId: number): void {
+    const totalStatementsInPhase = this.phaseEnd - this.phaseStart + 1;
+    const statementsCompletedInPhase =
+      currentStatementId - this.phaseStart + 1;
+    this.phaseProgress =
+      (statementsCompletedInPhase / totalStatementsInPhase) * 100;
+  }
+
+  getPhaseIndex(currentStatementId: number): number {
+    for (let i = 0; i < this.phases.length; i++) {
+      if (
+        currentStatementId >= this.phases[i].start &&
+        currentStatementId <= this.phases[i].end
+      ) {
+        return i;
+      }
+    }
+    return -1;
+  } 
 
   private getPopupIndex(currentStatementId: number): number {
     const statementIds = [1, 8, 15, 22, 29, 36];

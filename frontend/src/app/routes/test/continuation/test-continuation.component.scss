@@ -1,56 +1,91 @@
 body {
-  background-image: url('/assets/images/backgrounds/blurred-home-background.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  color: #13432c;
-  font-family: 'Modulus Pro', sans-serif;
-  height: 100vh;
-  width: 100vw;
+  background-color: #0C1020;
 }
 
-#test-continuation-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 90%;
-  width: 100%;
-}
-
-#card {
-  width: 75%;
-  padding: 20px;
-  overflow: auto;
+.container-edge {
+  background-image: url(../../../../assets/images/backgrounds/galaxy-5.svg);
+  min-height: 100vh;
+  background-color: #161D39;
   position: relative;
-  background-color: rgba(255, 255, 255, 0.8);
+  max-width: 853px;
+  margin: 0 auto;
+  border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-#card-content {
-  align-items: center;
+.header {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  max-width: 853px;
+  margin: 0 auto 18px auto;
+  padding: 48px 24px;
+}
+
+.container {
+  width: 100%;
+  max-width: 393px;
+  margin: 0 auto;
+  padding-bottom: 88px;
+}
+
+.big-logo img {
+  max-width: 250px;
+}
+
+.screen-info {
+  margin: 0 24px;
+}
+
+h1 {
+  color: #FFF;
+  font-family: Fredoka;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 16px; 
+  opacity: 0.7;
+}
+
+h2 {
+  color: #FFF;
+  font-family: Fredoka;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 25.5px;
+  margin-bottom: 32px;
+}
+
+.card {
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: linear-gradient(180deg, #252C4A 0%, #252C4A 100%, #252C4A 100%);
+  box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.25);
+  margin: 0 18px;
+}
+
+.card-text {
+  display: flex;
   gap: 10px;
-  justify-content: center;
+  margin: 24px 4px 4px 24px;
+  align-items: flex-end;
 }
 
-#card-text {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  gap: 25px;
-  justify-content: center;
+h3 {
+  color: #FFF;
+  font-family: Fredoka;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 16px;
 }
 
-#card-title {
-  font-size: 30px;
-  font-weight: bold;
-}
-
-#card-description {
-  font-size: 15px;
-  text-align: center;
+h4 {
+  color: rgba(255, 255, 255, 0.50);
+  font-family: Fredoka;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px;
 }
 
 #card-form {
@@ -58,104 +93,84 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  text-align: center;
-  padding: 10px;
-  height: 100%;
-  box-sizing: border-box;
-  gap: 10px;
+  font-family: Fredoka;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 16px;
 }
 
-.card-form-field-label,
-.card-form-field-input,
-.card-form-field-error-message {
-  font-family: 'Modulus Pro', sans-serif;
+.mat-form-field input{
+  width: 100%;
+  max-width: 300px;
+  border-radius: 50px;
 }
 
 #card-form-submit-button {
-  font-family: 'Modulus Pro', sans-serif;
-  font-size: 15px;
+  margin-top: 20px;
 }
 
-a {
-  color: #1b5c3d;
-  font-size: 11px;
-  font-weight: bold;
-  font-family: 'Modulus Pro', sans-serif;
-  margin-bottom: 15px;
+.card-form-field-label {
+  font-family: Fredoka;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 16px;
 }
 
-.material-icons.color_white {
-  color: #ffffff;
+#card-form-submit-button {
+  background-color: #676F94;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  color: #FFF;
+  font-family: Fredoka;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0px;
+  border-radius: 999px;
+  padding: 24px 42px;
+  margin-top: 20px;
 }
 
-body::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 15%;
-  background: linear-gradient(to bottom, black, transparent);
-  z-index: 1;
-}
-
-body::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 15%;
-  background: linear-gradient(to top, black, transparent);
-  z-index: 1;
-}
-
-.back {
-  position: fixed;
-  top: 10px;
-  left: 10px;
-  z-index: 2;
-}
-
-.info{
-  position: fixed; 
-  bottom: 0; 
-  right: 0;
-  margin-right: 10px;
-  margin-bottom: 10px;
-  z-index: 2;
-}
-
-.bold {
-  font-weight: bold;
-}
-
-#card {
-  background-color: rgba(255, 255, 255, 0.6);
-  z-index: 2;
-}
-
-#title {
-  color: #ffffff;
-  font-family: 'Modulus Pro', sans-serif;
-  font-size: 40px;
-  font-weight: 600;
-  letter-spacing: 5px;
-  text-shadow: 1px 3px 5px rgba(48, 29, 29, 0.25);
+.text-link {
+  color: rgba(255, 255, 255, 0.50);
+  font-family: Fredoka;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px;
+  display: block;
   text-align: center;
+  margin: 18px 24px 20px 24px;
+}
+
+#return-button {
+  border-radius: 16px 16px 0px 0px;
+  background: #F66103;
+  width: 64px;
+  height: 64px;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 36px;
+  cursor: pointer;
+}
+
+.planets {
   position: absolute;
-  margin-top: 10px;
-  top: 10px;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
-  z-index: 2;
-  margin-top: 16px;
-}
-
-@media only screen and (max-width: 600px) {
-  #title {
-      font-size: 65px;
-      letter-spacing: 5px;
-  }
+  max-width: 742px;
+  display: flex;
+  justify-content: flex-start;
 }

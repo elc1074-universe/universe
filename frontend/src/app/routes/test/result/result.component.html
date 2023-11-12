@@ -1,29 +1,61 @@
-<div class="back">
-    <a routerLink="/">
-        <button mat-icon-button>
-            <mat-icon class="material-icons color_white">
-                arrow_back_ios
-            </mat-icon>
-        </button>
-    </a>
-    <br>
-</div>
-<div id="title">
-    UniVerse
-</div>
-
-<body>
-    <div class="content">
-        <div class="imagem">
-            <img src="assets/images/personagens/empreendedor.jpeg" alt="" width="80%">
+<!--<div *ngIf="results">
+    <h2>Resultados do Quiz para o usuário {{userCode}}</h2>
+    <p>Código de Interesse: {{results.interestCode}}</p>
+    <p>Pontuação R: {{results.rScore}}</p>
+    <p>Pontuação I: {{results.iScore}}</p>
+    <p>Pontuação A: {{results.aScore}}</p>
+    <p>Pontuação S: {{results.sScore}}</p>
+    <p>Pontuação E: {{results.eScore}}</p>
+    <p>Pontuação C: {{results.cScore}}</p>
+  </div>
+-->
+  
+  <body>
+    <div class="container-edge">
+      <div class="header">
+        <div class="logo">
+            UniVerse
         </div>
-        <mat-card id="card">
-            <mat-card-content>
-                <p class="">Resultado:</p>
-                <p>
-                    Em construção!
-                </p>
-            </mat-card-content>
-        </mat-card>
+        <div class="user-data">
+            <div class="text-block">
+              <p class="user-name">Nome</p>
+              <p class="user-code">{{ userCode }}</p>
+            </div>
+            <img class="galaxy" src="./../../assets/images/items/galaxy-color.png">
+        </div>          
+      </div>
+
+      <div class="container">
+        <h1>Parabéns!</h1>
+        <h2>Você finalizou o teste</h2>
+        <img style="margin-bottom: -6px;" src="../../../../assets/images/professions/engineer.png">
+        <div class="card" style="margin-top: 0px; padding-top: 16px; margin-bottom: 24px">
+          <h1 style="margin-bottom: 8px;">{{results.interestCode}}</h1>
+          <h2 style="margin-top: 8px;">Realista, investigativo e artístico</h2>
+          <h3>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</h3>
+        </div>
+        <div class="buttons">
+          <a class="button-link" routerLink="/test/new">
+              <button id="create-game-button" mat-raised-button color="primary">
+                Quais cursos combinam comigo?
+              </button>
+          </a>
+
+          <a class="button-link" routerLink="/test/continue">
+              <button id="continue-game-button" mat-raised-button color="primary">
+                Ver minhas estatísticas
+              </button>
+          </a>
+      </div>
+      </div>
     </div>
-</body>
+    
+    <div class="footer">
+      <a class="button-link" routerLink="/">
+          <button id="return-button">
+              <img src="./../../assets/images/icons/arrow_circle_left.svg" alt="Ícone de voltar">
+          </button>
+      </a>  
+      <img class="planets" src="./../../assets/images/items/planets.svg">      
+  </div>
+  </body>

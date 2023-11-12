@@ -1,150 +1,273 @@
 body {
-  align-items: center;
-  background-image: url('/assets/images/backgrounds/map-background.png');
-  background-size: auto;
-  background-position: center;
-  background-repeat: repeat;
-  display: flex;
-  font-family: 'Modulus Pro', sans-serif;
-  height: 100vh;
-  width: 100vw;
+  background-color: #0C1020;
 }
 
-body::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 15%;
-  background: linear-gradient(to bottom, black, transparent);
-  z-index: 1;
-}
-
-body::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 15%;
-  background: linear-gradient(to top, black, transparent);
-  z-index: 1;
-}
-
-#personality-buttons {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-  gap: 10px;
+.container-edge {
+  background-image: url(../../../../assets/images/backgrounds/galaxy-5.svg);
+  min-height: 100vh;
+  background-color: #161D39;
   position: relative;
-  top: -400px;
-  width: 435px;
+  max-width: 853px;
+  margin: 0 auto;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  max-width: 853px;
+  margin: 0 auto 18px auto;
+  padding: 16px 24px 0 24px;
+}
+
+.logo {
+  color: #FFF;
+  font-family: Fredoka One;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin: auto 0;
+}
+
+.user-data {
+  display: flex;
+  align-items: center;
+}
+
+.user-data .text-block {
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+  margin: 0;
+}
+
+.user-name {
+  color: #FFF;
+  font-family: Fredoka;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 16px;
+  margin-bottom: 8px;
+}
+
+.user-code {
+  color: rgba(255, 255, 255, 0.50);
+  font-family: Fredoka;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 16px;
+  margin-bottom: 0;
+}
+
+.galaxy {
+  width: 50px;
+  height: 50px;
+  flex-shrink: 0;
+  margin-left: 12px;
+}
+
+.container {
+  width: 100%;
+  max-width: 393px;
+  margin: 0 auto;
+  padding-bottom: 88px;
+}
+
+.card {
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: linear-gradient(180deg, #252C4A 0%, #252C4A 100%, #252C4A 100%);
+  box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.25);
+  margin: 0 18px;
+}
+  /* especifico dessa pagina */
+h1  {
+  color: #FFF;
+  font-family: Fredoka;
+  font-size: 32px;
+  font-weight: 400;
+}
+
+h2  {
+  color: #FFF;
+  font-family: Fredoka;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 16px;
+  opacity: 0.7;
+}
+
+h3 {
+  color: #FFF;
+  font-family: Fredoka;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 25.5px;
+  margin-top: 32px;
+}
+
+.card-text {
+  margin: 24px 0;
+}
+
+.exploring-planet-top {
+  width: 82.5%;
+  max-width: 393px;
   margin: 0 auto;
 }
 
-.personality-button {
-  background-color: transparent;
-  border: none !important;
+.exploring-planet-bottom {
+  width: 74.5%;
+  max-width: 354px;
+  margin: -8px auto 32px auto;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+}
+
+#create-game-button{
+  background-color: #676F94;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  color: #FFF;
+  font-family: Fredoka;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0px;
+  border-radius: 999px;
+  padding: 24px 42px;
+}
+
+#continue-game-button {
+  background: #21376B;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  color: #FFF;
+  font-family: Fredoka;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0px;
+  border-radius: 999px;
+  padding: 24px 32px;
+  margin-top: 12px;
+}
+
+#return-button {
+  border-radius: 16px 16px 0px 0px;
+  background: #F66103;
+  width: 64px;
+  height: 64px;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 36px;
   cursor: pointer;
-  font-size: 0;
-  height: 67px;
+}
+
+.planets {
   position: absolute;
-  width: 93px;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
 }
 
-#personality-6-button {
-  position: absolute;
-  left: 230px;
-  top: 100px;
-}
-
-#personality-5-button {
-  position: absolute;
-  left: 145px;
-  top: 200px;
-}
-
-#personality-4-button {
-  position: absolute;
-  left: 230px;
-  top: 320px;
-}
-
-#personality-3-button {
-  position: absolute;
-  left: 180px;
-  top: 450px;
-}
-
-#personality-2-button {
-  position: absolute;
-  left: 40px;
-  top: 540px;
-}
-
-#personality-1-button {
-  position: absolute;
-  left: -5px;
-  top: 670px;
-}
-
-.material-icons.color_white {
-  color: #ffffff;
-}
-
-.back {
-  position: fixed;
-  top: 10px;
-  left: 10px;
-  z-index: 2;
-}
-
-.info {
+.footer {
   position: fixed;
   bottom: 0;
-  right: 0;
-  margin-right: 10px;
-  margin-bottom: 10px;
-  z-index: 2;
-}
-
-.bold {
-  font-weight: bold;
-}
-
-#card {
-  background-color: rgba(255, 255, 255, 0.6);
-  z-index: 2;
-}
-
-#title {
-  color: #ffffff;
-  font-family: 'Modulus Pro', sans-serif;
-  font-size: 40px;
-  font-weight: 600;
-  letter-spacing: 5px;
-  text-shadow: 1px 3px 5px rgba(48, 29, 29, 0.25);
-  text-align: center;
-  position: absolute;
-  margin-top: 10px;
-  top: 10px;
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
-  z-index: 2;
-  margin-top: 16px;
+  max-width: 742px;
+  display: flex;
+  justify-content: flex-start;
 }
 
-@media only screen and (max-width: 600px) {
-  #title {
-    font-size: 65px;
-    letter-spacing: 5px;
-  }
+.custom-progress-bar {
+  height: 20px !important;
 }
 
-@media (min-width: 395px) {
-  #personality-buttons {
-    left: 20px;
-  }
+.custom-progress-bar .mat-progress-bar-fill::after {
+  background-color: #9BD552 !important;
+}
+
+.custom-progress-bar {
+  width: 301px;
+  height: 8.246px;
+}
+
+.example-button-container{
+  padding: 8px 0;
+  text-align: left;
+}
+
+.example-button-container button {
+  width: 100%;
+  height: 100%;
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+  box-shadow: none;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.20);
+  box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.25);
+}
+
+.example-button-container p {
+  color: #FFF;
+  font-family: Fredoka;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px;
+  padding: 16px 16px 8px 16px;
+}
+
+.card {
+  padding-bottom: 12px;
+  padding-left: 18px;
+  padding-right: 18px;
+}
+
+.phase-name {
+  color: #FFF;
+  font-family: Fredoka;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px;
+  margin-bottom: 4px;
+}
+
+h4 {
+  color: rgba(255, 255, 255, 0.50);
+  font-family: Fredoka;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px;
+  margin: 16px 2px 4px 0;
+}
+
+.progress-bar {
+  margin: 4px auto;
+  width: 99.6%;
+  height: 8.246px;
+  background-color: #EEE;
+  border-radius: 24px;
+}
+
+.progress-track {
+  height: 100%;
+  background-color: #9BD552;
+  border-radius: 24px;
+  width: 0;
+  transition: width 0.5s ease-in-out;
 }

@@ -1,43 +1,196 @@
+<style>
+    .card button {
+        width: 100%;
+        height: 100%;
+        border: none;
+        background: none;
+        cursor: pointer;
+    }
+
+    .disabled-button {
+        cursor: default;
+        opacity: 0.5;
+    }
+
+    .card {
+        margin-bottom: 4px;
+        margin-top: -2px;
+    }
+
+    .dots {
+        margin-left: 48px;
+    }
+
+    .concluido {
+        color: #8EFF00;
+    }
+
+    .pendente {
+        color: #D5B052;
+    }
+</style>
+
+<head>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+  </head>
+
 <body>
-    <div class="back">
-        <a routerLink="/">
-            <button mat-icon-button>
-                <mat-icon class="material-icons color_white">
-                    arrow_back_ios
-                </mat-icon>
-            </button>
-        </a>
-        <br>
-    </div>
-    <div id="title">
-        UniVerse
-      </div>
-    <div id="personality-buttons">
-        <button class="personality-button" id="personality-6-button" (click)="goToPersonality(6)" [disabled]="completionStatus['C']" [ngClass]="{'disabled-button': completionStatus['C']}">
-            <img [src]="completionStatus['C'] ? '/assets/images/personality-buttons/personality-6-button-disabled.png' : '/assets/images/personality-buttons/personality-6-button.png'" alt="Personality 6">
-        </button>
-        <button class="personality-button" id="personality-5-button" (click)="goToPersonality(5)" [disabled]="completionStatus['E']" [ngClass]="{'disabled-button': completionStatus['E']}">
-            <img [src]="completionStatus['E'] ? '/assets/images/personality-buttons/personality-5-button-disabled.png' : '/assets/images/personality-buttons/personality-5-button.png'" alt="Personality 5">
-        </button>
-        <button class="personality-button" id="personality-4-button" (click)="goToPersonality(4)" [disabled]="completionStatus['S']" [ngClass]="{'disabled-button': completionStatus['S']}">
-            <img [src]="completionStatus['S'] ? '/assets/images/personality-buttons/personality-4-button-disabled.png' : '/assets/images/personality-buttons/personality-4-button.png'" alt="Personality 4">
-        </button>
-        <button class="personality-button" id="personality-3-button" (click)="goToPersonality(3)" [disabled]="completionStatus['A']" [ngClass]="{'disabled-button': completionStatus['A']}">
-            <img [src]="completionStatus['A'] ? '/assets/images/personality-buttons/personality-3-button-disabled.png' : '/assets/images/personality-buttons/personality-3-button.png'" alt="Personality 3">
-        </button>
-        <button class="personality-button" id="personality-2-button" (click)="goToPersonality(2)" [disabled]="completionStatus['I']" [ngClass]="{'disabled-button': completionStatus['I']}">
-            <img [src]="completionStatus['I'] ? '/assets/images/personality-buttons/personality-2-button-disabled.png' : '/assets/images/personality-buttons/personality-2-button.png'" alt="Personality 2">
-        </button>
-        <button class="personality-button" id="personality-1-button" (click)="goToPersonality(1)" [disabled]="completionStatus['R']" [ngClass]="{'disabled-button': completionStatus['R']}">
-            <img [src]="completionStatus['R'] ? '/assets/images/personality-buttons/personality-1-button-disabled.png' : '/assets/images/personality-buttons/personality-1-button.png'" alt="Personality 1">
-        </button>
-    </div>
-    <div class="info">
-        <mat-card id="card">
-            <mat-card-content>
-                <span class="bold">Username: </span><span>{{username}}</span><br>
-                <span class="bold">Código: </span><span>{{usercode}}</span>
-            </mat-card-content>
-        </mat-card>
+    <div class="container-edge">
+        <div class="header">
+          <div class="logo">
+              UniVerse
+          </div>
+          <div class="user-data">
+              <div class="text-block">
+                <p class="user-name">{{username}}</p>
+                <p class="user-code">{{usercode}}</p>
+              </div>
+              <img class="galaxy" src="./../../assets/images/items/galaxy-color.png">
+          </div>          
+        </div>
+        <div class="container">
+            <h2 style="margin-left: 24px;">Galáxia</h2>
+            <div class="card">
+                <button (click)="goToPersonality(1)" [disabled]="completionStatus['R']" [ngClass]="{'disabled-button': completionStatus['R']}">
+                    <div style="display: flex; justify-content: space-between; align-items: center; text-align: left">
+                        <div>
+                            <h4>Planeta</h4>
+                            <div class="phase-name">
+                                Realista
+                            </div>
+                        </div>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: flex-end;">
+                        <h4>Exploração</h4>
+                        <h4 style="color: #FFF; margin-left: 0px;">
+                            <span *ngIf="completionStatus['R']; else pending" class="concluido">Concluído</span>
+                            <ng-template #pending><span class="pendente">Pendente</span></ng-template>
+                        </h4>
+                    </div>
+                </button>
+            </div>
+
+            <img class="dots" src="../../../../assets/images/icons/rocket.svg">
+            
+            <div class="card">
+                <button (click)="goToPersonality(2)" [disabled]="completionStatus['I']" [ngClass]="{'disabled-button': completionStatus['I']}">
+                    <div style="display: flex; justify-content: space-between; align-items: center; text-align: left">
+                        <div>
+                            <h4>Planeta</h4>
+                            <div class="phase-name">
+                                Investigativo
+                            </div>
+                        </div>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: flex-end;">
+                        <h4>Exploração</h4>
+                        <h4 style="color: #FFF; margin-left: 0px;">
+                            <span *ngIf="completionStatus['I']; else pending" class="concluido">Concluído</span>
+                            <ng-template #pending><span class="pendente">Pendente</span></ng-template>
+                        </h4>
+                    </div>
+                </button>
+            </div>
+
+            <img class="dots" src="../../../../assets/images/icons/rocket.svg">
+            
+            <div class="card">
+                <button (click)="goToPersonality(3)" [disabled]="completionStatus['A']" [ngClass]="{'disabled-button': completionStatus['A']}">
+                    <div style="display: flex; justify-content: space-between; align-items: center; text-align: left">
+                        <div>
+                            <h4>Planeta</h4>
+                            <div class="phase-name">
+                                Artístico
+                            </div>
+                        </div>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: flex-end;">
+                        <h4>Exploração</h4>
+                        <h4 style="color: #FFF; margin-left: 0px;">
+                            <span *ngIf="completionStatus['A']; else pending" class="concluido">Concluído</span>
+                            <ng-template #pending><span class="pendente">Pendente</span></ng-template>
+                        </h4>
+                    </div>
+                </button>
+            </div>
+
+            <img class="dots" src="../../../../assets/images/icons/rocket.svg">
+            
+            <div class="card">
+                <button (click)="goToPersonality(4)" [disabled]="completionStatus['S']" [ngClass]="{'disabled-button': completionStatus['S']}">
+                    <div style="display: flex; justify-content: space-between; align-items: center; text-align: left">
+                        <div>
+                            <h4>Planeta</h4>
+                            <div class="phase-name">
+                                Sociais
+                            </div>
+                        </div>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: flex-end;">
+                        <h4>Exploração</h4>
+                        <h4 style="color: #FFF; margin-left: 0px;">
+                            <span *ngIf="completionStatus['S']; else pending" class="concluido">Concluído</span>
+                            <ng-template #pending><span class="pendente">Pendente</span></ng-template>
+                        </h4>
+                    </div>
+                </button>
+            </div>
+
+            <img class="dots" src="../../../../assets/images/icons/rocket.svg">
+            
+            <div class="card">
+                <button (click)="goToPersonality(5)" [disabled]="completionStatus['E']" [ngClass]="{'disabled-button': completionStatus['E']}">
+                    <div style="display: flex; justify-content: space-between; align-items: center; text-align: left">
+                        <div>
+                            <h4>Planeta</h4>
+                            <div class="phase-name">
+                                Empreendedor
+                            </div>
+                        </div>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: flex-end;">
+                        <h4>Exploração</h4>
+                        <h4 style="color: #FFF; margin-left: 0px;">
+                            <span *ngIf="completionStatus['E']; else pending" class="concluido">Concluído</span>
+                            <ng-template #pending><span class="pendente">Pendente</span></ng-template>
+                        </h4>
+                    </div>
+                </button>
+            </div>
+
+            <img class="dots" src="../../../../assets/images/icons/rocket.svg">
+            
+            <div class="card">
+                <button (click)="goToPersonality(6)" [disabled]="completionStatus['C']" [ngClass]="{'disabled-button': completionStatus['C']}">
+                    <div style="display: flex; justify-content: space-between; align-items: center; text-align: left">
+                        <div>
+                            <h4>Planeta</h4>
+                            <div class="phase-name">
+                                Convencional
+                            </div>
+                        </div>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: flex-end;">
+                        <h4>Exploração</h4>
+                        <h4 style="color: #FFF; margin-left: 0px;">
+                            <span *ngIf="completionStatus['C']; else pending" class="concluido">Concluído</span>
+                            <ng-template #pending><span class="pendente">Pendente</span></ng-template>
+                        </h4>
+                    </div>
+                </button>
+            </div>
+        </div>    
+
+        <div class="footer">
+            <a class="button-link">
+                <button id="return-button" routerLink="/">
+                    <img src="./../../assets/images/icons/arrow_circle_left.svg" alt="Ícone de voltar">
+                </button>
+            </a>  
+            <img class="planets" src="./../../assets/images/items/planets.svg">      
+        </div>
     </div>
 </body>

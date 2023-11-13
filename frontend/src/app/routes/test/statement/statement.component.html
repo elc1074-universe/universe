@@ -14,7 +14,7 @@
   </div>
 
   <div class="container">
-    <div class="card">
+    <div class="card animate__animated animate__fadeInDown">
       <div class="current">
         <div>
           <h4>Planeta</h4>
@@ -35,7 +35,7 @@
       </div>      
     </div>
 
-    <div class="card">
+    <div class="card animate__animated animate__fadeInRight">
       <div>
         <h2>Cenário</h2>
         <h3>{{ statement?.storyText }}</h3>
@@ -53,16 +53,15 @@
           </div>
         </div>
       </div>      
-           
-      <div class="footer">
-          <a class="button-link">
-              <button id="return-button" (click)="goToHome()">
-                  <img src="./../../assets/images/icons/arrow_circle_left.svg" alt="Ícone de voltar">
-              </button>
-          </a>  
-          <img class="planets" src="./../../assets/images/items/planets.svg">      
-      </div>
       </div>
     </div>
   </div>
+  <div class="footer">
+    <a class="button-link">
+        <button id="return-button" (click)="goToHome()">
+            <img src="./../../assets/images/icons/arrow_circle_left.svg" alt="Ícone de voltar">
+        </button>
+    </a>  
+    <img class="planets" src="./../../assets/images/items/planets.svg">      
+</div>
 </body>

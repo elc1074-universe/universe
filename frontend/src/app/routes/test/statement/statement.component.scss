@@ -3,6 +3,8 @@
     padding-left: 18px;
     padding-right: 18px;
     margin-bottom: 16px;
+    transition: all 0.3s ease;
+
 }
 
 .current {
@@ -16,11 +18,13 @@ h2 {
     margin-top: 32px;
     margin-bottom: 24px;
     opacity: 0.7;
+
 }
 
 h3 {
     margin: 0 8px !important;
 }
+  
 
 h4 {
     margin: 16px 2px 4px 0;

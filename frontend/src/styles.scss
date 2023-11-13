@@ -26,14 +26,14 @@ body {
 }
 
 .user-data {
-  display: flex;
-  align-items: center;
+  display: flex !important;
+  align-items: center !important;
 }
 
 .user-data .text-block {
-  display: flex;
-  flex-direction: column;
-  text-align: right;
+  display: flex !important;
+  flex-direction: column !important;
+  text-align: right !important;
   margin: 0;
 }
 

@@ -14,8 +14,8 @@
         <mat-card-content>
           <h2>{{ statement?.storyText }}</h2>
           <div class="options">
-            <div *ngFor="let option of statement?.options">
-              <p class="option">{{ option.description }}</p>
+            <div *ngFor="let option of statement?.options; let i = index">
+              <p class="option"><b>{{ getOptionLabel(i) }}</b>{{ option.description }}</p>
             </div>
           </div>
           <br />

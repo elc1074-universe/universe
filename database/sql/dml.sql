@@ -5,8 +5,8 @@ INSERT INTO personality (id, letter, `name`, `description`, story_title, story_d
     'R',
     'Realista',
     'Essas pessoas costumam ser boas em trabalhos mecânicos ou atléticos. Bons cursos universitários para pessoas realistas são...',
-    'A Jornada na Ilha dos Desafios',
-    'Você se encontra em uma aventura empolgante em uma ilha remota. Você está em um grupo de exploradores que está prestes a enfrentar desafios desconhecidos.'
+    'A Jornada na Vila dos Desafios.',
+    'Ao desembarcar na Ilha você chega primeiro na vila dos Desafios, onde você se encontra em um grupo de exploradores destemidos. O desafio é enfrentar o desconhecido e superar obstáculos físicos. Cada decisão que você toma molda sua jornada, testando sua coragem, habilidades práticas e determinação.'
 );
 
 INSERT INTO personality (id, letter, `name`, `description`, story_title, story_description) VALUES (
@@ -14,8 +14,8 @@ INSERT INTO personality (id, letter, `name`, `description`, story_title, story_d
     'I',
     'Investigativo',
     'Essas pessoas gostam de observar, aprender, analisar e resolver problemas. Bons cursos universitários para pessoas investigativas são...',
-    'A Aventura Investigativa na Ilha do Conhecimento',
-    'Você desembarca na Ilha do Conhecimento, um lugar dedicado à exploração da ciência, pesquisa e resolução de problemas.'
+    'A Aventura Investigativa na Vila do Conhecimento',
+    'Após uma longa jornada de desafios, você se depara com um ambiente dedicado à ciência e pesquisa. Os habitantes locais são estudiosos apaixonados por descobertas. Suas escolhas ao interagir com eles revelarão sua inclinação para a análise lógica, resolução de problemas e curiosidade intelectual.'
 );
 
 INSERT INTO personality (id, letter, `name`, `description`, story_title, story_description) VALUES (
@@ -23,8 +23,9 @@ INSERT INTO personality (id, letter, `name`, `description`, story_title, story_d
     'A',
     'Artístico',
     'Essas pessoas gostam de trabalhar em situações não estruturadas, onde possam usar a criatividade. Bons cursos para pessoas artísticas são...',
-    'A Jornada Criativa na Ilha das Artes e Expressão',
-    'Você chega à Ilha das Artes e Expressão, um lugar dedicado à criatividade e à expressão artística. Durante sua estadia na ilha, você enfrentará desafios que testarão suas habilidades criativas e sua preferência por trabalhar de forma independente.'
+    'A Jornada Criativa na Vila das Artes e Expressão',
+    'A próxima parada é a Vila das Artes e Expressão. Aqui, a criatividade flui como água. Envolva-se em desafios que exploram sua capacidade artística e sua preferência por expressão individual. A interação com artistas locais revelará aspectos essenciais de sua alma criativa.
+'
 );
 
 INSERT INTO personality (id, letter, `name`, `description`, story_title, story_description) VALUES (
@@ -32,8 +33,8 @@ INSERT INTO personality (id, letter, `name`, `description`, story_title, story_d
     'S',
     'Social',
     'Essas pessoas gostam de trabalhar com outras pessoas, em vez de trabalhar com coisas. Bons cursos universitários para pessoas sociais são...',
-    'A Missão de Ajuda na Ilha da Solidariedade',
-    'Você está em uma missão humanitária na Ilha da Solidariedade, onde a empatia e a ajuda às pessoas são essenciais. Durante sua jornada, você enfrentará desafios que testarão suas habilidades sociais e sua disposição para trabalhar em prol dos outros.'
+    'A Missão de Ajuda na Vila da Solidariedade',
+    'Na Vila da Solidariedade, você se une a uma missão humanitária. Sua empatia e disposição para ajudar os outros são postas à prova. As histórias compartilhadas e desafios enfrentados destacarão suas habilidades sociais e o impacto positivo que você pode ter na comunidade.'
 );
 
 INSERT INTO personality (id, letter, `name`, `description`, story_title, story_description) VALUES (
@@ -41,8 +42,8 @@ INSERT INTO personality (id, letter, `name`, `description`, story_title, story_d
     'E',
     'Empreendedor',
     'Essas pessoas gostam de trabalhar com outras pessoas e gostam de persuadir e atuar. Bons cursos universitários para pessoas empreendedoras são...',
-    'A Aventura Empreendedora na Ilha das Oportunidades',
-    'Você se encontra na Ilha das Oportunidades, onde empreendedores visionários têm a chance de realizar seus sonhos de negócios. Durante sua estadia na ilha você ficará hospedado em um resort, onde enfrentará desafios que testarão suas habilidades empreendedoras e sua ambição.'
+    'A Aventura Empreendedora na Vila das Oportunidades',
+    'Já na Vila das Oportunidades, você é envolvido pela atmosfera empreendedora. Hospedado em um resort de visão futurista, desafios empresariais estimulam sua ambição e habilidades empreendedoras. Conecte-se com visionários locais para descobrir o alcance de seus sonhos de negócios.'
 );
 
 INSERT INTO personality (id, letter, `name`, `description`, story_title, story_description) VALUES (
@@ -50,8 +51,8 @@ INSERT INTO personality (id, letter, `name`, `description`, story_title, story_d
     'C',
     'Convencional',
     'Essas pessoas são muito detalhistas, organizadas e gostam de trabalhar com dados. Bons cursos universitários para pessoas convencionais são...',
-    'A Experiência na Ilha da Organização e Eficiência',
-    'Você chega à Ilha da Organização e Eficiência, onde a precisão e o trabalho de escritório são altamente valorizados. Sua jornada na ilha incluirá desafios que testarão suas habilidades organizacionais e seu desejo de trabalhar em ambientes estruturados.'
+    'A Experiência na Vila da Organização e Eficiência',
+    'A última parada é a Vila da Organização e Eficiência. Aqui, a precisão é valorizada, e o ambiente de escritório é altamente estruturado. Enfrente desafios que testam suas habilidades organizacionais e sua afinidade por ambientes controlados.'
 );
 
 INSERT INTO `statement` (id, riasec_title, story_title, story_text, personality_id) VALUES (

@@ -8,16 +8,16 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 })
 export class TestInfoComponent {
 
-  title: string;
+  username: string;
 
   constructor(
     public dialogRef: MatDialogRef<TestInfoComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
     if (data.username) {
-      this.title = `Bem vindo(a), ${data.username}!`;
+      this.username = data.username;
     } else {
-      this.title = `Bem vindo(a)!`;
+      this.username = "";
     }
   }
 };

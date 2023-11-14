@@ -1,68 +1,75 @@
-<body>
-  <div class="container-edge">
-  <div class="header">
-    <div class="logo">
-        UniVerse
-    </div>
-    <div class="user-data">
-        <div class="text-block">
-          <p class="user-name">{{ username }}</p>
-          <p class="user-code">{{ userCode }}</p>
-        </div>
-        <img class="galaxy" src="./../../assets/images/items/galaxy-color.png">
-    </div>          
+<body
+  [style.background-image]="'url(' + composeStatementBackgroundImageUrl() + ')'"
+>
+  <div class="back">
+    <button mat-icon-button (click)="goToHome()">
+      <mat-icon class="material-icons color_white"> arrow_back_ios </mat-icon>
+    </button>
+    <br />
   </div>
-
-  <div class="container">
-    <div class="card" style="margin-bottom: 16px;">
-      <div style="display: flex; justify-content: space-between; align-items: center;">
-        <div>
-          <h4>Planeta</h4>
-          <div class="phase-name">
-            {{ currentPhaseName }}
+  <div id="title" (click)="goToHome()">UniVerse</div>
+  <div class="question">
+    <div class="question-text">
+      <mat-card id="card">
+        <mat-card-content>
+          <h2>{{ statement?.storyText }}</h2>
+          <div class="options">
+            <div *ngFor="let option of statement?.options">
+              <p class="option">{{ option.description }}</p>
+            </div>
           </div>
-        </div>
-        <img src="../../../../assets/images/items/bike.png">
-      </div>
-      <div style="display: flex; justify-content: space-between; align-items: flex-end;">
-        <h4>Progresso</h4>
-        <h4 style="color: #FFF; margin-left: 0px;">
+          <br />
+          <div class="text">
+            <p class="text">Escolha uma opção</p>
+          </div>
+          <div class="example-button-row">
+            <div class="example-flex-container">
+              <div class="example-button-container">
+                <button
+                  mat-fab
+                  class="custom-button"
+                  valeu="a"
+                  (click)="saveAnswer(1)"
+                >
+                  <p class="button">A</p>
+                </button>
+              </div>
+              <div class="example-button-container">
+                <button
+                  mat-fab
+                  class="custom-button"
+                  valeu="b"
+                  (click)="saveAnswer(2)"
+                >
+                  <p class="button">B</p>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="progress-bar">
+            <mat-progress-bar
+              class="custom-progress-bar"
+              mode="determinate"
+              [value]="phaseProgress"
+            ></mat-progress-bar>
+          </div>
+        </mat-card-content>
+        <div class="question-number">
           Questão {{ currentQuestionNumber }}
-        </h4>
-      </div>
-      <div class="progress-bar">
-        <div class="progress-track" [style.width.%]="phaseProgress"></div>
-      </div>      
-    </div>
-
-    <div class="card">
-      <div class="card-text">
-        <h2>Cenário</h2>
-        <h3 style="margin-top: 8px; margin-bottom: 16px">{{ statement?.storyText }}</h3>
-      </div>  
-
-      <div class="text">
-        <h2>Escolha uma opção</h2>
-      </div>
-      <div class="example-flex-container">
-        <div *ngFor="let option of statement?.options">
-          <div class="example-button-container">
-            <button mat-fab class="option-button" (click)="saveAnswer(option.value)">
-              <p class="button">{{ option.description }}</p>
-            </button>
-          </div>
         </div>
-      </div>      
-           
-      <div class="footer">
-          <a class="button-link">
-              <button id="return-button" (click)="goToHome()">
-                  <img src="./../../assets/images/icons/arrow_circle_left.svg" alt="Ícone de voltar">
-              </button>
-          </a>  
-          <img class="planets" src="./../../assets/images/items/planets.svg">      
-      </div>
-      </div>
+        <div class="phase-name">
+          - {{ currentPhaseName }}
+        </div>
+      </mat-card>
     </div>
+  </div>
+  <div class="info">
+    <mat-card id="card2">
+      <mat-card-content>
+        <span class="bold">Username: </span><span>{{ username }}</span
+        ><br />
+        <span class="bold">Código: </span><span>{{ userCode }}</span>
+      </mat-card-content>
+    </mat-card>
   </div>
 </body>

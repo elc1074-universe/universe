@@ -133,11 +133,12 @@ export class StatementComponent implements OnInit {
   }
 
   calculatePhaseProgress(currentStatementId: number): void {
-    const totalStatementsInPhase = this.phaseEnd - this.phaseStart;
-    const statementsCompletedInPhase = Math.max(0, currentStatementId - this.phaseStart);
-    this.phaseProgress = (statementsCompletedInPhase / totalStatementsInPhase) * 100;
-}
-
+    const totalStatementsInPhase = this.phaseEnd - this.phaseStart + 1;
+    const statementsCompletedInPhase =
+      currentStatementId - this.phaseStart + 1;
+    this.phaseProgress =
+      (statementsCompletedInPhase / totalStatementsInPhase) * 100;
+  }
 
   getPhaseIndex(currentStatementId: number): number {
     for (let i = 0; i < this.phases.length; i++) {

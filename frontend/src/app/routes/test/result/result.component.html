@@ -29,10 +29,10 @@
         <h1>Parabéns!</h1>
         <h2>Você finalizou o teste</h2>
         <img style="margin-bottom: -6px;" src="../../../../assets/images/professions/engineer.png">
-        <div class="card" style="margin-top: 0px; padding-top: 16px; margin-bottom: 24px">
+        <div class="card" style="margin-top: 0px; padding: 16px 20px 4px 20px; margin-bottom: 24px">
           <h1 style="margin-bottom: 8px;">{{results.interestCode}}</h1>
-          <h2 style="margin-top: 8px;">Realista, investigativo e artístico</h2>
-          <h3>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</h3>
+          <h2 style="margin-top: 8px;">{{results.interestWords}}</h2>
+          <h3>Essas pessoas são {{ results.description1 }} Você possuí {{ results.description2 }} Com um {{ results.description3 }}</h3>
         </div>
         <div class="buttons">
           <a class="button-link" routerLink="/test/new">
@@ -58,4 +58,4 @@
       </a>  
       <img class="planets" src="./../../assets/images/items/planets.svg">      
   </div>
-  </body>
+</body>

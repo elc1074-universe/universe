@@ -1,17 +1,14 @@
-<mat-dialog-content class="mat-typography">
-    <div class="content">
+<div class="card">
+    <div class="container">
         <h3 class="code">Usuário criado com sucesso!</h3>
         <p class="p-content">
-            Sabemos que a vida pode ser imprevisível e às vezes você pode precisar fazer uma pausa. Não se preocupe, nós te entendemos!
-        </p>
-        <p class="p-content">
-            Abaixo está o seu código único. Você pode usar este código para retomar o seu progresso a qualquer momento. Basta inserir este código quando você voltar e você poderá continuar de onde parou.
+            Aqui está o seu código exclusivo
         </p>
         <h3 class="code">
             {{this.code}}
         </h3>
         <p class="p-content">
-            Lembre-se de guardar este código em um lugar seguro!
+            Ele permite que você retomar o jogo de onde parou e recuperar seus resultados.
         </p>
         <div class="example-button-row">
             <button mat-button mat-dialog-close style="background-color: #3C6A54;" (click)="goToTest()">
@@ -21,4 +18,4 @@
             </button>
         </div>
     </div>
-</mat-dialog-content>
+</div>

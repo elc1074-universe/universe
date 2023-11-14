@@ -1,11 +1,6 @@
 import { Component, OnInit } from "@angular/core";
-import {
-  Router,
-  ActivatedRoute,
-  ParamMap,
-  NavigationStart,
-} from "@angular/router";
-import { ChangeDetectorRef } from "@angular/core";
+import { Router, ActivatedRoute, ParamMap } from "@angular/router";
+import { ChangeDetectorRef } from '@angular/core';
 
 import StatementService from "src/app/services/statement.service";
 import StatementRetrievalDTO from "src/app/models/dto/statement/StatementRetrievalDTO";
@@ -33,9 +28,9 @@ export class StatementComponent implements OnInit {
 
   option = {
     options: [
-      { description: "Primeira opção" },
-      { description: "Segunda opção" },
-    ],
+      { description: 'Primeira opção' },
+      { description: 'Segunda opção' },
+    ]
   };
 
   private popupInfoArray: boolean[] = [
@@ -46,7 +41,7 @@ export class StatementComponent implements OnInit {
     false,
     false,
   ];
-
+  
   phases: { start: number; end: number }[] = [
     { start: 1, end: 7 },
     { start: 8, end: 14 },
@@ -79,7 +74,7 @@ export class StatementComponent implements OnInit {
     private userService: UserService,
     private TestService: TestService,
     public dialog: MatDialog,
-    private changeDetector: ChangeDetectorRef
+    private changeDetector: ChangeDetectorRef,
   ) {}
 
   ngOnInit(): void {
@@ -125,35 +120,31 @@ export class StatementComponent implements OnInit {
           },
         });
         const newPhaseIndex = this.getPhaseIndex(currentStatementId);
-        if (
-          newPhaseIndex !== this.currentPhaseIndex ||
-          this.currentPhaseIndex == 0
-        ) {
+        if (newPhaseIndex !== this.currentPhaseIndex || this.currentPhaseIndex == 0) {
           this.currentPhaseIndex = newPhaseIndex;
           this.phaseStart = this.phases[newPhaseIndex].start;
           this.phaseEnd = this.phases[newPhaseIndex].end;
           this.phaseProgress = 0;
           this.currentQuestionNumber = 1;
           this.currentPhaseName = this.phaseNames[newPhaseIndex];
-
+        
           this.changeDetector.detectChanges();
         }
 
         this.calculatePhaseProgress(currentStatementId);
 
-        this.currentQuestionNumber = currentStatementId - this.phaseStart + 1;
+        this.currentQuestionNumber =
+        currentStatementId - this.phaseStart + 1;
+        
       });
   }
 
   calculatePhaseProgress(currentStatementId: number): void {
     const totalStatementsInPhase = this.phaseEnd - this.phaseStart;
-    const statementsCompletedInPhase = Math.max(
-      0,
-      currentStatementId - this.phaseStart
-    );
-    this.phaseProgress =
-      (statementsCompletedInPhase / totalStatementsInPhase) * 100;
-  }
+    const statementsCompletedInPhase = Math.max(0, currentStatementId - this.phaseStart);
+    this.phaseProgress = (statementsCompletedInPhase / totalStatementsInPhase) * 100;
+}
+
 
   getPhaseIndex(currentStatementId: number): number {
     for (let i = 0; i < this.phases.length; i++) {
@@ -165,7 +156,7 @@ export class StatementComponent implements OnInit {
       }
     }
     return -1;
-  }
+  } 
 
   private getPopupIndex(currentStatementId: number): number {
     const statementIds = [1, 8, 15, 22, 29, 36];
@@ -213,7 +204,7 @@ export class StatementComponent implements OnInit {
 
         if (this.isTestCompleted) {
           this.dialog.open(InfoCompletedComponent, {
-            data: { userCode: this.userCode },
+            data: { userCode: this.userCode }
           });
         }
 
@@ -250,6 +241,6 @@ export class StatementComponent implements OnInit {
   }
 
   getOptionLabel(index: number): string {
-    return String.fromCharCode(65 + index) + ") ";
+    return String.fromCharCode(65 + index) + ') ';
   }
 }

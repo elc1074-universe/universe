@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { Router, ActivatedRoute, ParamMap } from "@angular/router";
 import { MatDialog } from "@angular/material/dialog";
-import { forkJoin } from "rxjs";
+import { forkJoin } from 'rxjs';
 
 import { TestInfoComponent } from "src/app/routes/test/info/test-info.component";
 import UserRetrievalDTO from "src/app/models/dto/user/UserRetrievalDTO";
@@ -48,37 +48,39 @@ export class PersonalityComponent implements OnInit {
               this.username = this.user.username;
             }
             this.usercode = currentUserCode!;
+            console.log(this.usercode);
             const letters = ["R", "I", "A", "S", "E", "C"];
             const observables = [];
-
+  
             for (let i = 0; i < letters.length; i++) {
               observables.push(
-                this.TestService.findPersonality(this.usercode, letters[i])
+                this.TestService.findPersonality(
+                  this.usercode,
+                  letters[i]
+                )
               );
             }
-
-            forkJoin(observables).subscribe(
-              (personalities: (TestRetrievalDTO | null)[]) => {
-                let allCompletionStatusFalse = true;
-
-                for (let i = 0; i < letters.length; i++) {
-                  const personality = personalities[i];
-
-                  if (personality) {
-                    this.completionStatus[letters[i]] = personality.isCompleted;
-                    allCompletionStatusFalse =
-                      allCompletionStatusFalse && !personality.isCompleted;
-                  }
-                }
-
-                if (!this.popupInfo && allCompletionStatusFalse) {
-                  const dialogRef = this.dialog.open(TestInfoComponent, {
-                    data: { username: user?.username },
-                  });
-                  this.popupInfo = true;
+  
+            forkJoin(observables).subscribe((personalities: (TestRetrievalDTO | null)[]) => {
+              let allCompletionStatusFalse = true;
+  
+              for (let i = 0; i < letters.length; i++) {
+                const personality = personalities[i];
+  
+                if (personality) {
+                  this.completionStatus[letters[i]] = personality.isCompleted;
+                  allCompletionStatusFalse = allCompletionStatusFalse && !personality.isCompleted;
                 }
               }
-            );
+  
+              if (!this.popupInfo && allCompletionStatusFalse) {
+                const dialogRef = this.dialog.open(TestInfoComponent, {
+                  data: { username: user?.username },
+                });
+                console.log(this.usercode);
+                this.popupInfo = true;
+              }
+            });
           },
           error: (error) => {
             console.error(error);
@@ -92,7 +94,7 @@ export class PersonalityComponent implements OnInit {
   }
 
   areAllCompletionStatusFalse(): boolean {
-    return Object.values(this.completionStatus).every((status) => !status);
+    return Object.values(this.completionStatus).every(status => !status);
   }
 
   goToPersonality(personalityId: number): void {

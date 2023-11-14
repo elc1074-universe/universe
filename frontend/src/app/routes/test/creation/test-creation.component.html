@@ -1,87 +1,80 @@
 <body>
-  <div class="container-edge">
-    <div class="container">
-      <div
-        class="big-logo animate__animated animate__pulse animate__infinite animate__slow"
-      >
-        <img src="./../../../../assets/images/logos/logo-verse.png" />
-      </div>
-      <div class="screen-info">
-        <h1>Criar um novo jogo</h1>
-        <h2>Informe seu nome para começar um novo teste!</h2>
-      </div>
+    <div class="container-edge">
+        <div class="container">
+            <div class="big-logo animate__animated animate__pulse animate__infinite animate__slow">
+                <img src="./../../../../assets/images/logos/logo-verse.png">
+            </div>
+            <div class="screen-info">
+                <h1>Criar um novo jogo</h1>
+                <h2>Informe seu nome para começar um novo teste!</h2>
+            </div>
+            
+            <div class="card animate__animated animate__fadeInUp">
+                <div class="card-text">
+                    <h3>Seu nome</h3>
+                </div>
 
-      <div class="card animate__animated animate__fadeInUp">
-        <div class="card-text">
-          <h3>Seu nome</h3>
+                <form #form="ngForm" (ngSubmit)="onSubmit()">
+                    <div id="card-form">
+                        <mat-form-field class="card-form-field">
+                            <mat-label class="card-form-field-label">
+                                Digite aqui
+                            </mat-label>
+                            <input
+                                class="card-form-field-input"
+                                matInput
+                                name="username"
+                                [(ngModel)]="testCreationDTO.username"
+                                #username="ngModel"
+                            >
+                            <mat-error
+                                class="card-form-field-error-message"
+                                *ngIf="!testCreationDTO.username || testCreationDTO.username.trim() === ''"
+                            >
+                                Informe um username
+                            </mat-error>
+                        </mat-form-field>
+                        <!--<div class="card-text">
+                            <h3>E-mail</h3>
+                            <h4>não é obrigatório</h4>
+                        </div>
+                        <mat-form-field class="card-form-field" style="width: 86% !important;">
+                            <mat-label class="card-form-field-label">
+                                universe@universe.com
+                            </mat-label>
+                            <input
+                                class="card-form-field-input"
+                                matInput
+                                name="email"
+                                [(ngModel)]="testCreationDTO.email"
+                                #email="ngModel"
+                            >
+                        </mat-form-field>-->
+                        <button
+                            id="card-form-submit-button"
+                            mat-flat-button
+                            color="primary"
+                            type="submit"
+                            [disabled]="form.invalid"
+                        >
+                            Enviar
+                        </button>
+                    </div>
+                </form>
+
+                <a class="text-link" href="/test/continue">
+                    Já possui um código?
+                </a>
+            </div>
         </div>
 
-        <form #form="ngForm" (ngSubmit)="onSubmit()">
-          <div id="card-form">
-            <mat-form-field class="card-form-field">
-              <mat-label class="card-form-field-label"> Digite aqui </mat-label>
-              <input
-                class="card-form-field-input"
-                matInput
-                name="username"
-                [(ngModel)]="testCreationDTO.username"
-                #username="ngModel"
-              />
-              <mat-error
-                class="card-form-field-error-message"
-                *ngIf="
-                  !testCreationDTO.username ||
-                  testCreationDTO.username.trim() === ''
-                "
-              >
-                Informe um username
-              </mat-error>
-            </mat-form-field>
-            <div class="card-text">
-              <h3>E-mail</h3>
-              <h4>não é obrigatório</h4>
-            </div>
-            <mat-form-field
-              class="card-form-field"
-              style="width: 86% !important"
-            >
-              <mat-label class="card-form-field-label">
-                universe@universe.com
-              </mat-label>
-              <input
-                class="card-form-field-input"
-                matInput
-                name="email"
-                [(ngModel)]="testCreationDTO.email"
-                #email="ngModel"
-              />
-            </mat-form-field>
-            <button
-              id="card-form-submit-button"
-              mat-flat-button
-              color="primary"
-              type="submit"
-              [disabled]="form.invalid"
-            >
-              Enviar
-            </button>
-          </div>
-        </form>
-
-        <a class="text-link" href="/test/continue"> Já possui um código? </a>
-      </div>
+        <div class="footer">
+            <a class="button-link" routerLink="/">
+                <button id="return-button">
+                    <img src="./../../assets/images/icons/arrow_circle_left.svg" alt="Ícone de voltar">
+                </button>
+            </a>  
+            <img class="planets" src="./../../assets/images/items/planets.svg">      
+        </div>
     </div>
-
-    <div class="footer">
-      <a class="button-link" routerLink="/">
-        <button id="return-button">
-          <img
-            src="./../../assets/images/icons/arrow_circle_left.svg"
-            alt="Ícone de voltar"
-          />
-        </button>
-      </a>
-      <img class="planets" src="./../../assets/images/items/planets.svg" />
-    </div>
-  </div>
 </body>

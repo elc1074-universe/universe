@@ -1,3 +1,35 @@
+<style>
+    .card button {
+        width: 100%;
+        height: 100%;
+        border: none;
+        background: none;
+        cursor: pointer;
+    }
+
+    .disabled-button {
+        cursor: default;
+        opacity: 0.5;
+    }
+
+    .card {
+        margin-bottom: 4px;
+        margin-top: -2px;
+    }
+
+    .dots {
+        margin-left: 48px;
+    }
+
+    .concluido {
+        color: #8EFF00;
+    }
+
+    .pendente {
+        color: #D5B052;
+    }
+</style>
+
 <head>
     <link
       rel="stylesheet"
@@ -20,7 +52,7 @@
           </div>          
         </div>
         <div class="container">
-            <h2>Galáxia</h2>
+            <h2 style="margin-left: 24px;">Galáxia</h2>
             <div class="card">
                 <button (click)="goToPersonality(1)" [disabled]="completionStatus['R']" [ngClass]="{'disabled-button': completionStatus['R']}">
                     <div style="display: flex; justify-content: space-between; align-items: center; text-align: left">

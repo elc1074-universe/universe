@@ -1,9 +1,12 @@
 <body>
     <div class="container-edge">
-        <div class="container">
+        <div class="header">
             <div class="big-logo">
                 <img src="./../../../../assets/images/logos/logo-verse.png">
             </div>
+        </div>
+        
+        <div class="container">
             <div class="screen-info">
                 <h1>Ver meu resultado</h1>
                 <h2>Informe o seu código de usuário para ver o seu resultado!</h2>
@@ -17,7 +20,7 @@
                 
                 <form #loginForm="ngForm" (ngSubmit)="onSubmit()">
                     <div id="card-form">
-                        <mat-form-field class="card-form-field">
+                        <mat-form-field class="card-form-field" style="width: 86% !important;">
                             <mat-label class="card-form-field-label">
                                 Digite aqui
                             </mat-label>

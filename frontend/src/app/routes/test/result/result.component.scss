@@ -1,12 +1,190 @@
+body {
+  background-color: #0C1020;
+}
+
+.container-edge {
+  background-image: url(../../../../assets/images/backgrounds/galaxy-5.svg);
+  min-height: 100vh;
+  background-color: #161D39;
+  position: relative;
+  max-width: 853px;
+  margin: 0 auto;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  max-width: 853px;
+  margin: 0 auto 18px auto;
+  padding: 16px 24px 0 24px;
+}
+
+.logo {
+  color: #FFF;
+  font-family: Fredoka One;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin: auto 0;
+}
+
+.user-data {
+  display: flex;
+  align-items: center;
+}
+
+.user-data .text-block {
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+  margin: 0;
+}
+
+.user-name {
+  color: #FFF;
+  font-family: Fredoka;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 16px;
+  margin-bottom: 8px;
+}
+
+.user-code {
+  color: rgba(255, 255, 255, 0.50);
+  font-family: Fredoka;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 16px;
+  margin-bottom: 0;
+}
+
+.galaxy {
+  width: 50px;
+  height: 50px;
+  flex-shrink: 0;
+  margin-left: 12px;
+}
+
 .container {
+  width: 100%;
+  max-width: 393px;
+  margin: 0 auto;
+  padding-bottom: 88px;
   text-align: center;
 }
 
-h1 {
-  opacity: 1 !important;
+.card {
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: linear-gradient(180deg, #252C4A 0%, #252C4A 100%, #252C4A 100%);
+  box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.25);
+  margin: 0 18px;
+}
+  /* especifico dessa pagina */
+h1  {
+  color: #FFF;
+  font-family: Fredoka;
+  font-size: 32px;
+  font-weight: 400;
 }
 
-h2 {
-  color: white;
+h2  {
+  color: #FFF;
+  font-family: Fredoka;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 16px;
   opacity: 0.7;
+}
+
+h3 {
+  color: #FFF;
+  text-align: center;
+  font-family: Fredoka;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 25.5px;
+  margin-top: 32px;
+}
+
+.card-text {
+  text-align: center;
+  margin: 24px 0;
+}
+
+.exploring-planet-top {
+  width: 82.5%;
+  max-width: 393px;
+  margin: 0 auto;
+}
+
+.exploring-planet-bottom {
+  width: 74.5%;
+  max-width: 354px;
+  margin: -8px auto 32px auto;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+}
+
+#create-game-button{
+  background-color: #676F94;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  color: #FFF;
+  font-family: Fredoka;
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0px;
+  border-radius: 999px;
+  padding: 24px 36px;
+}
+
+#continue-game-button {
+  background: #21376B;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  color: #FFF;
+  font-family: Fredoka;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0px;
+  border-radius: 999px;
+  padding: 24px 32px;
+  margin-top: 12px;
+}
+
+#return-button {
+  border-radius: 16px 16px 0px 0px;
+  background: #F66103;
+  width: 64px;
+  height: 64px;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 36px;
+  cursor: pointer;
+}
+
+.planets {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 742px;
+  display: flex;
+  justify-content: flex-start;
 }

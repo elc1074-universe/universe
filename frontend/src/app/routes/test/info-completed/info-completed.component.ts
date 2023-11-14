@@ -15,7 +15,7 @@ export class InfoCompletedComponent {
     private router: Router,
     @Inject(MAT_DIALOG_DATA) public data: any) {
     if (data.code) {
-      this.code = `${data.userCode}`;
+      this.code = `${data.code}`;
     } else {
       this.code = `Código não encontrado`;
     }
@@ -26,6 +26,6 @@ export class InfoCompletedComponent {
   }
 
   goToResult() {
-    this.router.navigate(['/test/result', this.code]);
+    this.router.navigate(['/test/result']);
   }
 }

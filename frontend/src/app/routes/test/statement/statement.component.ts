@@ -26,13 +26,6 @@ export class StatementComponent implements OnInit {
   testStatementSavingDTO!: TestStatementSavingDTO;
   isTestCompleted: boolean = false;
 
-  option = {
-    options: [
-      { description: 'Primeira opção' },
-      { description: 'Segunda opção' },
-    ]
-  };
-
   private popupInfoArray: boolean[] = [
     false,
     false,
@@ -204,7 +197,7 @@ export class StatementComponent implements OnInit {
 
         if (this.isTestCompleted) {
           this.dialog.open(InfoCompletedComponent, {
-            data: { userCode: this.userCode }
+            data: { userCode: this.userCode },
           });
         }
 
@@ -238,9 +231,5 @@ export class StatementComponent implements OnInit {
         : `${this.currentStatementId}`;
 
     return `assets/images/statements/${backgroundImageId}.jpg`;
-  }
-
-  getOptionLabel(index: number): string {
-    return String.fromCharCode(65 + index) + ') ';
   }
 }

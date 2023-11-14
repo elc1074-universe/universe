@@ -1,0 +1,38 @@
+<body [ngClass]="results.mostInterested">
+    <div class="container-edge" [ngClass]="results.mostInterested">
+        <div class="header">
+            <div class="logo">
+                UniVerse
+            </div>
+            <div class="user-data">
+                <div class="text-block">
+                  <p class="user-name">Nome</p>
+                  <p class="user-code">{{ userCode }}</p>
+                </div>
+                <img class="galaxy" src="./../../assets/images/items/galaxy-color.png">
+            </div>          
+        </div>
+        <div class="container">
+            <div class="screen-info">
+                <h1>Estatísticas</h1>
+                <h2>Veja o quanto você pontuou em cada planeta!</h2>
+              </div>
+            <div class="card" [ngClass]="results.mostInterested" style="padding: 16px;">
+                <h4>Gráfico</h4>
+                <canvas id="myChart"></canvas>
+                <h4>*Você pontuou em um planeta quando optou pela opção de interagir o cenário</h4>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <a class="button-link" routerLink="/">
+          <button id="return-button">
+            <img
+              src="./../../assets/images/icons/arrow_circle_left.svg"
+              alt="Ícone de voltar"
+            />
+          </button>
+        </a>
+        <img class="planets" src="./../../assets/images/items/planets.svg" />
+      </div>
+</body>

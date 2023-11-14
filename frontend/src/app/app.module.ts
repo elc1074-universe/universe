@@ -12,14 +12,16 @@ import { TestComponent } from './routes/test/test.component';
 import { PersonalityComponent } from './routes/test/personality/personality.component';
 import { AppMaterialModule } from './shared/app-material-module/app-material-module.module';
 import { HeaderInterceptor } from './header-interceptor';
-import { NoResultComponent } from './no-result/no-result.component';
+import { NoResultComponent } from './routes/test/no-result/no-result.component';
+import { StatisticsComponent } from './routes/test/statistics/statistics.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     TestComponent,
-    NoResultComponent
+    NoResultComponent,
+    StatisticsComponent
   ],
   imports: [
     BrowserModule,

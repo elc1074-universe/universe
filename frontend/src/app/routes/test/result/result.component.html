@@ -10,8 +10,8 @@
   </div>
 -->
   
-  <body>
-    <div class="container-edge">
+  <body [ngClass]="results.mostInterested">
+    <div class="container-edge" [ngClass]="results.mostInterested">
       <div class="header">
         <div class="logo">
             UniVerse
@@ -28,18 +28,18 @@
       <div class="container">
         <h1>Parabéns!</h1>
         <h2>Você finalizou o teste</h2>
-        <img style="margin-bottom: -6px;" src="../../../../assets/images/professions/engineer.png">
-        <div class="card" style="margin-top: 0px; padding: 16px 20px 4px 20px; margin-bottom: 24px">
+        <img class="animate__animated animate__flipInY" style="margin-bottom: -6px; animation-delay: 800ms;" src="../../../../assets/images/professions/engineer.png">
+        <div class="card animate__animated animate__fadeInUp" [ngClass]="results.mostInterested" style="margin-top: 0px; padding: 16px 20px 4px 20px; margin-bottom: 24px">
           <h1 style="margin-bottom: 8px;">{{results.interestCode}}</h1>
           <h2 style="margin-top: 8px;">{{results.interestWords}}</h2>
           <h3>Essas pessoas são {{ results.description1 }} Você possuí {{ results.description2 }} Com um {{ results.description3 }}</h3>
         </div>
         <div class="buttons">
-          <a class="button-link" routerLink="/test/new">
-              <button id="create-game-button" mat-raised-button color="primary">
-                Quais cursos combinam comigo?
-              </button>
-          </a>
+          <a class="button-link" (click)="goToStatistics()">
+            <button id="create-game-button" mat-raised-button color="primary">
+              Quais cursos combinam comigo?
+            </button>
+        </a>        
 
           <a class="button-link" routerLink="/test/continue">
               <button id="continue-game-button" mat-raised-button color="primary">

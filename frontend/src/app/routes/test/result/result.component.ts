@@ -27,7 +27,6 @@ export class TestResultComponent implements OnInit {
       data => {
         if (data) {
           this.results = data;
-          // Mapeamento de letras para palavras
           const interestMapping: Record<string, string> = {
             'R': 'Realista',
             'I': 'Investigativo',
@@ -36,6 +35,7 @@ export class TestResultComponent implements OnInit {
             'E': 'Empreendedor',
             'C': 'Convencional'
           };
+          this.results.mostInterested = interestMapping[this.results.interestCode[0]];
           const descriptionMapping: Record<string, any> = {
             'R': {
               1: 'práticas e adoram trabalhar com suas mãos, com muita habilidade e força de vontade.',
@@ -91,4 +91,9 @@ export class TestResultComponent implements OnInit {
       }
     );
   }
+  goToStatistics(): void {
+    console.log('Navigating to statistics');
+    this.router.navigate(['/test/statistics', this.userCode]);
+  }
+  
 }

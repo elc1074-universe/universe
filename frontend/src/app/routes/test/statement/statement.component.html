@@ -1,5 +1,5 @@
-<body>
-  <div class="container-edge">
+<body [ngClass]="currentPhaseName">
+  <div class="container-edge" [ngClass]="currentPhaseName">
   <div class="header">
     <div class="logo">
         UniVerse
@@ -14,7 +14,7 @@
   </div>
 
   <div class="container">
-    <div class="card animate__animated animate__fadeInDown">
+    <div class="card animate__animated animate__fadeInDown" [ngClass]="currentPhaseName">
       <div class="current">
         <div>
           <h4>Planeta</h4>
@@ -35,7 +35,7 @@
       </div>      
     </div>
 
-    <div class="card animate__animated animate__fadeInRight">
+    <div class="card animate__animated animate__fadeInRight" [ngStyle]="{'background-color': getBackgroundColor().card}">
       <div>
         <h2>Cenário</h2>
         <h3>{{ statement?.storyText }}</h3>

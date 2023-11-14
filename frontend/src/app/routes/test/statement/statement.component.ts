@@ -252,4 +252,23 @@ export class StatementComponent implements OnInit {
   getOptionLabel(index: number): string {
     return String.fromCharCode(65 + index) + ") ";
   }
+
+  getBackgroundColor() {
+    switch (this.currentPhaseName) {
+        case 'Realista':
+            return { body: '#0C1020', edgeContainer: '#302132', card: '#513754' };
+        case 'Investigativo':
+            return { body: '#0C1020', edgeContainer: '#1E314F', card: '#29436A' };
+        case 'Artístico':
+            return { body: '#0C1020', edgeContainer: '#363633', card: '#51514C' };
+        case 'Social':
+            return { body: '#0C1020', edgeContainer: '#214143', card: '#2D6161' };
+        case 'Empreendedor':
+            return { body: '#0C1020', edgeContainer: '#2B274D', card: '#3D376E' };
+        case 'Convencional':
+            return { body: '#0C1020', edgeContainer: '#3A3030', card: '#514343' };
+        default:
+            return { body: '#0C1020', edgeContainer: '#000000', card: '#000000' };
+    }
+  }
 }

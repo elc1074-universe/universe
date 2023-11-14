@@ -7,6 +7,7 @@ import { TestResultComponent } from './result/result.component';
 import { StatementComponent } from './statement/statement.component';
 import { PersonalityComponent } from './personality/personality.component';
 import { CodeResultComponent } from './code-result/code-result.component';
+import { StatisticsComponent } from './statistics/statistics.component'
 
 const routes: Routes = [
   {
@@ -32,6 +33,10 @@ const routes: Routes = [
   {
     path: 'code-result',
     component: CodeResultComponent,
+  },
+  {
+    path: 'statistics/:userCode',
+    component: StatisticsComponent,
   }
 ];
 

@@ -127,7 +127,10 @@ export class StatementComponent implements OnInit, OnDestroy {
               if ([1, 8, 15, 22, 29, 36].includes(currentStatementId)) {
                 let popupIndex = this.getPopupIndex(currentStatementId);
 
-                if (!this.popupInfoArray[popupIndex]) {
+                const popupKey = `popupShown_${this.userCode}_${popupIndex}`;
+                const popupAlreadyShown = localStorage.getItem(popupKey);
+
+                if (!this.popupInfoArray[popupIndex] && !popupAlreadyShown) {
                   this.dialog.open(InfoHistoryComponent, {
                     data: {
                       userCode: this.userCode,
@@ -136,6 +139,8 @@ export class StatementComponent implements OnInit, OnDestroy {
                   });
 
                   this.popupInfoArray[popupIndex] = true;
+
+                  localStorage.setItem(popupKey, "true");
                 }
               }
             },
@@ -208,24 +213,6 @@ export class StatementComponent implements OnInit, OnDestroy {
     }
     return index;
   }
-  // handleButtonClick(optionIndex: number) {
-  //   if (this.statement) {
-  //     this.saveAnswer(optionIndex);
-  //     if ([7, 14, 21, 28, 35, 42].includes(this.currentStatementId)) {
-  //       const dialogRef = this.dialog.open(InfoFaseComponent, {
-  //         data: {
-  //           userCode: this.userCode,
-  //           idQuestion: this.currentStatementId,
-  //         },
-  //       });
-  //       dialogRef.afterClosed().subscribe((result) => {
-  //         if (result === true) {
-  //           this.goToNextStatement();
-  //         }
-  //       });
-  //     }
-  //   }
-  // }
 
   saveAnswer(selectedOption: number) {
     if (!this.statement) {
@@ -273,12 +260,21 @@ export class StatementComponent implements OnInit, OnDestroy {
   }
 
   goToHome(): void {
-    this.dialog.open(InfoAlertComponent, {
-      data: {
-        userCode: this.userCode,
-        letter: this.statement?.personalityLetter,
-      },
-    });
+    if ([1, 8, 15, 22, 29, 36].includes(this.currentStatementId)) {
+      this.dialog.open(InfoAlertComponent, {
+        data: {
+          userCode: this.userCode,
+          letter: "N",
+        },
+      });
+    } else {
+      this.dialog.open(InfoAlertComponent, {
+        data: {
+          userCode: this.userCode,
+          letter: this.statement?.personalityLetter,
+        },
+      });
+    }
   }
 
   getOptionLabel(index: number): string {

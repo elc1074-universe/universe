@@ -1,7 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { Router, ActivatedRoute, ParamMap } from "@angular/router";
 import { MatDialog } from "@angular/material/dialog";
-import { forkJoin } from "rxjs";
 
 import { TestInfoComponent } from "src/app/routes/test/info/test-info.component";
 import UserRetrievalDTO from "src/app/models/dto/user/UserRetrievalDTO";
@@ -20,7 +19,6 @@ export class PersonalityComponent implements OnInit {
   private user!: UserRetrievalDTO | null;
   username!: string;
   usercode!: string;
-  private popupInfo: boolean = false;
   lastCompletedStatementId!: number;
 
   constructor(
@@ -66,21 +64,22 @@ export class PersonalityComponent implements OnInit {
             this.TestService.findPersonalities(this.usercode).subscribe(
               (personalities: PersonalityRetrievalDTO[] | null) => {
                 if (personalities) {
-                  let allCompletionStatusFalse = true;
-
                   for (let personality of personalities) {
                     if (personality) {
                       this.completionStatus[personality.letter] =
                         personality.isCompleted;
-                      allCompletionStatusFalse =
-                        allCompletionStatusFalse && !personality.isCompleted;
                     }
                   }
-                  if (!this.popupInfo && allCompletionStatusFalse) {
+                  const welcomePopupKey = `welcomePopupShown_${this.usercode}`;
+                  const welcomePopupAlreadyShown =
+                    localStorage.getItem(welcomePopupKey);
+
+                  if (!welcomePopupAlreadyShown) {
                     this.dialog.open(TestInfoComponent, {
                       data: { username: user?.username },
                     });
-                    this.popupInfo = true;
+
+                    localStorage.setItem(welcomePopupKey, "true");
                   }
                 }
               }

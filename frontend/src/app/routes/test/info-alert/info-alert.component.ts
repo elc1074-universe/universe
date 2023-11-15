@@ -1,12 +1,12 @@
-import { Component, Inject } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { Router } from '@angular/router';
-import TestService from 'src/app/services/test.service';
+import { Component, Inject } from "@angular/core";
+import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material/dialog";
+import { Router } from "@angular/router";
+import TestService from "src/app/services/test.service";
 
 @Component({
-  selector: 'app-info-alert',
-  templateUrl: './info-alert.component.html',
-  styleUrls: ['./info-alert.component.scss']
+  selector: "app-info-alert",
+  templateUrl: "./info-alert.component.html",
+  styleUrls: ["./info-alert.component.scss"],
 })
 export class InfoAlertComponent {
   code: string;
@@ -15,11 +15,12 @@ export class InfoAlertComponent {
   constructor(
     public dialogRef: MatDialogRef<InfoAlertComponent>,
     private router: Router,
-    private testService : TestService,
-    @Inject(MAT_DIALOG_DATA) public data: any) {
+    private testService: TestService,
+    @Inject(MAT_DIALOG_DATA) public data: any
+  ) {
     if (data.userCode) {
       this.code = `${data.userCode}`;
-      this.letter = `${data.letter}`
+      this.letter = `${data.letter}`;
     } else {
       this.code = `Código não encontrado`;
       this.letter = "";
@@ -27,17 +28,21 @@ export class InfoAlertComponent {
   }
 
   goToPersonality() {
-    this.testService.deletePersonality(this.code, this.letter).subscribe(
-      () => {
-        this.router.navigate(['/test/personality', this.code]);
-      },
-      error => {
-        console.error('Erro ao excluir personalidade:', error);
-      }
-    );
+    if (this.letter == "N") {
+      this.router.navigate(["/test/personality", this.code]);
+    } else {
+      this.testService.deletePersonality(this.code, this.letter).subscribe(
+        () => {
+          this.router.navigate(["/test/personality", this.code]);
+        },
+        (error) => {
+          console.error("Erro ao excluir personalidade:", error);
+        }
+      );
+    }
   }
 
-  continue(){
+  continue() {
     this.dialogRef.close(true);
   }
 }

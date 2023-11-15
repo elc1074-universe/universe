@@ -7,19 +7,19 @@
         <img src="./../../../../assets/images/logos/logo-isla.png" />
       </div>
       <div class="screen-info">
-        <h1>Criar um novo jogo</h1>
-        <h2>Informe seu nome para começar um novo teste!</h2>
+        <p class="title">Criar um novo jogo</p>
+        <p class="subtitle">Informe seu nome para começar um novo teste!</p>
       </div>
 
       <div class="card animate__animated animate__fadeInUp">
         <div class="card-text">
-          <h3>Seu nome</h3>
+          <p class="text">Seu nome</p>
         </div>
 
         <form #form="ngForm" (ngSubmit)="onSubmit()">
           <div id="card-form">
             <mat-form-field class="card-form-field">
-              <mat-label class="card-form-field-label"> Digite aqui </mat-label>
+              <mat-label class="card-form-field-label"> Digite seu nome </mat-label>
               <input
                 class="card-form-field-input"
                 matInput
@@ -34,19 +34,19 @@
                   testCreationDTO.username.trim() === ''
                 "
               >
-                Informe um username
+                Informe um nome
               </mat-error>
             </mat-form-field>
-            <div class="card-text" style="text-align: left;">
-              <h3>E-mail</h3>
-              <h4>não é obrigatório</h4>
+            <div class="card-text" style="margin-right: auto;">
+              <p class="text">E-mail</p>
+              <p class="info-text">não é obrigatório</p>
             </div>
             <mat-form-field
               class="card-form-field"
               style="width: 86% !important"
             >
               <mat-label class="card-form-field-label">
-                universe@universe.com
+                Digite seu e-mail
               </mat-label>
               <input
                 class="card-form-field-input"

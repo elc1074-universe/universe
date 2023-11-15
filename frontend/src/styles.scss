@@ -63,7 +63,6 @@ body {
   margin-left: 12px;
 }
 
-
 .logo {
   color: #FFF;
   font-family: Fredoka One;
@@ -76,10 +75,8 @@ body {
 
 .big-logo {
   text-align: center;
-  margin: 42px 0;
+  margin: 32px 0 18px 0;
 }
-
-
 
 .container {
   width: 100%;
@@ -92,42 +89,42 @@ body {
   margin: 0 24px;
 }
 
-h1 {
-  color: #FFF !important;
-  font-family: Fredoka !important;
-  font-size: 24px !important;
-  font-style: normal !important;
-  font-weight: 500 !important;
-  line-height: 28px !important; 
-  opacity: 0.7 !important;
-}
-
-h2 {
+.title {
   color: #FFF;
-  font-family: Fredoka !important;
-  font-size: 18px !important;
-  font-style: normal !important;
+  font-family: Fredoka;
+  font-size: 24px;
+  font-style: normal;
   font-weight: 500 !important;
-  line-height: 25.5px !important;
-  margin-bottom: 32px !important;
+  line-height: 28px; 
 }
 
-h3 {
-  color: #FFF !important;
-  font-family: Fredoka !important;
-  font-size: 20px !important;
-  font-style: normal !important;
-  font-weight: 500 !important;
-  line-height: 28px !important;
+.subtitle {
+  color: #FFF;
+  font-family: Fredoka;
+  opacity: 0.7;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 25.5px;
+  margin-bottom: 16px !important;
 }
 
-h4 {
-  color: rgba(255, 255, 255, 0.50) !important;
-  font-family: Fredoka !important;
-  font-size: 14px !important;
-  font-style: normal !important;
-  font-weight: 400 !important;
-  line-height: 16px !important;
+.text {
+  color: #FFF;
+  font-family: Fredoka;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 28px;
+}
+
+.info-text {
+  color: rgba(255, 255, 255, 0.50);
+  font-family: Fredoka;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px;
 }
 
 .card {
@@ -141,7 +138,7 @@ h4 {
 .card-text {
   display: flex !important;
   gap: 10px !important;
-  margin: 24px 4px 4px 24px !important;
+  margin: 16px 4px 4px 24px;
   align-items: baseline !important;
 }
 
@@ -195,9 +192,9 @@ h4 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  text-align: center;
   font-family: Fredoka;
-  font-size: 20px;
+  font-size: 16px;
   font-style: normal;
   font-weight: 500;
   line-height: 16px;
@@ -326,6 +323,8 @@ h4 {
   letter-spacing: 0px;
   border-radius: 999px;
   padding: 12px 24px;
+  margin-top: 12px;
+  cursor: pointer;
 }
 
 #modal-secondary-button {
@@ -338,6 +337,67 @@ h4 {
   font-weight: 400;
   letter-spacing: 0px;
   border-radius: 999px;
-  padding: 8px 20px;
-  margin-top: 12px;
+  padding: 12px 24px;
+  margin-top: 6px;
+  cursor: pointer;
+}
+
+body.Realista {
+  background-color: #201621 !important;
+}
+.container-edge.Realista {
+  background-color: #302132 !important;
+}
+.card.Realista {
+  background-color: #513754 !important;
+}
+
+body.Investigativo {
+  background-color: #0C1020 !important;
+}
+.container-edge.Investigativo {
+  background-color: #161D39 !important;
+}
+.card.Investigativo {
+  background-color: #252C4A !important;
+}
+
+body.Artístico {
+  background-color: #272724 !important;
+}
+.container-edge.Artístico {
+  background-color: #363633 !important;
+}
+.card.Artístico {
+  background-color: #51514C !important;
+}
+
+body.Social {
+  background-color: #132728 !important;
+}
+.container-edge.Social {
+  background-color: #214143 !important;
+}
+.card.Social {
+  background-color: #2D6161 !important;
+}
+
+body.Empreendedor {
+  background-color: #1B1930 !important;
+}
+.container-edge.Empreendedor {
+  background-color: #2B274D !important;
+}
+.card.Empreendedor {
+  background-color: #3D376E !important;
+}
+
+body.Convencional {
+  background-color: #261F1F !important;
+}
+.container-edge.Convencional {
+  background-color: #3A3030 !important;
+}
+.card.Convencional {
+  background-color: #514343 !important;
 }

@@ -1,9 +1,9 @@
 <div class="modal-card">
     <div class="modal-container">
-      <h1 *ngIf="personalityData">{{ personalityData.storyTitle }}</h1>
-      <h3 *ngIf="personalityData">
+      <p class="title" *ngIf="personalityData">{{ personalityData.storyTitle }}</p>
+      <p class="text" *ngIf="personalityData">
         {{ personalityData.storyDescription}}
-      </h3>
+      </p>
       <div class="example-button-row">
         <button id="modal-main-button" mat-dialog-close (click)="continue()">
             Vamos em frente!

@@ -17,7 +17,7 @@
     <div class="card animate__animated animate__fadeInDown" [ngClass]="currentPhaseName">
       <div class="current">
         <div>
-          <h4>Planeta</h4>
+          <p class="info-text">Ilha</p>
           <div class="phase-name">
             {{ currentPhaseName }}
           </div>
@@ -25,24 +25,24 @@
         <img src="../../../../assets/images/items/bike.png">
       </div>
       <div class="current">
-        <h4>Progresso</h4>
-        <h4>
+        <p class="info-text">Progresso</p>
+        <p class="info-text">
           Questão {{ currentQuestionNumber }}
-        </h4>
+        </p>
       </div>
       <div class="progress-bar">
         <div class="progress-track" [style.width.%]="phaseProgress"></div>
       </div>      
     </div>
 
-    <div class="card animate__animated animate__fadeInRight" [ngStyle]="{'background-color': getBackgroundColor().card}">
+    <div class="card animate__animated animate__fadeInRight" [ngClass]="currentPhaseName">
       <div>
-        <h2>Cenário</h2>
-        <h3>{{ statement?.storyText }}</h3>
+        <p class="subtitle">Cenário</p>
+        <p class="text">{{ statement?.storyText }}</p>
       </div>  
 
-      <div class="text">
-        <h2>Escolha uma opção</h2>
+      <div>
+        <p class="subtitle">Escolha uma opção</p>
       </div>
       <div class="example-flex-container">
         <div *ngFor="let option of statement?.options">

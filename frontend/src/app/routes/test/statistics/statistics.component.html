@@ -14,18 +14,18 @@
         </div>
         <div class="container">
             <div class="screen-info">
-                <h1>Estatísticas</h1>
-                <h2>Veja o quanto você pontuou em cada planeta!</h2>
+                <p class="title">Estatísticas</p>
+                <p class="subtitle">Veja o quanto você pontuou em cada ilha!</p>
               </div>
             <div class="card" [ngClass]="results.mostInterested" style="padding: 16px;">
-                <h4>Gráfico</h4>
+                <p class="subtitle">Gráfico</p>
                 <canvas id="myChart"></canvas>
-                <h4>*Você pontuou em um planeta quando optou pela opção de interagir o cenário</h4>
+                <p class="info-text">*Você pontuou em uma ilha quando optou pela opção de maior interação com o cenário</p>
             </div>
         </div>
     </div>
     <div class="footer">
-        <a class="button-link" routerLink="/">
+        <a class="button-link" (click)="goToResults()">
           <button id="return-button">
             <img
               src="./../../assets/images/icons/arrow_circle_left.svg"

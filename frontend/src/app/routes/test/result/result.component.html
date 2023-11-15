@@ -26,22 +26,22 @@
       </div>
 
       <div class="container">
-        <h1>Parabéns!</h1>
-        <h2>Você finalizou o teste</h2>
+        <p class="title">Parabéns!</p>
+        <p class="subtitle">Você finalizou o teste</p>
         <img class="animate__animated animate__flipInY" style="margin-bottom: -6px; animation-delay: 800ms;" src="../../../../assets/images/professions/engineer.png">
         <div class="card animate__animated animate__fadeInUp" [ngClass]="results.mostInterested" style="margin-top: 0px; padding: 16px 20px 4px 20px; margin-bottom: 24px">
-          <h1 style="margin-bottom: 8px;">{{results.interestCode}}</h1>
-          <h2 style="margin-top: 8px;">{{results.interestWords}}</h2>
-          <h3>Essas pessoas são {{ results.description1 }} Você possuí {{ results.description2 }} Com um {{ results.description3 }}</h3>
+          <p class="title" style="margin-bottom: 8px;">{{results.interestCode}}</p>
+          <p class="subtitle" style="margin-top: 8px;">{{results.interestWords}}</p>
+          <p class="text">Essas pessoas são {{ results.description1 }} Você possuí {{ results.description2 }} Com um {{ results.description3 }}</p>
         </div>
         <div class="buttons">
-          <a class="button-link" (click)="goToStatistics()">
+          <a class="button-link">
             <button id="create-game-button" mat-raised-button color="primary">
               Quais cursos combinam comigo?
             </button>
         </a>        
 
-          <a class="button-link" routerLink="/test/continue">
+          <a class="button-link" routerLink="/test/continue" (click)="goToStatistics()">
               <button id="continue-game-button" mat-raised-button color="primary">
                 Ver minhas estatísticas
               </button>
@@ -51,7 +51,7 @@
     </div>
     
     <div class="footer">
-      <a class="button-link" routerLink="/">
+      <a class="button-link" (click)="goToCode()">
           <button id="return-button">
               <img src="./../../assets/images/icons/arrow_circle_left.svg" alt="Ícone de voltar">
           </button>

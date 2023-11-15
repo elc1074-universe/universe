@@ -13,23 +13,23 @@
           </div>          
         </div>
         <div class="container">
-            <h2>Galáxia</h2>
+            <p class="subtitle">Arquipélago</p>
             <div class="card animate__animated animate__fadeInDown" style="animation-delay: 200ms; background: #E45C7B;">
                 <button (click)="goToPersonality(1)" [disabled]="completionStatus['R']" [ngClass]="{'disabled-button': completionStatus['R']}">
                     <div style="display: flex; justify-content: space-between; align-items: center; text-align: left">
                         <div>
-                            <h4  style="color: black !important; opacity: 0.7 !important">Planeta</h4>
+                            <p class="info-text"  style="color: black !important; opacity: 0.7 !important">Ilha</p>
                             <div class="phase-name" style="color: black !important;">
                                 Realista
                             </div>
                         </div>
                     </div>
                     <div style="display: flex; justify-content: space-between; align-items: flex-end;">
-                        <h4 style="color: black !important; opacity: 0.7 !important">Exploração</h4>
-                        <h4 style="color: #FFF; margin-left: 0px;">
+                        <p class="info-text" style="color: black !important; opacity: 0.7 !important">Exploração</p>
+                        <p class="info-text" style="color: #FFF; margin-left: 0px;">
                             <span *ngIf="completionStatus['R']; else pending" class="concluido">Concluído</span>
                             <ng-template #pending><span class="pendente">Pendente</span></ng-template>
-                        </h4>
+                        </p>
                     </div>
                 </button>
             </div>
@@ -40,18 +40,18 @@
                 <button (click)="goToPersonality(2)" [disabled]="completionStatus['I']" [ngClass]="{'disabled-button': completionStatus['I']}">
                     <div style="display: flex; justify-content: space-between; align-items: center; text-align: left">
                         <div>
-                            <h4>Planeta</h4>
+                            <p class="info-text">Ilha</p>
                             <div class="phase-name">
-                                Investigativo
+                                Investigativa
                             </div>
                         </div>
                     </div>
                     <div style="display: flex; justify-content: space-between; align-items: flex-end;">
-                        <h4>Exploração</h4>
-                        <h4 style="color: #FFF; margin-left: 0px;">
+                        <p class="info-text">Exploração</p>
+                        <p class="info-text" style="color: #FFF; margin-left: 0px;">
                             <span *ngIf="completionStatus['I']; else pending" class="concluido">Concluído</span>
                             <ng-template #pending><span class="pendente">Pendente</span></ng-template>
-                        </h4>
+                        </p>
                     </div>
                 </button>
             </div>
@@ -62,18 +62,18 @@
                 <button (click)="goToPersonality(3)" [disabled]="completionStatus['A']" [ngClass]="{'disabled-button': completionStatus['A']}">
                     <div style="display: flex; justify-content: space-between; align-items: center; text-align: left">
                         <div>
-                            <h4 style="color: black !important; opacity: 0.7 !important">Planeta</h4>
+                            <p class="info-text" style="color: black !important; opacity: 0.7 !important">Ilha</p>
                             <div class="phase-name" style="color: black !important;">
-                                Artístico
+                                Artística
                             </div>
                         </div>
                     </div>
                     <div style="display: flex; justify-content: space-between; align-items: flex-end;">
-                        <h4 style="color: black !important; opacity: 0.7 !important">Exploração</h4>
-                        <h4 style="color: #FFF; margin-left: 0px;">
+                        <p class="info-text" style="color: black !important; opacity: 0.7 !important">Exploração</p>
+                        <p class="info-text" style="color: #FFF; margin-left: 0px;">
                             <span *ngIf="completionStatus['A']; else pending" class="concluido">Concluído</span>
                             <ng-template #pending><span class="pendente">Pendente</span></ng-template>
-                        </h4>
+                        </p>
                     </div>
                 </button>
             </div>
@@ -84,18 +84,18 @@
                 <button (click)="goToPersonality(4)" [disabled]="completionStatus['S']" [ngClass]="{'disabled-button': completionStatus['S']}">
                     <div style="display: flex; justify-content: space-between; align-items: center; text-align: left">
                         <div>
-                            <h4>Planeta</h4>
+                            <p class="info-text">Ilha</p>
                             <div class="phase-name">
-                                Sociais
+                                Social
                             </div>
                         </div>
                     </div>
                     <div style="display: flex; justify-content: space-between; align-items: flex-end;">
-                        <h4>Exploração</h4>
-                        <h4 style="color: #FFF; margin-left: 0px;">
+                        <p class="info-text">Exploração</p>
+                        <p class="info-text" style="color: #FFF; margin-left: 0px;">
                             <span *ngIf="completionStatus['S']; else pending" class="concluido">Concluído</span>
                             <ng-template #pending><span class="pendente">Pendente</span></ng-template>
-                        </h4>
+                        </p>
                     </div>
                 </button>
             </div>
@@ -106,18 +106,18 @@
                 <button (click)="goToPersonality(5)" [disabled]="completionStatus['E']" [ngClass]="{'disabled-button': completionStatus['E']}">
                     <div style="display: flex; justify-content: space-between; align-items: center; text-align: left">
                         <div>
-                            <h4>Planeta</h4>
+                            <p class="info-text">Ilha</p>
                             <div class="phase-name">
-                                Empreendedor
+                                Empreendedora
                             </div>
                         </div>
                     </div>
                     <div style="display: flex; justify-content: space-between; align-items: flex-end;">
-                        <h4>Exploração</h4>
-                        <h4 style="color: #FFF; margin-left: 0px;">
+                        <p class="info-text">Exploração</p>
+                        <p class="info-text" style="color: #FFF; margin-left: 0px;">
                             <span *ngIf="completionStatus['E']; else pending" class="concluido">Concluído</span>
                             <ng-template #pending><span class="pendente">Pendente</span></ng-template>
-                        </h4>
+                        </p>
                     </div>
                 </button>
             </div>
@@ -128,18 +128,18 @@
                 <button (click)="goToPersonality(6)" [disabled]="completionStatus['C']" [ngClass]="{'disabled-button': completionStatus['C']}">
                     <div style="display: flex; justify-content: space-between; align-items: center; text-align: left">
                         <div>
-                            <h4 style="color: black !important; opacity: 0.7 !important">Planeta</h4>
+                            <p class="info-text" style="color: black !important; opacity: 0.7 !important">Ilha</p>
                             <div class="phase-name" style="color: black !important;">
                                 Convencional
                             </div>
                         </div>
                     </div>
                     <div style="display: flex; justify-content: space-between; align-items: flex-end;">
-                        <h4 style="color: black !important; opacity: 0.7 !important">Exploração</h4>
-                        <h4 style="color: #FFF; margin-left: 0px;">
+                        <p class="info-text" style="color: black !important; opacity: 0.7 !important">Exploração</p>
+                        <p class="info-text" style="color: #FFF; margin-left: 0px;">
                             <span *ngIf="completionStatus['C']; else pending" class="concluido">Concluído</span>
                             <ng-template #pending><span class="pendente">Pendente</span></ng-template>
-                        </h4>
+                        </p>
                     </div>
                 </button>
             </div>

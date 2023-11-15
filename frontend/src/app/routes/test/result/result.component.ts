@@ -43,7 +43,7 @@ export class TestResultComponent implements OnInit {
               3: 'um toque realista e preferem atividades que envolvem habilidade e coordenação.',
             },
             'I': {
-              1: 'curiosidadas e possuem um intelecto notável! Adoram observar, aprender e resolver problemas.',
+              1: 'curiosas e possuem um intelecto notável! Adoram observar, aprender e resolver problemas.',
               2: 'uma mente analítica e gosta de explorar ideias e conceitos complexos.',
               3: 'espírito de investigação, gosta de atividades que envolvem pensamento e observação.',
             },
@@ -94,6 +94,10 @@ export class TestResultComponent implements OnInit {
   goToStatistics(): void {
     console.log('Navigating to statistics');
     this.router.navigate(['/test/statistics', this.userCode]);
-  }
-  
+  }  
+
+  goToCode(): void {
+    console.log('Returning');
+    this.router.navigate(['/test/code-result']);
+  } 
 }

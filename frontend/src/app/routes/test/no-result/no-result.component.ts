@@ -6,5 +6,4 @@ import { Component } from '@angular/core';
   styleUrls: ['./no-result.component.scss']
 })
 export class NoResultComponent {
-
 }

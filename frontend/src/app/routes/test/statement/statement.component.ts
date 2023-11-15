@@ -15,7 +15,6 @@ import TestStatementSavingDTO from "src/app/models/dto/test/TestStatementSavingD
 import TestService from "src/app/services/test.service";
 import { MatDialog } from "@angular/material/dialog";
 import { InfoCompletedComponent } from "../info-completed/info-completed.component";
-import { InfoFaseComponent } from "../info-fase/info-fase.component";
 import { InfoAlertComponent } from "../info-alert/info-alert.component";
 import { InfoHistoryComponent } from "../info-history/info-history.component";
 
@@ -74,6 +73,8 @@ export class StatementComponent implements OnInit, OnDestroy {
   currentQuestionNumber: number = 1;
   currentPhaseName: string = "";
 
+  audio = new Audio();
+
   constructor(
     private statementService: StatementService,
     private router: Router,
@@ -82,7 +83,9 @@ export class StatementComponent implements OnInit, OnDestroy {
     private TestService: TestService,
     public dialog: MatDialog,
     private changeDetector: ChangeDetectorRef
-  ) {}
+  ) {
+    this.audio.src = "assets/sound/click-btn.mp3";
+  }
 
   ngOnInit(): void {
     this.subscriptions.push(
@@ -123,7 +126,6 @@ export class StatementComponent implements OnInit, OnDestroy {
           this.statementService.findById(currentStatementId).subscribe({
             next: (statement: StatementRetrievalDTO | null) => {
               this.statement = statement;
-
               if ([1, 8, 15, 22, 29, 36].includes(currentStatementId)) {
                 let popupIndex = this.getPopupIndex(currentStatementId);
 
@@ -134,7 +136,7 @@ export class StatementComponent implements OnInit, OnDestroy {
                   this.dialog.open(InfoHistoryComponent, {
                     data: {
                       userCode: this.userCode,
-                      idQuestion: this.currentStatementId,
+                      idQuestion: currentStatementId,
                     },
                   });
 
@@ -223,14 +225,13 @@ export class StatementComponent implements OnInit, OnDestroy {
     this.testStatementSavingDTO = new TestStatementSavingDTO();
     this.testStatementSavingDTO.statementId = this.statement.id;
     this.testStatementSavingDTO.selectedOptionId = selectedOption;
-
+    console.log(this.testStatementSavingDTO);
     this.TestService.saveStatement(
       this.userCode,
       this.testStatementSavingDTO
     ).subscribe(
       (data: any) => {
         this.isTestCompleted = data.isCompleted;
-        console.log(this.userCode, "1");
         if (this.isTestCompleted) {
           this.showTestCompletedDialog();
         }
@@ -279,5 +280,9 @@ export class StatementComponent implements OnInit, OnDestroy {
 
   getOptionLabel(index: number): string {
     return String.fromCharCode(65 + index) + ") ";
+  }
+
+  playSound() {
+    this.audio.play(); // Iniciar a reprodução do áudio
   }
 }

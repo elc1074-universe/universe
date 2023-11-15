@@ -1,66 +1,75 @@
 <body [ngClass]="currentPhaseName">
   <div class="container-edge" [ngClass]="currentPhaseName">
-  <div class="header">
-    <div class="logo">
-        UniVerse
-    </div>
-    <div class="user-data">
+    <div class="header">
+      <div class="logo">UniVerse</div>
+      <div class="user-data">
         <div class="text-block">
           <p class="user-name">{{ username }}</p>
           <p class="user-code">{{ userCode }}</p>
         </div>
-        <img class="galaxy" src="./../../assets/images/items/isla-color.png">
-    </div>          
-  </div>
-
-  <div class="container">
-    <div class="card animate__animated animate__fadeInDown" [ngClass]="currentPhaseName">
-      <div class="current">
-        <div>
-          <p class="info-text">Ilha</p>
-          <div class="phase-name">
-            {{ currentPhaseName }}
-          </div>
-        </div>
-        <img src="../../../../assets/images/items/bike.png">
+        <img class="galaxy" src="./../../assets/images/items/isla-color.png" />
       </div>
-      <div class="current">
-        <p class="info-text">Progresso</p>
-        <p class="info-text">
-          Questão {{ currentQuestionNumber }}
-        </p>
-      </div>
-      <div class="progress-bar">
-        <div class="progress-track" [style.width.%]="phaseProgress"></div>
-      </div>      
     </div>
 
-    <div class="card animate__animated animate__fadeInRight" [ngClass]="currentPhaseName">
-      <div>
-        <p class="subtitle">Cenário</p>
-        <p class="text">{{ statement?.storyText }}</p>
-      </div>  
-
-      <div>
-        <p class="subtitle">Escolha uma opção</p>
+    <div class="container">
+      <div
+        class="card animate__animated animate__fadeInDown"
+        [ngClass]="currentPhaseName"
+      >
+        <div class="current">
+          <div>
+            <p class="info-text">Ilha</p>
+            <div class="phase-name">
+              {{ currentPhaseName }}
+            </div>
+          </div>
+          <img src="../../../../assets/images/items/bike.png" />
+        </div>
+        <div class="current">
+          <p class="info-text">Progresso</p>
+          <p class="info-text">Questão {{ currentQuestionNumber }}</p>
+        </div>
+        <div class="progress-bar">
+          <div class="progress-track" [style.width.%]="phaseProgress"></div>
+        </div>
       </div>
-      <div class="example-flex-container">
-        <div *ngFor="let option of statement?.options">
-          <div class="example-button-container">
-            <button mat-fab class="option-button" (click)="saveAnswer(option.value)">
-              <p class="button">{{ option.description }}</p>
-            </button>
+
+      <div
+        class="card animate__animated animate__fadeInRight"
+        [ngClass]="currentPhaseName"
+      >
+        <div>
+          <p class="subtitle">Cenário</p>
+          <p class="text">{{ statement?.storyText }}</p>
+        </div>
+
+        <div>
+          <p class="subtitle">Escolha uma opção</p>
+        </div>
+        <div class="example-flex-container">
+          <div *ngFor="let option of statement?.options">
+            <div class="example-button-container">
+              <button
+                mat-fab
+                class="option-button"
+                (click)="playSound(); saveAnswer(option.id)"
+              >
+                <p class="button">{{ option.description }}</p>
+              </button>
+            </div>
           </div>
         </div>
-      </div>      
       </div>
     </div>
   </div>
   <div class="footer">
     <a class="button-link">
-        <button id="return-button" (click)="goToHome()">
-            <img src="./../../assets/images/icons/arrow_circle_left.svg" alt="Ícone de voltar">
-        </button>
-    </a>  
-</div>
+      <button id="return-button" (click)="goToHome()">
+        <img
+          src="./../../assets/images/icons/arrow_circle_left.svg"
+          alt="Ícone de voltar"
+        />
+      </button>
+    </a>
+  </div>
 </body>

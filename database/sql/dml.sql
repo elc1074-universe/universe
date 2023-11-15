@@ -399,7 +399,7 @@ INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
 
 INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
     'Ignora o veículo e continua a explorar a pé, sem se preocupar com sua condição.',
-    5 * 2 + 1 - 2,
+    0,
     (SELECT id FROM `statement` WHERE riasec_title = 'I like to work on cars')
 );
 
@@ -411,7 +411,7 @@ INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
 
 INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
     'Deixa que outros cuidem da construção do abrigo e você relaxa à beira da praia.',
-    5 * 2 + 1 - 2,
+    0,
     (SELECT id FROM `statement` WHERE riasec_title = 'I like to build things')
 );
 
@@ -423,7 +423,7 @@ INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
 
 INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
     'Deixa as ferramentas onde estão, já que não vê utilidade imediata para elas.',
-    5 * 2 + 1 - 2,
+    0,
     (SELECT id FROM `statement` WHERE riasec_title = 'I like putting things together or assembling things')
 );
 
@@ -435,7 +435,7 @@ INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
 
 INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
     'Opta por não subir a colina, preferindo permanecer na área mais segura e familiar.',
-    5 * 2 + 1 - 2,
+    0,
     (SELECT id FROM `statement` WHERE riasec_title = 'I like to work outdoors')
 );
 
@@ -447,7 +447,7 @@ INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
 
 INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
     'Deixa que outra pessoa cuide da cozinha, não se sentindo à vontade para improvisar com os ingredientes limitados.',
-    5 * 2 + 1 - 2,
+    0,
     (SELECT id FROM `statement` WHERE riasec_title = 'I like to cook')
 );
 
@@ -459,7 +459,7 @@ INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
 
 INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
     'Ignora o animal ferido e continua explorando, não querendo se envolver com animais selvagens.',
-    5 * 2 + 1 - 2,
+    0,
     (SELECT id FROM `statement` WHERE riasec_title = 'I like to take care of animals')
 );
 
@@ -471,7 +471,7 @@ INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
 
 INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
     'Prefere não ficar de vigia e decide deixar essa tarefa para outra pessoa do grupo.',
-    5 * 2 + 1 - 2,
+    0,
     (SELECT id FROM `statement` WHERE riasec_title = 'I am a practical person')
 );
 
@@ -483,7 +483,7 @@ INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
 
 INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
     'Opta por não participar dos quebra-cabeças, preferindo não gastar tempo com atividades desse tipo.',
-    5 * 2 + 1 - 2,
+    0,
     (SELECT id FROM `statement` WHERE riasec_title = 'I like to do puzzles')
 );
 
@@ -495,7 +495,7 @@ INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
 
 INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
     'Decide não se envolver em experimentos, não se sentindo interessado em atividades científicas.',
-    5 * 2 + 1 - 2,
+    0,
     (SELECT id FROM `statement` WHERE riasec_title = 'I like to do experiments')
 );
 
@@ -507,7 +507,7 @@ INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
 
 INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
     'Escolhe não participar das apresentações, não tendo interesse em temas científicos.',
-    5 * 2 + 1 - 2,
+    0,
     (SELECT id FROM `statement` WHERE riasec_title = 'I enjoy science')
 );
 
@@ -519,7 +519,7 @@ INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
 
 INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
     'Ignora as máquinas e não se preocupa em entender seu funcionamento.',
-    5 * 2 + 1 - 2,
+    0,
     (SELECT id FROM `statement` WHERE riasec_title = 'I enjoy trying to figure out how things work')
 );
 
@@ -531,7 +531,7 @@ INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
 
 INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
     'Evita se envolver em problemas complexos e prefere lidar com situações mais simples.',
-    5 * 2 + 1 - 2,
+    0,
     (SELECT id FROM `statement` WHERE riasec_title = 'I like to analyze things (problems/situations)')
 );
 
@@ -543,7 +543,7 @@ INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
 
 INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
     'Opta por não se envolver em tarefas que envolvem números e gráficos, não tendo interesse nesse tipo de atividade.',
-    5 * 2 + 1 - 2,
+    0,
     (SELECT id FROM `statement` WHERE riasec_title = 'I like working with numbers or charts')
 );
 
@@ -555,7 +555,7 @@ INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
 
 INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
     'Evita tarefas que envolvem matemática e procura outras atividades.',
-    5 * 2 + 1 - 2,
+    0,
     (SELECT id FROM `statement` WHERE riasec_title = "I'm good at math")
 );
 
@@ -567,7 +567,7 @@ INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
 
 INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
     'Prefere não se aventurar sozinho e busca a companhia de outros exploradores.',
-    5 * 2 + 1 - 2,
+    0,
     (SELECT id FROM `statement` WHERE riasec_title = 'I am good at working independently')
 );
 
@@ -579,7 +579,7 @@ INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
 
 INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
     'Escolhe não gastar tempo lendo e busca outras atividades na ilha.',
-    5 * 2 + 1 - 2,
+    0,
     (SELECT id FROM `statement` WHERE riasec_title = 'I like to read about art and music')
 );
 
@@ -591,7 +591,7 @@ INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
 
 INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
     'Declina o convite, preferindo não participar do workshop de escrita.',
-    5 * 2 + 1 - 2,
+    0,
     (SELECT id FROM `statement` WHERE riasec_title = 'I enjoy creative writing')
 );
 
@@ -603,7 +603,7 @@ INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
 
 INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
     'Opta por não se envolver nas atividades criativas e segue explorando a ilha de outras maneiras.',
-    5 * 2 + 1 - 2,
+    0,
     (SELECT id FROM `statement` WHERE riasec_title = 'I am a creative person')
 );
 
@@ -615,7 +615,7 @@ INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
 
 INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
     'Opta por não se juntar ao grupo musical e continua explorando a ilha.',
-    5 * 2 + 1 - 2,
+    0,
     (SELECT id FROM `statement` WHERE riasec_title = 'I like to play instruments or sing')
 );
 
@@ -627,7 +627,7 @@ INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
 
 INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
     'Declina o convite, não se sentindo à vontade em atuar em peças teatrais.',
-    5 * 2 + 1 - 2,
+    0,
     (SELECT id FROM `statement` WHERE riasec_title = 'I like acting in plays')
 );
 
@@ -639,7 +639,7 @@ INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
 
 INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
     'Opta por não se envolver com isso, descansa um pouco e segue explorando a ilha de outras maneiras.',
-    5 * 2 + 1 - 2,
+    0,
     (SELECT id FROM `statement` WHERE riasec_title = 'I like to draw')
 );
 
@@ -651,7 +651,7 @@ INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
 
 INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
     'Deixa a liderança para outra pessoa, preferindo um papel mais passivo na equipe.',
-    5 * 2 + 1 - 2,
+    0,
     (SELECT id FROM `statement` WHERE riasec_title = 'I like to work in teams')
 );
 
@@ -663,7 +663,7 @@ INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
 
 INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
     'Deixa que outra pessoa assuma a responsabilidade pelo treinamento, não se sentindo à vontade nesse papel.',
-    5 * 2 + 1 - 2,
+    0,
     (SELECT id FROM `statement` WHERE riasec_title = 'I like to teach or train people')
 );
 
@@ -675,7 +675,7 @@ INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
 
 INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
     'Deixa a situação para outros voluntários, sentindo que não é a pessoa certa para lidar com questões emocionais e dar conselhos.',
-    5 * 2 + 1 - 2,
+    0,
     (SELECT id FROM `statement` WHERE riasec_title = 'I like trying to help people solve their problems')
 );
 
@@ -687,7 +687,7 @@ INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
 
 INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
     'Mantém-se distante das interações culturais, preferindo não se envolver muito nessas questões.',
-    5 * 2 + 1 - 2,
+    0,
     (SELECT id FROM `statement` WHERE riasec_title = 'I enjoy learning about other cultures')
 );
 
@@ -699,7 +699,7 @@ INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
 
 INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
     'Fica à margem das discussões e não se envolve na mediação dos conflitos.',
-    5 * 2 + 1 - 2,
+    0,
     (SELECT id FROM `statement` WHERE riasec_title = 'I like to get into discussions about issues')
 );
 
@@ -711,7 +711,7 @@ INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
 
 INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
     'Deixa a construção dos abrigos para os outros, preferindo não se envolver em tarefas que exijam esforço físico.',
-    5 * 2 + 1 - 2,
+    0,
     (SELECT id FROM `statement` WHERE riasec_title = 'I am interested in healing people')
 );
 
@@ -723,7 +723,7 @@ INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
 
 INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
     'Deixa a logística de distribuição para outros membros, não se envolvendo diretamente nessa questão logística.',
-    5 * 2 + 1 - 2,
+    0,
     (SELECT id FROM `statement` WHERE riasec_title = 'I like helping people')
 );
 
@@ -735,7 +735,7 @@ INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
 
 INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
     'Opta por não compartilhar sua ideia com os outros, mantendo-a em segredo.',
-    5 * 2 + 1 - 2,
+    0,
     (SELECT id FROM `statement` WHERE riasec_title = 'I like to try to influence or persuade people')
 );
 
@@ -747,7 +747,7 @@ INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
 
 INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
     'Deixa que outros membros da equipe definam as metas, não querendo assumir o controle.',
-    5 * 2 + 1 - 2,
+    0,
     (SELECT id FROM `statement` WHERE riasec_title = 'I set goals for myself')
 );
 
@@ -759,7 +759,7 @@ INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
 
 INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
     'Deixa que outros membros da equipe lidem com a estratégia de vendas, não se sentindo à vontade nesse papel.',
-    5 * 2 + 1 - 2,
+    0,
     (SELECT id FROM `statement` WHERE riasec_title = 'I like selling things')
 );
 
@@ -771,7 +771,7 @@ INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
 
 INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
     'Prefere manter seu papel atual e evita assumir novas responsabilidades.',
-    5 * 2 + 1 - 2,
+    0,
     (SELECT id FROM `statement` WHERE riasec_title = 'I am quick to take on new responsibilities')
 );
 
@@ -783,7 +783,7 @@ INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
 
 INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
     'Decide permanecer focado no negócio atual e não considera a ideia de iniciar algo novo.',
-    5 * 2 + 1 - 2,
+    0,
     (SELECT id FROM `statement` WHERE riasec_title = 'I would like to start my own business')
 );
 
@@ -795,7 +795,7 @@ INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
 
 INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
     'Recusa-se a assumir a liderança, preferindo um papel menos proeminente.',
-    5 * 2 + 1 - 2,
+    0,
     (SELECT id FROM `statement` WHERE riasec_title = 'I like to lead')
 );
 
@@ -807,7 +807,7 @@ INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
 
 INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
     'Deixa que outros membros da equipe lidem com as apresentações, evitando falar em público.',
-    5 * 2 + 1 - 2,
+    0,
     (SELECT id FROM `statement` WHERE riasec_title = 'I like to give speeches')
 );
 
@@ -819,7 +819,7 @@ INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
 
 INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
     'Deixa que outros cuidem dessa parte, não se importando muito com o arranjo dos itens.',
-    5 * 2 + 1 - 2,
+    0,
     (SELECT id FROM `statement` WHERE riasec_title = 'I like to organize things (files, desks/offices)')
 );
 
@@ -831,7 +831,7 @@ INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
 
 INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
     'Tenta realizar a tarefa de maneira mais intuitiva, não seguindo estritamente as instruções fornecidas.',
-    5 * 2 + 1 - 2,
+    0,
     (SELECT id FROM `statement` WHERE riasec_title = 'I like to have clear instructions to follow')
 );
 
@@ -843,7 +843,7 @@ INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
 
 INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
     'Resiste à ideia de passar o dia inteiro em um escritório e procura alternativas.',
-    5 * 2 + 1 - 2,
+    0,
     (SELECT id FROM `statement` WHERE riasec_title = "I wouldn't mind working 8 hours per day in an office")
 );
 
@@ -855,7 +855,7 @@ INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
 
 INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
     'Aborda a tarefa de maneira mais geral, não se concentrando excessivamente nos detalhes.',
-    5 * 2 + 1 - 2,
+    0,
     (SELECT id FROM `statement` WHERE riasec_title = 'I pay attention to details')
 );
 
@@ -867,7 +867,7 @@ INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
 
 INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
     'Deixa os documentos em desordem, não se preocupando muito com a organização.',
-    5 * 2 + 1 - 2,
+    0,
     (SELECT id FROM `statement` WHERE riasec_title = 'I like to do filing or typing')
 );
 
@@ -879,7 +879,7 @@ INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
 
 INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
     'Não se preocupa muito em manter registros e assume uma abordagem mais relaxada quanto à documentação.',
-    5 * 2 + 1 - 2,
+    0,
     (SELECT id FROM `statement` WHERE riasec_title = 'I am good at keeping records of my work')
 );
 
@@ -891,7 +891,7 @@ INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
 
 INSERT INTO `option` (`description`, `value`, statement_id) VALUES (
     'Prefere trabalhar em um ambiente diferente, menos estruturado do que um escritório.',
-    5 * 2 + 1 - 2,
+    0,
     (SELECT id FROM `statement` WHERE riasec_title = 'I would like to work in an office')
 );
 

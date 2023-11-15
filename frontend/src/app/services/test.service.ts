@@ -59,7 +59,10 @@ export default class TestService extends Service {
       .pipe(map(response => response.data));
   }
 
-  deletePersonality(userCode: string, personalityLetter: string): void {
-    this.httpClient.delete<ApiResponse<void>>(`${this.baseURL}/${userCode}/personalities/${personalityLetter}`);
+  deletePersonality(userCode: string, personalityLetter: string): Observable<void | null> {
+    return this.httpClient.delete<ApiResponse<void>>(`${this.baseURL}/${userCode}/personalities/${personalityLetter}`)
+    .pipe(map(response => response && response.data));
   }
+  
+  
 };

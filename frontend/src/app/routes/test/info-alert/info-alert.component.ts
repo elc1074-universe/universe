@@ -27,10 +27,14 @@ export class InfoAlertComponent {
   }
 
   goToPersonality() {
-    this.testService.deletePersonality(this.code, this.letter);
-    console.log(this.code);
-    console.log(this.letter);
-    this.router.navigate(['/test/personality', this.code]);
+    this.testService.deletePersonality(this.code, this.letter).subscribe(
+      () => {
+        this.router.navigate(['/test/personality', this.code]);
+      },
+      error => {
+        console.error('Erro ao excluir personalidade:', error);
+      }
+    );
   }
 
   continue(){

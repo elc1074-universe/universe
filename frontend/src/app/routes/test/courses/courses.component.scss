@@ -1,0 +1,24 @@
+.card {
+    padding-bottom: 12px;
+    padding-left: 18px;
+    padding-right: 18px;
+    margin-bottom: 16px;
+    transition: all 0.3s ease;
+}
+
+.phase-name {
+    color: #FFF;
+    font-family: Fredoka;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 16px;
+    margin-bottom: 4px;
+  }
+
+.current {
+    margin-top: 12px;
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+}

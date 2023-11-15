@@ -96,6 +96,11 @@ export class TestResultComponent implements OnInit {
     this.router.navigate(['/test/statistics', this.userCode]);
   }  
 
+  goToCourses(): void {
+    console.log('Navigating to courses');
+    this.router.navigate(['/test/courses', this.userCode]);
+  }  
+
   goToCode(): void {
     console.log('Returning');
     this.router.navigate(['/test/code-result']);

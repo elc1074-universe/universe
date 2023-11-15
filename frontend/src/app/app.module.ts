@@ -15,6 +15,7 @@ import { HeaderInterceptor } from './header-interceptor';
 import { NoResultComponent } from './routes/test/no-result/no-result.component';
 import { StatisticsComponent } from './routes/test/statistics/statistics.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CoursesComponent } from './routes/test/courses/courses.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HomeComponent,
     TestComponent,
     NoResultComponent,
-    StatisticsComponent
+    StatisticsComponent,
+    CoursesComponent
   ],
   imports: [
     BrowserModule,

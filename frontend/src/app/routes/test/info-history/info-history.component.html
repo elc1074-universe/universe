@@ -1,15 +1,12 @@
-<mat-dialog-content id="dialog1" class="mat-typography">
-    <div class="content">
-      <h3 class="finish" *ngIf="personalityData">{{ personalityData.storyTitle }}</h3>
-      <p class="p-content" *ngIf="personalityData">
+<div class="modal-card">
+    <div class="modal-container">
+      <h1 *ngIf="personalityData">{{ personalityData.storyTitle }}</h1>
+      <h3 *ngIf="personalityData">
         {{ personalityData.storyDescription}}
-      </p>
+      </h3>
       <div class="example-button-row">
-        <button mat-button mat-dialog-close style="background-color: #3C6A54;" (click)="continue()">
-            <p class="btn">
-                Iniciar
-            </p>
+        <button id="modal-main-button" mat-dialog-close (click)="continue()">
+            Vamos em frente!
         </button>
     </div>
-    </div>
-  </mat-dialog-content>
+  </div>

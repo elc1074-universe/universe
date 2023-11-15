@@ -1,20 +1,18 @@
-<div class="card">
-    <div class="container">
-        <h3 class="code">Usuário criado com sucesso!</h3>
-        <p class="p-content">
+<div class="modal-card">
+    <div class="modal-container">
+        <img src="../../../../assets/images/personagens/saly.png">
+        <h3>
             Aqui está o seu código exclusivo
-        </p>
-        <h3 class="code">
-            {{this.code}}
         </h3>
-        <p class="p-content">
-            Ele permite que você retomar o jogo de onde parou e recuperar seus resultados.
-        </p>
-        <div class="example-button-row">
-            <button mat-button mat-dialog-close style="background-color: #3C6A54;" (click)="goToTest()">
-                <p class="btn">
-                    Iniciar
-                </p>
+        <h1>
+            {{this.code}}
+        </h1>
+        <h4>
+            Ele permite você retomar o jogo de onde parou e recuperar seus resultados.
+        </h4>
+        <div>
+            <button mat-dialog-close id="modal-main-button" style="cursor: pointer;" (click)="goToTest()">
+                Entendido!
             </button>
         </div>
     </div>

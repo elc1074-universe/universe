@@ -3,14 +3,14 @@
 @include mat.core();
 
 body {
-  background-color: #0C1020;
+  background-color: #12223C;
   margin: 0;
 }
 
 .container-edge {
-  background-image: url(./assets/images/backgrounds/galaxy-5.svg);
+  background-image: url(./assets/images/backgrounds/explorer-30.svg);
   min-height: 99.78vh !important;
-  background-color: #161D39;
+  background-color: #1E314F; 
   position: relative;
   max-width: 853px;
   margin: 0 auto;
@@ -98,7 +98,7 @@ h1 {
   font-size: 24px !important;
   font-style: normal !important;
   font-weight: 500 !important;
-  line-height: 16px !important; 
+  line-height: 28px !important; 
   opacity: 0.7 !important;
 }
 
@@ -118,7 +118,7 @@ h3 {
   font-size: 20px !important;
   font-style: normal !important;
   font-weight: 500 !important;
-  line-height: 32px !important;
+  line-height: 28px !important;
 }
 
 h4 {
@@ -133,7 +133,7 @@ h4 {
 .card {
   border-radius: 24px;
   border: 1px solid rgba(255, 255, 255, 0.05);
-  background: #252C4A;
+  background: #29436A;
   box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.25);
   margin: 0 18px;
 }
@@ -142,7 +142,7 @@ h4 {
   display: flex !important;
   gap: 10px !important;
   margin: 24px 4px 4px 24px !important;
-  align-items: end !important;
+  align-items: baseline !important;
 }
 
 .buttons {
@@ -151,7 +151,7 @@ h4 {
 }
 
 #create-game-button{
-  background-color: #676F94;
+  background-color: #369FC3;
   border: 1px solid rgba(255, 255, 255, 0.10);
   color: #FFF;
   font-family: Fredoka;
@@ -164,7 +164,7 @@ h4 {
 }
 
 #continue-game-button {
-  background: #21376B;
+  background: #AB4556;
   border: 1px solid rgba(255, 255, 255, 0.10);
   color: #FFF;
   font-family: Fredoka;
@@ -178,7 +178,7 @@ h4 {
 }
 
 #result-game-button {
-  background: #6B3721;
+  background: #54812D;
   border: 1px solid rgba(255, 255, 255, 0.10);
   color: #FFF;
   font-family: Fredoka;
@@ -226,7 +226,7 @@ h4 {
 }
 
 #card-form-submit-button {
-  background-color: #676F94;
+  background-color: #369FC3;
   border: 1px solid rgba(255, 255, 255, 0.10);
   color: #FFF;
   font-family: Fredoka;
@@ -280,7 +280,7 @@ h4 {
   position: absolute;
   right: 0;
   bottom: 0;
-  z-index: -1;
+  z-index: 2;
 }
 
 .footer {
@@ -292,4 +292,52 @@ h4 {
   max-width: 742px;
   display: flex;
   justify-content: flex-start;
+}
+
+.modal-card {
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: #29436A;
+  box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.25);
+  margin: 0 18px;
+  padding: 20px;
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.15);
+  border-radius: 0;
+  margin: 0 !important;
+  max-width: 500px;
+}
+
+.modal-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0;
+}
+
+#modal-main-button{
+  background-color: #369FC3;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  color: #FFF;
+  font-family: Fredoka;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0px;
+  border-radius: 999px;
+  padding: 12px 24px;
+}
+
+#modal-secondary-button {
+  background: #AB4556;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  color: #FFF;
+  font-family: Fredoka;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0px;
+  border-radius: 999px;
+  padding: 8px 20px;
+  margin-top: 12px;
 }

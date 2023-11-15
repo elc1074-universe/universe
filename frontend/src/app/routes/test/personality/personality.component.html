@@ -9,7 +9,7 @@
                 <p class="user-name">{{username}}</p>
                 <p class="user-code">{{usercode}}</p>
               </div>
-              <img class="galaxy" src="./../../assets/images/items/galaxy-color.png">
+              <img class="galaxy" src="./../../assets/images/items/isla-color.png">
           </div>          
         </div>
         <div class="container">
@@ -18,14 +18,14 @@
                 <button (click)="goToPersonality(1)" [disabled]="completionStatus['R']" [ngClass]="{'disabled-button': completionStatus['R']}">
                     <div style="display: flex; justify-content: space-between; align-items: center; text-align: left">
                         <div>
-                            <h4>Planeta</h4>
-                            <div class="phase-name">
+                            <h4  style="color: black !important; opacity: 0.7 !important">Planeta</h4>
+                            <div class="phase-name" style="color: black !important;">
                                 Realista
                             </div>
                         </div>
                     </div>
                     <div style="display: flex; justify-content: space-between; align-items: flex-end;">
-                        <h4>Exploração</h4>
+                        <h4 style="color: black !important; opacity: 0.7 !important">Exploração</h4>
                         <h4 style="color: #FFF; margin-left: 0px;">
                             <span *ngIf="completionStatus['R']; else pending" class="concluido">Concluído</span>
                             <ng-template #pending><span class="pendente">Pendente</span></ng-template>
@@ -34,7 +34,7 @@
                 </button>
             </div>
 
-            <img class="dots animate__animated animate__fadeInDown" style="animation-delay: 700ms;" src="../../../../assets/images/icons/rocket.svg">
+            <img class="dots animate__animated animate__fadeInDown" style="animation-delay: 700ms;" src="../../../../assets/images/icons/boat.svg">
             
             <div class="card animate__animated animate__fadeInDown" style="animation-delay: 500ms; background: #36A2EB;">
                 <button (click)="goToPersonality(2)" [disabled]="completionStatus['I']" [ngClass]="{'disabled-button': completionStatus['I']}">
@@ -56,20 +56,20 @@
                 </button>
             </div>
 
-            <img class="dots animate__animated animate__fadeInDown" style="animation-delay: 1100ms;" src="../../../../assets/images/icons/rocket.svg">
+            <img class="dots animate__animated animate__fadeInDown" style="animation-delay: 1100ms;" src="../../../../assets/images/icons/boat.svg">
             
             <div class="card animate__animated animate__fadeInDown" style="animation-delay: 800ms; background: #E4BA54;">
                 <button (click)="goToPersonality(3)" [disabled]="completionStatus['A']" [ngClass]="{'disabled-button': completionStatus['A']}">
                     <div style="display: flex; justify-content: space-between; align-items: center; text-align: left">
                         <div>
-                            <h4>Planeta</h4>
-                            <div class="phase-name">
+                            <h4 style="color: black !important; opacity: 0.7 !important">Planeta</h4>
+                            <div class="phase-name" style="color: black !important;">
                                 Artístico
                             </div>
                         </div>
                     </div>
                     <div style="display: flex; justify-content: space-between; align-items: flex-end;">
-                        <h4>Exploração</h4>
+                        <h4 style="color: black !important; opacity: 0.7 !important">Exploração</h4>
                         <h4 style="color: #FFF; margin-left: 0px;">
                             <span *ngIf="completionStatus['A']; else pending" class="concluido">Concluído</span>
                             <ng-template #pending><span class="pendente">Pendente</span></ng-template>
@@ -78,7 +78,7 @@
                 </button>
             </div>
 
-            <img class="dots animate__animated animate__fadeInDown" style="animation-delay: 1400ms;" src="../../../../assets/images/icons/rocket.svg">
+            <img class="dots animate__animated animate__fadeInDown" style="animation-delay: 1400ms;" src="../../../../assets/images/icons/boat.svg">
             
             <div class="card animate__animated animate__fadeInDown" style="animation-delay: 1100ms; background: #46ADB1;">
                 <button (click)="goToPersonality(4)" [disabled]="completionStatus['S']" [ngClass]="{'disabled-button': completionStatus['S']}">
@@ -100,7 +100,7 @@
                 </button>
             </div>
 
-            <img class="dots animate__animated animate__fadeInDown" style="animation-delay: 1700ms;" src="../../../../assets/images/icons/rocket.svg">
+            <img class="dots animate__animated animate__fadeInDown" style="animation-delay: 1700ms;" src="../../../../assets/images/icons/boat.svg">
             
             <div class="card animate__animated animate__fadeInDown" style="animation-delay: 1400ms; background: #7754CA;">
                 <button (click)="goToPersonality(5)" [disabled]="completionStatus['E']" [ngClass]="{'disabled-button': completionStatus['E']}">
@@ -122,20 +122,20 @@
                 </button>
             </div>
 
-            <img class="dots animate__animated animate__fadeInDown" style="animation-delay: 2000ms;" src="../../../../assets/images/icons/rocket.svg">
+            <img class="dots animate__animated animate__fadeInDown" style="animation-delay: 2000ms;" src="../../../../assets/images/icons/boat.svg">
             
             <div class="card animate__animated animate__fadeInDown" style="animation-delay: 1700ms; background: #E49041;">
                 <button (click)="goToPersonality(6)" [disabled]="completionStatus['C']" [ngClass]="{'disabled-button': completionStatus['C']}">
                     <div style="display: flex; justify-content: space-between; align-items: center; text-align: left">
                         <div>
-                            <h4>Planeta</h4>
-                            <div class="phase-name">
+                            <h4 style="color: black !important; opacity: 0.7 !important">Planeta</h4>
+                            <div class="phase-name" style="color: black !important;">
                                 Convencional
                             </div>
                         </div>
                     </div>
                     <div style="display: flex; justify-content: space-between; align-items: flex-end;">
-                        <h4>Exploração</h4>
+                        <h4 style="color: black !important; opacity: 0.7 !important">Exploração</h4>
                         <h4 style="color: #FFF; margin-left: 0px;">
                             <span *ngIf="completionStatus['C']; else pending" class="concluido">Concluído</span>
                             <ng-template #pending><span class="pendente">Pendente</span></ng-template>
@@ -151,7 +151,6 @@
                     <img src="./../../assets/images/icons/arrow_circle_left.svg" alt="Ícone de voltar">
                 </button>
             </a>  
-            <img class="planets" src="./../../assets/images/items/planets.svg">      
         </div>
     </div>
 </body>

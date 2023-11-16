@@ -23,7 +23,7 @@
               {{ currentPhaseName }}
             </div>
           </div>
-          <img src="../../../../assets/images/items/bike.png" />
+          <img style="margin-top: 16px; width: 48px" [src]="getImagePath(currentPhaseName)" />
         </div>
         <div class="current">
           <p class="info-text">Progresso</p>
@@ -49,8 +49,7 @@
         <div class="example-flex-container">
           <div *ngFor="let option of statement?.options">
             <div class="example-button-container">
-              <button
-                mat-fab
+              <button mat-raised-button
                 class="option-button"
                 (click)="playSound(); saveAnswer(option.id)"
               >

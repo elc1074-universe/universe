@@ -8,16 +8,16 @@ import PersonalityRetrievalDTO from "src/app/models/dto/personality/PersonalityR
   templateUrl: "./info-history.component.html",
   styleUrls: ["./info-history.component.scss"],
 })
-export class InfoHistoryComponent {
+export class InfoHistoryComponent implements OnInit {
   code: string;
   idQuestion: number;
   avatarPath: string = "";
   personalityData: PersonalityRetrievalDTO | null = null;
+  style: {backgroundColor: string, imagePath: string} = {backgroundColor: '#ffffff', imagePath: '../../../../assets/images/items/default.png'};
 
   constructor(
     public dialogRef: MatDialogRef<InfoHistoryComponent>,
     private personalityService: PersonalityService,
-
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
     if (data.idQuestion) {
@@ -37,6 +37,9 @@ export class InfoHistoryComponent {
           .findByLetter(letter)
           .subscribe((data: PersonalityRetrievalDTO | null) => {
             this.personalityData = data;
+            if (this.personalityData && this.personalityData.storyTitle) {
+              this.style = this.getStyle(this.personalityData.storyTitle);
+            }
           });
       } else {
         console.log("error");
@@ -60,4 +63,17 @@ export class InfoHistoryComponent {
 
     return idMappings[id] || "";
   }
+
+  getStyle(storyTitle: string): {backgroundColor: string, imagePath: string} {
+    const styleMappings: { [key: string]: {backgroundColor: string, imagePath: string} } = {
+      "A Jornada na Ilha dos Desafios": {backgroundColor: '#513754', imagePath: '../../../../assets/images/items/helmet.png'},
+      "A Aventura Investigativa na Ilha do Conhecimento": {backgroundColor: '#252C4A', imagePath: '../../../../assets/images/items/manifying.png'},
+      "A Jornada Criativa na Ilha das Artes e Expressão": {backgroundColor: '#51514C', imagePath: '../../../../assets/images/items/brush.png'},
+      "A Missão de Ajuda na Ilha da Solidariedade": {backgroundColor: '#2D6161', imagePath: '../../../../assets/images/items/social.png'},
+      "A Aventura Empreendedora na Ilha das Oportunidades": {backgroundColor: '#3D376E', imagePath: '../../../../assets/images/items/case.png'},
+      "A Experiência na Ilha da Organização e Eficiência": {backgroundColor: '#514343', imagePath: '../../../../assets/images/items/tie.png'},
+    };
+  
+    return styleMappings[storyTitle] || {backgroundColor: '#ffffff', imagePath: '../../../../assets/images/items/default.png'};
+  }  
 }

@@ -1,41 +1,42 @@
-  <body [ngClass]="results.mostInterested">
-    <div class="container-edge" [ngClass]="results.mostInterested">
-      <div class="header">
-        <div class="logo">
-            UniVerse
-        </div>
-        <div class="user-data">
-            <div class="text-block">
-              <p class="user-name">Nome</p>
-              <p class="user-code">{{ userCode }}</p>
-            </div>
-            <img class="galaxy" src="./../../assets/images/items/isla-color.png">
-        </div>          
+<body [ngClass]="results.mostInterested">
+  <div class="container-edge" [ngClass]="results.mostInterested">
+    <div class="header">
+      <div class="logo">
+        UniVerse
       </div>
-      <div class="container">
-        <div class="screen-info">
-          <p class="title">Recomendações de cursos</p>
-          <p class="subtitle">Essa lista informa quais cursos mais se aproximam de você com base no resultado</p>
+      <div class="user-data">
+        <div class="text-block">
+          <p class="user-name">Nome</p>
+          <p class="user-code">{{ userCode }}</p>
         </div>
-        <div *ngFor="let course of results.courseRecommendations" class="card animate__animated animate__fadeInDown" [ngClass]="results.mostInterested">
-            <div class="current">
-                <div>
-                    <p class="info-text">Curso</p>
-                    <div class="phase-name">
-                        {{ course.name }}
-                    </div>
-                </div>
-                <img src="../../../../assets/images/logos/ufsm-logo.svg">
-            </div>      
+        <img class="galaxy" src="./../../assets/images/items/isla-color.png">
+      </div>          
+    </div>
+    <div class="container">
+      <div class="screen-info">
+        <p class="title">Recomendações de cursos</p>
+        <p class="subtitle">Essa lista informa quais cursos mais se aproximam de você com base no resultado</p>
+      </div>
+      <a style="text-decoration: none !important;" *ngFor="let course of results.courseRecommendations" href="{{course.site}}" target="_blank">
+        <div class="card animate__animated animate__fadeInDown" [ngClass]="results.mostInterested">
+          <div class="current">
+            <div>
+              <p class="info-text" >{{ course.level }}</p>
+              <div class="phase-name">
+                {{ course.name }}
+              </div>
+            </div>
+            <img src="../../../../assets/images/logos/ufsm-logo.svg">
+          </div>      
         </div>
+      </a>
     </div>
-    
-      <div class="footer">
-        <a class="button-link" (click)="goToCode()">
-            <button id="return-button">
-                <img src="./../../assets/images/icons/arrow_circle_left.svg" alt="Ícone de voltar">
-            </button>
-        </a>  
+    <div class="footer">
+      <a class="button-link" (click)="goToCode()">
+        <button mat-raised-button id="return-button">
+          <img src="./../../assets/images/icons/arrow_circle_left.svg" alt="Ícone de voltar">
+        </button>
+      </a>  
     </div>
-    </div>
+  </div>
 </body>

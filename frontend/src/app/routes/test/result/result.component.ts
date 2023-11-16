@@ -13,6 +13,7 @@ export class TestResultComponent implements OnInit {
 
   constructor(private testService: TestService, private route: ActivatedRoute, private router: Router) { 
     this.userCode = '';
+    this.results = { mostInterested: '', interestCode: '', courseRecommendations: [] };
   }
 
   ngOnInit(): void {
@@ -39,7 +40,7 @@ export class TestResultComponent implements OnInit {
           const descriptionMapping: Record<string, any> = {
             'R': {
               1: 'práticas e adoram trabalhar com suas mãos, com muita habilidade e força de vontade.',
-              2: 'tem uma paixão por atividades físicas e gosta de trabalhar com objetos e máquinas.',
+              2: 'uma paixão por atividades físicas e gosta de trabalhar com objetos e máquinas.',
               3: 'um toque realista e preferem atividades que envolvem habilidade e coordenação.',
             },
             'I': {
@@ -92,17 +93,14 @@ export class TestResultComponent implements OnInit {
     );
   }
   goToStatistics(): void {
-    console.log('Navigating to statistics');
     this.router.navigate(['/test/statistics', this.userCode]);
   }  
 
   goToCourses(): void {
-    console.log('Navigating to courses');
     this.router.navigate(['/test/courses', this.userCode]);
   }  
 
   goToCode(): void {
-    console.log('Returning');
     this.router.navigate(['/test/code-result']);
   } 
 }

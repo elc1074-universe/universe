@@ -285,4 +285,30 @@ export class StatementComponent implements OnInit, OnDestroy {
   playSound() {
     this.audio.play(); // Iniciar a reprodução do áudio
   }
+
+  getImagePath(phaseName: string): string {
+    let imagePath = '';
+    switch(phaseName) {
+      case 'Realista':
+        imagePath = '../../../../assets/images/items/helmet.png';
+        break;
+      case 'Investigativo':
+        imagePath = '../../../../assets/images/items/manifying.png';
+        break;
+      case 'Artístico':
+        imagePath = '../../../../assets/images/items/brush.png';
+        break;
+      case 'Social':
+        imagePath = '../../../../assets/images/items/social.png';
+        break;
+      case 'Empreendedor':
+        imagePath = '../../../../assets/images/items/case.png';
+        break;
+      case 'Convencional':
+        imagePath = '../../../../assets/images/items/tie.png';
+        break;
+    }
+    return imagePath;
+  }
+  
 }

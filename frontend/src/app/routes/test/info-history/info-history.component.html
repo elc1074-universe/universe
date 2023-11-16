@@ -1,12 +1,14 @@
-<div class="modal-card">
-    <div class="modal-container">
-      <p class="title" *ngIf="personalityData">{{ personalityData.storyTitle }}</p>
-      <p class="text" *ngIf="personalityData">
-        {{ personalityData.storyDescription}}
-      </p>
-      <div class="example-button-row">
-        <button id="modal-main-button" mat-dialog-close (click)="continue()">
-            Vamos em frente!
-        </button>
+<div class="modal-card" [ngStyle]="{'background-color': style.backgroundColor}">
+  <div class="modal-container">
+    <img style="margin-bottom: 16px; width: 96px" [src]="style.imagePath" />
+    <p class="title" *ngIf="personalityData">{{ personalityData.storyTitle }}</p>
+    <p class="text" *ngIf="personalityData">
+      {{ personalityData.storyDescription}}
+    </p>
+    <div class="example-button-row">
+      <button id="modal-main-button" mat-dialog-close (click)="continue()">
+          Vamos em frente!
+      </button>
     </div>
   </div>
+</div>

@@ -123,13 +123,28 @@ export class StatisticsComponent implements OnInit {
             scales: {
               y: {
                 beginAtZero: true,
+                ticks: {
+                    color: 'white',
+                    font: {
+                        family: 'Fredoka'
+                    }
+                }
               },
+              x: {
+                ticks: {
+                    color: 'white',
+                    font: {
+                        family: 'Fredoka'
+                    }
+                }
+              }
             },
           },
         });
       }
     }
   }
+
   goToResults(): void {
     this.router.navigate(["/test/result", this.userCode]);
   }

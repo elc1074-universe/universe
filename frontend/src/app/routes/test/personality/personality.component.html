@@ -1,7 +1,7 @@
 <body>
     <div class="container-edge">
         <div class="header">
-          <div class="logo">
+          <div class="logo" routerLink="/">
               UniVerse
           </div>
           <div class="user-data">
@@ -13,12 +13,12 @@
           </div>          
         </div>
         <div class="container">
-            <p class="subtitle">Arquipélago</p>
+            <p class="subtitle">Vilarejos</p>
             <div class="card animate__animated animate__fadeInDown" style="animation-delay: 200ms; background: #E45C7B;">
                 <button (click)="goToPersonality(1)" [disabled]="completionStatus['R']" [ngClass]="{'disabled-button': completionStatus['R']}">
                     <div style="display: flex; justify-content: space-between; align-items: center; text-align: left">
                         <div>
-                            <p class="info-text"  style="color: black !important; opacity: 0.7 !important">Ilha</p>
+                            <p class="info-text"  style="color: black !important; opacity: 0.7 !important">Vilarejo</p>
                             <div class="phase-name" style="color: black !important;">
                                 Realista
                             </div>
@@ -40,9 +40,9 @@
                 <button (click)="goToPersonality(2)" [disabled]="completionStatus['I']" [ngClass]="{'disabled-button': completionStatus['I']}">
                     <div style="display: flex; justify-content: space-between; align-items: center; text-align: left">
                         <div>
-                            <p class="info-text">Ilha</p>
+                            <p class="info-text">Vilarejo</p>
                             <div class="phase-name">
-                                Investigativa
+                                Investigativo
                             </div>
                         </div>
                     </div>
@@ -62,9 +62,9 @@
                 <button (click)="goToPersonality(3)" [disabled]="completionStatus['A']" [ngClass]="{'disabled-button': completionStatus['A']}">
                     <div style="display: flex; justify-content: space-between; align-items: center; text-align: left">
                         <div>
-                            <p class="info-text" style="color: black !important; opacity: 0.7 !important">Ilha</p>
+                            <p class="info-text" style="color: black !important; opacity: 0.7 !important">Vilarejo</p>
                             <div class="phase-name" style="color: black !important;">
-                                Artística
+                                Artístico
                             </div>
                         </div>
                     </div>
@@ -84,7 +84,7 @@
                 <button (click)="goToPersonality(4)" [disabled]="completionStatus['S']" [ngClass]="{'disabled-button': completionStatus['S']}">
                     <div style="display: flex; justify-content: space-between; align-items: center; text-align: left">
                         <div>
-                            <p class="info-text">Ilha</p>
+                            <p class="info-text">Vilarejo</p>
                             <div class="phase-name">
                                 Social
                             </div>
@@ -106,9 +106,9 @@
                 <button (click)="goToPersonality(5)" [disabled]="completionStatus['E']" [ngClass]="{'disabled-button': completionStatus['E']}">
                     <div style="display: flex; justify-content: space-between; align-items: center; text-align: left">
                         <div>
-                            <p class="info-text">Ilha</p>
+                            <p class="info-text">Vilarejo</p>
                             <div class="phase-name">
-                                Empreendedora
+                                Empreendedor
                             </div>
                         </div>
                     </div>
@@ -128,7 +128,7 @@
                 <button (click)="goToPersonality(6)" [disabled]="completionStatus['C']" [ngClass]="{'disabled-button': completionStatus['C']}">
                     <div style="display: flex; justify-content: space-between; align-items: center; text-align: left">
                         <div>
-                            <p class="info-text" style="color: black !important; opacity: 0.7 !important">Ilha</p>
+                            <p class="info-text" style="color: black !important; opacity: 0.7 !important">Vilarejo</p>
                             <div class="phase-name" style="color: black !important;">
                                 Convencional
                             </div>

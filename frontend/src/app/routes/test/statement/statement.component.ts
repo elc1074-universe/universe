@@ -74,6 +74,7 @@ export class StatementComponent implements OnInit, OnDestroy {
   currentPhaseName: string = "";
 
   audio = new Audio();
+  audioEnd = new Audio();
 
   constructor(
     private statementService: StatementService,
@@ -85,6 +86,7 @@ export class StatementComponent implements OnInit, OnDestroy {
     private changeDetector: ChangeDetectorRef
   ) {
     this.audio.src = "assets/sound/click-btn.mp3";
+    this.audioEnd.src = "assets/sound/end.mp3";
   }
 
   ngOnInit(): void {
@@ -234,6 +236,7 @@ export class StatementComponent implements OnInit, OnDestroy {
         this.isTestCompleted = data.isCompleted;
         if (this.isTestCompleted) {
           this.showTestCompletedDialog();
+          this.playSoundEnd();
         }
 
         if (this.currentStatementId < 42) {
@@ -283,7 +286,11 @@ export class StatementComponent implements OnInit, OnDestroy {
   }
 
   playSound() {
-    this.audio.play(); // Iniciar a reprodução do áudio
+    this.audio.play();
+  }
+
+  playSoundEnd() {
+    this.audioEnd.play();
   }
 
   getImagePath(phaseName: string): string {

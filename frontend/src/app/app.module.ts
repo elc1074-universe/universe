@@ -12,12 +12,19 @@ import { TestComponent } from './routes/test/test.component';
 import { PersonalityComponent } from './routes/test/personality/personality.component';
 import { AppMaterialModule } from './shared/app-material-module/app-material-module.module';
 import { HeaderInterceptor } from './header-interceptor';
+import { NoResultComponent } from './routes/test/no-result/no-result.component';
+import { StatisticsComponent } from './routes/test/statistics/statistics.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CoursesComponent } from './routes/test/courses/courses.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    TestComponent
+    TestComponent,
+    NoResultComponent,
+    StatisticsComponent,
+    CoursesComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +33,8 @@ import { HeaderInterceptor } from './header-interceptor';
     AppMaterialModule,
     HttpClientModule,
     RouterModule,
-    MatDialogModule
+    MatDialogModule,
+    BrowserAnimationsModule
   ],
   providers: [ { provide: HTTP_INTERCEPTORS, useClass: HeaderInterceptor, multi: true } ],
   bootstrap: [AppComponent]

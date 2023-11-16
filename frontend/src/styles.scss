@@ -2,81 +2,404 @@
 
 @include mat.core();
 
-$primary-palette: (
-  50: #c0fade,
-  100: #a8f1ce,
-  200: #91ebc0,
-  300: #64e4a6,
-  400: #4eca8e,
-  500: #3ea774,
-  600: #2e8a5d,
-  700: #256e4b,
-  800: #1b5c3d,
-  900: #13432c,
-
-  contrast: (
-    50: rgba(black, 0.87),
-    100: rgba(black, 0.87),
-    200: rgba(black, 0.87),
-    300: rgba(black, 0.87),
-    400: rgba(black, 0.87),
-    500: rgba(black, 0.87),
-    600: rgba(black, 0.87),
-    700: rgba(black, 0.87),
-    800: rgba(black, 0.87),
-    900: rgba(black, 0.87),
-  ),
-);
-
-$accent-palette: (
-  50: #e7eaf5,
-  100: #cffae5,
-  200: #baffde,
-  300: #95f1c5,
-  400: #80e4b4,
-  500: #78c9a2,
-  600: #8ac4a8,
-  700: #7baf96,
-  800: #60967c,
-  900: #3c6a54,
-
-  contrast: (
-    50: rgba(black, 0.87),
-    100: rgba(black, 0.87),
-    200: rgba(black, 0.87),
-    300: rgba(black, 0.87),
-    400: rgba(black, 0.87),
-    500: rgba(black, 0.87),
-    600: rgba(black, 0.87),
-    700: rgba(black, 0.87),
-    800: rgba(black, 0.87),
-    900: rgba(black, 0.87),
-  ),
-);
-
-$custom-theme-primary-color: mat.define-palette($primary-palette, 900);
-$custom-theme-accent-color: mat.define-palette($accent-palette, 900);
-$custom-theme-warn-color: mat.define-palette(mat.$orange-palette);
-
-$custom-theme: mat.define-light-theme((
-  color: (
-    primary: $custom-theme-primary-color,
-    accent: $custom-theme-accent-color,
-    warn: $custom-theme-warn-color,
-  ),
-  typography: mat.define-typography-config(),
-  density: 0
-));
-
-@include mat.core-theme($custom-theme);
-@include mat.button-theme($custom-theme);
-
-html,
 body {
+  background-color: #12223C;
   margin: 0;
-  height: 100%;
 }
 
-body {
-  font-family: Roboto, 'Helvetica Neue', sans-serif;
+.container-edge {
+  background-image: url(./assets/images/backgrounds/explorer-30.svg);
+  min-height: 99.78vh !important;
+  background-color: #1E314F; 
+  position: relative;
+  max-width: 853px;
+  margin: 0 auto;
+  border: 1px solid rgba(255, 255, 255, 0.0);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  max-width: 853px;
+  margin: 0 auto 18px auto;
+  padding: 16px 24px 0 24px;
+}
+
+.user-data {
+  display: flex;
+  align-items: center;
+}
+
+.user-data .text-block {
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+  margin: 0;
+}
+
+.user-name {
+  color: #FFF;
+  font-family: Fredoka;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 16px;
+  margin: 4px 0 4px 0 !important;
+}
+
+.user-code {
+  color: rgba(255, 255, 255, 0.50);
+  font-family: Fredoka;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 16px;
+  margin-bottom: 0;
+  margin: 4px 0 4px 0 !important;
+}
+
+.galaxy {
+  width: 50px;
+  height: 50px;
+  flex-shrink: 0;
+  margin-left: 12px;
+}
+
+.logo {
+  color: #FFF;
+  font-family: Fredoka One;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin: auto 0;
+}
+
+.big-logo {
+  text-align: center;
+  margin: 32px 0 18px 0;
+}
+
+.container {
+  width: 100%;
+  max-width: 393px;
+  margin: 0 auto;
+  padding-bottom: 88px;
+}
+
+.screen-info {
+  margin: 0 24px;
+}
+
+.title {
+  color: #FFF;
+  font-family: Fredoka;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500 !important;
+  line-height: 28px; 
+}
+
+.subtitle {
+  color: #FFF;
+  font-family: Fredoka;
+  opacity: 0.7;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 25.5px;
+  margin-bottom: 16px !important;
+}
+
+.text {
+  color: #FFF;
+  font-family: Fredoka;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 28px;
+}
+
+.info-text {
+  color: rgba(255, 255, 255, 0.50);
+  font-family: Fredoka;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px;
+}
+
+.card {
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: #29436A;
+  box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.25);
+  margin: 0 18px;
+}
+
+.card-text {
+  display: flex !important;
+  gap: 10px !important;
+  margin: 16px 4px 4px 24px;
+  align-items: baseline !important;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+}
+
+#create-game-button{
+  background-color: #369FC3;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  color: #FFF;
+  font-family: Fredoka;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0px;
+  border-radius: 999px;
+  padding: 24px 42px;
+}
+
+#continue-game-button {
+  background: #AB4556;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  color: #FFF;
+  font-family: Fredoka;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0px;
+  border-radius: 999px;
+  padding: 24px 32px;
+  margin-top: 12px;
+}
+
+#result-game-button {
+  background: #54812D;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  color: #FFF;
+  font-family: Fredoka;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0px;
+  border-radius: 999px;
+  padding: 24px 32px;
+  margin-top: 12px;
+}
+
+#card-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  font-family: Fredoka;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 16px;
+}
+
+.card-form-field {
+  width: 86% !important;
+}
+
+.mat-form-field input{
+  width: 100%;
+  max-width: 300px;
+  border-radius: 50px;
+}
+
+#card-form-submit-button {
+  margin-top: 20px;
+}
+
+.card-form-field-label {
+  font-family: Fredoka;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 16px;
+}
+
+#card-form-submit-button {
+  background-color: #369FC3;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  color: #FFF;
+  font-family: Fredoka;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0px;
+  border-radius: 999px;
+  padding: 24px 42px;
+  margin-top: 20px;
+}
+
+.text-link {
+  color: rgba(255, 255, 255, 0.50);
+  font-family: Fredoka;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px;
+  display: block;
+  text-align: center;
+  margin: 18px 24px 20px 24px;
+}
+
+.text-link {
+  color: rgba(255, 255, 255, 0.50);
+  font-family: Fredoka;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px;
+  display: block;
+  text-align: center;
+  margin: 18px 24px 20px 24px;
+}
+
+#return-button {
+  border-radius: 16px 16px 0px 0px;
+  background: #F66103;
+  width: 64px;
+  height: 64px;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 36px;
+  cursor: pointer;
+}
+
+.planets {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 742px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.modal-card {
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: #29436A;
+  box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.25);
+  margin: 0 18px;
+  padding: 20px;
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.15);
+  border-radius: 0;
+  margin: 0 !important;
+  max-width: 500px;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.modal-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0;
+}
+
+#modal-main-button{
+  background-color: #369FC3;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  color: #FFF;
+  font-family: Fredoka;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0px;
+  border-radius: 999px;
+  padding: 24px 42px;
+  margin-top: 12px;
+  cursor: pointer;
+}
+
+#modal-secondary-button {
+  background: #AB4556;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  color: #FFF;
+  font-family: Fredoka;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0px;
+  border-radius: 999px;
+  padding: 24px 32px;
+  margin-top: 6px;
+  cursor: pointer;
+}
+
+body.Realista {
+  background-color: #201621 !important;
+}
+.container-edge.Realista {
+  background-color: #302132 !important;
+}
+.card.Realista {
+  background-color: #513754 !important;
+}
+
+body.Investigativo {
+  background-color: #0C1020 !important;
+}
+.container-edge.Investigativo {
+  background-color: #161D39 !important;
+}
+.card.Investigativo {
+  background-color: #252C4A !important;
+}
+
+body.Artístico {
+  background-color: #272724 !important;
+}
+.container-edge.Artístico {
+  background-color: #363633 !important;
+}
+.card.Artístico {
+  background-color: #51514C !important;
+}
+
+body.Social {
+  background-color: #132728 !important;
+}
+.container-edge.Social {
+  background-color: #214143 !important;
+}
+.card.Social {
+  background-color: #2D6161 !important;
+}
+
+body.Empreendedor {
+  background-color: #1B1930 !important;
+}
+.container-edge.Empreendedor {
+  background-color: #2B274D !important;
+}
+.card.Empreendedor {
+  background-color: #3D376E !important;
+}
+
+body.Convencional {
+  background-color: #261F1F !important;
+}
+.container-edge.Convencional {
+  background-color: #3A3030 !important;
+}
+.card.Convencional {
+  background-color: #514343 !important;
 }

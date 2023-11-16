@@ -1,43 +1,156 @@
 <body>
-    <div class="back">
-        <a routerLink="/">
-            <button mat-icon-button>
-                <mat-icon class="material-icons color_white">
-                    arrow_back_ios
-                </mat-icon>
-            </button>
-        </a>
-        <br>
-    </div>
-    <div id="title">
-        UniVerse
-      </div>
-    <div id="personality-buttons">
-        <button class="personality-button" id="personality-6-button" (click)="goToPersonality(6)" [disabled]="completionStatus['C']" [ngClass]="{'disabled-button': completionStatus['C']}">
-            <img [src]="completionStatus['C'] ? '/assets/images/personality-buttons/personality-6-button-disabled.png' : '/assets/images/personality-buttons/personality-6-button.png'" alt="Personality 6">
-        </button>
-        <button class="personality-button" id="personality-5-button" (click)="goToPersonality(5)" [disabled]="completionStatus['E']" [ngClass]="{'disabled-button': completionStatus['E']}">
-            <img [src]="completionStatus['E'] ? '/assets/images/personality-buttons/personality-5-button-disabled.png' : '/assets/images/personality-buttons/personality-5-button.png'" alt="Personality 5">
-        </button>
-        <button class="personality-button" id="personality-4-button" (click)="goToPersonality(4)" [disabled]="completionStatus['S']" [ngClass]="{'disabled-button': completionStatus['S']}">
-            <img [src]="completionStatus['S'] ? '/assets/images/personality-buttons/personality-4-button-disabled.png' : '/assets/images/personality-buttons/personality-4-button.png'" alt="Personality 4">
-        </button>
-        <button class="personality-button" id="personality-3-button" (click)="goToPersonality(3)" [disabled]="completionStatus['A']" [ngClass]="{'disabled-button': completionStatus['A']}">
-            <img [src]="completionStatus['A'] ? '/assets/images/personality-buttons/personality-3-button-disabled.png' : '/assets/images/personality-buttons/personality-3-button.png'" alt="Personality 3">
-        </button>
-        <button class="personality-button" id="personality-2-button" (click)="goToPersonality(2)" [disabled]="completionStatus['I']" [ngClass]="{'disabled-button': completionStatus['I']}">
-            <img [src]="completionStatus['I'] ? '/assets/images/personality-buttons/personality-2-button-disabled.png' : '/assets/images/personality-buttons/personality-2-button.png'" alt="Personality 2">
-        </button>
-        <button class="personality-button" id="personality-1-button" (click)="goToPersonality(1)" [disabled]="completionStatus['R']" [ngClass]="{'disabled-button': completionStatus['R']}">
-            <img [src]="completionStatus['R'] ? '/assets/images/personality-buttons/personality-1-button-disabled.png' : '/assets/images/personality-buttons/personality-1-button.png'" alt="Personality 1">
-        </button>
-    </div>
-    <div class="info">
-        <mat-card id="card">
-            <mat-card-content>
-                <span class="bold">Username: </span><span>{{username}}</span><br>
-                <span class="bold">Código: </span><span>{{usercode}}</span>
-            </mat-card-content>
-        </mat-card>
+    <div class="container-edge">
+        <div class="header">
+          <div class="logo">
+              UniVerse
+          </div>
+          <div class="user-data">
+              <div class="text-block">
+                <p class="user-name">{{username}}</p>
+                <p class="user-code">{{usercode}}</p>
+              </div>
+              <img class="galaxy" src="./../../assets/images/items/isla-color.png">
+          </div>          
+        </div>
+        <div class="container">
+            <p class="subtitle">Arquipélago</p>
+            <div class="card animate__animated animate__fadeInDown" style="animation-delay: 200ms; background: #E45C7B;">
+                <button (click)="goToPersonality(1)" [disabled]="completionStatus['R']" [ngClass]="{'disabled-button': completionStatus['R']}">
+                    <div style="display: flex; justify-content: space-between; align-items: center; text-align: left">
+                        <div>
+                            <p class="info-text"  style="color: black !important; opacity: 0.7 !important">Ilha</p>
+                            <div class="phase-name" style="color: black !important;">
+                                Realista
+                            </div>
+                        </div>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: flex-end;">
+                        <p class="info-text" style="color: black !important; opacity: 0.7 !important">Exploração</p>
+                        <p class="info-text" style="color: #FFF; margin-left: 0px;">
+                            <span *ngIf="completionStatus['R']; else pending" class="concluido">Concluído</span>
+                            <ng-template #pending><span class="pendente">Pendente</span></ng-template>
+                        </p>
+                    </div>
+                </button>
+            </div>
+
+            <img class="dots animate__animated animate__fadeInDown" style="animation-delay: 700ms;" src="../../../../assets/images/icons/boat.svg">
+            
+            <div class="card animate__animated animate__fadeInDown" style="animation-delay: 500ms; background: #36A2EB;">
+                <button (click)="goToPersonality(2)" [disabled]="completionStatus['I']" [ngClass]="{'disabled-button': completionStatus['I']}">
+                    <div style="display: flex; justify-content: space-between; align-items: center; text-align: left">
+                        <div>
+                            <p class="info-text">Ilha</p>
+                            <div class="phase-name">
+                                Investigativa
+                            </div>
+                        </div>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: flex-end;">
+                        <p class="info-text">Exploração</p>
+                        <p class="info-text" style="color: #FFF; margin-left: 0px;">
+                            <span *ngIf="completionStatus['I']; else pending" class="concluido">Concluído</span>
+                            <ng-template #pending><span class="pendente">Pendente</span></ng-template>
+                        </p>
+                    </div>
+                </button>
+            </div>
+
+            <img class="dots animate__animated animate__fadeInDown" style="animation-delay: 1100ms;" src="../../../../assets/images/icons/boat.svg">
+            
+            <div class="card animate__animated animate__fadeInDown" style="animation-delay: 800ms; background: #E4BA54;">
+                <button (click)="goToPersonality(3)" [disabled]="completionStatus['A']" [ngClass]="{'disabled-button': completionStatus['A']}">
+                    <div style="display: flex; justify-content: space-between; align-items: center; text-align: left">
+                        <div>
+                            <p class="info-text" style="color: black !important; opacity: 0.7 !important">Ilha</p>
+                            <div class="phase-name" style="color: black !important;">
+                                Artística
+                            </div>
+                        </div>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: flex-end;">
+                        <p class="info-text" style="color: black !important; opacity: 0.7 !important">Exploração</p>
+                        <p class="info-text" style="color: #FFF; margin-left: 0px;">
+                            <span *ngIf="completionStatus['A']; else pending" class="concluido">Concluído</span>
+                            <ng-template #pending><span class="pendente">Pendente</span></ng-template>
+                        </p>
+                    </div>
+                </button>
+            </div>
+
+            <img class="dots animate__animated animate__fadeInDown" style="animation-delay: 1400ms;" src="../../../../assets/images/icons/boat.svg">
+            
+            <div class="card animate__animated animate__fadeInDown" style="animation-delay: 1100ms; background: #46ADB1;">
+                <button (click)="goToPersonality(4)" [disabled]="completionStatus['S']" [ngClass]="{'disabled-button': completionStatus['S']}">
+                    <div style="display: flex; justify-content: space-between; align-items: center; text-align: left">
+                        <div>
+                            <p class="info-text">Ilha</p>
+                            <div class="phase-name">
+                                Social
+                            </div>
+                        </div>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: flex-end;">
+                        <p class="info-text">Exploração</p>
+                        <p class="info-text" style="color: #FFF; margin-left: 0px;">
+                            <span *ngIf="completionStatus['S']; else pending" class="concluido">Concluído</span>
+                            <ng-template #pending><span class="pendente">Pendente</span></ng-template>
+                        </p>
+                    </div>
+                </button>
+            </div>
+
+            <img class="dots animate__animated animate__fadeInDown" style="animation-delay: 1700ms;" src="../../../../assets/images/icons/boat.svg">
+            
+            <div class="card animate__animated animate__fadeInDown" style="animation-delay: 1400ms; background: #7754CA;">
+                <button (click)="goToPersonality(5)" [disabled]="completionStatus['E']" [ngClass]="{'disabled-button': completionStatus['E']}">
+                    <div style="display: flex; justify-content: space-between; align-items: center; text-align: left">
+                        <div>
+                            <p class="info-text">Ilha</p>
+                            <div class="phase-name">
+                                Empreendedora
+                            </div>
+                        </div>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: flex-end;">
+                        <p class="info-text">Exploração</p>
+                        <p class="info-text" style="color: #FFF; margin-left: 0px;">
+                            <span *ngIf="completionStatus['E']; else pending" class="concluido">Concluído</span>
+                            <ng-template #pending><span class="pendente">Pendente</span></ng-template>
+                        </p>
+                    </div>
+                </button>
+            </div>
+
+            <img class="dots animate__animated animate__fadeInDown" style="animation-delay: 2000ms;" src="../../../../assets/images/icons/boat.svg">
+            
+            <div class="card animate__animated animate__fadeInDown" style="animation-delay: 1700ms; background: #E49041;">
+                <button (click)="goToPersonality(6)" [disabled]="completionStatus['C']" [ngClass]="{'disabled-button': completionStatus['C']}">
+                    <div style="display: flex; justify-content: space-between; align-items: center; text-align: left">
+                        <div>
+                            <p class="info-text" style="color: black !important; opacity: 0.7 !important">Ilha</p>
+                            <div class="phase-name" style="color: black !important;">
+                                Convencional
+                            </div>
+                        </div>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: flex-end;">
+                        <p class="info-text" style="color: black !important; opacity: 0.7 !important">Exploração</p>
+                        <p class="info-text" style="color: #FFF; margin-left: 0px;">
+                            <span *ngIf="completionStatus['C']; else pending" class="concluido">Concluído</span>
+                            <ng-template #pending><span class="pendente">Pendente</span></ng-template>
+                        </p>
+                    </div>
+                </button>
+            </div>
+        </div>    
+
+        <div class="footer">
+            <a class="button-link">
+                <button mat-raised-button id="return-button" routerLink="/">
+                    <img src="./../../assets/images/icons/arrow_circle_left.svg" alt="Ícone de voltar">
+                </button>
+            </a>  
+        </div>
     </div>
 </body>

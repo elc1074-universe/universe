@@ -1,7 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { Router, ActivatedRoute, ParamMap } from "@angular/router";
 import { MatDialog } from "@angular/material/dialog";
-import { forkJoin } from 'rxjs';
 
 import { TestInfoComponent } from "src/app/routes/test/info/test-info.component";
 import UserRetrievalDTO from "src/app/models/dto/user/UserRetrievalDTO";
@@ -9,7 +8,7 @@ import UserService from "src/app/services/user.service";
 import PersonalityService from "src/app/services/personality.service";
 import StatementService from "src/app/services/statement.service";
 import TestService from "src/app/services/test.service";
-import TestRetrievalDTO from "src/app/models/dto/test/TestRetrievalDTO";
+import PersonalityRetrievalDTO from "src/app/models/dto/test/PersonalityRetrievalDTO";
 @Component({
   selector: "app-personality",
   templateUrl: "./personality.component.html",
@@ -20,7 +19,6 @@ export class PersonalityComponent implements OnInit {
   private user!: UserRetrievalDTO | null;
   username!: string;
   usercode!: string;
-  private popupInfo: boolean = false;
   lastCompletedStatementId!: number;
 
   constructor(
@@ -35,7 +33,21 @@ export class PersonalityComponent implements OnInit {
 
   ngOnInit() {
     this.activatedRoute.paramMap.subscribe((params: ParamMap) => {
-      this.userService.setCurrentUserCode(params.get("userCode")!);
+      const userCodeFromUrl = params.get("userCode");
+      if (userCodeFromUrl) {
+        this.userService.setCurrentUserCode(userCodeFromUrl);
+        localStorage.setItem("userCode", userCodeFromUrl);
+      } else {
+        const storedUserCode = localStorage.getItem("userCode");
+        if (storedUserCode) {
+          this.userService.setCurrentUserCode(storedUserCode);
+        } else {
+          console.error(
+            "Código do usuário não encontrado na URL nem no armazenamento local."
+          );
+          this.router.navigate(["/test/continue"]);
+        }
+      }
     });
 
     this.userService
@@ -48,39 +60,30 @@ export class PersonalityComponent implements OnInit {
               this.username = this.user.username;
             }
             this.usercode = currentUserCode!;
-            console.log(this.usercode);
-            const letters = ["R", "I", "A", "S", "E", "C"];
-            const observables = [];
-  
-            for (let i = 0; i < letters.length; i++) {
-              observables.push(
-                this.TestService.findPersonality(
-                  this.usercode,
-                  letters[i]
-                )
-              );
-            }
-  
-            forkJoin(observables).subscribe((personalities: (TestRetrievalDTO | null)[]) => {
-              let allCompletionStatusFalse = true;
-  
-              for (let i = 0; i < letters.length; i++) {
-                const personality = personalities[i];
-  
-                if (personality) {
-                  this.completionStatus[letters[i]] = personality.isCompleted;
-                  allCompletionStatusFalse = allCompletionStatusFalse && !personality.isCompleted;
+
+            this.TestService.findPersonalities(this.usercode).subscribe(
+              (personalities: PersonalityRetrievalDTO[] | null) => {
+                if (personalities) {
+                  for (let personality of personalities) {
+                    if (personality) {
+                      this.completionStatus[personality.letter] =
+                        personality.isCompleted;
+                    }
+                  }
+                  const welcomePopupKey = `welcomePopupShown_${this.usercode}`;
+                  const welcomePopupAlreadyShown =
+                    localStorage.getItem(welcomePopupKey);
+
+                  if (!welcomePopupAlreadyShown) {
+                    this.dialog.open(TestInfoComponent, {
+                      data: { username: user?.username },
+                    });
+
+                    localStorage.setItem(welcomePopupKey, "true");
+                  }
                 }
               }
-  
-              if (!this.popupInfo && allCompletionStatusFalse) {
-                const dialogRef = this.dialog.open(TestInfoComponent, {
-                  data: { username: user?.username },
-                });
-                console.log(this.usercode);
-                this.popupInfo = true;
-              }
-            });
+            );
           },
           error: (error) => {
             console.error(error);
@@ -94,7 +97,7 @@ export class PersonalityComponent implements OnInit {
   }
 
   areAllCompletionStatusFalse(): boolean {
-    return Object.values(this.completionStatus).every(status => !status);
+    return Object.values(this.completionStatus).every((status) => !status);
   }
 
   goToPersonality(personalityId: number): void {

@@ -1,6 +1,12 @@
-import { Component, OnInit } from "@angular/core";
-import { Router, ActivatedRoute, ParamMap } from "@angular/router";
-import { ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, OnDestroy } from "@angular/core";
+import {
+  Router,
+  ActivatedRoute,
+  ParamMap,
+  NavigationStart,
+} from "@angular/router";
+import { ChangeDetectorRef } from "@angular/core";
+import { Subscription } from "rxjs";
 
 import StatementService from "src/app/services/statement.service";
 import StatementRetrievalDTO from "src/app/models/dto/statement/StatementRetrievalDTO";
@@ -9,7 +15,6 @@ import TestStatementSavingDTO from "src/app/models/dto/test/TestStatementSavingD
 import TestService from "src/app/services/test.service";
 import { MatDialog } from "@angular/material/dialog";
 import { InfoCompletedComponent } from "../info-completed/info-completed.component";
-import { InfoFaseComponent } from "../info-fase/info-fase.component";
 import { InfoAlertComponent } from "../info-alert/info-alert.component";
 import { InfoHistoryComponent } from "../info-history/info-history.component";
 
@@ -18,19 +23,20 @@ import { InfoHistoryComponent } from "../info-history/info-history.component";
   templateUrl: "./statement.component.html",
   styleUrls: ["./statement.component.scss"],
 })
-export class StatementComponent implements OnInit {
+export class StatementComponent implements OnInit, OnDestroy {
   statement!: StatementRetrievalDTO | null;
   currentStatementId: number = 1;
   userCode: any = "";
   username!: string;
   testStatementSavingDTO!: TestStatementSavingDTO;
   isTestCompleted: boolean = false;
+  private subscriptions: Subscription[] = [];
 
   option = {
     options: [
-      { description: 'Primeira opção' },
-      { description: 'Segunda opção' },
-    ]
+      { description: "Primeira opção" },
+      { description: "Segunda opção" },
+    ],
   };
 
   private popupInfoArray: boolean[] = [
@@ -41,7 +47,7 @@ export class StatementComponent implements OnInit {
     false,
     false,
   ];
-  
+
   phases: { start: number; end: number }[] = [
     { start: 1, end: 7 },
     { start: 8, end: 14 },
@@ -67,6 +73,9 @@ export class StatementComponent implements OnInit {
   currentQuestionNumber: number = 1;
   currentPhaseName: string = "";
 
+  audio = new Audio();
+  audioEnd = new Audio();
+
   constructor(
     private statementService: StatementService,
     private router: Router,
@@ -74,75 +83,111 @@ export class StatementComponent implements OnInit {
     private userService: UserService,
     private TestService: TestService,
     public dialog: MatDialog,
-    private changeDetector: ChangeDetectorRef,
-  ) {}
+    private changeDetector: ChangeDetectorRef
+  ) {
+    this.audio.src = "assets/sound/click-btn.mp3";
+    this.audioEnd.src = "assets/sound/end.mp3";
+  }
 
   ngOnInit(): void {
-    this.userService.getCurrentUserCode().subscribe((code: string | null) => {
-      this.userCode = code;
-    });
-
-    this.userService.findByCode(this.userCode).subscribe((data: any) => {
-      this.username = data.username;
-    });
-
-    this.activatedRoute.paramMap.subscribe((params: ParamMap) => {
-      this.statementService.setCurrentStatementId(Number(params.get("id")));
-    });
-
-    this.statementService
-      .getCurrentStatementId()
-      .subscribe((currentStatementId) => {
-        this.statementService.findById(currentStatementId).subscribe({
-          next: (statement: StatementRetrievalDTO | null) => {
-            this.statement = statement;
-
-            if ([1, 8, 15, 22, 29, 36].includes(currentStatementId)) {
-              let popupIndex = this.getPopupIndex(currentStatementId);
-
-              if (!this.popupInfoArray[popupIndex]) {
-                this.dialog.open(InfoHistoryComponent, {
-                  data: {
-                    userCode: this.userCode,
-                    idQuestion: this.currentStatementId,
-                  },
-                });
-
-                this.popupInfoArray[popupIndex] = true;
-              }
-            }
-          },
-          error: (error) => {
-            console.error(error);
-            alert(
-              `A declaração com o id ${currentStatementId} não foi encontrada.`
+    this.subscriptions.push(
+      this.userService.getCurrentUserCode().subscribe((code: string | null) => {
+        if (code) {
+          this.userCode = code;
+          this.userService.findByCode(this.userCode).subscribe((data: any) => {
+            this.username = data.username;
+          });
+        } else {
+          const storedUserCode = localStorage.getItem("userCode");
+          if (storedUserCode) {
+            this.userCode = storedUserCode;
+            this.userService
+              .findByCode(this.userCode)
+              .subscribe((data: any) => {
+                this.username = data.username;
+              });
+          } else {
+            console.error(
+              "Código do usuário não encontrado no serviço nem no armazenamento local."
             );
-          },
-        });
-        const newPhaseIndex = this.getPhaseIndex(currentStatementId);
-        if (newPhaseIndex !== this.currentPhaseIndex || this.currentPhaseIndex == 0) {
-          this.currentPhaseIndex = newPhaseIndex;
-          this.phaseStart = this.phases[newPhaseIndex].start;
-          this.phaseEnd = this.phases[newPhaseIndex].end;
-          this.phaseProgress = 0;
-          this.currentQuestionNumber = 1;
-          this.currentPhaseName = this.phaseNames[newPhaseIndex];
-        
-          this.changeDetector.detectChanges();
+          }
         }
+      })
+    );
 
-        this.calculatePhaseProgress(currentStatementId);
+    this.subscriptions.push(
+      this.activatedRoute.paramMap.subscribe((params: ParamMap) => {
+        this.statementService.setCurrentStatementId(Number(params.get("id")));
+      })
+    );
 
-        this.currentQuestionNumber =
-        currentStatementId - this.phaseStart + 1;
-        
-      });
+    this.subscriptions.push(
+      this.statementService
+        .getCurrentStatementId()
+        .subscribe((currentStatementId) => {
+          this.statementService.findById(currentStatementId).subscribe({
+            next: (statement: StatementRetrievalDTO | null) => {
+              this.statement = statement;
+              if ([1, 8, 15, 22, 29, 36].includes(currentStatementId)) {
+                let popupIndex = this.getPopupIndex(currentStatementId);
+
+                const popupKey = `popupShown_${this.userCode}_${popupIndex}`;
+                const popupAlreadyShown = localStorage.getItem(popupKey);
+
+                if (!this.popupInfoArray[popupIndex] && !popupAlreadyShown) {
+                  this.dialog.open(InfoHistoryComponent, {
+                    data: {
+                      userCode: this.userCode,
+                      idQuestion: currentStatementId,
+                    },
+                  });
+
+                  this.popupInfoArray[popupIndex] = true;
+
+                  localStorage.setItem(popupKey, "true");
+                }
+              }
+            },
+            error: (error) => {
+              console.error(error);
+              alert(
+                `A declaração com o id ${currentStatementId} não foi encontrada.`
+              );
+            },
+          });
+          const newPhaseIndex = this.getPhaseIndex(currentStatementId);
+
+          if (
+            newPhaseIndex !== this.currentPhaseIndex ||
+            this.currentPhaseIndex == 0
+          ) {
+            this.currentPhaseIndex = newPhaseIndex;
+            this.phaseStart = this.phases[newPhaseIndex].start;
+            this.phaseEnd = this.phases[newPhaseIndex].end;
+            this.phaseProgress = 0;
+            this.currentQuestionNumber = 1;
+            this.currentPhaseName = this.phaseNames[newPhaseIndex];
+
+            this.changeDetector.detectChanges();
+          }
+
+          this.calculatePhaseProgress(currentStatementId);
+
+          this.currentQuestionNumber = currentStatementId - this.phaseStart + 1;
+        })
+    );
+  }
+
+  ngOnDestroy(): void {
+    this.subscriptions.forEach((subscription) => subscription.unsubscribe());
   }
 
   calculatePhaseProgress(currentStatementId: number): void {
-    const totalStatementsInPhase = this.phaseEnd - this.phaseStart + 1;
-    const statementsCompletedInPhase =
-      currentStatementId - this.phaseStart + 1;
+    const totalStatementsInPhase = this.phaseEnd - this.phaseStart;
+    const statementsCompletedInPhase = Math.max(
+      0,
+      currentStatementId - this.phaseStart
+    );
     this.phaseProgress =
       (statementsCompletedInPhase / totalStatementsInPhase) * 100;
   }
@@ -157,7 +202,7 @@ export class StatementComponent implements OnInit {
       }
     }
     return -1;
-  } 
+  }
 
   private getPopupIndex(currentStatementId: number): number {
     const statementIds = [1, 8, 15, 22, 29, 36];
@@ -172,48 +217,43 @@ export class StatementComponent implements OnInit {
     }
     return index;
   }
-  // handleButtonClick(optionIndex: number) {
-  //   if (this.statement) {
-  //     this.saveAnswer(optionIndex);
-  //     if ([7, 14, 21, 28, 35, 42].includes(this.currentStatementId)) {
-  //       const dialogRef = this.dialog.open(InfoFaseComponent, {
-  //         data: {
-  //           userCode: this.userCode,
-  //           idQuestion: this.currentStatementId,
-  //         },
-  //       });
-  //       dialogRef.afterClosed().subscribe((result) => {
-  //         if (result === true) {
-  //           this.goToNextStatement();
-  //         }
-  //       });
-  //     }
-  //   }
-  // }
 
   saveAnswer(selectedOption: number) {
-    if (this.statement) {
-      this.testStatementSavingDTO = new TestStatementSavingDTO();
-      this.testStatementSavingDTO.statementId = this.statement.id;
-      this.testStatementSavingDTO.selectedOptionId = selectedOption;
+    if (!this.statement) {
+      console.error("Declaração não encontrada.");
+      return;
+    }
 
-      this.TestService.saveStatement(
-        this.userCode,
-        this.testStatementSavingDTO
-      ).subscribe((data: any) => {
+    this.testStatementSavingDTO = new TestStatementSavingDTO();
+    this.testStatementSavingDTO.statementId = this.statement.id;
+    this.testStatementSavingDTO.selectedOptionId = selectedOption;
+    console.log(this.testStatementSavingDTO);
+    this.TestService.saveStatement(
+      this.userCode,
+      this.testStatementSavingDTO
+    ).subscribe(
+      (data: any) => {
         this.isTestCompleted = data.isCompleted;
-
         if (this.isTestCompleted) {
-          this.dialog.open(InfoCompletedComponent, {
-            data: { userCode: this.userCode }
-          });
+          this.showTestCompletedDialog();
+          this.playSoundEnd();
         }
 
         if (this.currentStatementId < 42) {
           this.goToNextStatement();
         }
-      });
-    }
+      },
+      (error: any) => {
+        console.error("Erro ao salvar resposta:", error);
+      }
+    );
+  }
+
+  showTestCompletedDialog() {
+    this.dialog.open(InfoCompletedComponent, {
+      data: { userCode: this.userCode },
+    });
+    console.log(this.userCode);
   }
 
   goToNextStatement(): void {
@@ -224,24 +264,58 @@ export class StatementComponent implements OnInit {
   }
 
   goToHome(): void {
-    this.dialog.open(InfoAlertComponent, {
-      data: {
-        userCode: this.userCode,
-        letter: this.statement?.personalityLetter,
-      },
-    });
-  }
-
-  composeStatementBackgroundImageUrl(): string {
-    const backgroundImageId =
-      this.currentStatementId <= 9
-        ? `0${this.currentStatementId}`
-        : `${this.currentStatementId}`;
-
-    return `assets/images/statements/${backgroundImageId}.jpg`;
+    if ([1, 8, 15, 22, 29, 36].includes(this.currentStatementId)) {
+      this.dialog.open(InfoAlertComponent, {
+        data: {
+          userCode: this.userCode,
+          letter: "N",
+        },
+      });
+    } else {
+      this.dialog.open(InfoAlertComponent, {
+        data: {
+          userCode: this.userCode,
+          letter: this.statement?.personalityLetter,
+        },
+      });
+    }
   }
 
   getOptionLabel(index: number): string {
-    return String.fromCharCode(65 + index) + ') ';
+    return String.fromCharCode(65 + index) + ") ";
   }
+
+  playSound() {
+    this.audio.play();
+  }
+
+  playSoundEnd() {
+    this.audioEnd.play();
+  }
+
+  getImagePath(phaseName: string): string {
+    let imagePath = '';
+    switch(phaseName) {
+      case 'Realista':
+        imagePath = '../../../../assets/images/items/helmet.png';
+        break;
+      case 'Investigativo':
+        imagePath = '../../../../assets/images/items/manifying.png';
+        break;
+      case 'Artístico':
+        imagePath = '../../../../assets/images/items/brush.png';
+        break;
+      case 'Social':
+        imagePath = '../../../../assets/images/items/social.png';
+        break;
+      case 'Empreendedor':
+        imagePath = '../../../../assets/images/items/case.png';
+        break;
+      case 'Convencional':
+        imagePath = '../../../../assets/images/items/tie.png';
+        break;
+    }
+    return imagePath;
+  }
+  
 }

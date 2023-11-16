@@ -1,30 +1,13 @@
-<mat-dialog-content class="mat-typography">
-    <div class="content">
-        <h3 class="finish">Parabéns, você finalizou o jogo!</h3>
-        <p class="p-content">
-            Depois de ter finalizado sua jornada entre ilhas e escritórios, está na hora de visualizar seu resultado. É ele que vai dizer
-            quais áreas você tem mais aptidão, levando em consideração as perguntas que você respondeu.
+<div class="modal-card">
+    <div class="modal-container">
+        <img src="../../../../assets/images/personagens/gary-computer.png">
+        <p class="title">Parabéns, você finalizou o jogo!</p>
+        <p class="text">
+            Seu resultado está pronto! Ele vai dizer em
+            quais áreas você pode ter mais aptidão.
         </p>
-        <p class="p-content">
-            Caso queira ver o resultado em outro momento só clicar "Ver resultado" na tela inicial do jogo e digitar seu código de usuário.
-        </p>
-        <h3 class="code">
-            {{this.code}}
-        </h3>
-        <p class="p-content">
-            Lembre-se de guardar este código em um lugar seguro!
-        </p>
-        <div class="example-button-row">
-            <button mat-button mat-dialog-close style="background-color: #57a881;" (click)="goToHome()">
-                <p class="btn">
-                    Voltar para tela inicial
-                </p>
-            </button>
-            <button mat-button mat-dialog-close style="background-color: #3C6A54;" (click)="goToResult()">
-                <p class="btn">
-                    Ver resultado
-                </p>
-            </button>
-        </div>
+        <button mat-dialog-close mat-raised-button id="modal-main-button" (click)="goToResult()">
+            Ver meu resultado
+        </button>
     </div>
-</mat-dialog-content>
+</div>

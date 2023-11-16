@@ -1,24 +1,19 @@
-<mat-dialog-content class="mat-typography">
-    <div class="content">
-        <h3 class="title">
-            Bem-vindo ao UniVerse: A Ilha da Vocação!
-        </h3>
-        <p class="p-content">
-            <b>{{ this.username }}</b>, você é um intrépido explorador em busca de autodescoberta, decide embarcar em uma aventura única e transformadora. Em um misterioso dia, um mapa chega às suas mãos, levando-o a uma ilha desconhecida chamada UniVerse. A ilha é lendária por abrigar seis cantos distintos, vilas, cada um representando uma área única de vocação.
-
+<div class="modal-card">
+    <div class="modal-container">
+        <img src="../../../../assets/images/personagens/saly-explorer.png">
+        <p class="title">
+            Bem-vindo {{ this.username }}
         </p>
-        <p class="p-content">
-            Agora, aperte o cinto, mergulhe no mundo do UniVerse!
+        <p class="info-text">
+            Você é um grande explorador!
         </p>
-        <p class="p-content">
-            Bom jogo!
+        <p class="text">
+            Em um lindo dia, você sai para navegar em mares desconhecidos e descobre o UniVerse, um arquipélago formado por seis ilhas totalmente diferentes. Prepare-se, uma jornada de autodescobrimento está prestes a começar.
         </p>
-        <div class="example-button-row">
-            <button mat-button mat-dialog-close style="background-color: #3C6A54;">
-                <p class="btn">
-                    Começar
-                </p>
+        <div>
+            <button mat-dialog-close mat-raised-button id="modal-main-button">
+                    Vamos lá!
             </button>
         </div>
     </div>
-</mat-dialog-content>
+</div>

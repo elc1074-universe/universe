@@ -1,5 +1,5 @@
-<mat-dialog-content class="mat-typography">
-    <div class="content">
+<div class="modal-card">
+    <div class="modal-container">
         <h3 class="finish">Fase concluída!</h3>
         <p class="p-content">
             Deseja continuar ou voltar ao menu anterior?
@@ -8,16 +8,16 @@
             Não se preocupe, seu progresso será salvo.
         </p>
         <div class="example-button-row">
-            <button mat-button mat-dialog-close class="button" style="background-color: #57a881;" (click)="goToPersonality()">
+            <button mat-button mat-dialog-close mat-raised-button class="button" style="background-color: #57a881;" (click)="goToPersonality()">
                 <p class="btn">
                     Voltar
                 </p>
             </button>
-            <button mat-button mat-dialog-close class="button" style="background-color: #3C6A54;" (click)="continue()">
+            <button mat-button mat-dialog-close mat-raised-button class="button" style="background-color: #3C6A54;" (click)="continue()">
                 <p class="btn">
                    Continuar
                 </p>
             </button>
         </div>
     </div>
-</mat-dialog-content>
+</div>

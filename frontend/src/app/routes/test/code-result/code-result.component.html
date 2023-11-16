@@ -1,36 +1,30 @@
 <body>
-    <div class="back">
-        <a routerLink="/">
-            <button mat-icon-button>
-                <mat-icon class="material-icons color_white">
-                    arrow_back_ios
-                </mat-icon>
-            </button>
-        </a>
-        <br>
-    </div>
-    <div id="test-continuation-container">
-        <mat-card id="card">
-            <mat-card-content id="card-content">
-                <div id="card-text">
-                    <div id="card-title">
-                        Verificar resultado
-                    </div>
-                    <div id="card-description">
-                        Informe o seu código de usuário para verificar o seu resultado
-                    </div>
+    <div class="container-edge">
+        <div class="container">
+            <div class="big-logo animate__animated animate__pulse animate__infinite animate__slow">
+                <img src="./../../../../assets/images/logos/logo-isla.png">
+            </div>
+            <div class="screen-info">
+                <p class="title">Ver meu resultado</p>
+                <p class="subtitle">Informe o seu código de usuário para ver o seu resultado!</p>
+            </div>
+            
+            <div class="card animate__animated animate__fadeInUp">
+                <div class="card-text">
+                    <p class="text">Seu código</p>
+                    <p class="info-text">de 3 caracteres</p>
                 </div>
+                
                 <form #loginForm="ngForm" (ngSubmit)="onSubmit()">
                     <div id="card-form">
                         <mat-form-field class="card-form-field">
                             <mat-label class="card-form-field-label">
-                                Código
+                                Digite aqui
                             </mat-label>
                             <input
                                 matInput
                                 [(ngModel)]="userCode"
                                 name="userCode"
-                                required
                             >
                             <mat-error
                                 class="card-form-field-error-message"
@@ -39,9 +33,6 @@
                                 Informe um código
                             </mat-error>
                         </mat-form-field>
-                        <a href="/test/new">
-                            Não possui um código? Clique aqui para iniciar um novo teste!
-                        </a>
                         <button
                             id="card-form-submit-button"
                             mat-flat-button
@@ -53,7 +44,19 @@
                         </button>
                     </div>
                 </form>
-            </mat-card-content>
-        </mat-card>
+
+                <a class="text-link" href="/test/new">
+                    Não possui um código?
+                </a>
+            </div>
+        </div>
+
+        <div class="footer">
+            <a class="button-link" routerLink="/">
+                <button mat-raised-button id="return-button">
+                    <img src="./../../assets/images/icons/arrow_circle_left.svg" alt="Ícone de voltar">
+                </button>
+            </a>  
+        </div>
     </div>
 </body>

@@ -1,24 +1,19 @@
-<mat-dialog-content class="mat-typography">
-    <div class="content">
-        <h3 class="code">Usuário criado com sucesso!</h3>
-        <p class="p-content">
-            Sabemos que a vida pode ser imprevisível e às vezes você pode precisar fazer uma pausa. Não se preocupe, nós te entendemos!
+<div class="modal-card">
+    <div class="modal-container">
+        <img src="../../../../assets/images/personagens/saly.png">
+        <p class="text">
+            Aqui está o seu código exclusivo
         </p>
-        <p class="p-content">
-            Abaixo está o seu código único. Você pode usar este código para retomar o seu progresso a qualquer momento. Basta inserir este código quando você voltar e você poderá continuar de onde parou.
-        </p>
-        <h3 class="code">
+        <p class="title">
             {{this.code}}
-        </h3>
-        <p class="p-content">
-            Lembre-se de guardar este código em um lugar seguro!
         </p>
-        <div class="example-button-row">
-            <button mat-button mat-dialog-close style="background-color: #3C6A54;" (click)="goToTest()">
-                <p class="btn">
-                    Iniciar
-                </p>
+        <p class="info-text">
+            Ele permite você retomar o jogo de onde parou e recuperar seus resultados.
+        </p>
+        <div>
+            <button mat-dialog-close mat-raised-button id="modal-main-button" style="cursor: pointer;" (click)="goToTest()">
+                Entendido!
             </button>
         </div>
     </div>
-</mat-dialog-content>
+</div>

@@ -1,150 +1,78 @@
-body {
-  align-items: center;
-  background-image: url('/assets/images/backgrounds/map-background.png');
-  background-size: auto;
-  background-position: center;
-  background-repeat: repeat;
-  display: flex;
-  font-family: 'Modulus Pro', sans-serif;
-  height: 100vh;
-  width: 100vw;
+.card-text {
+  margin: 24px 0;
 }
 
-body::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
+.subtitle {
+  margin: 0 0 16px 24px !important;
+  opacity: 0.7;
+}
+
+.info-text {
+  margin: 16px 2px 4px 0;
+}
+
+.info-text span {
+  background-color: #1E314F;   
+  padding: 4px 8px;   
+  border-radius: 16px;            
+}
+
+.custom-progress-bar {
+  height: 20px !important;
+}
+
+.custom-progress-bar .mat-progress-bar-fill::after {
+  background-color: #9BD552 !important;
+}
+
+.custom-progress-bar {
+  width: 301px;
+  height: 8.246px;
+}
+
+.card {
+  padding-bottom: 12px;
+  padding-left: 18px;
+  padding-right: 18px;
+}
+
+.phase-name {
+  color: #FFF;
+  font-family: Fredoka;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px;
+  margin-bottom: 4px;
+}
+
+.card button {
   width: 100%;
-  height: 15%;
-  background: linear-gradient(to bottom, black, transparent);
-  z-index: 1;
-}
-
-body::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 15%;
-  background: linear-gradient(to top, black, transparent);
-  z-index: 1;
-}
-
-#personality-buttons {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-  gap: 10px;
-  position: relative;
-  top: -400px;
-  width: 435px;
-  margin: 0 auto;
-}
-
-.personality-button {
-  background-color: transparent;
-  border: none !important;
+  height: 100%;
+  border: none;
+  background: none;
   cursor: pointer;
-  font-size: 0;
-  height: 67px;
-  position: absolute;
-  width: 93px;
 }
 
-#personality-6-button {
-  position: absolute;
-  left: 230px;
-  top: 100px;
+.disabled-button {
+  cursor: default !important;
+  opacity: 0.5;
 }
 
-#personality-5-button {
-  position: absolute;
-  left: 145px;
-  top: 200px;
+.card {
+  margin-bottom: 4px;
+  margin-top: -2px;
 }
 
-#personality-4-button {
-  position: absolute;
-  left: 230px;
-  top: 320px;
+.dots {
+  margin-left: 48px;
+  opacity: 0.7;
 }
 
-#personality-3-button {
-  position: absolute;
-  left: 180px;
-  top: 450px;
+.concluido {
+  color: #8EFF00;
 }
 
-#personality-2-button {
-  position: absolute;
-  left: 40px;
-  top: 540px;
-}
-
-#personality-1-button {
-  position: absolute;
-  left: -5px;
-  top: 670px;
-}
-
-.material-icons.color_white {
-  color: #ffffff;
-}
-
-.back {
-  position: fixed;
-  top: 10px;
-  left: 10px;
-  z-index: 2;
-}
-
-.info {
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  margin-right: 10px;
-  margin-bottom: 10px;
-  z-index: 2;
-}
-
-.bold {
-  font-weight: bold;
-}
-
-#card {
-  background-color: rgba(255, 255, 255, 0.6);
-  z-index: 2;
-}
-
-#title {
-  color: #ffffff;
-  font-family: 'Modulus Pro', sans-serif;
-  font-size: 40px;
-  font-weight: 600;
-  letter-spacing: 5px;
-  text-shadow: 1px 3px 5px rgba(48, 29, 29, 0.25);
-  text-align: center;
-  position: absolute;
-  margin-top: 10px;
-  top: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100%;
-  z-index: 2;
-  margin-top: 16px;
-}
-
-@media only screen and (max-width: 600px) {
-  #title {
-    font-size: 65px;
-    letter-spacing: 5px;
-  }
-}
-
-@media (min-width: 395px) {
-  #personality-buttons {
-    left: 20px;
-  }
+.pendente {
+  color: #D5B052;
 }

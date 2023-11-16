@@ -125,7 +125,6 @@ export class CoursesComponent implements OnInit {
   }
 
   goToCode(): void {
-    console.log("Returning");
     this.router.navigate(["/test/code-result"]);
   }
 
@@ -134,16 +133,12 @@ export class CoursesComponent implements OnInit {
       this.TestService.findCourse(id).subscribe(
         (course: UFSMCourseRetrievalDTO | null) => {
           if (course) {
-            console.log("Curso encontrado:", course);
             resolve({
               id: course.id,
               name: course.name,
               level: course.level,
               site: course.site,
             });
-          } else {
-            console.log("Curso não encontrado.");
-            reject("Curso não encontrado.");
           }
         },
         (error) => {

@@ -131,7 +131,6 @@ export class StatisticsComponent implements OnInit {
     }
   }
   goToResults(): void {
-    console.log("Navigating to results");
     this.router.navigate(["/test/result", this.userCode]);
   }
 }

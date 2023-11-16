@@ -227,7 +227,6 @@ export class StatementComponent implements OnInit, OnDestroy {
     this.testStatementSavingDTO = new TestStatementSavingDTO();
     this.testStatementSavingDTO.statementId = this.statement.id;
     this.testStatementSavingDTO.selectedOptionId = selectedOption;
-    console.log(this.testStatementSavingDTO);
     this.TestService.saveStatement(
       this.userCode,
       this.testStatementSavingDTO
@@ -253,7 +252,6 @@ export class StatementComponent implements OnInit, OnDestroy {
     this.dialog.open(InfoCompletedComponent, {
       data: { userCode: this.userCode },
     });
-    console.log(this.userCode);
   }
 
   goToNextStatement(): void {

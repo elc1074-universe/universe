@@ -1,37 +1,42 @@
 <body [ngClass]="results.mostInterested">
-    <div class="container-edge" [ngClass]="results.mostInterested">
-        <div class="header">
-            <div class="logo">
-                UniVerse
-            </div>
-            <div class="user-data">
-                <div class="text-block">
-                  <p class="user-name">Nome</p>
-                  <p class="user-code">{{ userCode }}</p>
-                </div>
-                <img class="galaxy" src="./../../assets/images/items/isla-color.png">
-            </div>          
+  <div class="container-edge" [ngClass]="results.mostInterested">
+    <div class="header">
+      <div class="logo">UniVerse</div>
+      <div class="user-data">
+        <div class="text-block">
+          <p class="user-name">{{ username }}</p>
+          <p class="user-code">{{ userCode }}</p>
         </div>
-        <div class="container">
-            <div class="screen-info">
-                <p class="title">Estatísticas</p>
-                <p class="subtitle">Veja o quanto você pontuou em cada ilha!</p>
-              </div>
-            <div class="card" [ngClass]="results.mostInterested" style="padding: 16px;">
-                <p class="subtitle">Gráfico</p>
-                <canvas id="myChart"></canvas>
-                <p class="info-text">*Você pontuou em uma ilha quando optou pela opção de maior interação com o cenário</p>
-            </div>
-        </div>
-    </div>
-    <div class="footer">
-        <a class="button-link" (click)="goToResults()">
-          <button id="return-button">
-            <img
-              src="./../../assets/images/icons/arrow_circle_left.svg"
-              alt="Ícone de voltar"
-            />
-          </button>
-        </a>
+        <img class="galaxy" src="./../../assets/images/items/isla-color.png" />
       </div>
+    </div>
+    <div class="container">
+      <div class="screen-info">
+        <p class="title">Estatísticas</p>
+        <p class="subtitle">Veja o quanto você pontuou em cada ilha!</p>
+      </div>
+      <div
+        class="card"
+        [ngClass]="results.mostInterested"
+        style="padding: 16px"
+      >
+        <p class="subtitle">Gráfico</p>
+        <canvas id="myChart"></canvas>
+        <p class="info-text">
+          *Você pontuou em uma ilha quando optou pela opção de maior interação
+          com o cenário
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <a class="button-link" (click)="goToResults()">
+      <button id="return-button">
+        <img
+          src="./../../assets/images/icons/arrow_circle_left.svg"
+          alt="Ícone de voltar"
+        />
+      </button>
+    </a>
+  </div>
 </body>

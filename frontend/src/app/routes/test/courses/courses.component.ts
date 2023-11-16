@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import TestService from "src/app/services/test.service";
 import UFSMCourseRetrievalDTO from "src/app/models/dto/test/UFSMCourseRetrievalDTO";
+import UserService from "src/app/services/user.service";
 
 interface Course {
   id: number;
@@ -119,21 +120,26 @@ const coursesByTrait = {
 export class CoursesComponent implements OnInit {
   results: any;
   userCode: string;
+  username: string;
 
   constructor(
     private TestService: TestService,
+    private userService: UserService,
     private route: ActivatedRoute,
     private router: Router
   ) {
     this.userCode = "";
+    this.username = "";
   }
 
   ngOnInit(): void {
     this.userCode = this.route.snapshot.paramMap.get("userCode") || "";
     if (this.userCode) {
       this.getResults(this.userCode);
+      this.userService.findByCode(this.userCode).subscribe((data: any) => {
+        this.username = data.username;
+      });
     }
-    this.findCourseByID(1);
   }
 
   getResults(userCode: string): void {

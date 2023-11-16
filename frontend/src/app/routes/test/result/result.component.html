@@ -9,52 +9,81 @@
     <p>Pontuação C: {{results.cScore}}</p>
   </div>
 -->
-  
-  <body [ngClass]="results.mostInterested">
-    <div class="container-edge" [ngClass]="results.mostInterested">
-      <div class="header">
-        <div class="logo">
-            UniVerse
-        </div>
-        <div class="user-data">
-            <div class="text-block">
-              <p class="user-name">Nome</p>
-              <p class="user-code">{{ userCode }}</p>
-            </div>
-            <img class="galaxy" src="./../../assets/images/items/isla-color.png">
-        </div>          
-      </div>
 
-      <div class="container">
-        <p class="title">Parabéns!</p>
-        <p class="subtitle">Você finalizou o teste</p>
-        <img class="animate__animated animate__flipInY" style="margin-bottom: -6px; animation-delay: 800ms;" src="../../../../assets/images/professions/engineer.png">
-        <div class="card animate__animated animate__fadeInUp" [ngClass]="results.mostInterested" style="margin-top: 0px; padding: 16px 20px 4px 20px; margin-bottom: 24px">
-          <p class="title" style="margin-bottom: 8px;">{{results.interestCode}}</p>
-          <p class="subtitle" style="margin-top: 8px;">{{results.interestWords}}</p>
-          <p class="text">Essas pessoas são {{ results.description1 }} Você possuí {{ results.description2 }} Com um {{ results.description3 }}</p>
+<body [ngClass]="results.mostInterested">
+  <div class="container-edge" [ngClass]="results.mostInterested">
+    <div class="header">
+      <div class="logo">UniVerse</div>
+      <div class="user-data">
+        <div class="text-block">
+          <p class="user-name">{{ username }}</p>
+          <p class="user-code">{{ userCode }}</p>
         </div>
-        <div class="buttons">
-          <a class="button-link">
-            <button id="create-game-button" mat-raised-button color="primary" (click)="goToCourses()">
-              Quais cursos combinam comigo?
-            </button>
-        </a>        
-
-          <a class="button-link" routerLink="/test/continue" (click)="goToStatistics()">
-              <button id="continue-game-button" mat-raised-button color="primary">
-                Ver minhas estatísticas
-              </button>
-          </a>
-      </div>
+        <img class="galaxy" src="./../../assets/images/items/isla-color.png" />
       </div>
     </div>
-    
-    <div class="footer">
-      <a class="button-link" (click)="goToCode()">
-          <button id="return-button">
-              <img src="./../../assets/images/icons/arrow_circle_left.svg" alt="Ícone de voltar">
+
+    <div class="container">
+      <p class="title">Parabéns!</p>
+      <p class="subtitle">Você finalizou o teste</p>
+      <img
+        class="animate__animated animate__flipInY"
+        style="margin-bottom: -6px; animation-delay: 800ms"
+        src="../../../../assets/images/professions/engineer.png"
+      />
+      <div
+        class="card animate__animated animate__fadeInUp"
+        [ngClass]="results.mostInterested"
+        style="
+          margin-top: 0px;
+          padding: 16px 20px 4px 20px;
+          margin-bottom: 24px;
+        "
+      >
+        <p class="title" style="margin-bottom: 8px">
+          {{ results.interestCode }}
+        </p>
+        <p class="subtitle" style="margin-top: 8px">
+          {{ results.interestWords }}
+        </p>
+        <p class="text">
+          Essas pessoas são {{ results.description1 }} Você possuí
+          {{ results.description2 }} Com um {{ results.description3 }}
+        </p>
+      </div>
+      <div class="buttons">
+        <a class="button-link">
+          <button
+            id="create-game-button"
+            mat-raised-button
+            color="primary"
+            (click)="goToCourses()"
+          >
+            Quais cursos combinam comigo?
           </button>
-      </a>  
+        </a>
+
+        <a
+          class="button-link"
+          routerLink="/test/continue"
+          (click)="goToStatistics()"
+        >
+          <button id="continue-game-button" mat-raised-button color="primary">
+            Ver minhas estatísticas
+          </button>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <a class="button-link" (click)="goToCode()">
+      <button id="return-button">
+        <img
+          src="./../../assets/images/icons/arrow_circle_left.svg"
+          alt="Ícone de voltar"
+        />
+      </button>
+    </a>
   </div>
 </body>

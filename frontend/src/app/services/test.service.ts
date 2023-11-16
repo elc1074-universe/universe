@@ -12,6 +12,7 @@ import ResultRetrievalDTO from "../models/dto/test/ResultRetrievalDTO";
 import PersonalityRetrievalDTO from "../models/dto/test/PersonalityRetrievalDTO";
 import UFSMCourseRetrievalDTO from "../models/dto/test/UFSMCourseRetrievalDTO";
 import ApiResponse from "../models/api/ApiResponse";
+import { environment } from "src/environments/environment";
 
 @Injectable({ providedIn: "root" })
 export default class TestService extends Service {
@@ -58,7 +59,7 @@ export default class TestService extends Service {
   findCourse(id: number): Observable<UFSMCourseRetrievalDTO | null> {
     return this.httpClient
       .get<ApiResponse<UFSMCourseRetrievalDTO>>(
-        `http://localhost:3000/api/ufsm-courses/${id}`
+        `${environment.apiBaseURL}/ufsm-courses/${id}`
       )
       .pipe(map((response) => response.data));
   }

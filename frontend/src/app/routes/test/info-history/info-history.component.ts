@@ -66,7 +66,7 @@ export class InfoHistoryComponent implements OnInit {
 
   getStyle(storyTitle: string): {backgroundColor: string, imagePath: string} {
     const styleMappings: { [key: string]: {backgroundColor: string, imagePath: string} } = {
-      "A Jornada na Vila dos Desafios": {backgroundColor: '#513754', imagePath: '../../../../assets/images/items/helmet.png'},
+      "A Jornada na Vila dos Desafios.": {backgroundColor: '#513754', imagePath: '../../../../assets/images/items/helmet.png'},
       "A Aventura Investigativa na Vila do Conhecimento": {backgroundColor: '#252C4A', imagePath: '../../../../assets/images/items/manifying.png'},
       "A Jornada Criativa na Vila das Artes e Expressão": {backgroundColor: '#51514C', imagePath: '../../../../assets/images/items/brush.png'},
       "A Missão de Ajuda na Vila da Solidariedade": {backgroundColor: '#2D6161', imagePath: '../../../../assets/images/items/social.png'},
